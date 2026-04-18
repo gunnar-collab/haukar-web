@@ -1,48 +1,154 @@
-export default function Navbar() {
-  return (
-    <>
-      <div className="bg-haukar-red text-white px-4 py-3 text-center sticky top-0 z-[60] shadow-md">
-        <p className="font-headline font-bold text-sm md:text-base tracking-wide flex items-center justify-center gap-2">
-          <span className="material-symbols-outlined text-lg">warning</span>
-          Tilkynning: Tryggjum öryggi allra á Ásvöllum.
-        </p>
-      </div>
+import { useState } from 'react';
+import Button from './Button.jsx';
+import { Link } from 'react-router-dom';
 
-      <header className="bg-white/95 backdrop-blur-xl w-full top-12 z-50 sticky shadow-xl shadow-asvellir-blue/5">
-        <div className="bg-asvellir-blue py-2 px-8 overflow-hidden w-full">
-          <div className="max-w-screen-2xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16 text-white text-[10px] md:text-xs font-label font-bold tracking-widest uppercase">
-            <span className="flex items-center gap-2"><span className="w-2 h-2 bg-haukar-red rounded-full animate-pulse"></span> Handbolti: Haukar 28 - 24 FH (Leik lokið)</span>
-            <span className="flex items-center gap-2"><span className="w-2 h-2 bg-anniversary-gold rounded-full"></span> Körfubolti: Stjarnan vs Haukar - Í kvöld 19:15</span>
-            <span className="flex items-center gap-2"><span className="w-2 h-2 bg-haukar-red rounded-full"></span> Knattspyrna: Haukar 1 - 0 Þróttur R. (45')</span>
+export default function Navbar({ onOpenTickets }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState(null); 
+
+  const toggleMobileAccordion = (section) => {
+    setMobileExpanded(mobileExpanded === section ? null : section);
+  };
+
+  const handleMobileNav = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  return (
+    <nav className="sticky top-0 w-full z-[100]">
+      <div className="relative w-full bg-white shadow-md border-b border-gray-200">
+        
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-30">
+          
+          <Link to="/" className="flex items-center gap-3 cursor-pointer">
+            <img src="/images/logo.png" alt="Haukar Logo" className="h-10 w-auto" />
+            <span className="text-2xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mt-1">Haukar</span>
+          </Link>
+
+          <div className="hidden lg:flex items-center gap-8">
+            
+            {/* 1. Deildir */}
+            <div className="relative group py-2 cursor-pointer">
+              <span className="text-sm font-bold text-gray-500 group-hover:text-[#1c2c6c] uppercase tracking-wider transition-colors flex items-center gap-1">
+                Deildir <span className="material-symbols-outlined text-[18px] transition-transform group-hover:-rotate-180">expand_more</span>
+              </span>
+              <div className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col z-50">
+                <Link to="/leikmannahopur" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">Handbolti</Link>
+                <Link to="#" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">Fótbolti</Link>
+                <Link to="#" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">Körfubolti</Link>
+                <Link to="#" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">Karaté</Link>
+                <Link to="#" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">Skíði</Link>
+              </div>
+            </div>
+
+            {/* 2. Félagið */}
+            <div className="relative group py-2 cursor-pointer">
+              <span className="text-sm font-bold text-gray-500 group-hover:text-[#1c2c6c] uppercase tracking-wider transition-colors flex items-center gap-1">
+                Félagið <span className="material-symbols-outlined text-[18px] transition-transform group-hover:-rotate-180">expand_more</span>
+              </span>
+              <div className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col z-50">
+                <Link to="/sagan" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0">Sagan Okkar</Link>
+                <Link to="/bakhjarlar" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0">Bakhjarlar & Styrktaraðilar</Link>
+                <Link to="/aefingagjold" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0">Æfingagjöld</Link>
+                <Link to="/veislusalur" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0">Leiga á veislusal</Link>
+                <Link to="/hafasamband" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0">Skrifstofa & Stjórn</Link>
+              </div>
+            </div>
+
+            {/* 3. Skráning */}
+            <a href="https://www.abler.io/shop/haukar/" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#c8102e] hover:text-[#9b0c23] uppercase tracking-wider transition-colors py-2 flex items-center gap-1">
+              Skráning <span className="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
+
+            {/* 4. Dagatal */}
+            <Link to="/dagatal" className="text-sm font-bold text-gray-500 hover:text-[#1c2c6c] uppercase tracking-wider transition-colors py-2">
+              Dagatal
+            </Link>
+
+            {/* 5. Leikvakt */}
+            <Link to="/leikvakt" className="text-sm font-bold text-gray-500 hover:text-[#1c2c6c] uppercase tracking-wider transition-colors py-2">
+              Leikvakt
+            </Link>
+
           </div>
+
+          <div className="hidden lg:flex items-center gap-4">
+            <Button variant="secondary" size="sm" icon="local_activity" onClick={onOpenTickets}>
+              Kaupa miða
+            </Button>
+            <Link to="/vefverslun">
+              <Button variant="primary" size="sm" icon="shopping_cart">
+                Vefverslun
+              </Button>
+            </Link>
+          </div>
+
+          <button 
+            className="lg:hidden text-[#1c2c6c] p-2 hover:bg-gray-50 rounded-lg transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Menu"
+          >
+            <span className="material-symbols-outlined text-[28px]">
+              {isMobileMenuOpen ? 'close' : 'menu'}
+            </span>
+          </button>
         </div>
 
-        <nav className="flex justify-between items-center w-full px-6 md:px-8 py-4 max-w-screen-2xl mx-auto">
-          <div className="text-2xl font-black italic tracking-tighter text-asvellir-blue font-headline flex items-center gap-3">
-            <div className="w-8 h-10 bg-asvellir-blue rounded-b-full relative flex items-center justify-center border-2 border-anniversary-gold">
-              <div className="w-full h-1/2 bg-haukar-red absolute top-0 left-0 rounded-tl-sm z-0 clip-path-diagonal"></div>
-            </div>
-            HAUKAR
-          </div>
-          
-          <div className="hidden lg:flex items-center gap-8">
-            <a className="text-haukar-red font-bold border-b-2 border-haukar-red pb-1 font-label" href="#">Handboltinn</a>
-            <a className="text-asvellir-blue font-medium hover:text-haukar-red transition-colors font-label" href="#">Fótboltinn</a>
-            <a className="text-asvellir-blue font-medium hover:text-haukar-red transition-colors font-label" href="#">Körfuboltinn</a>
-            <a className="text-asvellir-blue font-medium hover:text-haukar-red transition-colors font-label" href="#">Saga Félagsins</a>
-            <a className="text-asvellir-blue font-medium hover:text-haukar-red transition-colors font-label" href="#">Mótin</a>
-          </div>
+        {/* Mobile Accordion Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl py-6 px-6 flex flex-col gap-2 z-40 border-t border-gray-100 max-h-[85vh] overflow-y-auto">
+            <div className="flex flex-col gap-1 mb-4">
+              
+              <button onClick={() => toggleMobileAccordion('deildir')} className="flex items-center justify-between py-3 text-sm font-bold text-[#1c2c6c] uppercase tracking-wider border-b border-gray-100">
+                Deildir <span className={`material-symbols-outlined transition-transform duration-300 ${mobileExpanded === 'deildir' ? '-rotate-180' : ''}`}>expand_more</span>
+              </button>
+              {mobileExpanded === 'deildir' && (
+                <div className="flex flex-col pl-4 border-b border-gray-50 bg-gray-50/50">
+                  <Link to="/leikmannahopur" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Handbolti</Link>
+                  {['Fótbolti', 'Körfubolti', 'Karaté', 'Skíði'].map(sport => (
+                    <Link key={sport} to="#" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">{sport}</Link>
+                  ))}
+                </div>
+              )}
 
-          <div className="flex items-center gap-4">
-            <button className="hidden md:block bg-haukar-red text-white px-6 py-2 rounded-lg font-headline font-bold text-sm tracking-tight transition-transform hover:shadow-lg hover:-translate-y-0.5 active:scale-95">
-              Kaupa Miða
-            </button>
-            <button className="lg:hidden text-asvellir-blue">
-              <span className="material-symbols-outlined text-3xl">menu</span>
-            </button>
+              <button onClick={() => toggleMobileAccordion('felagid')} className="flex items-center justify-between py-3 text-sm font-bold text-[#1c2c6c] uppercase tracking-wider border-b border-gray-100">
+                Félagið <span className={`material-symbols-outlined transition-transform duration-300 ${mobileExpanded === 'felagid' ? '-rotate-180' : ''}`}>expand_more</span>
+              </button>
+              {mobileExpanded === 'felagid' && (
+                <div className="flex flex-col pl-4 border-b border-gray-50 bg-gray-50/50">
+                  <Link to="/sagan" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Sagan Okkar</Link>
+                  <Link to="/bakhjarlar" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Bakhjarlar & Styrktaraðilar</Link>
+                  <Link to="/aefingagjold" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Æfingagjöld</Link>
+                  <Link to="/veislusalur" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Leiga á veislusal</Link>
+                  <Link to="/hafasamband" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Skrifstofa & Stjórn</Link>
+                </div>
+              )}
+
+              <a href="https://www.abler.io/shop/haukar/" target="_blank" rel="noopener noreferrer" onClick={handleMobileNav} className="flex items-center justify-between py-3 text-sm font-bold text-[#c8102e] uppercase tracking-wider border-b border-gray-100">
+                Skráning <span className="material-symbols-outlined text-[16px]">open_in_new</span>
+              </a>
+              
+              <Link to="/dagatal" onClick={handleMobileNav} className="flex items-center justify-between py-3 text-sm font-bold text-[#1c2c6c] uppercase tracking-wider border-b border-gray-100">
+                Dagatal
+              </Link>
+              <Link to="/leikvakt" onClick={handleMobileNav} className="flex items-center justify-between py-3 text-sm font-bold text-[#1c2c6c] uppercase tracking-wider border-b border-gray-100">
+                Leikvakt
+              </Link>
+            </div>
+            
+            <div className="flex flex-col gap-3">
+              <Button variant="secondary" size="md" icon="local_activity" className="w-full justify-center" onClick={() => { setIsMobileMenuOpen(false); onOpenTickets(); }}>
+                Kaupa miða
+              </Button>
+              <Link to="/vefverslun" onClick={handleMobileNav} className="w-full">
+                <Button variant="primary" size="md" icon="shopping_cart" className="w-full justify-center">
+                  Vefverslun
+                </Button>
+              </Link>
+            </div>
           </div>
-        </nav>
-      </header>
-    </>
+        )}
+      </div>
+    </nav>
   );
 }

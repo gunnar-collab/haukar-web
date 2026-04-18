@@ -1,64 +1,107 @@
+import { Link } from 'react-router-dom';
+
 export default function NewsGrid() {
   return (
-    <section className="bg-surface-alt py-16 md:py-24 px-6 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4">
-          <div className="space-y-2">
-            <span className="text-haukar-red font-label font-bold tracking-[0.3em] uppercase text-xs">Fréttasafn</span>
-            <h2 className="font-headline text-4xl md:text-5xl font-black text-asvellir-blue tracking-tight italic">Nýjustu Fréttir</h2>
+    <section className="w-full bg-[#fafafa] py-16 border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Header Section */}
+        <div className="flex justify-between items-end mb-8">
+          <div>
+            <span className="text-[#c8102e] text-xs font-bold uppercase tracking-widest block mb-1">
+              Fréttasafn
+            </span>
+            <h2 className="text-5xl font-black italic tracking-normal text-[#c8102e]">
+              Nýjustu Fréttir
+            </h2>
           </div>
-          <a className="flex items-center gap-2 text-asvellir-blue font-label font-bold hover:gap-4 transition-all" href="#">
-            Sjá Allt <span className="material-symbols-outlined">chevron_right</span>
-          </a>
+          {/* Changed <a> to <Link> */}
+          <Link to="/grein" className="font-bold text-[#c8102e] hover:text-red-800 transition-colors flex items-center gap-1 mb-2">
+            Sjá Allt <span className="text-xl leading-none">&rsaquo;</span>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        {/* Masonry/Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          {/* Column 1 */}
-          <div className="lg:col-span-1 group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-xl shadow-asvellir-blue/10 transition-transform duration-500 hover:-translate-y-2 border border-gray-100 h-full min-h-[500px]">
-            <div className="h-full relative overflow-hidden">
-              <img alt="Grétar Ari player portrait" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://placehold.co/600x800/eeeeee/1E3A8A?text=Player+Portrait" />
-              <div className="absolute inset-0 bg-gradient-to-t from-asvellir-blue/90 via-asvellir-blue/40 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="bg-haukar-red text-white text-[10px] font-black uppercase px-2 py-1 rounded-sm mb-3 inline-block">Uppalinn Hauki</span>
-                <h3 className="font-headline text-3xl font-extrabold text-white leading-tight drop-shadow-md">Grétar Ari kominn heim</h3>
-              </div>
-            </div>
-          </div>
+          {/* Large Left Card: Player Portrait */}
+          <Link to="/grein" className="lg:col-span-1 lg:row-span-2 rounded-3xl overflow-hidden relative group cursor-pointer shadow-sm hover:shadow-md transition-shadow min-h-[450px] lg:min-h-full flex flex-col justify-end p-6 bg-[#1c2c6c]">
+             
+             {/* The Goalkeeper Image (Fixed the line break typo here!) */}
+             <img 
+               src="/images/goalkeeper.png" 
+               alt="Grétar Ari" 
+               className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+             />
 
-          {/* Column 2 */}
-          <div className="grid grid-rows-2 gap-8 h-full min-h-[500px]">
-            <div className="bg-white rounded-2xl p-6 shadow-lg shadow-asvellir-blue/5 group hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full">
-              <div className="relative w-full h-40 mb-4 rounded-xl overflow-hidden shrink-0">
-                <img alt="Basketball training" className="absolute inset-0 w-full h-full object-cover" src="https://placehold.co/600x400/eeeeee/1E3A8A?text=Basketball+Action" />
-              </div>
-              <div className="mt-auto">
-                <span className="text-gray-400 font-label text-xs font-bold uppercase tracking-widest">Körfubolti • 2 klst síðan</span>
-                <h3 className="font-headline text-lg font-bold text-asvellir-blue mt-2 group-hover:text-haukar-red transition-colors line-clamp-2">Mikil spenna fyrir úrslitakeppninni í körfu</h3>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-lg shadow-asvellir-blue/5 group hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full justify-center">
-              <span className="text-gray-400 font-label text-xs font-bold uppercase tracking-widest">Handbolti • 5 klst síðan</span>
-              <h3 className="font-headline text-lg font-bold text-asvellir-blue mt-2 group-hover:text-haukar-red transition-colors">Stelpurnar okkar mæta Val í undanúrslitum</h3>
-            </div>
-          </div>
+             {/* Dark Gradient Overlay for Text Readability */}
+             <div className="absolute inset-0 bg-gradient-to-t from-[#1c2c6c]/90 via-[#1c2c6c]/20 to-transparent"></div>
+             
+             <div className="relative z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+               <span className="bg-[#c8102e] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded mb-3 inline-block shadow-sm">
+                 Uppalinn í Haukum
+               </span>
+               <h3 className="text-3xl font-black text-white leading-tight drop-shadow-md">
+                 Grétar Ari kominn heim
+               </h3>
+             </div>
+          </Link>
 
-          {/* Column 3 */}
-          <div className="grid grid-rows-2 gap-8 h-full min-h-[500px]">
-            <div className="bg-white rounded-2xl p-6 shadow-lg shadow-asvellir-blue/5 group hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full">
-              <div className="relative w-full h-40 mb-4 rounded-xl overflow-hidden shrink-0">
-                <img alt="Football field" className="absolute inset-0 w-full h-full object-cover" src="https://placehold.co/600x400/eeeeee/1E3A8A?text=Football+Pitch" />
-              </div>
-              <div className="mt-auto">
-                <span className="text-gray-400 font-label text-xs font-bold uppercase tracking-widest">Fótbolti • Gær</span>
-                <h3 className="font-headline text-lg font-bold text-asvellir-blue mt-2 group-hover:text-haukar-red transition-colors line-clamp-2">Undirbúningur í fullum gangi á Ásvöllum</h3>
-              </div>
+          {/* Top Middle Card: Basketball */}
+          <Link to="/grein" className="bg-white rounded-3xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col group">
+            <div className="rounded-2xl aspect-[16/9] mb-4 overflow-hidden bg-gray-100">
+              <img 
+                src="/images/basketball-news.jpg" 
+                alt="Basketball Action" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-lg shadow-asvellir-blue/5 group hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full justify-center">
-              <span className="text-gray-400 font-label text-xs font-bold uppercase tracking-widest">Klúbburinn • Gær</span>
-              <h3 className="font-headline text-lg font-bold text-asvellir-blue mt-2 group-hover:text-haukar-red transition-colors">Borgarstjóri heimsækir nýja félagsmiðstöð</h3>
+            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
+              Körfubolti • 2 klst síðan
+            </span>
+            <h3 className="text-xl font-bold text-[#c8102e] leading-tight">
+              Mikil spenna fyrir úrslitakeppninni í körfu
+            </h3>
+          </Link>
+
+          {/* Top Right Card: Football */}
+          <Link to="/grein" className="bg-white rounded-3xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col group">
+            <div className="rounded-2xl aspect-[16/9] mb-4 overflow-hidden bg-gray-100">
+              <img 
+                src="/images/football-news.jpg" 
+                alt="Football Pitch" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
-          </div>
+            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
+              Fótbolti • Gær
+            </span>
+            <h3 className="text-xl font-bold text-[#c8102e] leading-tight">
+              Undirbúningur í fullum gangi á Ásvöllum
+            </h3>
+          </Link>
+
+          {/* Bottom Middle Card: Handball */}
+          <Link to="/grein" className="bg-white rounded-3xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col justify-end min-h-[220px]">
+            <div className="flex-grow"></div>
+            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
+              Handbolti • 5 klst síðan
+            </span>
+            <h3 className="text-xl font-bold text-[#c8102e] leading-tight">
+              Stelpurnar okkar mæta Val í undanúrslitum
+            </h3>
+          </Link>
+
+          {/* Bottom Right Card: Club */}
+          <Link to="/grein" className="bg-white rounded-3xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col justify-end min-h-[220px]">
+            <div className="flex-grow"></div>
+            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
+              Klúbburinn • Gær
+            </span>
+            <h3 className="text-xl font-bold text-[#c8102e] leading-tight">
+              Bæjarstjóri heimsækir nýja félagsmiðstöð
+            </h3>
+          </Link>
 
         </div>
       </div>
