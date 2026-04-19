@@ -15,7 +15,6 @@ export default function NewsGrid() {
               Nýjustu Fréttir
             </h2>
           </div>
-          {/* Changed <a> to <Link> */}
           <Link to="/grein" className="font-bold text-[#c8102e] hover:text-red-800 transition-colors flex items-center gap-1 mb-2">
             Sjá Allt <span className="text-xl leading-none">&rsaquo;</span>
           </Link>
@@ -26,15 +25,11 @@ export default function NewsGrid() {
           
           {/* Large Left Card: Player Portrait */}
           <Link to="/grein" className="lg:col-span-1 lg:row-span-2 rounded-3xl overflow-hidden relative group cursor-pointer shadow-sm hover:shadow-md transition-shadow min-h-[450px] lg:min-h-full flex flex-col justify-end p-6 bg-[#1c2c6c]">
-             
-             {/* The Goalkeeper Image (Fixed the line break typo here!) */}
              <img 
                src="/images/goalkeeper.png" 
                alt="Grétar Ari" 
                className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
              />
-
-             {/* Dark Gradient Overlay for Text Readability */}
              <div className="absolute inset-0 bg-gradient-to-t from-[#1c2c6c]/90 via-[#1c2c6c]/20 to-transparent"></div>
              
              <div className="relative z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
@@ -81,26 +76,43 @@ export default function NewsGrid() {
             </h3>
           </Link>
 
-          {/* Bottom Middle Card: Handball */}
-          <Link to="/grein" className="bg-white rounded-3xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col justify-end min-h-[220px]">
-            <div className="flex-grow"></div>
-            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
-              Handbolti • 5 klst síðan
-            </span>
-            <h3 className="text-xl font-bold text-[#c8102e] leading-tight">
-              Stelpurnar okkar mæta Val í undanúrslitum
-            </h3>
+          {/* Bottom Middle Card: Handball (RED Highlight Card) */}
+          <Link to="/grein" className="bg-[#c8102e] rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col relative overflow-hidden group">
+            <div className="absolute top-0 right-0 -mt-6 -mr-4 text-white/10 text-9xl font-black italic select-none">
+              H
+            </div>
+            
+            <div className="relative z-10 flex-grow">
+              <span className="text-white/80 text-[10px] font-bold uppercase tracking-widest mb-3 block">
+                Handbolti • 5 klst síðan
+              </span>
+              <h3 className="text-2xl font-bold text-white leading-tight mb-3">
+                Stelpurnar okkar mæta Val í undanúrslitum
+              </h3>
+              <p className="text-white/90 text-sm line-clamp-2">
+                Eftir frábæran sigur í síðasta leik er ljóst að mikið verður undir á Ásvöllum.
+              </p>
+            </div>
+            
+            <div className="relative z-10 mt-4 flex items-center text-white text-sm font-bold">
+              Lesa meira <span className="ml-1 text-lg leading-none group-hover:translate-x-1 transition-transform">&rsaquo;</span>
+            </div>
           </Link>
 
-          {/* Bottom Right Card: Club */}
-          <Link to="/grein" className="bg-white rounded-3xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col justify-end min-h-[220px]">
-            <div className="flex-grow"></div>
-            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
+          {/* Bottom Right Card: Club (Excerpt Card) */}
+          <Link to="/grein" className="bg-gray-50 border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col group">
+            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3 block">
               Klúbburinn • Gær
             </span>
-            <h3 className="text-xl font-bold text-[#c8102e] leading-tight">
-              Bæjarstjóri heimsækir nýja félagsmiðstöð
+            <h3 className="text-xl font-bold text-[#c8102e] leading-tight mb-3">
+              Bæjarstjóri heimsækir nýja knatthúsið
             </h3>
+            <p className="text-gray-500 text-sm line-clamp-3 mb-4 flex-grow">
+              Góður rómur var gerður að nýrri aðstöðu Hauka þegar bæjarstjórn mætti í kaffi á Ásvöllum í morgun til að ræða framtíðina.
+            </p>
+            <div className="mt-auto flex items-center text-[#c8102e] text-sm font-bold">
+              Lesa meira <span className="ml-1 text-lg leading-none group-hover:translate-x-1 transition-transform">&rsaquo;</span>
+            </div>
           </Link>
 
         </div>

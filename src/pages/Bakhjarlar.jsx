@@ -1,166 +1,233 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '../components/Button';
+import BakhjarlModal from '../components/BakhjarlModal';
 
 export default function Bakhjarlar() {
-  // Always snap to the top when navigating to this page
+  const [activeTab, setActiveTab] = useState('einstaklingur');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [preSelectedTier, setPreSelectedTier] = useState('gull');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const tiers = [
+  const openModalWithTier = (tier) => {
+    setPreSelectedTier(tier);
+    setIsModalOpen(true);
+  };
+
+  const corporateTiers = [
     {
-      name: 'Brons',
-      price: 'Fyrirtækjaklúbbur',
-      color: 'bg-orange-700',
-      textColor: 'text-orange-700',
+      name: 'Brons', price: 'Fyrirtækjaklúbbur', color: 'bg-orange-700', textColor: 'text-orange-700',
       features: ['Merki á heimasíðu Hauka', 'Nafnbirting á samfélagsmiðlum', '2 ársmiðar á heimaleiki', 'Aðgangur að tengslaneti'],
     },
     {
-      name: 'Silfur',
-      price: 'Skiltastyrktaraðili',
-      color: 'bg-gray-400',
-      textColor: 'text-gray-500',
+      name: 'Silfur', price: 'Skiltastyrktaraðili', color: 'bg-gray-400', textColor: 'text-gray-500', isPopular: true,
       features: ['Auglýsingaskilti á Ásvöllum', 'Merki á heimasíðu og skjám', '4 VIP ársmiðar', 'Sérstök kynning á leikdögum', 'Aðgangur að VIP stúku'],
-      isPopular: true,
     },
     {
-      name: 'Gull',
-      price: 'Aðalstyrktaraðili',
-      color: 'bg-yellow-500',
-      textColor: 'text-yellow-600',
-      features: ['Merki á keppnistreyjum', 'Risa skilti í keppnishöll', '10 VIP ársmiðar & veitingar', 'Einkaviðburðir með meistaraflokkum', 'Bílastæði frátekin á leikdögum'],
+      name: 'Gull', price: 'Aðalstyrktaraðili', color: 'bg-yellow-500', textColor: 'text-yellow-600',
+      features: ['Merki á keppnistreyjum', 'Risa skilti í keppnishöll', '10 VIP ársmiðar & veitingar', 'Einkaviðburðir', 'Frátekin bílastæði'],
     }
   ];
 
   return (
     <main className="w-full bg-[#fafafa] flex-grow pt-10 md:pt-16 pb-20 font-sans">
       
-      {/* 1. Hero Section - Corporate Navy Blue */}
-      <div className="bg-[#1c2c6c] text-white py-24 px-6 text-center relative overflow-hidden shadow-md">
-        <span className="material-symbols-outlined text-[400px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none rotate-12">
-          handshake
+      {/* Universal Hero Section - NOW IN HAUKAR RED WITH NAVY ACCENTS */}
+      <div className="bg-[#c8102e] text-white py-24 px-6 text-center relative overflow-hidden shadow-md">
+        <span className="material-symbols-outlined text-[400px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none rotate-12">
+          favorite
         </span>
         
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-          <span className="text-yellow-500 text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 block shadow-sm">
-            Fjárfesting í framtíðinni
+          <span className="text-[#1c2c6c] text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 block shadow-sm bg-white px-3 py-1 rounded-full">
+            Styðjum starfið
           </span>
-          <h1 className="text-4xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg leading-none">
-            Gerast Bakhjarl
+          <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg leading-none">
+            Vertu Með í Liðinu
           </h1>
-          <p className="text-white/80 font-medium text-lg md:text-2xl leading-relaxed max-w-3xl text-center">
-            Haukar eru stolt Hafnarfjarðar. Taktu þátt í að byggja upp öflugt íþrótta- og æskulýðsstarf um leið og þú eykur sýnileika þíns fyrirtækis á landsvísu.
+          <p className="text-white/90 font-medium text-lg md:text-2xl leading-relaxed max-w-3xl text-center mb-12">
+            Hvort sem þú ert harður stuðningsmaður eða fyrirtæki sem vill styðja við bakið á öflugu æskulýðsstarfi, þá er pláss fyrir þig.
           </p>
-        </div>
-      </div>
 
-      {/* 2. Value Proposition Strip */}
-      <div className="bg-[#c8102e] text-white py-12 px-6 shadow-inner">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="flex flex-col items-center">
-            <span className="material-symbols-outlined text-[40px] mb-3 text-white/80">groups</span>
-            <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-2">2.500+ Iðkendur</h3>
-            <p className="text-white/80 font-medium text-sm">Við erum eitt stærsta íþróttafélag landsins með gríðarlegt grasrótarstarf.</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="material-symbols-outlined text-[40px] mb-3 text-white/80">visibility</span>
-            <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-2">Mikið Áhorf</h3>
-            <p className="text-white/80 font-medium text-sm">Leikir okkar eru í beinni útsendingu og fjallað um þá í öllum helstu fjölmiðlum.</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="material-symbols-outlined text-[40px] mb-3 text-white/80">handshake</span>
-            <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-2">Sterkt Tengslanet</h3>
-            <p className="text-white/80 font-medium text-sm">Fyrirtækjaklúbbur Hauka er vettvangur fyrir öflug viðskiptatengsl.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Sponsorship Tiers (Pricing Grid) */}
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
-          <span className="text-[#c8102e] text-sm font-black uppercase tracking-widest mb-2 block">
-            Veldu þína leið
-          </span>
-          <h2 className="text-4xl md:text-5xl font-black italic text-[#1c2c6c] uppercase tracking-tighter">
-            Styrktarleiðir
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-          {tiers.map((tier, idx) => (
-            <div 
-              key={idx} 
-              className={`bg-white rounded-3xl p-8 relative flex flex-col ${
-                tier.isPopular ? 'border-2 border-[#1c2c6c] shadow-2xl scale-105 z-10' : 'border border-gray-200 shadow-lg mt-0 md:mt-6'
+          {/* THE TOGGLE */}
+          <div className="flex bg-[#a30d25] p-1.5 rounded-2xl shadow-inner border border-white/10">
+            <button 
+              onClick={() => setActiveTab('einstaklingur')}
+              className={`px-6 md:px-10 py-3.5 rounded-xl text-sm md:text-base font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+                activeTab === 'einstaklingur' ? 'bg-[#1c2c6c] text-white shadow-lg scale-105' : 'text-white/70 hover:text-white'
               }`}
             >
-              {tier.isPopular && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1c2c6c] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md">
-                  Vinsælast
-                </div>
-              )}
-              
-              <div className={`w-16 h-16 rounded-full ${tier.color} flex items-center justify-center mb-6 shadow-inner text-white`}>
-                <span className="material-symbols-outlined text-[32px]">workspace_premium</span>
-              </div>
-              
-              <h3 className={`text-3xl font-black uppercase italic tracking-tighter mb-1 ${tier.textColor}`}>
-                {tier.name}
-              </h3>
-              <p className="text-[#1c2c6c] font-bold text-lg mb-8 uppercase tracking-wide">
-                {tier.price}
+              <span className="material-symbols-outlined text-[20px]">person</span>
+              Einstaklingar
+            </button>
+            <button 
+              onClick={() => setActiveTab('fyrirtaeki')}
+              className={`px-6 md:px-10 py-3.5 rounded-xl text-sm md:text-base font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+                activeTab === 'fyrirtaeki' ? 'bg-[#1c2c6c] text-white shadow-lg scale-105' : 'text-white/70 hover:text-white'
+              }`}
+            >
+              <span className="material-symbols-outlined text-[20px]">domain</span>
+              Fyrirtæki
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* ========================================= */}
+      {/* FLOW A: EINSTAKLINGAR (Haukar í Horni) */}
+      {/* ========================================= */}
+      {activeTab === 'einstaklingur' && (
+        <div className="max-w-6xl mx-auto px-6 py-24 animate-fade-in">
+          <div className="bg-white rounded-[3rem] shadow-2xl p-8 lg:p-12 border border-gray-100 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative overflow-hidden">
+            
+            <div className="absolute top-0 right-0 w-96 h-96 bg-red-50 rounded-full blur-3xl -z-0 transform translate-x-1/2 -translate-y-1/2 opacity-50"></div>
+
+            {/* Left: Visual Phone Frame */}
+            <div className="w-full lg:w-2/5 flex justify-center relative z-10 lg:order-1">
+               <div className="w-[280px] h-[580px] bg-gray-900 rounded-[3rem] border-[8px] border-gray-800 shadow-2xl relative flex justify-center p-4">
+                  <div className="absolute top-0 w-32 h-6 bg-gray-800 rounded-b-xl z-20"></div>
+                  <div className="w-full h-full bg-gray-100 rounded-[2rem] overflow-hidden flex flex-col pt-12 px-4 pb-4">
+                    <h4 className="text-center font-bold text-gray-400 uppercase tracking-widest text-[10px] mb-4">Apple Wallet</h4>
+                    <div className="w-full h-[400px] bg-gradient-to-br from-[#c8102e] to-[#8a0a1e] rounded-3xl p-5 shadow-xl relative overflow-hidden flex flex-col">
+                      <span className="material-symbols-outlined absolute -right-10 -bottom-10 text-white/10 text-[200px] rotate-12">workspace_premium</span>
+                      <div className="relative z-10">
+                        <p className="text-white/70 text-[10px] uppercase font-bold tracking-widest mb-1">Ársmiði</p>
+                        <h3 className="text-white font-black italic text-2xl uppercase tracking-tighter mb-8">Haukar í Horni</h3>
+                        <div className="bg-white/10 rounded-xl p-3 backdrop-blur-md mb-auto">
+                           <p className="text-white text-xs font-bold mb-1">Gildir fyrir:</p>
+                           <p className="text-white/90 text-[11px] font-medium">Mfl. Karla & Kvenna<br/>(Fótbolti, Handbolti, Karfa)</p>
+                        </div>
+                      </div>
+                      <div className="mt-auto relative z-10 bg-white rounded-lg p-2 text-center">
+                        <span className="material-symbols-outlined text-[#c8102e] text-[40px]">qr_code_scanner</span>
+                      </div>
+                    </div>
+                  </div>
+               </div>
+            </div>
+
+            {/* Right: The New VIP Pricing Grid */}
+            <div className="w-full lg:w-3/5 relative z-10 lg:order-2">
+              <span className="text-[#c8102e] text-xs font-bold uppercase tracking-widest block mb-2">Áskriftarleiðir</span>
+              <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mb-4">
+                Haukar í <span className="text-[#c8102e]">Horni</span>
+              </h2>
+              <p className="text-gray-500 font-medium mb-8 text-sm md:text-base">
+                Ársmiði á alla deildarleiki í fótbolta, handbolta og körfubolta beint í símann. <br className="hidden md:block"/>
+                <span className="text-gray-400 text-xs mt-1 block">* Gildir ekki á bikarleiki, evrópuleiki og oddaleiki í úrslitakeppni.</span>
               </p>
 
-              <ul className="space-y-4 mb-10 flex-grow">
-                {tier.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-3 text-gray-600 font-medium">
-                    <span className="material-symbols-outlined text-[#c8102e] text-[20px] shrink-0">check_circle</span>
-                    <span className="leading-tight">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                {/* SILFUR CARD */}
+                <div className="border border-gray-200 rounded-3xl p-6 bg-gray-50 hover:border-[#1c2c6c]/30 transition-colors flex flex-col">
+                  <h3 className="text-2xl font-black italic uppercase text-gray-400 mb-4 drop-shadow-sm">Silfurfélagi</h3>
+                  <div className="mb-6">
+                    <p className="text-3xl font-black text-[#1c2c6c]">2.990 kr <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">/ mán</span></p>
+                    <p className="text-xs font-bold text-[#c8102e] mt-1 bg-red-50 inline-block px-2 py-1 rounded">Hjón: 4.900 kr / mán</p>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-sm font-medium text-gray-600 flex-grow">
+                    <li className="flex items-start gap-2"><span className="material-symbols-outlined text-gray-400 text-[18px]">meeting_room</span> VIP herbergi & léttar veitingar</li>
+                    <li className="flex items-start gap-2"><span className="material-symbols-outlined text-gray-400 text-[18px]">forum</span> Þjálfaraspjall fyrir leik & í hálfleik</li>
+                    <li className="flex items-start gap-2"><span className="material-symbols-outlined text-gray-400 text-[18px]">mail</span> Reglulegur tölvupóstur um starfið</li>
+                  </ul>
+                  <Button variant="outline" className="w-full justify-center" onClick={() => openModalWithTier('silfur')}>Velja Silfur</Button>
+                </div>
 
-              <Button variant={tier.isPopular ? 'primary' : 'secondary'} className="w-full justify-center">
-                Viltu vita meira?
-              </Button>
-            </div>
-          ))}
-        </div>
-      </div>
+                {/* GULL CARD */}
+                <div className="border-2 border-[#c8102e] rounded-3xl p-6 bg-white shadow-xl relative transform md:-translate-y-4 flex flex-col">
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#c8102e] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md">
+                    Vinsælast
+                  </div>
+                  <h3 className="text-2xl font-black italic uppercase text-yellow-500 drop-shadow-sm mb-4">Gullfélagi</h3>
+                  <div className="mb-6">
+                    <p className="text-3xl font-black text-[#1c2c6c]">3.900 kr <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">/ mán</span></p>
+                    <p className="text-xs font-bold text-[#c8102e] mt-1 bg-red-50 inline-block px-2 py-1 rounded">Hjón: 6.490 kr / mán</p>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-sm font-medium text-gray-600 flex-grow">
+                    <li className="flex items-start gap-2"><span className="material-symbols-outlined text-[#c8102e] text-[18px]">check_circle</span> Allt sem fylgir Silfurfélaga</li>
+                    <li className="flex items-start gap-2"><span className="material-symbols-outlined text-yellow-500 text-[18px]">star</span> Merkt sæti í stúku</li>
+                    <li className="flex items-start gap-2"><span className="material-symbols-outlined text-yellow-500 text-[18px]">footprint</span> Eða skófar á gólfi</li>
+                  </ul>
+                  {/* ✨ THE VIP GLOW BUTTON IS HERE ✨ */}
+                  <Button variant="glow" className="w-full justify-center" onClick={() => openModalWithTier('gull')}>Velja Gull</Button>
+                </div>
 
-      {/* 4. Contact / Lead Gen Form */}
-      <div className="max-w-4xl mx-auto px-6 mb-20">
-        <div className="bg-[#1c2c6c] rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-12 items-center">
-          <div className="w-full md:w-1/2 text-white">
-            <h3 className="text-3xl md:text-4xl font-black uppercase italic tracking-tighter mb-4 leading-tight">
-              Tökum kaffibolla og ræðum málin.
-            </h3>
-            <p className="text-white/70 font-medium mb-6">
-              Skildu eftir upplýsingar og markaðsteymi Hauka mun hafa samband við þig innan sólarhrings með sérsniðið tilboð fyrir þitt fyrirtæki.
-            </p>
-            <div className="flex items-center gap-4 text-white/90 font-bold">
-              <span className="material-symbols-outlined text-[#c8102e]">call</span>
-              Sími: 555-1234
-            </div>
-          </div>
-
-          <div className="w-full md:w-1/2 bg-white rounded-2xl p-6 shadow-inner">
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Fyrirtæki</label>
-                <input type="text" className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-[#1c2c6c] focus:ring-1 focus:ring-[#1c2c6c] transition-all" placeholder="Nafn fyrirtækis" />
               </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Tengiliður & Netfang</label>
-                <input type="email" className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-[#1c2c6c] focus:ring-1 focus:ring-[#1c2c6c] transition-all" placeholder="Jón Jónsson - jon@fyrirtaeki.is" />
-              </div>
-              <Button variant="primary" className="w-full justify-center py-4 mt-2">
-                Senda Fyrirspurn
-              </Button>
-            </form>
+            </div>
+
           </div>
         </div>
-      </div>
+      )}
+
+      {/* ========================================= */}
+      {/* FLOW B: FYRIRTÆKI (Corporate Sponsorships) */}
+      {/* ========================================= */}
+      {activeTab === 'fyrirtaeki' && (
+        <div className="animate-fade-in">
+          {/* Tiers Grid */}
+          <div className="max-w-7xl mx-auto px-6 py-20">
+            <div className="text-center mb-16">
+              <span className="text-[#c8102e] text-sm font-black uppercase tracking-widest mb-2 block">
+                Veldu þína leið
+              </span>
+              <h2 className="text-4xl md:text-5xl font-black italic text-[#1c2c6c] uppercase tracking-tighter">
+                Styrktarleiðir
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+              {corporateTiers.map((tier, idx) => (
+                <div 
+                  key={idx} 
+                  className={`bg-white rounded-3xl p-8 relative flex flex-col ${
+                    tier.isPopular ? 'border-2 border-[#1c2c6c] shadow-2xl scale-105 z-10' : 'border border-gray-200 shadow-lg mt-0 md:mt-6'
+                  }`}
+                >
+                  {tier.isPopular && (
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1c2c6c] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md">
+                      Vinsælast
+                    </div>
+                  )}
+                  
+                  <div className={`w-16 h-16 rounded-full ${tier.color} flex items-center justify-center mb-6 shadow-inner text-white`}>
+                    <span className="material-symbols-outlined text-[32px]">workspace_premium</span>
+                  </div>
+                  
+                  <h3 className={`text-3xl font-black uppercase italic tracking-tighter mb-1 ${tier.textColor}`}>
+                    {tier.name}
+                  </h3>
+                  <p className="text-[#1c2c6c] font-bold text-lg mb-8 uppercase tracking-wide">
+                    {tier.price}
+                  </p>
+
+                  <ul className="space-y-4 mb-10 flex-grow">
+                    {tier.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-3 text-gray-600 font-medium">
+                        <span className="material-symbols-outlined text-[#c8102e] text-[20px] shrink-0">check_circle</span>
+                        <span className="leading-tight">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Button variant={tier.isPopular ? 'primary' : 'secondary'} className="w-full justify-center">
+                    Viltu vita meira?
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* The Apple Pay / Stripe Modal is rendered here! */}
+      <BakhjarlModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        initialTier={preSelectedTier} 
+      />
 
     </main>
   );

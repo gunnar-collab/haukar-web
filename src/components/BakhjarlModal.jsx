@@ -1,16 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function BakhjarlModal({ isOpen, onClose }) {
-  const [selectedTier, setSelectedTier] = useState('einstaklingur');
+export default function BakhjarlModal({ isOpen, onClose, initialTier = 'gull' }) {
+  const [selectedTier, setSelectedTier] = useState(initialTier); // 'silfur' or 'gull'
+  const [subscriptionType, setSubscriptionType] = useState('einstaklingur'); // 'einstaklingur' or 'hjon'
   const [step, setStep] = useState('select'); // 'select' | 'processing' | 'success'
+
+  // Update selected tier if the prop changes
+  useEffect(() => {
+    if (isOpen) {
+      setSelectedTier(initialTier);
+      setStep('select');
+      setSubscriptionType('einstaklingur');
+    }
+  }, [isOpen, initialTier]);
 
   if (!isOpen) return null;
 
-  const tiers = [
-    { id: 'einstaklingur', name: 'Einstaklingur', price: '2.500 kr. / mán', icon: 'person' },
-    { id: 'fjolskylda', name: 'Fjölskylda', price: '5.000 kr. / mán', icon: 'group' },
-    { id: 'gull', name: 'Gullhaukur', price: '10.000 kr. / mán', icon: 'workspace_premium' }
-  ];
+  // The actual pricing logic based on your rules
+  const pricingData = {
+    silfur: { 
+      einstaklingur: '2.990 kr. / mán', 
+      hjon: '4.900 kr. / mán' 
+    },
+    gull: { 
+      einstaklingur: '3.900 kr. / mán', 
+      hjon: '6.490 kr. / mán' 
+    }
+  };
 
   const handlePayment = () => {
     setStep('processing');
@@ -21,7 +37,6 @@ export default function BakhjarlModal({ isOpen, onClose }) {
 
   const resetAndClose = () => {
     setStep('select');
-    setSelectedTier('einstaklingur');
     onClose();
   };
 
@@ -29,10 +44,8 @@ export default function BakhjarlModal({ isOpen, onClose }) {
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
       <div className="bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
         
-        {/* FIXED: Header is now Haukar Red */}
         <div className="bg-[#c8102e] p-5 flex justify-between items-center text-white relative shadow-md">
           <h2 className="font-black text-xl italic tracking-widest uppercase drop-shadow-sm">Gerast Bakhjarl</h2>
-          {/* FIXED: Changed hover to opacity so it doesn't vanish into the red background */}
           <button onClick={resetAndClose} className="hover:opacity-70 transition-opacity absolute right-4">
             <span className="material-symbols-outlined">close</span>
           </button>
@@ -43,35 +56,72 @@ export default function BakhjarlModal({ isOpen, onClose }) {
             <div className="space-y-6">
               
               <div className="text-center mb-2">
-                <p className="text-sm text-gray-500 font-medium">Styðjum framtíðina á Ásvöllum. Veldu þína leið til að vera með í liðinu.</p>
+                <p className="text-sm text-gray-500 font-medium">Styðjum framtíðina á Ásvöllum. <br/>Skráðu þig eða ykkur hjónin saman.</p>
               </div>
 
+              {/* Sub-Toggle: Einstaklingur vs Hjón */}
+              <div className="flex bg-gray-100 p-1 rounded-xl shadow-inner border border-gray-200">
+                <button 
+                  onClick={() => setSubscriptionType('einstaklingur')}
+                  className={`flex-1 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 flex justify-center items-center gap-1 ${
+                    subscriptionType === 'einstaklingur' ? 'bg-white text-[#1c2c6c] shadow-sm' : 'text-gray-400 hover:text-gray-600'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-[16px]">person</span> Einstaklingur
+                </button>
+                <button 
+                  onClick={() => setSubscriptionType('hjon')}
+                  className={`flex-1 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 flex justify-center items-center gap-1 ${
+                    subscriptionType === 'hjon' ? 'bg-white text-[#1c2c6c] shadow-sm' : 'text-gray-400 hover:text-gray-600'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-[16px]">group</span> Hjón / Par
+                </button>
+              </div>
+
+              {/* Tier Selection */}
               <div className="space-y-3">
-                {tiers.map((tier) => (
-                  <button
-                    key={tier.id}
-                    onClick={() => setSelectedTier(tier.id)}
-                    className={`w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-all duration-200 ${
-                      selectedTier === tier.id 
-                        ? 'border-[#c8102e] bg-red-50 text-[#c8102e]' 
-                        : 'border-gray-100 bg-gray-50 text-gray-500 hover:border-gray-300'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="material-symbols-outlined">{tier.icon}</span>
-                      <span className={`font-bold ${selectedTier === tier.id ? 'text-[#1c2c6c]' : 'text-gray-700'}`}>
-                        {tier.name}
-                      </span>
-                    </div>
-                    <span className="font-black text-[#1c2c6c]">{tier.price}</span>
-                  </button>
-                ))}
+                
+                {/* Silfur Option */}
+                <button
+                  onClick={() => setSelectedTier('silfur')}
+                  className={`w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-all duration-200 ${
+                    selectedTier === 'silfur' 
+                      ? 'border-[#c8102e] bg-red-50 text-[#c8102e]' 
+                      : 'border-gray-100 bg-gray-50 text-gray-500 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="material-symbols-outlined">workspace_premium</span>
+                    <span className={`font-bold uppercase tracking-widest ${selectedTier === 'silfur' ? 'text-[#1c2c6c]' : 'text-gray-700'}`}>
+                      Silfurfélagi
+                    </span>
+                  </div>
+                  <span className="font-black text-[#1c2c6c]">{pricingData.silfur[subscriptionType]}</span>
+                </button>
+
+                {/* Gull Option */}
+                <button
+                  onClick={() => setSelectedTier('gull')}
+                  className={`w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-all duration-200 ${
+                    selectedTier === 'gull' 
+                      ? 'border-[#c8102e] bg-red-50 text-[#c8102e]' 
+                      : 'border-gray-100 bg-gray-50 text-gray-500 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-yellow-500">workspace_premium</span>
+                    <span className={`font-bold uppercase tracking-widest ${selectedTier === 'gull' ? 'text-[#1c2c6c]' : 'text-gray-700'}`}>
+                      Gullfélagi
+                    </span>
+                  </div>
+                  <span className="font-black text-[#1c2c6c]">{pricingData.gull[subscriptionType]}</span>
+                </button>
+
               </div>
 
               {/* Seamless Payment Buttons */}
               <div className="space-y-3 pt-4 border-t border-gray-100">
-                
-                {/* FIXED: The Official, Native-Looking Apple Pay Button */}
                 <button 
                   onClick={handlePayment}
                   className="w-full h-[54px] bg-black text-white rounded-full flex items-center justify-center gap-1.5 hover:bg-gray-800 transition-colors shadow-md"
@@ -82,7 +132,6 @@ export default function BakhjarlModal({ isOpen, onClose }) {
                   <span className="text-[20px] font-semibold tracking-tight">Pay</span>
                 </button>
 
-                {/* Google Pay Button (Height matched to Apple Pay) */}
                 <button 
                   onClick={handlePayment}
                   className="w-full h-[54px] bg-white text-gray-800 border border-gray-300 rounded-full flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors shadow-sm font-semibold"
@@ -106,23 +155,23 @@ export default function BakhjarlModal({ isOpen, onClose }) {
               <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-2 shadow-inner">
                 <span className="material-symbols-outlined text-5xl">check</span>
               </div>
-              <h3 className="font-black text-3xl italic text-[#1c2c6c] uppercase tracking-tighter">Velkominn í hópinn!</h3>
-              <p className="text-gray-500 text-sm max-w-[250px]">Takk fyrir stuðninginn. Þitt framlag skiptir sköpum fyrir starfið.</p>
+              <h3 className="font-black text-3xl italic text-[#1c2c6c] uppercase tracking-tighter">Áskrift staðfest!</h3>
+              <p className="text-gray-500 text-sm max-w-[250px]">Kortið þitt er klárt. Takk fyrir að styðja við bakið á Haukum.</p>
               
               <div className="bg-gradient-to-br from-[#c8102e] to-[#1c2c6c] p-6 rounded-2xl w-full flex flex-col items-center justify-center my-4 text-white shadow-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -translate-y-10 translate-x-10"></div>
                 <span className="material-symbols-outlined text-5xl mb-2 text-yellow-400">workspace_premium</span>
                 <p className="font-black text-xl uppercase tracking-widest text-yellow-400">
-                  {tiers.find(t => t.id === selectedTier)?.name}
+                  {selectedTier === 'gull' ? 'Gullfélagi' : 'Silfurfélagi'}
                 </p>
-                <p className="text-xs opacity-90 mt-2 font-medium">Nafnið þitt birtist núna á Veggnum!</p>
+                <p className="text-xs opacity-90 mt-2 font-medium">Skoðaðu Apple Wallet eða Google Pay.</p>
               </div>
 
               <button 
                 onClick={resetAndClose}
                 className="w-full bg-[#1c2c6c] text-white rounded-xl py-4 font-bold uppercase tracking-widest hover:bg-blue-900 transition-colors mt-2 shadow-lg"
               >
-                Halda áfram
+                Klára
               </button>
             </div>
           )}

@@ -35,7 +35,8 @@ export default function Veggurinn() {
       user: 'Haukar Handbolti',
       handle: 'Haukar Handbolti',
       platform: 'facebook',
-      content: 'Undirbúningur í hámarki fyrir oddaleikinn. Hlökkum til að sjá ykkur öll á fimmtudaginn! Miðasala er hafin á stubbur.is',
+      // FIXED: Removed Stubbur.is, updated to our new Digital Wallet messaging!
+      content: 'Undirbúningur í hámarki fyrir oddaleikinn. Hlökkum til að sjá ykkur öll á fimmtudaginn! Tryggðu þér miða með nýja stafræna VIP passanum okkar í Apple Wallet.',
       image: false,
       time: 'Í gær'
     }

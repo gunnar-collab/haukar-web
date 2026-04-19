@@ -2,12 +2,8 @@ import Button from './Button.jsx';
 
 export default function PlayerOfTheWeek() {
   return (
-    <section className="w-full bg-white py-24 border-b border-gray-100 relative overflow-hidden">
-      
-      {/* Subtle Background Angle for Agency-Grade Depth */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#fafafa] skew-x-12 transform origin-top-right -z-0 hidden md:block"></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="w-full bg-white py-24 border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           
           {/* Left Column: The Portrait */}
@@ -40,7 +36,7 @@ export default function PlayerOfTheWeek() {
             <div className="mb-8">
               <span className="text-[#c8102e] text-sm font-bold uppercase tracking-widest flex items-center gap-2 mb-3">
                 <span className="material-symbols-outlined text-[18px]">workspace_premium</span>
-                Stjarnan í dagsins ljósi
+                Í nærmynd
               </span>
               <h2 className="text-5xl lg:text-7xl font-black italic tracking-tighter text-[#1c2c6c] uppercase leading-none mb-5">
                 Ólafur <br className="hidden lg:block"/>
@@ -52,7 +48,7 @@ export default function PlayerOfTheWeek() {
             </div>
 
             <p className="text-gray-600 font-medium text-lg leading-relaxed mb-8 max-w-xl">
-              Ólafur átti algjöran stórleik í sigrinum gegn Fram á fimmtudaginn. Með 9 mörk úr 11 skotum og stálheila vörn dró hann vagninn þegar mest á reyndi. Hann er sannkallaður Haukur í horni fyrir liðið.
+              Ólafur átti algjöran stórleik í sigrinum gegn Fram á fimmtudaginn. Með 9 mörk úr 11 skotum og í vörn dró hann vagninn þegar mest á reyndi. Hann er sannkallaður Haukur í horni fyrir liðið.
             </p>
 
             {/* Stat Grid */}
@@ -73,7 +69,7 @@ export default function PlayerOfTheWeek() {
 
             {/* Fired up with the Global Button */}
             <Button variant="primary" icon="arrow_forward" iconPosition="right">
-              Skoða leikmannasnið
+              Skoða leikmenn
             </Button>
           </div>
 

@@ -13,7 +13,7 @@ export default function TrophyCabinet() {
             </span>
             {/* FIXED: Removed rogue font-headline, added tracking-tighter to match NewsGrid perfectly */}
             <h2 className="text-5xl font-black italic tracking-tighter text-[#c8102e]">
-              Bikarskápurinn
+              Bikararnir
             </h2>
           </div>
           <Link to="/sagan" className="font-bold text-[#c8102e] hover:text-red-800 transition-colors flex items-center gap-1 mb-2">
