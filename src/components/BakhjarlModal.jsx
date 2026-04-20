@@ -1,18 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function BakhjarlModal({ isOpen, onClose, initialTier = 'gull' }) {
   const [selectedTier, setSelectedTier] = useState(initialTier); // 'silfur' or 'gull'
   const [subscriptionType, setSubscriptionType] = useState('einstaklingur'); // 'einstaklingur' or 'hjon'
   const [step, setStep] = useState('select'); // 'select' | 'processing' | 'success'
 
-  // Update selected tier if the prop changes
-  useEffect(() => {
-    if (isOpen) {
-      setSelectedTier(initialTier);
-      setStep('select');
-      setSubscriptionType('einstaklingur');
-    }
-  }, [isOpen, initialTier]);
+  // Track previous isOpen to reset state when opened
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+  if (isOpen && !prevIsOpen) {
+    setPrevIsOpen(true);
+    setSelectedTier(initialTier);
+    setStep('select');
+    setSubscriptionType('einstaklingur');
+  } else if (!isOpen && prevIsOpen) {
+    setPrevIsOpen(false);
+  }
 
   if (!isOpen) return null;
 

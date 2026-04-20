@@ -31,7 +31,7 @@ export default function CookieBanner() {
       }`}
     >
       {/* Haukar Red Background with thick Navy Blue topline */}
-      <div className="max-w-5xl mx-auto bg-[#c8102e] rounded-3xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-t-8 border-[#1c2c6c] flex flex-col md:flex-row items-center gap-6 md:gap-8 pointer-events-auto relative overflow-hidden">
+      <div className="max-w-5xl mx-auto bg-[#c8102e] rounded-3xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row items-center gap-6 md:gap-8 pointer-events-auto relative overflow-hidden">
         
         {/* Subtle background logo/icon for texture */}
         <span className="material-symbols-outlined absolute -right-10 -bottom-10 text-[150px] text-black/10 pointer-events-none transform -rotate-12">

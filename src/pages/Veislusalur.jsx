@@ -76,7 +76,7 @@ export default function Veislusalur() {
 
       {/* 3. Booking Section (MVP Form / Future Calendar Slot) */}
       <div id="booking-section" className="max-w-5xl mx-auto px-6">
-        <div className="bg-[#c8102e] rounded-3xl p-8 md:p-12 shadow-xl border-t-8 border-[#1c2c6c] flex flex-col md:flex-row gap-12 relative overflow-hidden">
+        <div className="bg-[#c8102e] rounded-3xl p-8 md:p-12 shadow-xl flex flex-col md:flex-row gap-12 relative overflow-hidden">
           
           <span className="material-symbols-outlined absolute -right-10 -bottom-10 text-[200px] text-black/10 pointer-events-none transform -rotate-12">
             calendar_month

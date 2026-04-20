@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
-import { useLocation, useParams, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function PlayerProfile() {
   const location = useLocation();
-  const { slug } = useParams();
 
   // Snap to top when the page loads
   useEffect(() => {

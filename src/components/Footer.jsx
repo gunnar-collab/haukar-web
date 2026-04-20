@@ -92,13 +92,21 @@ export default function Footer() {
           <div>
             <h3 className="font-bold uppercase tracking-widest mb-6 text-sm text-white">Hafa Samband</h3>
             <ul className="space-y-4 text-sm text-white/80 font-body">
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-white/60 text-[20px] mt-0.5">location_on</span>
-                <div>
-                  Íþróttamiðstöðin Ásvöllum
-                  <br />
-                  221 Hafnarfjörður
-                </div>
+              <li>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Íþróttamiðstöðin+Ásvöllum+Hafnarfjörður" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 group hover:text-white transition-colors"
+                >
+                  <span className="material-symbols-outlined text-white/60 text-[20px] mt-0.5 group-hover:text-white group-hover:scale-110 transition-all">location_on</span>
+                  <div>
+                    Íþróttamiðstöðin Ásvöllum
+                    <br />
+                    221 Hafnarfjörður
+                  </div>
+                  <span className="material-symbols-outlined text-[16px] text-white/0 group-hover:text-white/50 -ml-1 transition-colors mt-1">open_in_new</span>
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-white/60 text-[20px]">mail</span>
