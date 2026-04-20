@@ -72,7 +72,7 @@ export default function GeminiChat() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
       
       <div 
-        className={`bg-white w-[350px] rounded-2xl shadow-2xl border border-gray-200 overflow-hidden transition-all duration-300 origin-bottom-right mb-4 ${
+        className={`bg-white w-[calc(100vw-3rem)] sm:w-[350px] rounded-2xl shadow-2xl border border-gray-200 overflow-hidden transition-all duration-300 origin-bottom-right mb-4 ${
           isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none absolute'
         }`}
       >
