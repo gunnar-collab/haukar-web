@@ -33,9 +33,7 @@ export default function Navbar({ onOpenTickets }) {
                 Deildir <span className="material-symbols-outlined text-[18px] transition-transform group-hover:-rotate-180">expand_more</span>
               </span>
               <div className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col z-50">
-                {/* FIXED: Now points to /handbolti */}
                 <Link to="/handbolti" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">Handbolti</Link>
-                {/* Pre-wired for future pages */}
                 <Link to="/fotbolti" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">Fótbolti</Link>
                 <Link to="/korfubolti" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">Körfubolti</Link>
                 <Link to="/karate" className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">Karaté</Link>
@@ -106,14 +104,12 @@ export default function Navbar({ onOpenTickets }) {
               </button>
               {mobileExpanded === 'deildir' && (
                 <div className="flex flex-col pl-4 border-b border-gray-50 bg-gray-50/50">
-                  {/* FIXED: Now points to /handbolti */}
                   <Link to="/handbolti" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Handbolti</Link>
-                  {/* Pre-wired for future pages */}
                   <Link to="/fotbolti" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Fótbolti</Link>
                   <Link to="/korfubolti" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Körfubolti</Link>
-                  {['Karaté', 'Skíði'].map(sport => (
-                    <Link key={sport} to="#" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">{sport}</Link>
-                  ))}
+                  {/* WIRED: Karaté is now hardcoded for mobile! */}
+                  <Link to="/karate" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Karaté</Link>
+                  <Link to="#" onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">Skíði</Link>
                 </div>
               )}
 

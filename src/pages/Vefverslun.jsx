@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 // Real data scraped directly from Boltamadurinn.is!
 const products = [
@@ -47,19 +47,46 @@ const products = [
 ];
 
 export default function Vefverslun() {
+  // Always snap to the top when navigating to this page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <section className="w-full bg-white py-24 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
+    // Replaced the section wrapper with the main flex-grow wrapper to match other pages and kill the gap
+    <main className="w-full bg-[#fafafa] flex-grow pb-20 selection:bg-[#1c2c6c] selection:text-white">
+      
+      {/* 1. SHOP HERO - HAUKAR RED */}
+      <div className="bg-[#c8102e] text-white py-24 px-6 text-center relative overflow-hidden shadow-lg border-b-4 border-[#1c2c6c]">
         
-        {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        {/* Subtle Background Icon */}
+        <span className="material-symbols-outlined text-[350px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none rotate-12">
+          shopping_bag
+        </span>
+        
+        <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+          <span className="text-[#1c2c6c] bg-white/20 px-4 py-1.5 rounded-full backdrop-blur-sm text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 block shadow-sm border border-white/20 flex items-center gap-2">
+            <span className="material-symbols-outlined text-[16px]">local_mall</span>
+            Opinber Varningur
+          </span>
+          
+          <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg leading-tight">
+            Vefverslun <br className="hidden md:block"/>Hauka
+          </h1>
+          <p className="text-white/90 font-medium text-lg md:text-xl leading-relaxed max-w-2xl text-center">
+            Sýndu litina þína. Kauptu keppnistreyjur, æfingagalla og annan varning beint frá okkar samstarfsaðila, Boltamanum.
+          </p>
+        </div>
+      </div>
+
+      {/* 2. THE SHOP GRID */}
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        
+        {/* Header / Action */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-b border-gray-200 pb-6">
           <div>
-            <span className="text-[#c8102e] text-sm font-bold uppercase tracking-widest flex items-center gap-2 mb-3">
-              <span className="material-symbols-outlined text-[18px]">shopping_bag</span>
-              Boltamaðurinn
-            </span>
-            <h2 className="text-5xl lg:text-6xl font-black italic tracking-tighter text-[#1c2c6c] uppercase leading-none">
-              Vefverslun <span className="text-[#c8102e]">Hauka</span>
+            <h2 className="text-3xl font-black italic tracking-tighter text-[#1c2c6c] uppercase">
+              Vinsælast <span className="text-[#c8102e]">í dag</span>
             </h2>
           </div>
           
@@ -67,15 +94,15 @@ export default function Vefverslun() {
             href="https://boltamadurinn.is/collections/haukar" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-[#1c2c6c] text-white px-6 py-3 rounded-full font-bold hover:bg-[#c8102e] transition-colors duration-300"
+            className="flex items-center gap-2 bg-[#1c2c6c] text-white px-6 py-3 rounded-full font-bold hover:bg-[#c8102e] hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-xl"
           >
-            Skoða alla búðina
+            Skoða alla búðina á Boltamadurinn.is
             <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
           </a>
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {products.map((product) => (
             <a 
               key={product.id} 
@@ -85,18 +112,15 @@ export default function Vefverslun() {
               className="group cursor-pointer flex flex-col"
             >
               {/* Image Container */}
-              <div className="relative bg-[#fafafa] rounded-3xl overflow-hidden aspect-[4/5] mb-5 border border-gray-100 flex items-center justify-center">
+              <div className="relative bg-white rounded-3xl overflow-hidden aspect-[4/5] mb-5 border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300 flex items-center justify-center group-hover:border-[#c8102e]/30">
+                
                 {product.isNew && (
-                  <div className="absolute top-4 left-4 z-20 bg-[#c8102e] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
+                  <div className="absolute top-4 left-4 z-20 bg-[#c8102e] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-md shadow-md">
                     Nýtt
                   </div>
                 )}
                 
-                {/* THE FIX: 
-                  - object-contain: Makes sure the whole product fits without cropping.
-                  - p-8: Gives the product breathing room from the edges.
-                  - mix-blend-multiply: Erases white backgrounds on the Shopify jpegs!
-                */}
+                {/* THE FIX: object-contain + p-8 + mix-blend-multiply */}
                 <img 
                   src={product.image} 
                   alt={product.name} 
@@ -104,7 +128,7 @@ export default function Vefverslun() {
                 />
                 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-[#1c2c6c]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1c2c6c]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 pointer-events-none"></div>
               </div>
 
               {/* Product Info */}
@@ -112,7 +136,7 @@ export default function Vefverslun() {
                 <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight mb-2 group-hover:text-[#c8102e] transition-colors">
                   {product.name}
                 </h3>
-                <p className="text-gray-500 font-bold tracking-widest">
+                <p className="text-[#c8102e] font-black tracking-widest text-lg">
                   {product.price}
                 </p>
               </div>
@@ -121,6 +145,6 @@ export default function Vefverslun() {
         </div>
 
       </div>
-    </section>
+    </main>
   );
 }

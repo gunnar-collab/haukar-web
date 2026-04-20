@@ -39,7 +39,6 @@ export default function Fotbolti({ onOpenTickets }) {
       awayScore: 2,
       statsLink: 'https://www.ksi.is/'
     },
-    // Using generic Unsplash portraits until you get the real football headshots
     players: [
       { number: "1", slug: "dadi-snaer", name: "Daði Snær", position: "Markvörður", deepStats: { leikir: 22, mork: 0, gula: 1, sto: 0 }, img: "https://images.unsplash.com/photo-1534015696614-25e2f2e51921?auto=format&fit=crop&q=80&w=800" },
       { number: "4", slug: "olafur-karl", name: "Ólafur Karl", position: "Varnarmaður", deepStats: { leikir: 21, mork: 2, gula: 4, sto: 1 }, img: "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&q=80&w=800" },
@@ -80,14 +79,12 @@ export default function Fotbolti({ onOpenTickets }) {
 
   const currentData = gender === 'karla' ? dataKarla : dataKvenna;
 
-  // --- FOOTBALL SPECIFIC NEWS ---
   const footballNews = [
     { id: 1, category: "Meistaraflokkur Karla", title: "Flautað til leiks í Lengjudeildinni á laugardaginn", date: "10. Maí", image: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&q=80&w=800" },
     { id: 2, category: "Meistaraflokkur Kvenna", title: "Stelpurnar tilbúnar í toppslaginn gegn Gróttu", date: "8. Maí", image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=800" },
     { id: 3, category: "Yngri Flokkar", title: "Fjölmennt á fótboltaskóla Hauka um helgina", date: "5. Maí", image: "https://images.unsplash.com/photo-1516733968668-dbdce39c4651?auto=format&fit=crop&q=80&w=800" },
   ];
 
-  // --- HAUKAR FOOTBALL SOCIAL POSTS ---
   const socialPosts = [
     { id: 1, platform: 'Instagram', handle: '@haukar_fotbolti', image: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&q=80&w=800', text: 'Sætur útisigur í gær! 3 stig í hús og stefnan sett upp á við. 🔴⚪️ #fotbolti', likes: '412' },
     { id: 2, platform: 'Facebook', handle: 'Haukar Fótbolti', image: 'https://images.unsplash.com/photo-1518091043644-c1d445e4d20c?auto=format&fit=crop&q=80&w=800', text: 'Liðið fyrir leik dagsins er klárt. Sjáumst á Ásvöllum klukkan 14:00!', likes: '205' },
@@ -98,9 +95,8 @@ export default function Fotbolti({ onOpenTickets }) {
   return (
     <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#1c2c6c] selection:text-white">
       
-      {/* 1. DIVISION HERO - HAUKAR RED WITH FOOTBALL BACKGROUND */}
+      {/* 1. DIVISION HERO */}
       <div className="relative w-full h-[45vh] min-h-[350px] flex items-end pb-12 bg-[#c8102e] overflow-hidden">
-        {/* Changed background to a grass/stadium image */}
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#a30d25] via-[#c8102e]/80 to-transparent"></div>
         
@@ -132,67 +128,81 @@ export default function Fotbolti({ onOpenTickets }) {
         </div>
       </div>
 
-      {/* 2. LIVE MATCH DASHBOARD */}
-      <div className="max-w-7xl mx-auto px-6 relative z-20 -mt-8 w-full mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* 2. LIVE MATCH DASHBOARD - MOBILE OPTIMIZED */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 -mt-8 w-full mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+          
           {/* LATEST MATCH */}
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 py-6 px-8 flex flex-col justify-between relative overflow-hidden h-[180px]">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-5 md:p-6 lg:py-6 lg:px-8 flex flex-col justify-between relative overflow-hidden min-h-[180px] gap-4">
             {loading && (
               <div className="absolute inset-0 bg-white/90 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
                 <span className="material-symbols-outlined animate-spin text-[#c8102e] text-3xl mb-2">sync</span>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#1c2c6c]">Sæki KSÍ Gögn...</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#1c2c6c]">Sæki Gögn...</span>
               </div>
             )}
-            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest block">Síðasti Leikur • {currentData.lastMatch.competition}</span>
-            <div className="flex items-center justify-between my-auto">
-              <span className={`text-2xl font-black italic uppercase ${currentData.lastMatch.homeScore > currentData.lastMatch.awayScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}`}>{currentData.lastMatch.home}</span>
-              <div className="bg-gray-50 px-4 py-2 rounded-xl text-2xl font-black italic border border-gray-100 shadow-sm">
+            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest block">
+              Síðasti Leikur • {currentData.lastMatch.competition}
+            </span>
+            
+            <div className="flex items-center justify-between my-auto w-full">
+              <span className={`text-lg sm:text-xl md:text-2xl font-black italic uppercase truncate w-[35%] text-left ${currentData.lastMatch.homeScore > currentData.lastMatch.awayScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}`}>
+                {currentData.lastMatch.home}
+              </span>
+              <div className="bg-gray-50 px-3 py-1.5 md:px-4 md:py-2 rounded-xl text-lg sm:text-xl md:text-2xl font-black italic border border-gray-100 shadow-sm shrink-0">
                 <span className={currentData.lastMatch.homeScore > currentData.lastMatch.awayScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{currentData.lastMatch.homeScore}</span>
-                <span className="mx-2 text-gray-300">-</span>
+                <span className="mx-1.5 md:mx-2 text-gray-300">-</span>
                 <span className={currentData.lastMatch.awayScore > currentData.lastMatch.homeScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{currentData.lastMatch.awayScore}</span>
               </div>
-              <span className={`text-2xl font-black italic uppercase ${currentData.lastMatch.awayScore > currentData.lastMatch.homeScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}`}>{currentData.lastMatch.away}</span>
+              <span className={`text-lg sm:text-xl md:text-2xl font-black italic uppercase truncate w-[35%] text-right ${currentData.lastMatch.awayScore > currentData.lastMatch.homeScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}`}>
+                {currentData.lastMatch.away}
+              </span>
             </div>
-            <a href={currentData.lastMatch.statsLink} target="_blank" rel="noreferrer" className="w-full bg-[#1c2c6c] hover:bg-black text-white py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors text-[11px] font-bold uppercase tracking-widest shadow-md">
+            
+            <a href={currentData.lastMatch.statsLink} target="_blank" rel="noreferrer" className="w-full bg-[#1c2c6c] hover:bg-black text-white py-3 md:py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors text-[10px] sm:text-[11px] font-bold uppercase tracking-widest shadow-md">
               <span className="material-symbols-outlined text-[16px]">open_in_new</span>
               Skoða Leikskýrslu á KSÍ
             </a>
           </div>
 
           {/* NEXT MATCH */}
-          <div className="bg-gradient-to-br from-[#1c2c6c] to-gray-900 text-white rounded-2xl shadow-xl py-6 px-8 flex flex-col justify-between relative overflow-hidden h-[180px]">
+          <div className="bg-gradient-to-br from-[#1c2c6c] to-gray-900 text-white rounded-2xl shadow-xl p-5 md:p-6 lg:py-6 lg:px-8 flex flex-col justify-between relative overflow-hidden min-h-[180px] gap-4">
             {loading && (
               <div className="absolute inset-0 bg-[#1c2c6c]/95 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
                 <span className="material-symbols-outlined animate-spin text-[#c8102e] text-3xl mb-2">sync</span>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-white">Sæki leikjaplan...</span>
               </div>
             )}
-            <span className="text-[#c8102e] text-[10px] font-bold uppercase tracking-widest block">Næsti Leikur • {currentData.nextMatch.competition}</span>
-            <div className="flex items-center justify-between my-auto text-2xl font-black italic uppercase">
-              <span>{currentData.nextMatch.home}</span>
-              <span className="text-white/30 text-sm font-normal not-italic px-4">VS</span>
-              <span>{currentData.nextMatch.away}</span>
+            <span className="text-[#c8102e] text-[10px] font-bold uppercase tracking-widest block">
+              Næsti Leikur • {currentData.nextMatch.competition}
+            </span>
+            
+            <div className="flex items-center justify-between my-auto text-lg sm:text-xl md:text-2xl font-black italic uppercase w-full">
+              <span className="truncate w-[40%] text-left">{currentData.nextMatch.home}</span>
+              <span className="text-white/30 text-xs sm:text-sm font-normal not-italic px-2 shrink-0">VS</span>
+              <span className="truncate w-[40%] text-right">{currentData.nextMatch.away}</span>
             </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4 bg-white/10 rounded-xl px-4 py-2 border border-white/5">
+            
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-0">
+              <div className="flex items-center justify-between sm:justify-start gap-4 bg-white/10 rounded-xl px-4 py-2.5 sm:py-2 border border-white/5">
                 <div className="text-left">
                   <span className="block text-white/50 text-[9px] uppercase tracking-widest mb-0.5">Hvenær</span>
-                  <span className="font-bold text-xs">{currentData.nextMatch.date}</span>
+                  <span className="font-bold text-[11px] sm:text-xs">{currentData.nextMatch.date}</span>
                 </div>
                 <div className="w-px h-6 bg-white/10"></div>
                 <div className="text-left">
                   <span className="block text-white/50 text-[9px] uppercase tracking-widest mb-0.5">Hvar</span>
-                  <span className="font-bold text-xs">{currentData.nextMatch.venue}</span>
+                  <span className="font-bold text-[11px] sm:text-xs">{currentData.nextMatch.venue}</span>
                 </div>
               </div>
               <button 
                 onClick={onOpenTickets}
-                className="bg-[#c8102e] text-white font-bold uppercase tracking-widest text-[10px] px-5 py-3 rounded-xl shadow-lg hover:scale-105 hover:bg-[#a30d25] transition-all flex items-center gap-2"
+                className="bg-[#c8102e] text-white font-bold uppercase tracking-widest text-[10px] px-5 py-3.5 sm:py-3 rounded-xl shadow-lg hover:scale-105 hover:bg-[#a30d25] transition-all flex items-center justify-center gap-2"
               >
                 Kaupa Miða <span className="material-symbols-outlined text-[16px]">confirmation_number</span>
               </button>
             </div>
           </div>
+
         </div>
       </div>
 
