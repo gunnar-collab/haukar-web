@@ -46,7 +46,7 @@ export default function App() {
       <Navbar onOpenTickets={() => setIsTicketModalOpen(true)} />
 
       {/* 3. The Router Engine */}
-      <div className="flex-grow relative z-10">
+      <div className="flex-grow relative z-10 overflow-x-hidden w-full">
         <Routes>
           <Route path="/leikmenn/:slug" element={<PlayerProfile />} />
           {/* WIRED: Handbolti can now open the Ticket Modal! */}
