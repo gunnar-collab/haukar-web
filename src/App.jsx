@@ -35,7 +35,7 @@ export default function App() {
   const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
 
   return (
-    <div className="bg-[#fafafa] text-gray-900 font-sans selection:bg-[#c8102e] selection:text-white flex flex-col min-h-screen">
+    <div className="overflow-x-hidden bg-[#fafafa] text-gray-900 font-sans selection:bg-[#c8102e] selection:text-white flex flex-col min-h-screen">
       
       {/* 1. Modals & Overlays */}
       <TicketModal isOpen={isTicketModalOpen} onClose={() => setIsTicketModalOpen(false)} />
