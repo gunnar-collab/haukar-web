@@ -5,10 +5,6 @@
 @tailwind utilities;
 
 /* Anti-Flicker Curtain Drop */
-html, body {
-    overflow-x: hidden;
-}
-
 body {
     opacity: 0;
     animation: fadeIn 0.3s ease-in forwards 0.15s;

@@ -17,8 +17,8 @@ export default function Navbar({ onOpenTickets }) {
   };
 
   return (
-    <nav className="sticky top-0 w-full z-[100]">
-      <div className="relative w-full bg-white shadow-md border-b border-gray-200">
+    <nav className="w-full relative z-[100]">
+      <div className="relative w-full bg-white">
         
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-30">
           
