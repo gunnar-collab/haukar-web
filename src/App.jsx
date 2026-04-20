@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Layout Components
+import Karate from './pages/Karate';
+import PlayerProfile from './pages/PlayerProfile';
+import Korfubolti from './pages/Korfubolti';
+import Fotbolti from './pages/Fotbolti';
+import Handbolti from './pages/Handbolti';
 import Veislusalur from './pages/Veislusalur';
 import Aefingagjold from './pages/Aefingagjold';
 import CookieBanner from './components/CookieBanner';
@@ -43,6 +48,12 @@ export default function App() {
       {/* 3. The Router Engine */}
       <div className="flex-grow relative z-10">
         <Routes>
+          <Route path="/leikmenn/:slug" element={<PlayerProfile />} />
+          {/* WIRED: Handbolti can now open the Ticket Modal! */}
+          <Route path="/karate" element={<Karate />} />
+          <Route path="/korfubolti" element={<Korfubolti onOpenTickets={() => setIsTicketModalOpen(true)} />} />
+          <Route path="/fotbolti" element={<Fotbolti onOpenTickets={() => setIsTicketModalOpen(true)} />} />
+          <Route path="/handbolti" element={<Handbolti onOpenTickets={() => setIsTicketModalOpen(true)} />} />
           <Route path="/veislusalur" element={<Veislusalur />} />
           <Route path="/aefingagjold" element={<Aefingagjold />} />
           <Route path="/dagatal" element={<Dagatal />} />
@@ -53,7 +64,6 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/leikvakt" element={<Leikvakt />} />
           <Route path="/vefverslun" element={<Vefverslun />} />
-          {/* FIXED: The History page is now officially wired into the routing engine! */}
           <Route path="/sagan" element={<Sagan />} />
         </Routes>
       </div>

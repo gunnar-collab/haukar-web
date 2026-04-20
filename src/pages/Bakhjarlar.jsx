@@ -32,7 +32,8 @@ export default function Bakhjarlar() {
   ];
 
   return (
-    <main className="w-full bg-[#fafafa] flex-grow pt-10 md:pt-16 pb-20 font-sans">
+    // FIXED: Removed pt-10 md:pt-16 so the hero snaps directly against the navbar!
+    <main className="w-full bg-[#fafafa] flex-grow pb-20 font-sans">
       
       {/* Universal Hero Section - NOW IN HAUKAR RED WITH NAVY ACCENTS */}
       <div className="bg-[#c8102e] text-white py-24 px-6 text-center relative overflow-hidden shadow-md">
@@ -109,7 +110,7 @@ export default function Bakhjarlar() {
             </div>
 
             {/* Right: The New VIP Pricing Grid */}
-            <div className="w-full lg:w-3/5 relative z-10 lg:order-2">
+            <div className="w-full lg:w-3/5 relative z-10 lg:order-2 flex flex-col pt-8">
               <span className="text-[#c8102e] text-xs font-bold uppercase tracking-widest block mb-2">Áskriftarleiðir</span>
               <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mb-4">
                 Haukar í <span className="text-[#c8102e]">Horni</span>

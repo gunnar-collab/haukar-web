@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 
 export default function Sagan() {
   // Always snap to the top when navigating to this page
@@ -41,7 +42,8 @@ export default function Sagan() {
   ];
 
   return (
-    <main className="w-full bg-[#fafafa] flex-grow pt-10 md:pt-16 pb-20">
+    // REMOVED pt-10 md:pt-16 so the hero snaps directly against the navbar!
+    <main className="w-full bg-[#fafafa] flex-grow pb-20">
       
       {/* 1. Hero Section */}
       <div className="bg-[#c8102e] text-white py-20 px-6 text-center relative overflow-hidden shadow-md">

@@ -19,7 +19,8 @@ export default function HafaSamband() {
   ];
 
   return (
-    <main className="w-full bg-[#fafafa] flex-grow pt-10 md:pt-16 pb-20">
+    // REMOVED pt-10 md:pt-16 so the hero snaps directly against the navbar!
+    <main className="w-full bg-[#fafafa] flex-grow pb-20">
       
       {/* 1. Hero Section - Now Dominant Haukar Red */}
       <div className="bg-[#c8102e] text-white py-20 px-6 text-center relative overflow-hidden shadow-md">
