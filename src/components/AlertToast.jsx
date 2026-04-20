@@ -13,12 +13,12 @@ export default function AlertToast() {
 
   return (
     <div 
-      className={`fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] transition-transform duration-700 ease-in-out ${
-        isVisible ? 'translate-x-0' : 'translate-x-[150%]'
+      className={`fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] transition-all duration-700 ease-in-out ${
+        isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0 pointer-events-none'
       }`}
     >
       {/* FIXED: Replaced bg-surface-alt with bg-white and updated the border to our exact Haukar Red */}
-      <div className="bg-white border border-gray-200 px-5 py-4 rounded-xl shadow-2xl border-l-4 border-l-[#c8102e] flex items-center gap-4 max-w-sm">
+      <div className="bg-white border border-gray-200 px-5 py-4 rounded-xl shadow-2xl border-l-4 border-l-[#c8102e] flex items-center gap-4 w-[calc(100vw-3rem)] sm:w-auto sm:max-w-sm">
         
         <div className="bg-red-50 p-2 rounded-full flex items-center justify-center">
           <span className="material-symbols-outlined text-[#c8102e] text-sm">campaign</span>
