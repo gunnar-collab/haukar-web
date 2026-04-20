@@ -22,7 +22,12 @@ export default function Navbar({ onOpenTickets }) {
         
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-30">
           
-          <Link to="/" className="flex items-center gap-3 cursor-pointer" aria-label="Forsíða">
+          <Link 
+            to="/" 
+            className="flex items-center gap-3 cursor-pointer" 
+            aria-label="Forsíða"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             <img src="/images/logo.png" alt="Haukar Logo" className="h-10 w-auto" />
             <span className="text-2xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mt-1">Haukar</span>
           </Link>
