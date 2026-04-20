@@ -12,32 +12,50 @@ export default function Sagan() {
     {
       year: '1931',
       title: 'Stofnun Félagsins',
-      desc: 'Íþróttafélagið Haukar var stofnað þann 12. apríl 1931 að frumkvæði ungra pilta úr KFUM í Hafnarfirði. Upphaflega stóð til að æfa eingöngu knattspyrnu.',
-      icon: 'sports_soccer'
+      desc: 'Þann 12. apríl var Knattspyrnufélagið Haukar stofnað í KFUM-húsinu í Hafnarfirði af þrettán ungum piltum.',
+      icon: 'group'
     },
     {
-      year: '1955',
-      title: 'Handboltinn mætir á svæðið',
-      desc: 'Handknattleiksdeild var formlega stofnuð. Þetta átti eftir að breyta sögu félagsins að eilífu og leggja grunninn að einu sigursælasta handboltaliði Íslandssögunnar.',
+      year: '1943',
+      title: 'Fyrsti Íslandsmeistaratitillinn',
+      desc: 'Haukar vinna sinn fyrsta Íslandsmeistaratitil í handknattleik karla sem markar upphaf ótrúlegrar sigurgöngu.',
       icon: 'sports_handball'
     },
     {
-      year: '2000',
-      title: 'Gullöldin hefst',
-      desc: 'Meistaraflokkur karla í handbolta vinnur sinn fyrsta Íslandsmeistaratitil. Sönn gullöld hefst þar sem titlarnir söfnuðust í hús á Ásvöllum á næstu tveimur áratugum.',
-      icon: 'emoji_events'
+      year: '1988',
+      title: 'Körfuboltinn á toppinn',
+      desc: 'Karlaliðið í körfuknattleik tryggir sér Íslandsmeistaratitilinn undir stjórn Pálmars Sigurðssonar.',
+      icon: 'sports_basketball'
     },
     {
-      year: '2010',
-      title: 'Ásvellir stækka',
-      desc: 'Ný og glæsileg íþróttamiðstöð tekin í notkun sem umbylti allri aðstöðu fyrir iðkendur. Haukar verða stolt Hafnarfjarðar með einhverja bestu umgjörð landsins.',
+      year: '2001',
+      title: 'Haukar í Evrópu',
+      desc: 'Karlaliðið í handbolta skráir sig í sögubækurnar með því að komast í undanúrslit í Evrópukeppni félagsliða (EHF Cup).',
+      icon: 'public'
+    },
+    {
+      year: '2002',
+      title: 'Ásvellir opna',
+      desc: 'Ný Íþróttamiðstöð á Ásvöllum tekin í notkun. Innviðabyltingin tryggði gríðarlegan vöxt iðkenda á 21. öldinni.',
       icon: 'domain'
     },
     {
-      year: 'Í Dag',
-      title: 'Framtíðin er Rauð',
-      desc: 'Með þúsundir iðkenda, frábæra þjálfara og öflugt bakland stefnum við ótrauð áfram. Við erum Haukar, og við erum rétt að byrja.',
-      icon: 'rocket_launch'
+      year: '2010',
+      title: 'Fótboltinn í efstu deild',
+      desc: 'Knattspyrnudeildin nær sögulegum áfanga þegar karlaliðið spilar í fyrsta sinn í efstu deild Íslandsmótsins.',
+      icon: 'sports_soccer'
+    },
+    {
+      year: '2018',
+      title: 'Ólafssalur vígður',
+      desc: 'Á 87 ára afmæli félagsins opnar Ólafssalur, fyrsta sérhæfða körfuknattleikshús Íslands.',
+      icon: 'stadium'
+    },
+    {
+      year: '2025',
+      title: 'Nýtt Knatthús Hauka',
+      desc: 'Glæsilegt 11.000 fermetra knatthús vígt í febrúar, sem tryggir knattspyrnufólki okkar aðstöðu á heimsmælikvarða.',
+      icon: 'star'
     }
   ];
 
