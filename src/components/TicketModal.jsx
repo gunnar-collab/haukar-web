@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Button from './Button.jsx';
 
 export default function TicketModal({ isOpen, onClose }) {
@@ -12,15 +13,22 @@ export default function TicketModal({ isOpen, onClose }) {
         setTicketCount(1);
         setPaymentStep('select');
       }, 300);
+      document.body.style.overflow = 'unset';
       return () => clearTimeout(timeout);
+    } else {
+      document.body.style.overflow = 'hidden';
     }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [isOpen]);
 
   if (!isOpen) return null;
 
-  return (
-    // FIXED: Bumped to z-[200] so it perfectly overlays the sticky z-[100] Navbar
-    <div className="fixed inset-0 bg-[#1c2c6c]/90 backdrop-blur-sm z-[200] flex items-center justify-center p-4">
+  return createPortal(
+    // FIXED: Bumped to z-[9999] so it perfectly overlays the sticky z-[100] Navbar
+    <div className="fixed inset-0 bg-[#1c2c6c]/90 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden relative animate-in fade-in zoom-in duration-300 flex flex-col">
         
         {/* Close Button */}
@@ -125,6 +133,7 @@ export default function TicketModal({ isOpen, onClose }) {
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 export default function BakhjarlModal({ isOpen, onClose, initialTier = 'gull' }) {
   const [selectedTier, setSelectedTier] = useState(initialTier); // 'silfur' or 'gull'
@@ -15,6 +16,18 @@ export default function BakhjarlModal({ isOpen, onClose, initialTier = 'gull' })
   } else if (!isOpen && prevIsOpen) {
     setPrevIsOpen(false);
   }
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -42,9 +55,9 @@ export default function BakhjarlModal({ isOpen, onClose, initialTier = 'gull' })
     onClose();
   };
 
-  return (
-    // FIXED: z-[999] ensures this sits ABOVE the sticky Navbar (which is z-[100])
-    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 backdrop-blur-md p-4">
+  return createPortal(
+    // FIXED: z-[9999] ensures this sits ABOVE the sticky Navbar (which is z-[100])
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-md p-4">
       <div className="bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300 border border-white/20">
         
         {/* Header - Haukar Red */}
@@ -189,6 +202,7 @@ export default function BakhjarlModal({ isOpen, onClose, initialTier = 'gull' })
 
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
