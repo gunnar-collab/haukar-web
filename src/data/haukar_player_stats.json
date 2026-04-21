@@ -1,0 +1,427 @@
+[
+  {
+    "name": "Freyr Aronsson",
+    "gamesPlayed": 28,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 28,
+        "totalGoals": 180,
+        "totalShots": 272,
+        "shootingPercentage": "66.2%"
+      },
+      "defensive": {
+        "legalStops": 116,
+        "steals": 20,
+        "blockedShots": 4
+      }
+    }
+  },
+  {
+    "name": "Skarphéðinn Ívar Einarsson",
+    "gamesPlayed": 27,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 27,
+        "totalGoals": 130,
+        "totalShots": 226,
+        "shootingPercentage": "57.5%"
+      },
+      "defensive": {
+        "legalStops": 108,
+        "steals": 6,
+        "blockedShots": 8
+      }
+    }
+  },
+  {
+    "name": "Össur Haraldsson",
+    "gamesPlayed": 28,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 28,
+        "totalGoals": 100,
+        "totalShots": 131,
+        "shootingPercentage": "76.3%"
+      },
+      "defensive": {
+        "legalStops": 17,
+        "steals": 20,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Birkir Snær Steinsson",
+    "gamesPlayed": 29,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 29,
+        "totalGoals": 91,
+        "totalShots": 153,
+        "shootingPercentage": "59.5%"
+      },
+      "defensive": {
+        "legalStops": 37,
+        "steals": 2,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Hergeir Grímsson",
+    "gamesPlayed": 28,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 28,
+        "totalGoals": 82,
+        "totalShots": 132,
+        "shootingPercentage": "62.1%"
+      },
+      "defensive": {
+        "legalStops": 52,
+        "steals": 8,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Andri Fannar Elísson",
+    "gamesPlayed": 28,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 28,
+        "totalGoals": 71,
+        "totalShots": 109,
+        "shootingPercentage": "65.1%"
+      },
+      "defensive": {
+        "legalStops": 2,
+        "steals": 8,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Ólafur Ægir Ólafsson",
+    "gamesPlayed": 29,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 29,
+        "totalGoals": 59,
+        "totalShots": 100,
+        "shootingPercentage": "59%"
+      },
+      "defensive": {
+        "legalStops": 35,
+        "steals": 7,
+        "blockedShots": 6
+      }
+    }
+  },
+  {
+    "name": "Sigurður Snær Sigurjónsson",
+    "gamesPlayed": 29,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 29,
+        "totalGoals": 51,
+        "totalShots": 70,
+        "shootingPercentage": "72.9%"
+      },
+      "defensive": {
+        "legalStops": 4,
+        "steals": 8,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Þráinn Orri Jónsson",
+    "gamesPlayed": 29,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 29,
+        "totalGoals": 35,
+        "totalShots": 51,
+        "shootingPercentage": "68.6%"
+      },
+      "defensive": {
+        "legalStops": 43,
+        "steals": 7,
+        "blockedShots": 8
+      }
+    }
+  },
+  {
+    "name": "Brynjólfur Snær Brynjólfsson",
+    "gamesPlayed": 26,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 26,
+        "totalGoals": 34,
+        "totalShots": 52,
+        "shootingPercentage": "65.4%"
+      },
+      "defensive": {
+        "legalStops": 4,
+        "steals": 3,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Jón Ómar Gíslason",
+    "gamesPlayed": 29,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 29,
+        "totalGoals": 29,
+        "totalShots": 44,
+        "shootingPercentage": "65.9%"
+      },
+      "defensive": {
+        "legalStops": 8,
+        "steals": 3,
+        "blockedShots": 2
+      }
+    }
+  },
+  {
+    "name": "Adam Haukur Baumruk",
+    "gamesPlayed": 25,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 25,
+        "totalGoals": 24,
+        "totalShots": 39,
+        "shootingPercentage": "61.5%"
+      },
+      "defensive": {
+        "legalStops": 70,
+        "steals": 4,
+        "blockedShots": 4
+      }
+    }
+  },
+  {
+    "name": "Arnór Róbertsson",
+    "gamesPlayed": 19,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 19,
+        "totalGoals": 7,
+        "totalShots": 11,
+        "shootingPercentage": "63.6%"
+      },
+      "defensive": {
+        "legalStops": 0,
+        "steals": 0,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Jón Karl Einarsson",
+    "gamesPlayed": 5,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 5,
+        "totalGoals": 3,
+        "totalShots": 5,
+        "shootingPercentage": "60%"
+      },
+      "defensive": {
+        "legalStops": 1,
+        "steals": 0,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Ásgeir Bragi Bryde Þórðarson",
+    "gamesPlayed": 9,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 9,
+        "totalGoals": 2,
+        "totalShots": 2,
+        "shootingPercentage": "100%"
+      },
+      "defensive": {
+        "legalStops": 0,
+        "steals": 1,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Aron Rafn Eðvarðsson",
+    "position": "Markmaður",
+    "stats": {
+      "goalkeeper": {
+        "gamesPlayed": 23,
+        "totalSaves": 189,
+        "savePercentage": "31.7%"
+      },
+      "offensive": {
+        "gamesPlayed": 23,
+        "totalGoals": 2,
+        "totalShots": 3,
+        "shootingPercentage": "66.7%"
+      }
+    }
+  },
+  {
+    "name": "Darri Aronsson",
+    "gamesPlayed": 23,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 23,
+        "totalGoals": 1,
+        "totalShots": 1,
+        "shootingPercentage": "100%"
+      },
+      "defensive": {
+        "legalStops": 45,
+        "steals": 5,
+        "blockedShots": 6
+      }
+    }
+  },
+  {
+    "name": "Egill Jónsson",
+    "gamesPlayed": 5,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 5,
+        "totalGoals": 1,
+        "totalShots": 3,
+        "shootingPercentage": "33.3%"
+      },
+      "defensive": {
+        "legalStops": 0,
+        "steals": 1,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Grétar Ari Guðjónsson",
+    "position": "Markmaður",
+    "stats": {
+      "goalkeeper": {
+        "gamesPlayed": 13,
+        "totalSaves": 89,
+        "savePercentage": "28.9%"
+      },
+      "offensive": {
+        "gamesPlayed": 13,
+        "totalGoals": 1,
+        "totalShots": 2,
+        "shootingPercentage": "50.0%"
+      }
+    }
+  },
+  {
+    "name": "Daníel Máni Sigurgeirsson",
+    "gamesPlayed": 2,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 2,
+        "totalGoals": 0,
+        "totalShots": 0,
+        "shootingPercentage": "0%"
+      },
+      "defensive": {
+        "legalStops": 0,
+        "steals": 0,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Helgi Marinó Kristófersson",
+    "gamesPlayed": 2,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 2,
+        "totalGoals": 0,
+        "totalShots": 0,
+        "shootingPercentage": "0%"
+      },
+      "defensive": {
+        "legalStops": 1,
+        "steals": 0,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Sigurður Bjarmi Árnason",
+    "gamesPlayed": 1,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 1,
+        "totalGoals": 0,
+        "totalShots": 0,
+        "shootingPercentage": "0%"
+      },
+      "defensive": {
+        "legalStops": 0,
+        "steals": 0,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Gústaf Logi Gunnarsson",
+    "gamesPlayed": 1,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 1,
+        "totalGoals": 0,
+        "totalShots": 0,
+        "shootingPercentage": "0%"
+      },
+      "defensive": {
+        "legalStops": 0,
+        "steals": 0,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Magnús Gunnar Karlsson",
+    "position": "Markmaður",
+    "stats": {
+      "goalkeeper": {
+        "gamesPlayed": 22,
+        "totalSaves": 70,
+        "savePercentage": "28.8%"
+      },
+      "offensive": {
+        "gamesPlayed": 22,
+        "totalGoals": 0,
+        "totalShots": 1,
+        "shootingPercentage": "0.0%"
+      }
+    }
+  },
+  {
+    "name": "Ari Dignus Maríuson",
+    "position": "Markmaður",
+    "stats": {
+      "goalkeeper": {
+        "gamesPlayed": 3,
+        "totalSaves": 1,
+        "savePercentage": "11.1%"
+      },
+      "offensive": {
+        "gamesPlayed": 3,
+        "totalGoals": 0,
+        "totalShots": 0,
+        "shootingPercentage": "0%"
+      }
+    }
+  }
+]

@@ -1,54 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useMatch } from '../context/MatchContext';
 
 export default function Leikvakt() {
-  const [minutes, setMinutes] = useState(45);
-  const [seconds, setSeconds] = useState(12);
-  const [haukarScore, setHaukarScore] = useState(24);
-  const [valurScore, setValurScore] = useState(21);
-
-  const [events, setEvents] = useState([
-    { id: 1, time: '45:12', type: 'goal_haukar', title: 'MARK! Haukar (24-21)', desc: 'Þráinn Orri Jónsson skorar með glæsilegu skoti af línunni eftir frábæra sendingu.' },
-    { id: 2, time: '44:30', type: 'save', title: 'Varin! Haukar', desc: 'Aron Rafn Eðvarðsson ver glæsilega úr dauðafæri hornamanns Vals.' },
-    { id: 3, time: '43:15', type: 'penalty', title: 'Tveggja mínútna brottvísun', desc: 'Leikmaður Vals fær 2 mínútur fyrir brot á línumanni Hauka.' },
-    { id: 4, time: '42:05', type: 'goal_valur', title: 'MARK! Valur (23-21)', desc: 'Valur minnkar muninn með langskoti.' }
-  ]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSeconds(prev => {
-        if (prev === 59) {
-          setMinutes(m => m + 1);
-          return 0;
-        }
-        return prev + 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const simulateEvent = setInterval(() => {
-      const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-      const randomOutcome = Math.random();
-      
-      let newEvent;
-      if (randomOutcome > 0.8) {
-        setHaukarScore(prev => prev + 1);
-        newEvent = { id: Date.now(), time: timeString, type: 'goal_haukar', title: `MARK! Haukar (${haukarScore + 1}-${valurScore})`, desc: 'Hraðaupphlaup endar með glæsilegu marki!' };
-      } else if (randomOutcome > 0.6) {
-        setValurScore(prev => prev + 1);
-        newEvent = { id: Date.now(), time: timeString, type: 'goal_valur', title: `MARK! Valur (${haukarScore}-${valurScore + 1})`, desc: 'Valur nýtir sóknina vel og skorar úr horninu.' };
-      } else {
-        newEvent = { id: Date.now(), time: timeString, type: 'save', title: 'Dauðafæri fer forgörðum', desc: 'Frábær markvarsla heldur stöðunni óbreyttri.' };
-      }
-
-      setEvents(prev => [newEvent, ...prev]);
-
-    }, Math.floor(Math.random() * (15000 - 8000 + 1) + 8000));
-
-    return () => clearInterval(simulateEvent);
-  }, [minutes, seconds, haukarScore, valurScore]);
+  const { minutes, seconds, haukarScore, fhScore, events } = useMatch();
 
   return (
     <main className="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-16 pb-12 flex-grow w-full">
@@ -56,13 +9,13 @@ export default function Leikvakt() {
         <div>
           <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#c8102e]/10 text-[#c8102e] text-xs font-bold uppercase tracking-widest rounded mb-3">
             <span className="w-2 h-2 rounded-full bg-[#c8102e] animate-pulse"></span>
-            Bein Útsending
+            Bein Útsending - Hafnarfjarðarslagurinn
           </span>
           <h1 className="text-3xl md:text-5xl font-black text-[#c8102e] italic tracking-tighter uppercase">
-            Haukar vs Valur
+            Haukar vs FH
           </h1>
           <p className="text-gray-500 font-medium mt-1">
-            Olís deild karla • Ásvellir • Áhorfendur: 1,240
+            Olís deild karla • Ásvellir • Áhorfendur: 2,450 (UPPSELT)
           </p>
         </div>
         
@@ -73,7 +26,7 @@ export default function Leikvakt() {
            <div className="flex items-center gap-6 text-5xl md:text-6xl font-black italic tracking-tighter">
              <span className="text-[#1c2c6c]">{haukarScore}</span>
              <span className="text-[#c8102e] mb-2">-</span>
-             <span className="text-gray-400">{valurScore}</span>
+             <span className="text-gray-400">{fhScore}</span>
           </div>
         </div>
       </div>

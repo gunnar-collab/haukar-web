@@ -2,24 +2,24 @@ import { Link } from 'react-router-dom';
 
 export default function RosterPreview({ players, loading, title, subtitle, isKarate = false }) {
   return (
-    <div className="lg:col-span-2">
-      <div className="flex justify-between items-end mb-8">
+    <div className="max-w-7xl mx-auto px-6 mb-24 w-full">
+      <div className="flex justify-between items-end mb-8 border-b border-gray-200 pb-4">
         <div>
           <h2 className="text-3xl font-black italic tracking-tighter text-[#c8102e] uppercase">{title}</h2>
-          <p className="text-gray-500 text-sm mt-1">{subtitle}</p>
+          <p className="text-gray-400 text-sm font-bold uppercase tracking-widest mt-1">{subtitle}</p>
         </div>
         {!isKarate && (
-          <Link to="/leikmannahopur" className="text-[#1c2c6c] text-sm font-bold uppercase tracking-widest hover:text-[#c8102e] transition-colors flex items-center gap-1 bg-gray-50 px-4 py-2 rounded-lg border border-gray-100" aria-label={`Sjá allan ${title.toLowerCase()}`}>
-            Sjá alla <span className="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+          <Link to="/leikmannahopur" className="text-[#1c2c6c] text-sm font-bold uppercase tracking-widest hover:text-[#c8102e] transition-colors flex items-center gap-1" aria-label={`Sjá allan ${title.toLowerCase()}`}>
+            Skoða hópinn <span className="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
           </Link>
         )}
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 relative">
         {loading && (
           <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10"></div>
         )}
-        {players.map((player) => {
+        {players.slice(0, 5).map((player) => {
           const Wrapper = isKarate ? 'div' : Link;
           const wrapperProps = isKarate ? { key: player.slug } : { to: `/leikmenn/${player.slug}`, state: { player }, key: player.number };
 

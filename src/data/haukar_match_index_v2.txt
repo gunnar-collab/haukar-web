@@ -1,0 +1,43 @@
+HAUKAR SEASON 2026 - MATCH INDEX & METADATA
+
+This index categorizes the 33 match logs (match_XXXXX.md) by Home/Away status and Opponent. 
+Use this to analyze tactical differences and performance trends.
+
+--- HAUKAR HOME GAMES (16 MATCHES) ---
+Venue: Ásvellir / Schenkerhöllin
+
+- vs. FH: 12821, 12897, 12905
+- vs. Afturelding: 12596, 12890
+- vs. Valur: 12643, 12650
+- vs. ÍR: 12619, 12835
+- vs. HK: 12712
+- vs. KA: 12729
+- vs. Fram: 12751
+- vs. ÍBV: 12804
+- vs. Stjarnan: 12666
+- vs. Þór: 12699
+- vs. Selfoss: 12846
+
+--- HAUKAR AWAY GAMES (17 MATCHES) ---
+Venue: Opponent's Arena
+
+- vs. FH: 12671, 12832, 12893, 12900
+- vs. Afturelding: 12723, 12875, 12886
+- vs. HK: 12756, 12852
+- vs. Valur: 12796
+- vs. ÍR: 12737
+- vs. KA: 12612
+- vs. Fram: 12630
+- vs. ÍBV: 12661
+- vs. Stjarnan: 12814
+- vs. Þór: 12838
+- vs. Selfoss: 12703
+
+--- KEY TERMINOLOGY IN MATCH LOGS ---
+- 'löglega stöðvun' : Legal defensive stop (High impact)
+- 'fiskar víti' : Earned a penalty shot (vítakast)
+- 'stoðsendinguna' : Assist
+- 'VARIÐ!' : Goalkeeper save
+- 'gegnumþrot' : Breakthrough / One-on-one drive
+- 'stolinn bolti' : Steal
+- 'tapaður bolti' : Turnover

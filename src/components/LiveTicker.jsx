@@ -1,8 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useMatch } from '../context/MatchContext';
 
 export default function LiveTicker({ toggleDrawer, isOpen }) {
   // 1. We ask the engine: "Where are we right now?"
   const location = useLocation();
+  const { minutes, seconds, haukarScore, fhScore } = useMatch();
   
   // 2. We build the logic: If we are on '/leikvakt', the link goes to '/' (Home). Otherwise, go to '/leikvakt'.
   const targetPath = location.pathname === '/leikvakt' ? '/' : '/leikvakt';
@@ -26,15 +28,15 @@ export default function LiveTicker({ toggleDrawer, isOpen }) {
           <div className="font-headline font-black tracking-wide flex items-center gap-2 md:gap-4 text-sm md:text-lg">
             <span className="hidden sm:inline">HAUKAR</span>
             <span className="sm:hidden">HAU</span>
-            <span className="bg-white text-haukar-red px-3 py-1 rounded shadow-inner text-base md:text-xl group-hover:scale-105 transition-transform">
-              24 - 21
+            <span className="bg-white text-haukar-red px-3 py-1 rounded shadow-inner text-base md:text-xl group-hover:scale-105 transition-transform min-w-[80px] text-center tabular-nums">
+              {haukarScore} - {fhScore}
             </span>
-            <span className="hidden sm:inline opacity-90">VALUR</span>
-            <span className="sm:hidden opacity-90">VAL</span>
+            <span className="hidden sm:inline opacity-90">FH</span>
+            <span className="sm:hidden opacity-90">FH</span>
           </div>
 
-          <div className="font-body font-medium hidden md:block opacity-90 text-sm">
-            (45:12)
+          <div className="font-body font-medium hidden md:block opacity-90 text-sm tabular-nums min-w-[55px]">
+            ({minutes}:{seconds.toString().padStart(2, '0')})
           </div>
         </Link>
         

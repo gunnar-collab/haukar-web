@@ -1,8 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1, h2, h3, h4, h5, h6, .break-icelandic {
+    /* Tell the browser to automatically hyphenate using the "is" dictionary */
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+
+    /* Fallback: If it still overflows, break the word to save the layout */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
 
 /* Anti-Flicker Curtain Drop */
 body {

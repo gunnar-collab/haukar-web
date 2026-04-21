@@ -1,0 +1,308 @@
+[
+  {
+    "name": "Jóhanna Margrét Sigurðardóttir",
+    "gamesPlayed": 23,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 23,
+        "totalGoals": 158,
+        "totalShots": 286,
+        "shootingPercentage": "55.2%"
+      },
+      "defensive": {
+        "legalStops": 83,
+        "steals": 23,
+        "blockedShots": 13
+      }
+    }
+  },
+  {
+    "name": "Rakel Oddný Guðmundsdóttir",
+    "gamesPlayed": 25,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 25,
+        "totalGoals": 131,
+        "totalShots": 180,
+        "shootingPercentage": "72.8%"
+      },
+      "defensive": {
+        "legalStops": 21,
+        "steals": 31,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Embla Steindórsdóttir",
+    "gamesPlayed": 26,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 26,
+        "totalGoals": 109,
+        "totalShots": 191,
+        "shootingPercentage": "57.1%"
+      },
+      "defensive": {
+        "legalStops": 119,
+        "steals": 10,
+        "blockedShots": 3
+      }
+    }
+  },
+  {
+    "name": "Sonja Lind Sigsteinsdóttir",
+    "gamesPlayed": 26,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 26,
+        "totalGoals": 80,
+        "totalShots": 128,
+        "shootingPercentage": "62.5%"
+      },
+      "defensive": {
+        "legalStops": 70,
+        "steals": 13,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Inga Dís Jóhannsdóttir",
+    "gamesPlayed": 24,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 24,
+        "totalGoals": 65,
+        "totalShots": 128,
+        "shootingPercentage": "50.8%"
+      },
+      "defensive": {
+        "legalStops": 42,
+        "steals": 9,
+        "blockedShots": 2
+      }
+    }
+  },
+  {
+    "name": "Alexandra Líf Arnarsdóttir",
+    "gamesPlayed": 26,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 26,
+        "totalGoals": 45,
+        "totalShots": 62,
+        "shootingPercentage": "72.6%"
+      },
+      "defensive": {
+        "legalStops": 91,
+        "steals": 11,
+        "blockedShots": 19
+      }
+    }
+  },
+  {
+    "name": "Sara Marie Odden",
+    "gamesPlayed": 23,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 23,
+        "totalGoals": 37,
+        "totalShots": 72,
+        "shootingPercentage": "51.4%"
+      },
+      "defensive": {
+        "legalStops": 59,
+        "steals": 12,
+        "blockedShots": 31
+      }
+    }
+  },
+  {
+    "name": "Thelma Melsted Björgvinsdóttir",
+    "gamesPlayed": 26,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 26,
+        "totalGoals": 27,
+        "totalShots": 46,
+        "shootingPercentage": "58.7%"
+      },
+      "defensive": {
+        "legalStops": 26,
+        "steals": 0,
+        "blockedShots": 4
+      }
+    }
+  },
+  {
+    "name": "Aníta Eik Jónsdóttir",
+    "gamesPlayed": 26,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 26,
+        "totalGoals": 22,
+        "totalShots": 59,
+        "shootingPercentage": "37.3%"
+      },
+      "defensive": {
+        "legalStops": 62,
+        "steals": 5,
+        "blockedShots": 2
+      }
+    }
+  },
+  {
+    "name": "Ragnheiður Ragnarsdóttir",
+    "gamesPlayed": 17,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 17,
+        "totalGoals": 21,
+        "totalShots": 29,
+        "shootingPercentage": "72.4%"
+      },
+      "defensive": {
+        "legalStops": 8,
+        "steals": 4,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Sara Sif Helgadóttir",
+    "position": "Markmaður",
+    "stats": {
+      "goalkeeper": {
+        "gamesPlayed": 18,
+        "totalSaves": 291,
+        "savePercentage": "33.9%"
+      },
+      "offensive": {
+        "gamesPlayed": 18,
+        "totalGoals": 18,
+        "totalShots": 11,
+        "shootingPercentage": "163.6%"
+      }
+    }
+  },
+  {
+    "name": "Birta Lind Jóhannsdóttir",
+    "gamesPlayed": 25,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 25,
+        "totalGoals": 11,
+        "totalShots": 17,
+        "shootingPercentage": "64.7%"
+      },
+      "defensive": {
+        "legalStops": 3,
+        "steals": 1,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Ebba Guðríður Ægisdóttir",
+    "gamesPlayed": 26,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 26,
+        "totalGoals": 3,
+        "totalShots": 7,
+        "shootingPercentage": "42.9%"
+      },
+      "defensive": {
+        "legalStops": 0,
+        "steals": 1,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Rut Arnfjörð Jónsdóttir",
+    "gamesPlayed": 2,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 2,
+        "totalGoals": 2,
+        "totalShots": 4,
+        "shootingPercentage": "50%"
+      },
+      "defensive": {
+        "legalStops": 1,
+        "steals": 0,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Roksana Jaros",
+    "gamesPlayed": 15,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 15,
+        "totalGoals": 1,
+        "totalShots": 2,
+        "shootingPercentage": "50%"
+      },
+      "defensive": {
+        "legalStops": 0,
+        "steals": 0,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Elísa Helga Sigurðardóttir",
+    "position": "Markmaður",
+    "stats": {
+      "goalkeeper": {
+        "gamesPlayed": 3,
+        "totalSaves": 31,
+        "savePercentage": "29.8%"
+      },
+      "offensive": {
+        "gamesPlayed": 3,
+        "totalGoals": 1,
+        "totalShots": 2,
+        "shootingPercentage": "50.0%"
+      }
+    }
+  },
+  {
+    "name": "Ester Amíra Ægisdóttir",
+    "gamesPlayed": 7,
+    "stats": {
+      "offensive": {
+        "gamesPlayed": 7,
+        "totalGoals": 0,
+        "totalShots": 0,
+        "shootingPercentage": "0%"
+      },
+      "defensive": {
+        "legalStops": 0,
+        "steals": 0,
+        "blockedShots": 0
+      }
+    }
+  },
+  {
+    "name": "Erla Rut Viktorsdóttir",
+    "position": "Markmaður",
+    "stats": {
+      "goalkeeper": {
+        "gamesPlayed": 2,
+        "totalSaves": 5,
+        "savePercentage": "38.5%"
+      },
+      "offensive": {
+        "gamesPlayed": 2,
+        "totalGoals": 0,
+        "totalShots": 0,
+        "shootingPercentage": "0%"
+      }
+    }
+  }
+]

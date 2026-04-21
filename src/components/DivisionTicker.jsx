@@ -9,7 +9,7 @@ export default function DivisionTicker({ isOpen }) {
         
         <div className="flex items-center gap-2 text-gray-300 hover:text-white transition-all cursor-pointer group">
           <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e] shadow-[0_0_6px_#c8102e] group-hover:animate-pulse"></span>
-          <span>Handbolti: Haukar 28 - 24 FH</span>
+          <span>Handbolti: Haukar 35 - 36 FH</span>
         </div>
 
         <div className="flex items-center gap-2 text-gray-300 hover:text-white transition-all cursor-pointer group">

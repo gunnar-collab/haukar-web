@@ -22,9 +22,12 @@ export const dataKarla = {
     statsLink: 'https://hbstatz.is/OlisDeildKarlaLeikur.php?ID=12905'
   },
   players: [
-    { number: "27", slug: "aron-rafn", name: "Aron Rafn", position: "Markvörður", deepStats: { leikir: 29, mork: 0.1, nytni: 100, sto: 4 }, img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5515.jpg" },
-    { number: "3", slug: "hergeir-grimsson", name: "Hergeir", position: "Leikstjórnandi", deepStats: { leikir: 28, mork: 2.9, nytni: 62.1, sto: 1.6 }, img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5461.jpg" },
-    { number: "4", slug: "adam-haukur", name: "Adam Haukur", position: "Skytta", deepStats: { leikir: 25, mork: 1.0, nytni: 61.5, sto: 0.4 }, img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5260.jpg" }
+    { number: "27", slug: "aron-rafn", name: "Aron Rafn", position: "Markvörður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5515.jpg" },
+    { number: "3", slug: "hergeir-grimsson", name: "Hergeir", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5461.jpg" },
+    { number: "4", slug: "adam-haukur", name: "Adam Haukur", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5260.jpg" },
+    { number: "11", slug: "birkir-snaer", name: "Birkir Snær", position: "Hornamaður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5368.jpg" },
+    { number: "9", slug: "sigurdur-snaer", name: "Sigurður Snær", position: "Lína", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5278.jpg" },
+    { number: "24", slug: "olafur-aegir", name: "Ólafur Ægir", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5229.jpg" }
   ]
 };
 
@@ -52,9 +55,12 @@ export const dataKvenna = {
     statsLink: 'https://hbstatz.is/OlisDeildKvennaTolfraedi.php'
   },
   players: [
-    { number: "1", slug: "elisa-helga", name: "Elísa Helga", position: "Markvörður", deepStats: { leikir: 21, mork: 0.5, nytni: 50.0, sto: 2 }, img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5999.jpg" },
-    { number: "4", slug: "sara-sif", name: "Sara Sif", position: "Útileikmaður", deepStats: { leikir: 21, mork: 4.8, nytni: 63.4, sto: 3.2 }, img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6121.jpg" },
-    { number: "12", slug: "erla", name: "Erla", position: "Markvörður", deepStats: { leikir: 21, mork: 0.2, nytni: 33.3, sto: 1 }, img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6033.jpg" }
+    { number: "1", slug: "elisa-helga", name: "Elísa Helga", position: "Markvörður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5999.jpg" },
+    { number: "4", slug: "sara-sif", name: "Sara Sif", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6121.jpg" },
+    { number: "91", slug: "johanna-margret", name: "Jóhanna Margrét", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5741.jpg" },
+    { number: "7", slug: "rakel-oddny", name: "Rakel Oddný", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5780.jpg" },
+    { id: 33, slug: 'ebba-gudridur', name: 'Ebba Guðríður', number: '15', position: 'Lína', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5916.jpg' },
+    { id: 26, slug: 'ragnheidur-5', name: 'Ragnheiður', number: '5', position: 'Hornamaður', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5800.jpg' }
   ]
 };
 
