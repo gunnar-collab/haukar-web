@@ -13,7 +13,7 @@ export default function Aefingagjold() {
     { name: 'Körfubolti', icon: 'sports_basketball', link: 'https://www.abler.io/shop/haukar/korfubolti' },
     { name: 'Leikjaskóli', icon: 'toys', link: 'https://www.abler.io/shop/haukar/leikjaskoli' },
     { name: 'Rafíþróttir', icon: 'sports_esports', link: 'https://www.abler.io/shop/haukar/rafithrottir' },
-    { name: 'Karaté', icon: 'sports_martial_arts', link: 'https://www.abler.io/shop/haukar/karate' }
+    { name: 'Karate', icon: 'sports_martial_arts', link: 'https://www.abler.io/shop/haukar/karate' }
   ];
 
   return (

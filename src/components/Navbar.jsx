@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import Button from './Button.jsx';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { NAV_LINKS } from '../data/navConfig.js';
 import { cn } from '../lib/utils.js';
 
 export default function Navbar({ onOpenTickets }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null); 
+
+  const activeClassName = "text-[#1c2c6c] border-b-2 border-[#c8102e]";
+  const baseClassName = "text-sm font-bold text-gray-500 hover:text-[#1c2c6c] uppercase tracking-wider transition-all py-2";
 
   const toggleMobileAccordion = (section) => {
     setMobileExpanded(mobileExpanded === section ? null : section);
@@ -41,9 +44,16 @@ export default function Navbar({ onOpenTickets }) {
               </span>
               <div className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col z-50">
                 {NAV_LINKS.deildir.map((link) => (
-                  <Link key={link.name} to={link.path} className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2">
+                  <NavLink 
+                    key={link.name} 
+                    to={link.path} 
+                    className={({ isActive }) => cn(
+                      "px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2",
+                      isActive && "bg-gray-50 text-[#c8102e]"
+                    )}
+                  >
                     {link.name}
-                  </Link>
+                  </NavLink>
                 ))}
               </div>
             </div>
@@ -55,9 +65,16 @@ export default function Navbar({ onOpenTickets }) {
               </span>
               <div className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col z-50">
                 {NAV_LINKS.felagid.map((link) => (
-                  <Link key={link.name} to={link.path} className="px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0">
+                  <NavLink 
+                    key={link.name} 
+                    to={link.path} 
+                    className={({ isActive }) => cn(
+                      "px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0",
+                      isActive && "bg-gray-50 text-[#c8102e]"
+                    )}
+                  >
                     {link.name}
-                  </Link>
+                  </NavLink>
                 ))}
               </div>
             </div>
@@ -68,14 +85,14 @@ export default function Navbar({ onOpenTickets }) {
             </a>
 
             {/* 4. Dagatal */}
-            <Link to="/dagatal" className="text-sm font-bold text-gray-500 hover:text-[#1c2c6c] uppercase tracking-wider transition-colors py-2">
+            <NavLink to="/dagatal" className={({ isActive }) => cn(baseClassName, isActive && activeClassName)}>
               Dagatal
-            </Link>
+            </NavLink>
 
             {/* 5. Leikvakt */}
-            <Link to="/leikvakt" className="text-sm font-bold text-gray-500 hover:text-[#1c2c6c] uppercase tracking-wider transition-colors py-2">
+            <NavLink to="/leikvakt" className={({ isActive }) => cn(baseClassName, isActive && activeClassName)}>
               Leikvakt
-            </Link>
+            </NavLink>
 
           </div>
 
@@ -83,9 +100,9 @@ export default function Navbar({ onOpenTickets }) {
             <Button variant="secondary" size="sm" icon="local_activity" onClick={onOpenTickets}>
               Kaupa miða
             </Button>
-            <Link to="/vefverslun" aria-label="Vefverslun">
-              <Button variant="primary" size="sm" icon="shopping_cart">
-                Vefverslun
+            <Link to="/vefverslun" aria-label="Hauka varningur">
+              <Button variant="primary" size="sm" icon="checkroom">
+                Hauka varningur
               </Button>
             </Link>
           </div>
@@ -149,9 +166,9 @@ export default function Navbar({ onOpenTickets }) {
               <Button variant="secondary" size="md" icon="local_activity" className="w-full justify-center" onClick={() => { setIsMobileMenuOpen(false); onOpenTickets(); }}>
                 Kaupa miða
               </Button>
-              <Link to="/vefverslun" onClick={handleMobileNav} className="w-full" aria-label="Vefverslun">
-                <Button variant="primary" size="md" icon="shopping_cart" className="w-full justify-center">
-                  Vefverslun
+              <Link to="/vefverslun" onClick={handleMobileNav} className="w-full" aria-label="Hauka varningur">
+                <Button variant="primary" size="md" icon="checkroom" className="w-full justify-center">
+                  Hauka varningur
                 </Button>
               </Link>
             </div>

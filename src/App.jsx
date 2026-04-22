@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Layout Components
 import Karate from './pages/Karate';
@@ -31,13 +31,18 @@ import Vefverslun from './pages/Vefverslun';
 import Sagan from './pages/Sagan';
 
 import { MatchProvider } from './context/MatchContext';
+import ScrollToTop from './components/ScrollToTop';
+import NavigationProgressBar from './components/NavigationProgressBar';
 
 export default function App() {
+  const location = useLocation();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
 
   return (
     <MatchProvider>
+      <ScrollToTop />
+      <NavigationProgressBar />
       <div className="bg-[#fafafa] text-gray-900 font-sans selection:bg-[#c8102e] selection:text-white flex flex-col min-h-screen">
         
         {/* 1. Modals & Overlays */}
@@ -51,7 +56,10 @@ export default function App() {
         </div>
 
         {/* 3. STRICT CONTENT WRAPPER (Destroys all horizontal overflow) */}
-        <div className="flex-grow relative z-10 overflow-x-hidden w-full pt-[120px]">
+        <div 
+          key={location.key}
+          className="flex-grow relative z-10 overflow-x-hidden w-full pt-[120px] page-transition"
+        >
           <Routes>
             <Route path="/leikmenn/:slug" element={<PlayerProfile />} />
             <Route path="/karate" element={<Karate />} />

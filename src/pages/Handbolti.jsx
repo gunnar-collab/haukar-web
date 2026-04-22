@@ -57,11 +57,23 @@ export default function Handbolti({ onOpenTickets }) {
   });
 
   // Sort by "Star Power" (Total Goals for players, Total Saves for GKs)
-  const topPlayers = [...enrichedPlayers].sort((a, b) => {
+  // Sort by "Star Power" but only allow ONE Goalkeeper in the Top 5
+  const goalkeepers = [...enrichedPlayers]
+    .filter(p => p.position === "Markvörður")
+    .sort((a, b) => (b.stats?.goalkeeper?.totalSaves || 0) - (a.stats?.goalkeeper?.totalSaves || 0));
+  
+  const fieldPlayers = [...enrichedPlayers]
+    .filter(p => p.position !== "Markvörður")
+    .sort((a, b) => (b.stats?.offensive?.totalGoals || 0) - (a.stats?.offensive?.totalGoals || 0));
+
+  const topPlayers = [
+    ...(goalkeepers.slice(0, 1)), // Only the top GK
+    ...(fieldPlayers.slice(0, 4))  // Top 4 field players
+  ].sort((a, b) => {
     const aVal = (parseInt(a.stats?.offensive?.totalGoals) || 0) + (parseInt(a.stats?.goalkeeper?.totalSaves) || 0);
     const bVal = (parseInt(b.stats?.offensive?.totalGoals) || 0) + (parseInt(b.stats?.goalkeeper?.totalSaves) || 0);
     return bVal - aVal;
-  }).slice(0, 5);
+  });
 
   // Simulate an API call
   useEffect(() => {
@@ -106,7 +118,7 @@ export default function Handbolti({ onOpenTickets }) {
       />
 
       {/* Real-time League Data Dashboard */}
-      <LeagueDashboard gender={gender} />
+      <LeagueDashboard gender={gender} onOpenTickets={onOpenTickets} />
 
       <SocialWall 
         title="Haukar Topphandbolti"

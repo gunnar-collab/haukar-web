@@ -65,7 +65,7 @@ export default function Footer() {
                 { name: 'Handbolti', icon: 'sports_handball' },
                 { name: 'Fótbolti', icon: 'sports_soccer' },
                 { name: 'Körfubolti', icon: 'sports_basketball' },
-                { name: 'Karaté', icon: 'sports_martial_arts' },
+                { name: 'Karate', icon: 'sports_martial_arts' },
                 { name: 'Skíði', icon: 'downhill_skiing' }
               ].map((sport) => (
                 <li key={sport.name}>

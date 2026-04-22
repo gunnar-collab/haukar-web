@@ -18,7 +18,7 @@ export default function Karate() {
     setGender(newGender);
   };
 
-  // Simulate an API call to KAÍ (Karatésamband Íslands)
+  // Simulate an API call to KAÍ (Karatesamband Íslands)
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -32,7 +32,7 @@ export default function Karate() {
     <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#1c2c6c] selection:text-white">
       
       <DivisionHero 
-        sportName="Haukar Karaté"
+        sportName="Haukar Karate"
         icon="sports_martial_arts"
         bgImage="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&q=80&w=2000"
         gender={gender}
@@ -81,7 +81,7 @@ export default function Karate() {
       />
 
       <NewsSection 
-        title="Fréttir úr Karaté"
+        title="Fréttir úr Karate"
         newsList={karateNews}
       />
 
@@ -106,7 +106,7 @@ export default function Karate() {
       </div>
 
       <SocialWall 
-        title="Haukar Karaté"
+        title="Haukar Karate"
         socialPosts={socialPosts}
       />
     </div>

@@ -169,7 +169,7 @@ export default function TrophyCabinet() {
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="material-symbols-outlined text-white text-[20px]">sports_martial_arts</span>
-                    <h4 className="font-bold text-white text-base leading-none uppercase tracking-wider">Karaté</h4>
+                    <h4 className="font-bold text-white text-base leading-none uppercase tracking-wider">Karate</h4>
                   </div>
                   <p className="text-xs text-white/80 font-medium leading-relaxed border-l-2 border-white/20 pl-3 ml-2">
                     Fyrsti Íslandsmeistaratitillinn í liðakeppni vannst á 80 ára afmæli félagsins árið 2011.

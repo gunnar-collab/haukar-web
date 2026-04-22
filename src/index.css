@@ -18,12 +18,21 @@
 /* Anti-Flicker Curtain Drop */
 body {
     opacity: 0;
-    animation: fadeIn 0.3s ease-in forwards 0.15s;
+    animation: bodyFadeIn 0.3s ease-in forwards 0.15s;
     background-color: #ffffff;
 }
 
-@keyframes fadeIn {
+@keyframes bodyFadeIn {
     to { opacity: 1; }
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-transition {
+  animation: pageEnter 0.4s ease-out forwards;
 }
 
 /* Material Icons Fix */

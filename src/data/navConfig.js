@@ -3,7 +3,7 @@ export const NAV_LINKS = {
     { name: 'Handbolti', path: '/handbolti' },
     { name: 'Fótbolti', path: '/fotbolti' },
     { name: 'Körfubolti', path: '/korfubolti' },
-    { name: 'Karaté', path: '/karate' },
+    { name: 'Karate', path: '/karate' },
     { name: 'Skíði', path: '#' }
   ],
   felagid: [

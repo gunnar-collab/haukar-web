@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 
 /**
  * PlayerProfile - Sniðmát fyrir tölfræði leikmanna Hauka
@@ -7,34 +7,31 @@ import { useLocation, Link } from 'react-router-dom';
  */
 export default function PlayerProfile() {
   const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const navigate = useNavigate();
 
   // Sjálfgefin gögn ef engin gögn berast
-  const player = location.state?.player || {
-    name: 'Aron Rafn Eðvarðsson',
-    number: '1',
-    position: 'Markmaður',
-    img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5515.jpg',
-    stats: {
-      offensive: {
-        gamesPlayed: 28,
-        totalGoals: 2,
-        totalShots: 3,
-        shootingPercentage: '66.7%'
-      },
-      defensive: {
-        legalStops: 1,
-        steals: 2,
-        blockedShots: 0
-      },
-      goalkeeper: {
-        totalSaves: 189
-      }
-    }
-  };
+  const player = location.state?.player;
+
+  if (!player) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#fafafa]">
+        <div className="text-center p-8 bg-white rounded-3xl shadow-xl border border-gray-100 max-w-md w-full">
+          <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-300">
+            <span className="material-symbols-outlined text-5xl">person_off</span>
+          </div>
+          <h1 className="text-2xl font-black italic text-[#1c2c6c] uppercase mb-4 tracking-tight">Leikmaður fannst ekki</h1>
+          <p className="text-gray-500 text-sm mb-8 font-medium">Við fundum því miður ekki leikmanninn sem þú varst að leita að. Hann gæti hafa fært sig um set eða slóðin er röng.</p>
+          <button 
+            onClick={() => navigate(-1)}
+            className="w-full bg-[#c8102e] text-white font-black py-4 rounded-2xl hover:bg-[#9b0c23] transition-all shadow-lg hover:shadow-[#c8102e]/30 flex items-center justify-center gap-2"
+          >
+            <span className="material-symbols-outlined">arrow_back</span>
+            Fara til baka
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const isGoalkeeper = player.position?.toLowerCase().includes('markmaður') || player.position?.toLowerCase().includes('markvörður');
 
@@ -53,10 +50,24 @@ export default function PlayerProfile() {
 
         <div className="max-w-7xl mx-auto px-6 w-full relative z-20 pb-12 flex flex-col md:flex-row items-end justify-between">
           <div className="w-full md:w-2/3">
-            <Link to="/leikmannahopur" className="text-white/80 hover:text-white text-xs font-bold uppercase tracking-widest mb-6 flex items-center gap-2 transition-all w-fit bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10 hover:bg-white/20">
-              <span className="material-symbols-outlined text-[16px]">arrow_back</span>
-              Aftur í hópinn
-            </Link>
+            {/* Breadcrumbs & Back Button */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <button 
+                onClick={() => navigate(-1)} 
+                className="text-white hover:bg-white/20 text-xs font-bold uppercase tracking-widest flex items-center gap-2 transition-all bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10"
+              >
+                <span className="material-symbols-outlined text-[16px]">arrow_back</span>
+                Til baka
+              </button>
+              
+              <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white/60">
+                <Link to="/" className="hover:text-white transition-colors">Heim</Link>
+                <span className="material-symbols-outlined text-[12px]">chevron_right</span>
+                <Link to={`/${player.sport || 'handbolti'}`} className="hover:text-white transition-colors">{player.sport || 'Handbolti'}</Link>
+                <span className="material-symbols-outlined text-[12px]">chevron_right</span>
+                <span className="text-white">{player.name}</span>
+              </div>
+            </div>
             
             <div className="flex items-center gap-4 mb-4">
               <span className="text-white/40 text-7xl font-black italic tracking-tighter tabular-nums drop-shadow-sm">

@@ -149,7 +149,7 @@ export default function HafaSamband() {
              Hver íþróttadeild ber ábyrgð á sínu eigin starfi. Smelltu á viðeigandi deild til að finna tengiliði, þjálfara og stjórnarmenn.
            </p>
            <div className="flex flex-wrap justify-center gap-4">
-              {['Handbolti', 'Fótbolti', 'Körfubolti', 'Karaté', 'Skíði'].map(sport => (
+              {['Handbolti', 'Fótbolti', 'Körfubolti', 'Karate', 'Skíði'].map(sport => (
                 <Link key={sport} to="#" className="bg-white/10 hover:bg-[#c8102e] text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors shadow-sm">
                   {sport}
                 </Link>

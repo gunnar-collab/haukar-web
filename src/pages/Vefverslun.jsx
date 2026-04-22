@@ -6,43 +6,162 @@ const products = [
     id: 1,
     name: "Haukar Keppnistreyja 2025/27",
     price: "7.990 ISK",
-    image: "https://boltamadurinn.is/cdn/shop/files/705747-01-1.png?v=1771674758&width=713",
-    isNew: true,
+    image: "https://boltamadurinn.is/cdn/shop/files/705747-01-1.png?v=1771674758&width=533",
+    isNew: true
   },
   {
     id: 2,
-    name: "Haukar Hettupeysa - Fullorðins",
-    price: "9.990 ISK",
-    image: "https://boltamadurinn.is/cdn/shop/files/6518618-01-1.png?v=1771679171&width=713",
-    isNew: false,
+    name: "Haukar stuttbuxur",
+    price: "3.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/705752-01-1.png?v=1771678697&width=533",
+    isNew: false
   },
   {
     id: 3,
-    name: "Haukar Æfingapeysa",
+    name: "Haukar Hettupeysa - Barna",
     price: "8.990 ISK",
-    image: "https://boltamadurinn.is/cdn/shop/files/658632-01.jpg?v=1728034367&width=713",
-    isNew: false,
+    image: "https://boltamadurinn.is/cdn/shop/files/6518618-01-1.png?v=1771679171&width=533",
+    isNew: false
   },
   {
     id: 4,
-    name: "Haukar stuttbuxur",
-    price: "3.990 ISK",
-    image: "https://boltamadurinn.is/cdn/shop/files/705752-01-1.png?v=1771678697&width=713",
-    isNew: false,
+    name: "Haukar Hettupeysa - Fullorðins",
+    price: "9.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/6518618-01-1.png?v=1771679171&width=533",
+    isNew: false
   },
   {
     id: 5,
-    name: "Haukar - Íþróttataska",
-    price: "7.990 ISK",
-    image: "https://boltamadurinn.is/cdn/shop/files/090233-03-Hau.png?v=1744124759&width=713",
-    isNew: false,
+    name: "Puma æfingabuxur síðar",
+    price: "9.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/657332-03_c9fdfdb6-d8f4-417c-8b51-d269b612390d.jpg?v=1728035655&width=533",
+    isNew: false
   },
   {
     id: 6,
+    name: "Haukar Æfingabolur",
+    price: "1.500 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/704917-01-1.png?v=1771680965&width=533",
+    isNew: false
+  },
+  {
+    id: 7,
+    name: "Haukar - Íþróttataska",
+    price: "7.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/090233-03-Hau.png?v=1744124759&width=533",
+    isNew: false
+  },
+  {
+    id: 8,
+    name: "Haukar - Bakpoki",
+    price: "5.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/090238-03.jpg?v=1725289080&width=533",
+    isNew: false
+  },
+  {
+    id: 9,
+    name: "Puma sokkar 3 í pakka",
+    price: "2.490 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/100000965002_pp_01_puma.jpg?v=1713867145&width=533",
+    isNew: false
+  },
+  {
+    id: 10,
+    name: "Haukar Æfingapeysa",
+    price: "8.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/658632-01.jpg?v=1728034367&width=533",
+    isNew: false
+  },
+  {
+    id: 11,
+    name: "Haukar æfingabolur",
+    price: "4.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/658637-01_00ee9497-c170-4cfb-8be5-cfefa7d74ed9.jpg?v=1728034840&width=533",
+    isNew: false
+  },
+  {
+    id: 12,
+    name: "Haukar Markmannstreyja",
+    price: "7.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/704933-40_430635f2-08dc-4e75-8324-5f7d62c2fc9f.jpg?v=1728036315&width=533",
+    isNew: false
+  },
+  {
+    id: 13,
+    name: "Stanno Raw Crew Grip Sokkar",
+    price: "2.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/444007-8200-1.png?v=1741702839&width=533",
+    isNew: false
+  },
+  {
+    id: 14,
+    name: "Puma markmannsbuxur handbolti",
+    price: "7.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/658601-03_821a1339-461e-4f07-8a54-b297e43492ff.jpg?v=1728036628&width=533",
+    isNew: false
+  },
+  {
+    id: 15,
     name: "Puma Nova training handbolti",
     price: "5.990 ISK",
-    image: "https://boltamadurinn.is/cdn/shop/files/084386.webp?v=1731410920&width=713",
-    isNew: false,
+    image: "https://boltamadurinn.is/cdn/shop/files/084386.webp?v=1731410920&width=533",
+    isNew: false
+  },
+  {
+    id: 16,
+    name: "Svampbolti - rauður",
+    price: "5.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/H17002.webp?v=1731412511&width=533",
+    isNew: false
+  },
+  {
+    id: 17,
+    name: "Puma Nova match pro handbolti",
+    price: "12.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/083789-01.webp?v=1731411261&width=533",
+    isNew: false
+  },
+  {
+    id: 18,
+    name: "Haukar derhúfa",
+    price: "3.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/Haukarcappink_4aedffa3-b419-4416-9d94-2d398ed95751.jpg?v=1736419771&width=533",
+    isNew: false
+  },
+  {
+    id: 19,
+    name: "Puma Nova training handbolti (blár)",
+    price: "5.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/083792_01.jpg?v=1731412353&width=533",
+    isNew: false
+  },
+  {
+    id: 20,
+    name: "Puma regnjakki - Fullorðins",
+    price: "9.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/657245-03-1.png?v=1746549142&width=533",
+    isNew: false
+  },
+  {
+    id: 21,
+    name: "Puma regnjakki - Barnastærðir",
+    price: "8.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/657245-03-1.png?v=1746549142&width=533",
+    isNew: false
+  },
+  {
+    id: 22,
+    name: "Puma teamGOAL23 Hettupeysa - Grá",
+    price: "6.293 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/656580-33-1.png?v=1746541740&width=533",
+    isNew: false
+  },
+  {
+    id: 23,
+    name: "Puma Nova Match handbolti",
+    price: "7.990 ISK",
+    image: "https://boltamadurinn.is/cdn/shop/files/083791-01.jpg?v=1731411098&width=533",
+    isNew: false
   }
 ];
 
@@ -61,11 +180,11 @@ export default function Vefverslun() {
         
         {/* Subtle Background Icon */}
         <span className="material-symbols-outlined text-[350px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none rotate-12">
-          shopping_bag
+          local_mall
         </span>
         
         <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-          <span className="text-[#1c2c6c] bg-white/20 px-4 py-1.5 rounded-full backdrop-blur-sm text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 block shadow-sm border border-white/20 flex items-center gap-2">
+          <span className="text-white bg-white/20 px-4 py-1.5 rounded-full backdrop-blur-sm text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 block shadow-sm border border-white/20 flex items-center gap-2">
             <span className="material-symbols-outlined text-[16px]">local_mall</span>
             Opinber Varningur
           </span>

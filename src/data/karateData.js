@@ -66,7 +66,7 @@ export const karateNews = [
 
 export const socialPosts = [
   { id: 1, platform: 'Instagram', handle: '@haukar_karate', image: 'https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&q=80&w=800', text: 'Gull, silfur og brons! Stórkostleg helgi að baki á Bikarmótinu. 🥇🥈🥉 #haukar #karate', likes: '215' },
-  { id: 2, platform: 'Facebook', handle: 'Haukar Karaté', image: 'https://images.unsplash.com/photo-1542596594-649edbc13630?auto=format&fit=crop&q=80&w=800', text: 'Minnum á skráningu á byrjendanámskeið barna. Örfá pláss laus í 6-8 ára hópnum!', likes: '142' },
+  { id: 2, platform: 'Facebook', handle: 'Haukar Karate', image: 'https://images.unsplash.com/photo-1542596594-649edbc13630?auto=format&fit=crop&q=80&w=800', text: 'Minnum á skráningu á byrjendanámskeið barna. Örfá pláss laus í 6-8 ára hópnum!', likes: '142' },
   { id: 3, platform: 'Instagram', handle: '@haukar_karate', image: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=800', text: 'Fókus og yfirvegun. Undirbúningur fyrir Íslandsmeistaramótið í fullum gangi. 🥋🔥', likes: '308' },
-  { id: 4, platform: 'Facebook', handle: 'Haukar Karaté', image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&q=80&w=800', text: 'Til hamingju með svarta beltið! Frábær árangur hjá okkar fólki í dag.', likes: '456' },
+  { id: 4, platform: 'Facebook', handle: 'Haukar Karate', image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&q=80&w=800', text: 'Til hamingju með svarta beltið! Frábær árangur hjá okkar fólki í dag.', likes: '456' },
 ];
