@@ -1,7 +1,9 @@
 import HeroBanner from '../components/HeroBanner';
 import NewsGrid from '../components/NewsGrid';
 import PlayerOfTheWeek from '../components/PlayerSpotlight'; 
+import GrantBanner from '../components/GrantBanner';
 import Veggurinn from '../components/Veggurinn';
+import FanZone from '../components/FanZone';
 import TrophyCabinet from '../components/TrophyCabinet';
 
 export default function Home() {
@@ -19,10 +21,16 @@ export default function Home() {
       {/* 3. Star Athlete Feature */}
       <PlayerOfTheWeek />
 
-      {/* 4. The Social Grid */}
+      {/* 4. Practical Information: Leisure Grant */}
+      <GrantBanner />
+
+      {/* 5. The Social Grid */}
       <Veggurinn />
 
-      {/* 5. Historical Anchor */}
+      {/* 6. Supporters' Area: Go Bananas! */}
+      <FanZone />
+
+      {/* 7. Historical Anchor */}
       <TrophyCabinet />
       
     </div>

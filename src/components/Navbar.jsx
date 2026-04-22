@@ -31,7 +31,7 @@ export default function Navbar({ onOpenTickets }) {
             aria-label="Forsíða"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <img src="/images/logo.png" alt="Haukar Logo" className="h-10 w-auto" />
+            <img src="/images/haukar-log.svg" alt="Haukar Logo" className="h-10 w-auto" />
             <span className="text-2xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mt-1">Haukar</span>
           </Link>
 

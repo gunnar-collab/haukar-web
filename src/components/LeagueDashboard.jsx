@@ -1,12 +1,52 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import leagueData from '../data/haukar_league_data.json';
+import MatchReportModal from './sports/MatchReportModal';
 
-export default function LeagueDashboard({ gender: propGender, onOpenTickets }) {
+export default function LeagueDashboard({ gender: propGender, onOpenTickets, sport = "handbolti" }) {
   const [internalGender, setInternalGender] = useState('karla');
+  const [selectedMatch, setSelectedMatch] = useState(null);
+  const [isReportOpen, setIsReportOpen] = useState(false);
+
   const activeGender = propGender || internalGender;
 
-  const currentData = leagueData[activeGender];
+  const activeKey = sport === 'handbolti' ? activeGender : `${sport}_${activeGender}`;
+  const currentData = leagueData[activeKey];
+
+  const leagueName = sport === 'handbolti' ? 'Olís deildinni' : sport === 'fotbolti' ? 'deildinni' : 'Bónusdeildinni';
+  const providerName = sport === 'handbolti' ? 'HBStatz' : sport === 'fotbolti' ? 'KSÍ' : 'KKÍ';
+
+  const handleOpenReport = (match) => {
+    setSelectedMatch(match);
+    setIsReportOpen(true);
+  };
+
+  const handballScorers = [
+    { name: "Freyr Aronsson", goals: 180, rank: 1, slug: "freyr-aronsson", position: "Skytta" },
+    { name: "Skarphéðinn Ívar", goals: 130, rank: 2, slug: "skarphedinn-ivar", position: "Skytta" },
+    { name: "Össur Haraldsson", goals: 100, rank: 3, slug: "ossur-haraldsson", position: "Skytta" },
+    { name: "Birkir Snær", goals: 91, rank: 4, slug: "birkir-snaer", position: "Hornamaður" },
+    { name: "Hergeir Grímsson", goals: 82, rank: 5, slug: "hergeir-grimsson", position: "Skytta" }
+  ];
+
+  const footballScorers = [
+    { name: "Fannar Óli", goals: 10, rank: 1, slug: "fannar-oli", position: "Sóknarmaður" },
+    { name: "Sigurður Hrannar", goals: 5, rank: 2, slug: "sigurdur-hrannar", position: "Miðjumaður" },
+    { name: "Daði Snær", goals: 2, rank: 3, slug: "dadi-snaer", position: "Varnarmaður" },
+    { name: "Guðjón Pétur", goals: 1, rank: 4, slug: "gudjon-petur", position: "Miðjumaður" },
+    { name: "Haukur Darri", goals: 1, rank: 5, slug: "haukur-darri", position: "Miðjumaður" }
+  ];
+
+  const basketballScorers = [
+    { name: "Keira Robinson", goals: 22.5, rank: 1, slug: "keira-robinson", position: "Bakvörður" },
+    { name: "Diamond Battles", goals: 18.2, rank: 2, slug: "diamond-battles", position: "Bakvörður" },
+    { name: "Hilmar Smári", goals: 16.5, rank: 3, slug: "hilmar-smari", position: "Bakvörður" },
+    { name: "Gerald Robinson", goals: 15.8, rank: 4, slug: "gerald-robinson", position: "Framherji" },
+    { name: "Lore Devos", goals: 14.2, rank: 5, slug: "lore-devos", position: "Framherji" }
+  ];
+
+  const scorers = sport === 'handbolti' ? handballScorers : sport === 'fotbolti' ? footballScorers : basketballScorers;
+  const pointType = sport === 'korfubolti' ? 'Stig' : 'Mörk';
 
   return (
     <section className="w-full py-24 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden">
@@ -22,7 +62,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets }) {
               Deildin og úrslit
             </h2>
             <p className="text-gray-500 font-medium text-lg leading-relaxed">
-              Fylgstu með gengi Hauka í Olís deildinni. Hér sérðu nýjustu úrslit, næstu leiki og stöðuna í deildinni í rauntíma.
+              Fylgstu með gengi Hauka í {leagueName}. Hér sérðu nýjustu úrslit, næstu leiki og stöðuna í deildinni í rauntíma.
             </p>
           </div>
 
@@ -117,7 +157,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets }) {
                 </table>
               </div>
               <div className="p-4 bg-gray-50 text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em] text-center border-t border-gray-100 italic">
-                Uppfært rauntíma frá HBStatz Data Engine
+                Uppfært rauntíma frá {providerName} Data Engine
               </div>
             </div>
           </div>
@@ -139,9 +179,17 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets }) {
                 
                 <div className="space-y-6">
                   {currentData.matches.slice(0, 3).map((match, idx) => (
-                    <div key={idx} className="group/match">
+                    <div 
+                      key={idx} 
+                      className="group/match cursor-pointer"
+                      onClick={() => handleOpenReport(match)}
+                    >
                       <div className="flex justify-between items-center mb-1">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{match.date}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{match.date}</span>
+                          <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                          <span className="text-[9px] font-black text-white/40 uppercase">Sjá skýrslu</span>
+                        </div>
                         <span className="text-[9px] font-black text-[#D4AF37] uppercase">{match.competition}</span>
                       </div>
                       <div className="flex items-center gap-4">
@@ -171,32 +219,29 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets }) {
                     Markahæstu Haukar
                   </h4>
                   <div className="space-y-3">
-                    <Link to="/leikmenn/freyr-aronsson" className="flex items-center justify-between bg-white/5 p-3 rounded-2xl border border-white/5 hover:bg-white/10 hover:translate-x-1 transition-all group/player">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-[#D4AF37] flex items-center justify-center text-[10px] font-black text-white shadow-lg">1</div>
-                        <div>
-                          <p className="text-xs font-black uppercase italic tracking-tight group-hover/player:text-[#D4AF37] transition-colors">Freyr Aronsson</p>
-                          <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest">Skytta</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-black italic">180</p>
-                        <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest">Mörk</p>
-                      </div>
-                    </Link>
-
-                    {[
-                      { name: "Skarphéðinn Ívar", goals: 130, rank: 2, slug: "skarphedinn-ivar" },
-                      { name: "Össur Haraldsson", goals: 100, rank: 3, slug: "ossur-haraldsson" },
-                      { name: "Birkir Snær", goals: 91, rank: 4, slug: "birkir-snaer" },
-                      { name: "Hergeir Grímsson", goals: 82, rank: 5, slug: "hergeir-grimsson" }
-                    ].map((player, pIdx) => (
-                      <Link to={`/leikmenn/${player.slug}`} key={pIdx} className="flex items-center justify-between p-1.5 px-3 hover:translate-x-1 transition-transform group/player">
+                    {scorers.map((player, pIdx) => (
+                      <Link 
+                        to={`/leikmenn/${player.slug}`} 
+                        key={pIdx} 
+                        className={`flex items-center justify-between p-3 rounded-2xl border transition-all group/player ${
+                          pIdx === 0 ? 'bg-white/5 border-white/5 hover:bg-white/10 hover:translate-x-1' : 'hover:translate-x-1 border-transparent'
+                        }`}
+                      >
                         <div className="flex items-center gap-3">
-                          <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center text-[9px] font-black text-white/50">{player.rank}</div>
-                          <p className="text-xs font-bold uppercase italic tracking-tight text-white/80 group-hover/player:text-white transition-colors">{player.name}</p>
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-white shadow-lg ${
+                            pIdx === 0 ? 'bg-[#D4AF37]' : 'bg-white/5 text-white/50'
+                          }`}>
+                            {player.rank}
+                          </div>
+                          <div>
+                            <p className="text-xs font-black uppercase italic tracking-tight group-hover/player:text-[#D4AF37] transition-colors">{player.name}</p>
+                            <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest">{player.position}</p>
+                          </div>
                         </div>
-                        <p className="text-xs font-black italic text-white/80">{player.goals}</p>
+                        <div className="text-right">
+                          <p className="text-sm font-black italic">{player.goals}</p>
+                          <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest">{pointType}</p>
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -222,7 +267,9 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets }) {
                     </div>
                     <div className="text-[#D4AF37] font-black italic text-2xl animate-pulse">VS</div>
                     <div className="text-left">
-                      <p className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-white/70">Valur</p>
+                      <p className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-white/70">
+                        {sport === 'handbolti' ? 'Valur' : 'Grindavík'}
+                      </p>
                       <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Gestir</p>
                     </div>
                   </div>
@@ -230,11 +277,13 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets }) {
                   <div className="w-full bg-white/5 backdrop-blur-md rounded-3xl p-6 border border-white/10 mb-10">
                     <div className="flex items-center justify-center gap-3 mb-2">
                       <span className="material-symbols-outlined text-[#D4AF37] text-sm">event</span>
-                      <p className="text-xs font-black uppercase tracking-[0.2em]">Mánudagur 27. Apríl</p>
+                      <p className="text-xs font-black uppercase tracking-[0.2em]">
+                        {sport === 'handbolti' ? 'Mánudagur 27. Apríl' : 'Laugardagur 2. Maí'}
+                      </p>
                     </div>
                     <div className="flex items-center justify-center gap-3">
                       <span className="material-symbols-outlined text-[#D4AF37] text-sm">schedule</span>
-                      <p className="text-xl font-black italic uppercase tracking-tighter">Kl. 19:30 • Ásvellir</p>
+                      <p className="text-xl font-black italic uppercase tracking-tighter">Kl. 19:15 • Ásvellir</p>
                     </div>
                   </div>
 
@@ -251,6 +300,12 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets }) {
 
         </div>
       </div>
+
+      <MatchReportModal 
+        isOpen={isReportOpen} 
+        onClose={() => setIsReportOpen(false)} 
+        match={selectedMatch} 
+      />
     </section>
   );
 }

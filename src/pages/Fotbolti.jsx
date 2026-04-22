@@ -3,7 +3,7 @@ import DivisionHero from '../components/sports/DivisionHero.jsx';
 import MatchDashboard from '../components/sports/MatchDashboard.jsx';
 import NewsSection from '../components/sports/NewsSection.jsx';
 import RosterPreview from '../components/sports/RosterPreview.jsx';
-import LeagueStandings from '../components/sports/LeagueStandings.jsx';
+import LeagueDashboard from '../components/LeagueDashboard';
 import SocialWall from '../components/sports/SocialWall.jsx';
 
 // Data imports
@@ -33,7 +33,7 @@ export default function Fotbolti({ onOpenTickets }) {
       <DivisionHero 
         sportName="Haukar Fótbolti"
         icon="sports_soccer"
-        bgImage="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&q=80&w=2000"
+        bgImage="/images/soccer/hero_bg.png"
         gender={gender}
         setGender={handleGenderChange}
       />
@@ -52,22 +52,17 @@ export default function Fotbolti({ onOpenTickets }) {
         newsList={footballNews}
       />
 
-      <div className="max-w-7xl mx-auto px-6 py-12 w-full bg-white rounded-3xl shadow-xl border border-gray-100 mb-20 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-[#c8102e]"></div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 relative z-10">
-          <RosterPreview 
-            players={currentData.players}
-            loading={loading}
-            title="Leikmannahópur"
-            subtitle={`Lykilleikmenn í Meistaraflokki ${gender === 'karla' ? 'Karla' : 'Kvenna'}`}
-          />
-          <LeagueStandings 
-            standings={currentData.standings}
-            loading={loading}
-            provider="KSÍ"
-          />
-        </div>
-      </div>
+      {/* Roster Preview - Key Players */}
+      <RosterPreview 
+        players={currentData.players}
+        loading={loading}
+        title="Leikmannahópur"
+        subtitle={`Lykilleikmenn í Meistaraflokki ${gender === 'karla' ? 'Karla' : 'Kvenna'}`}
+        sport="fotbolti"
+      />
+
+      {/* Real-time League Data Dashboard */}
+      <LeagueDashboard gender={gender} onOpenTickets={onOpenTickets} sport="fotbolti" />
 
       <SocialWall 
         title="Haukar Fótbolti"

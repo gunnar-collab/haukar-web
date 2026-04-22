@@ -1,6 +1,28 @@
+import { Link } from 'react-router-dom';
 import Button from './Button.jsx';
 
 export default function PlayerOfTheWeek() {
+  const spotlightPlayer = {
+    name: "Freyr Aronsson",
+    number: "8",
+    position: "Skytta",
+    img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5308.jpg",
+    sport: "handbolti",
+    stats: {
+      offensive: {
+        gamesPlayed: 28,
+        totalGoals: 180,
+        totalShots: 272,
+        shootingPercentage: "66.2%"
+      },
+      defensive: {
+        legalStops: 116,
+        steals: 20,
+        blockedShots: 4
+      }
+    }
+  };
+
   return (
     <section className="w-full bg-white py-24 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
@@ -12,17 +34,16 @@ export default function PlayerOfTheWeek() {
               {/* Premium Dark Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#1c2c6c] to-transparent opacity-60 z-10"></div>
               
-              {/* Your New AI Generated Image */}
               <img 
-                src="/images/leikmadur-vikunnar.jpg" 
-                alt="Leikmaður vikunnar" 
+                src={spotlightPlayer.img} 
+                alt={spotlightPlayer.name} 
                 className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-700"
               />
               
               {/* Overlay Badge */}
               <div className="absolute bottom-6 left-6 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                 <span className="bg-[#c8102e] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-2 inline-block shadow-sm">
-                  Vika 14
+                  Markakóngurinn
                 </span>
                 <h3 className="text-3xl font-black text-white italic tracking-tighter uppercase leading-none drop-shadow-md">
                   Leikmaður<br/>Vikunnar
@@ -39,38 +60,40 @@ export default function PlayerOfTheWeek() {
                 Í nærmynd
               </span>
               <h2 className="text-5xl lg:text-7xl font-black italic tracking-tighter text-[#1c2c6c] uppercase leading-none mb-5">
-                Ólafur <br className="hidden lg:block"/>
-                <span className="text-[#c8102e]">Gústafsson</span>
+                Freyr <br className="hidden lg:block"/>
+                <span className="text-[#c8102e]">Aronsson</span>
               </h2>
               <p className="text-gray-500 font-bold uppercase tracking-widest text-sm border-l-2 border-[#c8102e] pl-3">
-                Vinstri Skytta • Olís Deild Karla
+                {spotlightPlayer.position} • Olís Deild Karla
               </p>
             </div>
 
             <p className="text-gray-600 font-medium text-lg leading-relaxed mb-8 max-w-xl">
-              Ólafur átti algjöran stórleik í sigrinum gegn Fram á fimmtudaginn. Með 9 mörk úr 11 skotum og í vörn dró hann vagninn þegar mest á reyndi. Hann er sannkallaður Haukur í horni fyrir liðið.
+              Freyr hefur farið á kostum á tímabilinu og er markahæsti leikmaður liðsins með heil 180 mörk. Hann er óstöðvandi í sókninni og hefur sýnt ótrúlegan stöðugleika í öllum leikjum vetrarins.
             </p>
 
             {/* Stat Grid */}
             <div className="grid grid-cols-3 gap-4 lg:gap-6 mb-10 max-w-lg">
               <div className="bg-[#fafafa] p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Mörk</p>
-                <p className="text-4xl font-black italic text-[#1c2c6c]">9</p>
+                <p className="text-4xl font-black italic text-[#1c2c6c]">{spotlightPlayer.stats.offensive.totalGoals}</p>
+              </div>
+              <div className="bg-[#fafafa] p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Stöðvanir</p>
+                <p className="text-4xl font-black italic text-[#c8102e]">{spotlightPlayer.stats.defensive.legalStops}</p>
               </div>
               <div className="bg-[#fafafa] p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Nýting</p>
-                <p className="text-4xl font-black italic text-[#c8102e]">82%</p>
-              </div>
-              <div className="bg-[#fafafa] p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
-                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Stoðsend.</p>
-                <p className="text-4xl font-black italic text-[#1c2c6c]">4</p>
+                <p className="text-4xl font-black italic text-[#1c2c6c]">66%</p>
               </div>
             </div>
 
             {/* Fired up with the Global Button */}
-            <Button variant="primary" icon="arrow_forward" iconPosition="right">
-              Skoða leikmenn
-            </Button>
+            <Link to="/leikmenn/freyr-aronsson" state={{ player: spotlightPlayer }}>
+              <Button variant="primary" icon="arrow_forward" iconPosition="right">
+                Skoða leikmann
+              </Button>
+            </Link>
           </div>
 
         </div>

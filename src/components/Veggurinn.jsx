@@ -1,44 +1,48 @@
+import { socialPosts } from '../data/handboltiData.js';
 import Button from './Button.jsx';
 
 export default function Veggurinn() {
-  // Mock data strictly for Instagram and Facebook
-  const socialPosts = [
+  // Mapping imported data to match component expectations
+  const posts = [
     {
       id: 1,
-      user: 'Jón Jónsson',
-      handle: '@jonni_haukamadur',
+      user: 'Haukar Handbolti',
+      handle: '@haukar_handbolti',
       platform: 'instagram',
-      content: 'Mættur á Ásvelli! Búið að vera geggjað tímabil, nú klárum við þetta! 🔴⚪️',
-      image: true,
-      time: '2 klst síðan'
+      content: 'Stórleikur í kvöld! Strákarnir tilbúnir í slaginn gegn FH. Sjáumst í stúkunni! 🔴⚪️ #handbolti #áframhaukar',
+      image: '/images/social/handball_post.png',
+      time: '2 klst síðan',
+      likes: '524'
     },
     {
       id: 2,
-      user: 'Knattspyrnufélagið Haukar',
-      handle: 'Haukar - Opinber Síða',
+      user: 'Haukar Fótbolti',
+      handle: 'Haukar Fótbolti',
       platform: 'facebook',
-      content: 'Þvílík stemning í stúkunni í kvöld! Takk fyrir stuðninginn, þið eruð áttundi leikmaðurinn á vellinum. 👊 Sjáumst á næsta leik!',
-      image: true,
-      time: '5 klst síðan'
+      content: 'Frábær sigur hjá stelpunum okkar í dag! Samheldni og barátta skilaði 3 mikilvægum stigum. ⚽️💪 #fotbolti #haukarstúlkur',
+      image: '/images/social/football_post.png',
+      time: '4 klst síðan',
+      likes: '312'
     },
     {
       id: 3,
-      user: 'Anna Sigurðardóttir',
-      handle: '@annasig',
+      user: 'Haukar Karfa',
+      handle: '@haukar_karfa',
       platform: 'instagram',
-      content: 'Framtíðin er björt! Yngri flokkarnir að gera frábæra hluti um helgina. Upprennandi stjörnur.',
-      image: true,
-      time: 'Í gær'
+      content: 'Ekkert stöðvar okkur! Troðsla kvöldsins á Ásvöllum. Stemningin var ólýsanleg! 🏀🔥 #haukarkarfa #dunk',
+      image: '/images/social/basketball_post.png',
+      time: '6 klst síðan',
+      likes: '842'
     },
     {
       id: 4,
-      user: 'Haukar Handbolti',
-      handle: 'Haukar Handbolti',
+      user: 'Haukar Karate',
+      handle: 'Haukar Karate',
       platform: 'facebook',
-      // FIXED: Removed Stubbur.is, updated to our new Digital Wallet messaging!
-      content: 'Undirbúningur í hámarki fyrir oddaleikinn. Hlökkum til að sjá ykkur öll á fimmtudaginn! Tryggðu þér miða með nýja stafræna VIP passanum okkar í Apple Wallet.',
-      image: false,
-      time: 'Í gær'
+      content: 'Fókus og agi. Flott frammistaða hjá okkar fólki á Íslandsmótinu um helgina. Til hamingju öll! 🥋✨ #karate #haukar',
+      image: '/images/social/karate_post.png',
+      time: 'Gær',
+      likes: '156'
     }
   ];
 
@@ -61,7 +65,7 @@ export default function Veggurinn() {
 
         {/* Grid Layout for Social Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {socialPosts.map((post) => (
+          {posts.map((post) => (
             <div key={post.id} className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer">
               
               {/* Post Header */}
@@ -83,10 +87,14 @@ export default function Veggurinn() {
                 </div>
               </div>
 
-              {/* Post Image Placeholder */}
+              {/* Post Image */}
               {post.image && (
                 <div className="w-full bg-[#e9ecef] rounded-2xl aspect-square mb-4 flex items-center justify-center overflow-hidden">
-                  <span className="material-symbols-outlined text-gray-400 text-3xl">image</span>
+                  <img 
+                    src={post.image} 
+                    alt="Social media post" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
               )}
 

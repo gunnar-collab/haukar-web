@@ -35,7 +35,7 @@ export default function CookieBanner() {
         
         {/* Subtle background logo/icon for texture */}
         <span className="material-symbols-outlined absolute -right-10 -bottom-10 text-[150px] text-black/10 pointer-events-none transform -rotate-12">
-          warning
+          cookie
         </span>
 
         {/* The Cookie Mascot (Slightly bouncing to catch the eye) */}
@@ -46,15 +46,14 @@ export default function CookieBanner() {
         {/* The Pitch */}
         <div className="flex-grow text-center md:text-left text-white relative z-10">
           <span className="text-[#1c2c6c] text-[10px] md:text-xs font-black uppercase tracking-widest mb-1 block drop-shadow-sm">
-            Kerfisskilaboð
+            Vafrakökur & Persónuvernd
           </span>
           <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter mb-3 drop-shadow-md">
-            Tæknivilla!
+            Leikplanið okkar
           </h3>
           <p className="text-white/90 font-medium text-sm md:text-base leading-relaxed max-w-2xl">
-            Við erum því miður ekki að tala um nýbakaðar mömmukökur úr sjoppunni á Ásvöllum, heldur vefkökur. 
-            Við notum þær til að teikna upp rétta leikplanið og gera upplifun þína á síðunni að meistaravígi. 
-            Ertu til í slaginn?
+            Við notum vafrakökur til að tryggja að upplifun þín á síðunni sé sem best. 
+            Þær hjálpa okkur að greina umferð og bæta þjónustuna okkar svo þú getir einbeitt þér að því mikilvægasta: Stuðningi við Hauka!
           </p>
         </div>
 

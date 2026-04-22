@@ -10,6 +10,7 @@ export const NAV_LINKS = {
     { name: 'Sagan Okkar', path: '/sagan' },
     { name: 'Bakhjarlar & Styrktaraðilar', path: '/bakhjarlar' },
     { name: 'Æfingagjöld', path: '/aefingagjold' },
+    { name: 'Fræðsla & Öryggi', path: '/fraedsla' },
     { name: 'Leiga á veislusal', path: '/veislusalur' },
     { name: 'Skrifstofa & Stjórn', path: '/hafasamband' }
   ]

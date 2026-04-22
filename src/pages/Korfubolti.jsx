@@ -3,7 +3,7 @@ import DivisionHero from '../components/sports/DivisionHero.jsx';
 import MatchDashboard from '../components/sports/MatchDashboard.jsx';
 import NewsSection from '../components/sports/NewsSection.jsx';
 import RosterPreview from '../components/sports/RosterPreview.jsx';
-import LeagueStandings from '../components/sports/LeagueStandings.jsx';
+import LeagueDashboard from '../components/LeagueDashboard';
 import SocialWall from '../components/sports/SocialWall.jsx';
 
 // Data imports
@@ -22,52 +22,45 @@ export default function Korfubolti({ onOpenTickets }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1200);
+    }, 1000);
     return () => clearTimeout(timer);
   }, [gender]);
 
   const currentData = gender === 'karla' ? dataKarla : dataKvenna;
 
   return (
-    <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#1c2c6c] selection:text-white">
+    <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#c8102e] selection:text-white">
       <DivisionHero 
         sportName="Haukar Körfubolti"
         icon="sports_basketball"
-        bgImage="https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&q=80&w=2000"
+        bgImage="/images/basketball/action.png"
         gender={gender}
         setGender={handleGenderChange}
       />
 
       <MatchDashboard 
         loading={loading}
-        lastMatch={currentData.lastMatch}
-        nextMatch={currentData.nextMatch}
+        lastMatch={[...currentData.playoffs.schedule].reverse().find(m => m.result) || currentData.playoffs.schedule[0]}
+        nextMatch={currentData.playoffs.schedule.find(m => !m.result) || currentData.playoffs.schedule[currentData.playoffs.schedule.length - 1]}
         onOpenTickets={onOpenTickets}
         provider="KKÍ"
-        statsIcon="leaderboard"
+        statsIcon="analytics"
       />
 
       <NewsSection 
-        title="Fréttir úr Körfuboltanum"
+        title="Fréttir úr Körfunni"
         newsList={basketballNews}
       />
 
-      <div className="max-w-7xl mx-auto px-6 py-12 w-full bg-white rounded-3xl shadow-xl border border-gray-100 mb-20 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-[#c8102e]"></div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 relative z-10">
-          <RosterPreview 
-            players={currentData.players}
-            loading={loading}
-            title="Leikmannahópur"
-            subtitle={`Lykilleikmenn í Meistaraflokki ${gender === 'karla' ? 'Karla' : 'Kvenna'}`}
-          />
-          <LeagueStandings 
-            standings={currentData.standings}
-            loading={loading}
-            provider="KKÍ"
-          />
-        </div>
-      </div>
+      <RosterPreview 
+        players={currentData.players}
+        loading={loading}
+        title="Leikmannahópur"
+        subtitle={`Lykilleikmenn í Meistaraflokki ${gender === 'karla' ? 'Karla' : 'Kvenna'}`}
+        sport="korfubolti"
+      />
+
+      <LeagueDashboard gender={gender} onOpenTickets={onOpenTickets} sport="korfubolti" />
 
       <SocialWall 
         title="Haukar Körfubolti"

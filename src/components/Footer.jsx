@@ -40,7 +40,7 @@ export default function Footer() {
           {/* Column 1: Brand & Logo */}
           <div className="col-span-1 lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <img src="/images/logo.png" alt="Haukar Logo" className="h-10 w-auto brightness-0 invert" />
+              <img src="/images/haukar-log.svg" alt="Haukar Logo" className="h-10 w-auto brightness-0 invert" />
               <h2 className="text-4xl font-black italic tracking-tighter text-white uppercase">
                 Haukar
               </h2>

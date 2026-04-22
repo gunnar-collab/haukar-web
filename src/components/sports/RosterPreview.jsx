@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function RosterPreview({ players, loading, title, subtitle, isKarate = false }) {
+export default function RosterPreview({ players, loading, title, subtitle, sport = "handbolti", isKarate = false }) {
   return (
     <div className="max-w-7xl mx-auto px-6 mb-24 w-full">
       <div className="flex justify-between items-end mb-8 border-b border-gray-200 pb-4">
@@ -9,7 +9,12 @@ export default function RosterPreview({ players, loading, title, subtitle, isKar
           <p className="text-gray-400 text-sm font-bold uppercase tracking-widest mt-1">{subtitle}</p>
         </div>
         {!isKarate && (
-          <Link to="/leikmannahopur" className="text-[#1c2c6c] text-sm font-bold uppercase tracking-widest hover:text-[#c8102e] transition-colors flex items-center gap-1" aria-label={`Sjá allan ${title.toLowerCase()}`}>
+          <Link 
+            to="/leikmannahopur" 
+            state={{ sport }}
+            className="text-[#1c2c6c] text-sm font-bold uppercase tracking-widest hover:text-[#c8102e] transition-colors flex items-center gap-1" 
+            aria-label={`Sjá allan ${title.toLowerCase()}`}
+          >
             Skoða hópinn <span className="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
           </Link>
         )}
@@ -28,8 +33,8 @@ export default function RosterPreview({ players, loading, title, subtitle, isKar
               {...wrapperProps}
               className={`group relative overflow-hidden rounded-2xl bg-gray-200 aspect-[3/4] ${!isKarate ? 'cursor-pointer' : ''} shadow-lg block border border-transparent hover:border-[#c8102e]/50`}
             >
-              <img src={player.img} alt={player.name} className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 object-top" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1c2c6c] via-[#1c2c6c]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+              <img src={player.img} alt={player.name} className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 object-top" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1c2c6c]/60 via-transparent to-transparent opacity-100 transition-opacity duration-300"></div>
               
               {isKarate ? (
                 <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded border border-white/20 shadow-md">

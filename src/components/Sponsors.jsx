@@ -3,10 +3,11 @@ import Button from './Button.jsx';
 
 export default function Sponsors() {
   const corporateSponsors = [
-    { id: 1, name: "Bílaleiga Akureyrar", logo: "/images/sponsors/bilaleiga-akureyrar.jpg" },
-    { id: 2, name: "Coke Zero", logo: "/images/sponsors/coke-zero.png" },
-    { id: 3, name: "KFC", logo: "/images/sponsors/kfc.png" },
-    { id: 4, name: "Rio Tinto", logo: "/images/sponsors/riotinto.jpeg" },
+    { id: 1, name: "Nano Banana", logo: "/images/sponsors/nanobanana.png" },
+    { id: 2, name: "Bílaleiga Akureyrar", logo: "/images/sponsors/bilaleiga-akureyrar.jpg" },
+    { id: 3, name: "Coke Zero", logo: "/images/sponsors/coke-zero.png" },
+    { id: 4, name: "KFC", logo: "/images/sponsors/kfc.png" },
+    { id: 5, name: "Rio Tinto", logo: "/images/sponsors/riotinto.jpeg" },
   ];
 
   return (

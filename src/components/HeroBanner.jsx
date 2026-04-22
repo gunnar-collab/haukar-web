@@ -6,20 +6,17 @@ export default function HeroBanner() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-black">
       
-      {/* 1. The Looping Background Video */}
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline 
-        className="absolute inset-0 w-full h-full object-cover opacity-60"
-      >
-        <source src={heroVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {/* 1. The Cinematic Montage Background (Combined Sports) */}
+      <div className="absolute inset-0 w-full h-full">
+        <img 
+          src="/images/hero_action.png" 
+          alt="Haukar Athlete" 
+          className="w-full h-full object-cover opacity-80 animate-ken-burns"
+        />
+      </div>
 
       {/* 2. The Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40"></div>
 
       {/* 3. The Content Container */}
       <div className="absolute inset-0 flex flex-col justify-center px-6 z-10">

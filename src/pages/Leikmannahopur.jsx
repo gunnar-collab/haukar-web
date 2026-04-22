@@ -1,17 +1,23 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import haukarStats from '../data/haukar_player_stats.json';
 import haukarWomenStats from '../data/haukar_women_player_stats.json';
+import { dataKarla as footballKarla, dataKvenna as footballKvenna } from '../data/fotboltiData.js';
+import { dataKarla as basketballKarla, dataKvenna as basketballKvenna } from '../data/korfuboltiData.js';
 
 export default function Leikmannahopur() {
+  const location = useLocation();
+  const initialSport = location.state?.sport || 'handbolti';
   const [activeTeam, setActiveTeam] = useState('karla');
+  const [activeSport, setActiveSport] = useState(initialSport);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Grunnlisti leikmanna með myndum og númerum
-  const basePlayers = [
+  // Grunnlisti leikmanna fyrir HANDBOLTA
+  const handballPlayers = [
+    // ... (rest of the handball list)
     // --- MEISTARAFLOKKUR KARLA ---
     { id: 1, slug: 'gretar-ari', name: 'Grétar Ari', number: '1', position: 'Markvörður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/gretar-fb.png' },
     { id: 2, slug: 'hergeir-grimsson', name: 'Hergeir', number: '3', position: 'Skytta', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5461.jpg' },
@@ -70,18 +76,42 @@ export default function Leikmannahopur() {
     { id: 49, slug: 'fridrik-benony', name: 'Friðrik Benóný', number: '', position: 'Styrktarþjálfari', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/haukar_mfl_kvk-25.jpg' },
   ];
 
-  // Samþætta gögn úr HBStatz skafanum fyrir bæði kyn
+  // Grunnlisti leikmanna fyrir FÓTBOLTA
+  const footballPlayers = [
+    ...footballKarla.players.map(p => ({ ...p, team: 'karla', sport: 'fotbolti' })),
+    ...footballKvenna.players.map(p => ({ ...p, team: 'kvenna', sport: 'fotbolti' }))
+  ];
+
+  // Grunnlisti leikmanna fyrir KÖRFUBOLTA
+  const basketballPlayers = [
+    ...basketballKarla.players.map(p => ({ ...p, team: 'karla', sport: 'korfubolti' })),
+    ...basketballKvenna.players.map(p => ({ ...p, team: 'kvenna', sport: 'korfubolti' }))
+  ];
+
+  const getBasePlayers = () => {
+    switch(activeSport) {
+        case 'fotbolti': return footballPlayers;
+        case 'korfubolti': return basketballPlayers;
+        default: return handballPlayers.map(p => ({ ...p, sport: 'handbolti' }));
+    }
+  };
+
+  const basePlayers = getBasePlayers();
+
+  // Samþætta gögn úr HBStatz skafanum fyrir bæði kyn (aðeins fyrir handbolta)
   const players = basePlayers.map(p => {
-    // Velja réttan gagnagjafa
-    const statsSource = p.team === 'karla' ? haukarStats : haukarWomenStats;
-    
-    // Finna gögn í JSON skránni sem passa við nafn (hlutafylki)
-    const scrapedData = statsSource.find(s => s.name.includes(p.name) || p.name.includes(s.name));
-    
+    if (activeSport === 'handbolti') {
+        const statsSource = p.team === 'karla' ? haukarStats : haukarWomenStats;
+        const scrapedData = statsSource.find(s => s.name.includes(p.name) || p.name.includes(s.name));
+        return {
+          ...p,
+          stats: scrapedData?.stats || null,
+          statsLabel: scrapedData ? 'Sjá Tölfræði' : 'Sjá Prófíl'
+        };
+    }
     return {
-      ...p,
-      stats: scrapedData?.stats || null,
-      statsLabel: scrapedData ? 'Sjá Tölfræði' : 'Sjá Prófíl'
+        ...p,
+        statsLabel: 'Sjá Prófíl'
     };
   });
 
@@ -95,11 +125,28 @@ export default function Leikmannahopur() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           
           <div>
-            <span className="text-[#1c2c6c] text-sm font-black uppercase tracking-widest mb-2 block drop-shadow-md">
-              Handbolti
-            </span>
+            <div className="flex flex-wrap gap-4 mb-4">
+                <button 
+                    onClick={() => setActiveSport('handbolti')}
+                    className={`text-[10px] font-black uppercase tracking-[0.3em] transition-all ${activeSport === 'handbolti' ? 'text-white' : 'text-white/40 hover:text-white'}`}
+                >
+                    Handbolti
+                </button>
+                <button 
+                    onClick={() => setActiveSport('fotbolti')}
+                    className={`text-[10px] font-black uppercase tracking-[0.3em] transition-all ${activeSport === 'fotbolti' ? 'text-white' : 'text-white/40 hover:text-white'}`}
+                >
+                    Fótbolti
+                </button>
+                <button 
+                    onClick={() => setActiveSport('korfubolti')}
+                    className={`text-[10px] font-black uppercase tracking-[0.3em] transition-all ${activeSport === 'korfubolti' ? 'text-white' : 'text-white/40 hover:text-white'}`}
+                >
+                    Körfubolti
+                </button>
+            </div>
             <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter text-white uppercase drop-shadow-lg">
-              Hópurinn
+              {activeSport === 'handbolti' ? 'Handboltahópurinn' : activeSport === 'fotbolti' ? 'Fótboltahópurinn' : 'Körfuboltahópurinn'}
             </h1>
           </div>
 
@@ -133,7 +180,7 @@ export default function Leikmannahopur() {
             <Link 
               to={`/leikmenn/${player.slug}`}
               state={{ player }} 
-              key={player.id} 
+              key={player.id || player.slug || player.number} 
               className="group relative rounded-3xl overflow-hidden aspect-[3/4] bg-[#1c2c6c] shadow-xl cursor-pointer hover:shadow-2xl transition-all duration-300 block"
             >
               
@@ -144,8 +191,8 @@ export default function Leikmannahopur() {
                 className="absolute inset-0 w-full h-full object-cover object-top z-10 group-hover:scale-105 transition-transform duration-700 ease-out"
               />
 
-              {/* Navy Blue Gradient overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-1/2 z-20 bg-gradient-to-t from-[#1c2c6c] via-[#1c2c6c]/80 to-transparent"></div>
+              {/* Subtle Gradient overlay for text readability */}
+              <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#1c2c6c]/60 to-transparent"></div>
 
               {/* Haukar Red Slide-Up Accent Line */}
               <div className="absolute bottom-0 left-0 w-full h-1.5 bg-[#c8102e] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-40"></div>

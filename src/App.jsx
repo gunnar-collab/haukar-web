@@ -29,6 +29,7 @@ import Home from './pages/Home';
 import Leikvakt from './pages/Leikvakt';
 import Vefverslun from './pages/Vefverslun';
 import Sagan from './pages/Sagan';
+import Fraedsla from './pages/Fraedsla';
 
 import { MatchProvider } from './context/MatchContext';
 import ScrollToTop from './components/ScrollToTop';
@@ -77,6 +78,7 @@ export default function App() {
             <Route path="/leikvakt" element={<Leikvakt />} />
             <Route path="/vefverslun" element={<Vefverslun />} />
             <Route path="/sagan" element={<Sagan />} />
+            <Route path="/fraedsla" element={<Fraedsla />} />
           </Routes>
         </div>
 

@@ -55,7 +55,8 @@ export default function Button({
     primary: "bg-[#c8102e] text-white hover:bg-red-800 focus:ring-[#c8102e]",
     secondary: "bg-[#1c2c6c] text-white hover:bg-blue-900 focus:ring-[#1c2c6c]",
     outline: "bg-white border-2 border-[#c8102e] text-[#c8102e] hover:bg-[#c8102e] hover:text-white focus:ring-[#c8102e]",
-    overlay: "bg-black/50 text-white hover:bg-black/70 border border-white/20 backdrop-blur-sm focus:ring-white/50" 
+    overlay: "bg-black/50 text-white hover:bg-black/70 border border-white/20 backdrop-blur-sm focus:ring-white/50",
+    ghost: "bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-[#1c2c6c] hover:border-white focus:ring-white"
   };
 
   return (
