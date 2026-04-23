@@ -33,7 +33,7 @@ export default function Dagatal() {
           Hvað er framundan?
         </span>
         <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mb-8">
-          Viðburðadagatal
+          Á döfinni
         </h1>
         
         {/* The Filter Strip */}
@@ -62,7 +62,7 @@ export default function Dagatal() {
               <div key={event.id} className="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col md:flex-row items-start md:items-center gap-6 group">
                 
                 {/* Date Block */}
-                <div className="flex md:flex-col items-center justify-center bg-gray-50 md:w-24 px-4 py-3 md:py-4 rounded-xl border border-gray-100 shrink-0 gap-2 md:gap-0">
+                <div className="flex md:flex-col items-center justify-center bg-gray-50 md:w-24 px-4 py-3 md:py-4 rounded-xl border border-gray-100 shrink-0 gap-2 md:gap-0 self-end md:self-auto">
                   <span className="text-gray-500 text-xs font-bold uppercase tracking-widest">{event.date.split('.')[1]}</span>
                   <span className="text-2xl md:text-3xl font-black italic text-[#c8102e] leading-none">{event.date.split('.')[0]}</span>
                 </div>
