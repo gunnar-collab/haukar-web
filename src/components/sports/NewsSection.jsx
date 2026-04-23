@@ -12,7 +12,7 @@ export default function NewsSection({ title, newsList }) {
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {newsList.map((news) => (
-          <Link to="/grein" key={news.id} aria-label={`Lesa grein: ${news.title}`} className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#c8102e]/30">
+          <Link to={`/frett/${news.slug}`} key={news.id} aria-label={`Lesa grein: ${news.title}`} className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#c8102e]/30">
             <div className="relative h-48 overflow-hidden">
               <img src={news.image} alt={news.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute top-4 left-4 bg-[#1c2c6c] text-white text-[9px] font-bold px-3 py-1 rounded-sm uppercase tracking-widest z-10 shadow-md">

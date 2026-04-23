@@ -16,6 +16,7 @@ import Bakhjarlar from './pages/Bakhjarlar';
 import HafaSamband from './pages/HafaSamband';
 import Leikmannahopur from './pages/Leikmannahopur';
 import NewsArticle from './pages/NewsArticle';
+import Arsskyrslur from './pages/Arsskyrslur';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LiveTicker from './components/LiveTicker';
@@ -73,7 +74,8 @@ export default function App() {
             <Route path="/dagatal" element={<Dagatal />} />
             <Route path="/bakhjarlar" element={<Bakhjarlar />} />
             <Route path="/hafasamband" element={<HafaSamband />} />
-            <Route path="/leikmannahopur" element={<Leikmannahopur />} />
+            <Route path="/leikmannahopur/:sport" element={<Leikmannahopur />} />
+            <Route path="/arsskyrslur" element={<Arsskyrslur />} />
             <Route path="/frett/:slug" element={<NewsArticle />} />
             <Route path="/" element={<Home />} />
             <Route path="/leikvakt" element={<Leikvakt />} />

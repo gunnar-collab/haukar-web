@@ -2,6 +2,7 @@ import HeroBanner from '../components/HeroBanner';
 import NewsGrid from '../components/NewsGrid';
 import PlayerOfTheWeek from '../components/PlayerSpotlight'; 
 import GrantBanner from '../components/GrantBanner';
+import SkokkPromotion from '../components/SkokkPromotion';
 import Veggurinn from '../components/Veggurinn';
 import FanZone from '../components/FanZone';
 import TrophyCabinet from '../components/TrophyCabinet';
@@ -24,7 +25,10 @@ export default function Home() {
       {/* 4. Practical Information: Leisure Grant */}
       <GrantBanner />
 
-      {/* 5. The Social Grid */}
+      {/* 5. Jogging Community: Skokkhópur Hauka */}
+      <SkokkPromotion />
+
+      {/* 6. The Social Grid */}
       <Veggurinn />
 
       {/* 6. Supporters' Area: Go Bananas! */}

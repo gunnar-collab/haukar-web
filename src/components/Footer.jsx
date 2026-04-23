@@ -107,6 +107,9 @@ export default function Footer() {
               <li>
                 <Link to="/vefverslun" className="hover:text-white transition-colors">Vefverslun</Link>
               </li>
+              <li>
+                <Link to="/arsskyrslur" className="hover:text-white transition-colors">Ársskýrslur</Link>
+              </li>
             </ul>
           </div>
 

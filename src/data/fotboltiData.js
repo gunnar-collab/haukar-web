@@ -126,9 +126,9 @@ export const dataKvenna = {
 };
 
 export const footballNews = [
-  { id: 1, category: "Meistaraflokkur Karla", title: "Flautað til leiks í Lengjudeildinni á laugardaginn", date: "10. Maí", image: "/images/soccer/player_action.png" },
-  { id: 2, category: "Meistaraflokkur Kvenna", title: "Stelpurnar tilbúnar í toppslaginn gegn Gróttu", date: "8. Maí", image: "/images/soccer/celebration.png" },
-  { id: 3, category: "Yngri Flokkar", title: "Fjölmennt á fótboltaskóla Hauka um helgina", date: "5. Maí", image: "/images/soccer/stadium.png" },
+  { id: 1, slug: 'fotbolti-lengjudeild-byrjar', category: "Meistaraflokkur Karla", title: "Flautað til leiks í Lengjudeildinni á laugardaginn", date: "10. Maí", image: "/images/soccer/player_action.png" },
+  { id: 2, slug: 'fotbolti-toppslagur-grotta', category: "Meistaraflokkur Kvenna", title: "Stelpurnar tilbúnar í toppslaginn gegn Gróttu", date: "8. Maí", image: "/images/soccer/celebration.png" },
+  { id: 3, slug: 'fotbolti-skoli-helgi', category: "Yngri Flokkar", title: "Fjölmennt á fótboltaskóla Hauka um helgina", date: "5. Maí", image: "/images/soccer/stadium.png" },
 ];
 
 export const socialPosts = [

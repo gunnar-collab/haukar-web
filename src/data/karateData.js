@@ -59,9 +59,9 @@ export const dataKvenna = {
 };
 
 export const karateNews = [
-  { id: 1, category: "Afreksstarf", title: "Fimm Haukar valdir í landsliðshóp KAÍ", date: "12. Okt", image: "/assets/sports/karate/news-landslið.png" },
-  { id: 2, category: "Mótamál", title: "Frábær árangur á Bikarmóti í Kumite", date: "5. Okt", image: "/assets/sports/karate/news-bikarmot.png" },
-  { id: 3, category: "Beltapróf", title: "Haust-beltapróf verða haldin í lok nóvember", date: "1. Okt", image: "/assets/sports/karate/news-beltaprof.png" },
+  { id: 1, slug: 'karate-islandsmeistarar', category: "Afreksstarf", title: "Haukar tryggja sér þrjá Íslandsmeistaratitla í kumite", date: "20. Apríl", image: "/assets/sports/karate/news-landslið.png" },
+  { id: 2, slug: 'bikarmot-kai-verðlaun', category: "Mótamál", title: "Bikarmót KAÍ: Haukarnir unnu til fimm verðlauna", date: "15. Apríl", image: "/assets/sports/karate/news-bikarmot.png" },
+  { id: 3, slug: 'beltaprof-hátíð', category: "Beltapróf", title: "Beltapróf og uppskeruhátíð Karatedeildar á laugardaginn", date: "10. Apríl", image: "/assets/sports/karate/news-beltaprof.png" },
 ];
 
 export const socialPosts = [

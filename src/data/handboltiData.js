@@ -66,9 +66,9 @@ export const dataKvenna = {
 };
 
 export const handballNews = [
-  { id: 1, category: "Meistaraflokkur Karla", title: "Haukar tryggja sér sigur á lokasekúndunum gegn FH", date: "18. Apríl", image: "https://images.unsplash.com/photo-1589801258579-18e091f4ca26?auto=format&fit=crop&q=80&w=800" },
-  { id: 2, category: "Meistaraflokkur Kvenna", title: "Frábær varnarleikur skóp sigurinn á Ásvöllum", date: "16. Apríl", image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=800" },
-  { id: 3, category: "Unglingaráð", title: "Skráning hafin á sumarnámskeið handboltans", date: "14. Apríl", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800" },
+  { id: 1, slug: 'handbolti-sigur-fh', category: "Meistaraflokkur Karla", title: "Haukar tryggja sér sigur á lokasekúndunum gegn FH", date: "18. Apríl", image: "/assets/sports/handball/news-men-victory.png" },
+  { id: 2, slug: 'handbolti-vörn-sigur', category: "Meistaraflokkur Kvenna", title: "Frábær varnarleikur skóp sigurinn á Ásvöllum", date: "16. Apríl", image: "/assets/sports/handball/news-women-defense.png" },
+  { id: 3, slug: 'handbolti-sumarnamskeid', category: "Unglingaráð", title: "Skráning hafin á sumarnámskeið handboltans", date: "14. Apríl", image: "/assets/sports/handball/news-youth-camp.png" },
 ];
 
 export const socialPosts = [
