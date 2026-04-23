@@ -6,8 +6,8 @@ export const dataKarla = {
     img: "/images/coaches/petur_ingvarsson.png"
   },
   players: [
-    { number: "2", slug: "kinyon-hodges", name: "Kinyon Hodges", position: "Bakvörður", stats: { pts: 20.4, reb: 5.0, ast: 4.0 }, img: "/images/basketball/nanobanana_post.png" },
-    { number: "0", slug: "hugi-hallgrimsson", name: "Hugi Hallgrímsson", position: "Framherji", stats: { pts: 15.0, reb: 6.0, ast: 2.0 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "2", slug: "kinyon-hodges", name: "Kinyon Hodges", position: "Bakvörður", stats: { pts: 20.4, reb: 5.0, ast: 4.0 }, img: "/images/basketball/kinyon_hodges.png" },
+    { number: "0", slug: "hugi-hallgrimsson", name: "Hugi Hallgrímsson", position: "Framherji", stats: { pts: 15.0, reb: 6.0, ast: 2.0 }, img: "/images/basketball/hugi_hallgrimsson.png" },
     { number: "4", slug: "hilmir-hallgrimsson", name: "Hilmir Hallgrímsson", position: "Framherji", stats: { pts: 13.0, reb: 7.0, ast: 2.0 }, img: "/images/basketball/nanobanana_post.png" },
     { number: "7", slug: "zoran-vrkic", name: "Zoran Vrkic", position: "Framherji", stats: { pts: 9.0, reb: 3.0, ast: 1.0 }, img: "/images/basketball/nanobanana_post.png" },
     { number: "6", slug: "gerardas-slapikas", name: "Gerardas Slapikas", position: "Framherji", stats: { pts: 6.0, reb: 2.0, ast: 1.0 }, img: "/images/basketball/nanobanana_post.png" },
@@ -37,8 +37,8 @@ export const dataKvenna = {
     img: "/images/coaches/emil_barja.png"
   },
   players: [
-    { number: "23", slug: "amandine-justine-toi", name: "Amandine Justine Toi", position: "Bakvörður", stats: { pts: 23.0, reb: 2.0, ast: 5.0 }, img: "/images/basketball/celebration.png" },
-    { number: "25", slug: "krystal-jade-freeman", name: "Krystal-Jade Freeman", position: "Framherji", stats: { pts: 19.0, reb: 8.0, ast: 1.0 }, img: "/images/basketball/celebration.png" },
+    { number: "23", slug: "amandine-justine-toi", name: "Amandine Justine Toi", position: "Bakvörður", stats: { pts: 23.0, reb: 2.0, ast: 5.0 }, img: "/images/basketball/amandine_toi.png" },
+    { number: "25", slug: "krystal-jade-freeman", name: "Krystal-Jade Freeman", position: "Framherji", stats: { pts: 19.0, reb: 8.0, ast: 1.0 }, img: "/images/basketball/krystal_jade_freeman.png" },
     { number: "6", slug: "tinna-gudrun-alexandersdottir", name: "Tinna Guðrún Alexandersdóttir", position: "Bakvörður", stats: { pts: 15.0, reb: 3.0, ast: 2.0 }, img: "/images/basketball/celebration.png" },
     { number: "4", slug: "thora-kristin-jonsdottir", name: "Þóra Kristín Jónsdóttir", position: "Bakvörður", stats: { pts: 7.0, reb: 3.0, ast: 7.0 }, img: "/images/basketball/celebration.png" },
     { number: "1", slug: "keira-renee-robinson", name: "Keira Reneé Robinson", position: "Bakvörður", stats: { pts: 12.0, reb: 4.0, ast: 6.0 }, img: "/images/basketball/celebration.png" },

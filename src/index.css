@@ -62,3 +62,47 @@ body {
 .animate-ken-burns {
   animation: kenBurns 20s ease-out forwards;
 }
+
+/* 📰 MODERN CLEAN NEWS ARTICLE STYLES 📰 */
+/* (Replaces the "Newspaper" look with the user's preferred modern aesthetic) */
+
+.news-article-body h2 {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 800;
+  color: #1c2c6c;
+  margin-top: 3.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+  font-style: normal; /* No italics */
+  text-transform: none; /* Sentence case */
+}
+
+.news-article-body p {
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+  color: #374151; /* gray-700 */
+}
+
+.news-article-body blockquote {
+  margin: 3rem 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.news-article-body blockquote p {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 500;
+  font-style: italic;
+  color: #4b5563; /* gray-600 */
+  margin-bottom: 1rem;
+}
+
+.news-article-body blockquote footer {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #c8102e;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

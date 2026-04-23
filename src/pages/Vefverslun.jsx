@@ -32,7 +32,7 @@ export default function Vefverslun() {
             Vefverslun <br className="hidden md:block"/>Hauka
           </h1>
           <p className="text-white/90 font-medium text-lg md:text-xl leading-relaxed max-w-2xl text-center">
-            Sýndu litina þína. Kauptu keppnistreyjur, æfingagalla og annan varning beint frá okkar samstarfsaðilum, Erreá og Boltamanninum.
+            Sýndu litina þína. Kauptu keppnistreyjur, æfingagalla og annan varning beint frá okkar samstarfsaðilum, Errea og Boltamanninum.
           </p>
         </div>
       </div>
@@ -50,7 +50,7 @@ export default function Vefverslun() {
           </div>
           
           <div className="flex flex-wrap justify-center gap-3">
-            {['Allt', 'Erreá', 'Boltamaðurinn'].map((shop) => (
+            {['Allt', 'Errea', 'Boltamaðurinn'].map((shop) => (
               <button
                 key={shop}
                 onClick={() => setFilter(shop)}
@@ -86,7 +86,7 @@ export default function Vefverslun() {
                 )}
 
                 <div className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest shadow-sm ${
-                    product.shopName === 'Erreá' ? 'bg-[#1c2c6c] text-white' : 'bg-white text-[#c8102e]'
+                    product.shopName === 'Errea' ? 'bg-[#1c2c6c] text-white' : 'bg-white text-[#c8102e]'
                 }`}>
                     {product.shopName}
                 </div>
@@ -129,7 +129,7 @@ export default function Vefverslun() {
             <div className="absolute inset-0 bg-gradient-to-br from-[#1c2c6c] to-[#1c2c6c]/80 group-hover:scale-105 transition-transform duration-700"></div>
             <div className="absolute inset-0 p-12 flex flex-col items-center justify-center text-center z-10 text-white">
               <span className="material-symbols-outlined text-6xl mb-6 opacity-40">sports_soccer</span>
-              <h2 className="text-4xl font-black italic uppercase tracking-tighter mb-4">Erreá Verslun</h2>
+              <h2 className="text-4xl font-black italic uppercase tracking-tighter mb-4">Errea Verslun</h2>
               <p className="text-white/70 font-medium mb-8 max-w-xs">Fullt úrval af æfinga- og keppnisfatnaði fyrir öll Haukafólk</p>
               <div className="px-8 py-3 bg-white text-[#1c2c6c] rounded-full font-black uppercase text-xs tracking-widest group-hover:bg-[#c8102e] group-hover:text-white transition-all">
                 Heimsækja verslun

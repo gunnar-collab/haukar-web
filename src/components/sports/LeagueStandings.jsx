@@ -2,7 +2,7 @@ import { cn } from '../../lib/utils.js';
 
 export default function LeagueStandings({ standings, loading, provider, title = "Staðan", isKarate = false }) {
   return (
-    <div className="lg:col-span-1">
+    <div className="w-full">
       <h2 className="text-3xl font-black italic tracking-tighter text-[#c8102e] uppercase mb-8">{title}</h2>
       <div className="bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden relative min-h-[300px]">
         {loading && (

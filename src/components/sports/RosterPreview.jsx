@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-export default function RosterPreview({ players, loading, title, subtitle, sport = "handbolti", isKarate = false }) {
-  return (
-    <div className="max-w-7xl mx-auto px-6 mb-24 w-full">
+export default function RosterPreview({ players, loading, title, subtitle, sport = "handbolti", isKarate = false, noContainer = false }) {
+  const content = (
+    <div className="flex flex-col h-full">
       <div className="flex justify-between items-end mb-8 border-b border-gray-200 pb-4">
         <div>
           <h2 className="text-3xl font-black italic tracking-tighter text-[#c8102e] uppercase">{title}</h2>
@@ -20,7 +20,7 @@ export default function RosterPreview({ players, loading, title, subtitle, sport
         )}
       </div>
       
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 relative">
+      <div className={`grid grid-cols-2 ${noContainer ? 'md:grid-cols-2' : 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'} gap-6 relative flex-grow`}>
         {loading && (
           <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10"></div>
         )}
@@ -58,6 +58,14 @@ export default function RosterPreview({ players, loading, title, subtitle, sport
           );
         })}
       </div>
+    </div>
+  );
+
+  if (noContainer) return content;
+
+  return (
+    <div className="max-w-7xl mx-auto px-6 mb-24 w-full">
+      {content}
     </div>
   );
 }

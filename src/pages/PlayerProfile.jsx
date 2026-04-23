@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { useLocation, Link, useNavigate } from 'react-router-dom';
+import { useLocation, Link, useNavigate, useParams } from 'react-router-dom';
+import { findPlayerBySlug } from '../lib/playerUtils';
 
 /**
  * PlayerProfile - Sniðmát fyrir tölfræði leikmanna Hauka
@@ -8,9 +9,10 @@ import { useLocation, Link, useNavigate } from 'react-router-dom';
 export default function PlayerProfile() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { slug } = useParams();
 
   // Sjálfgefin gögn ef engin gögn berast
-  const player = location.state?.player;
+  const player = location.state?.player || findPlayerBySlug(slug);
 
   if (!player) {
     return (
@@ -104,7 +106,7 @@ export default function PlayerProfile() {
                     </div>
                     <div>
                       <h2 className="text-3xl font-black italic text-white uppercase tracking-tighter leading-tight">Leikgreining</h2>
-                      <p className="text-white/60 text-[10px] font-black uppercase tracking-[0.2em]">Tímabilið 2025-2026 | KKÍ Live</p>
+                      <p className="text-white/60 text-[10px] font-black uppercase tracking-[0.2em]">2025-2026 | KKÍ Live</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -150,7 +152,7 @@ export default function PlayerProfile() {
                         <span className="material-symbols-outlined text-white/80">sports_soccer</span>
                         Spil & Sókn
                       </h2>
-                      <div className="bg-[#c8102e] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">Tímabilið 2026</div>
+                      <div className="bg-[#c8102e] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">2026</div>
                     </div>
                     
                     <div className="p-8 grid grid-cols-3 gap-8">
@@ -235,7 +237,7 @@ export default function PlayerProfile() {
                         <span className="material-symbols-outlined text-white/80">sports_handball</span>
                         Sóknartölfræði
                       </h2>
-                      <div className="bg-[#c8102e] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">Tímabilið 2026</div>
+                      <div className="bg-[#c8102e] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">2026</div>
                     </div>
                     
                     <div className="p-8 grid grid-cols-2 md:grid-cols-4 gap-8">

@@ -1,4 +1,5 @@
 import Button from './Button.jsx';
+import { Link } from 'react-router-dom';
 
 export default function GrantBanner() {
   return (
@@ -28,11 +29,11 @@ export default function GrantBanner() {
                   Lesa nánar á hafnarfjordur.is
                 </Button>
               </a>
-              <a href="/aefingagjold">
+              <Link to="/aefingagjold">
                 <Button variant="ghost" icon="payments">
                   Sjá æfingagjöld
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
 

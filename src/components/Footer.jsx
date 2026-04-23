@@ -1,4 +1,6 @@
 import Button from './Button.jsx';
+import { Link } from 'react-router-dom';
+import { NAV_LINKS } from '../data/navConfig.js';
 
 export default function Footer() {
   return (
@@ -49,8 +51,19 @@ export default function Footer() {
               Eitt stærsta og sigursælasta íþróttafélag landsins. Við byggjum á stolti, liðsheild og óbilandi baráttuanda.
             </p>
             <div className="flex gap-3">
-              {[ { icon: 'share', label: 'Share' }, { icon: 'photo_camera', label: 'Instagram' }, { icon: 'play_arrow', label: 'YouTube' } ].map((social) => (
-                <a key={social.icon} href="#" aria-label={social.label} className="w-10 h-10 bg-white/10 text-white rounded-full flex items-center justify-center hover:bg-white hover:text-[#c8102e] hover:-translate-y-1 transition-all duration-300 shadow-sm">
+              {[ 
+                { icon: 'share', label: 'Facebook', url: 'https://www.facebook.com/haukar' }, 
+                { icon: 'photo_camera', label: 'Instagram', url: 'https://www.instagram.com/haukar_hafnarfjordur/' }, 
+                { icon: 'play_arrow', label: 'YouTube', url: 'https://www.youtube.com/@HaukarTV' } 
+              ].map((social) => (
+                <a 
+                  key={social.icon} 
+                  href={social.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label={social.label} 
+                  className="w-10 h-10 bg-white/10 text-white rounded-full flex items-center justify-center hover:bg-white hover:text-[#c8102e] hover:-translate-y-1 transition-all duration-300 shadow-sm"
+                >
                   <span className="material-symbols-outlined text-[20px]">{social.icon}</span>
                 </a>
               ))}
@@ -61,30 +74,39 @@ export default function Footer() {
           <div>
             <h3 className="font-bold uppercase tracking-widest mb-6 text-sm text-white">Deildir</h3>
             <ul className="space-y-4 text-sm text-white/80 font-body">
-              {[
-                { name: 'Handbolti', icon: 'sports_handball' },
-                { name: 'Fótbolti', icon: 'sports_soccer' },
-                { name: 'Körfubolti', icon: 'sports_basketball' },
-                { name: 'Karate', icon: 'sports_martial_arts' },
-                { name: 'Skíði', icon: 'downhill_skiing' }
-              ].map((sport) => (
-                <li key={sport.name}>
-                  <a href="#" className="hover:text-white transition-colors flex items-center gap-3">
-                    <span className="material-symbols-outlined text-white/50 text-[20px]">{sport.icon}</span>
-                    {sport.name}
-                  </a>
-                </li>
-              ))}
+              {NAV_LINKS.deildir.map((sport) => {
+                const iconMap = {
+                  'Handbolti': 'sports_handball',
+                  'Fótbolti': 'sports_soccer',
+                  'Körfubolti': 'sports_basketball',
+                  'Karate': 'sports_martial_arts',
+                  'Skíði': 'downhill_skiing'
+                };
+                return (
+                  <li key={sport.name}>
+                    <Link to={sport.path} className="hover:text-white transition-colors flex items-center gap-3">
+                      <span className="material-symbols-outlined text-white/50 text-[20px]">{iconMap[sport.name]}</span>
+                      {sport.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
-          {/* Column 3: Félagið */}
           <div>
             <h3 className="font-bold uppercase tracking-widest mb-6 text-sm text-white">Félagið</h3>
             <ul className="space-y-4 text-sm text-white/80 font-body">
-              {['Sagan', 'Stjórn og nefndir', 'Gjaldskrá & Æfingagjöld', 'Mótin', 'Vefverslun'].map((link) => (
-                <li key={link}><a href={link === 'Vefverslun' ? '/vefverslun' : '#'} className="hover:text-white transition-colors">{link}</a></li>
+              {NAV_LINKS.felagid.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.path} className="hover:text-white transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
               ))}
+              <li>
+                <Link to="/vefverslun" className="hover:text-white transition-colors">Vefverslun</Link>
+              </li>
             </ul>
           </div>
 
@@ -127,7 +149,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/70 font-body">
           <p>&copy; {new Date().getFullYear()} Íþróttafélagið Haukar. Allur réttur áskilinn.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Persónuverndarstefna</a>
+            <Link to="/personuvernd" className="hover:text-white transition-colors">Persónuverndarstefna</Link>
             <a href="#" className="hover:text-white transition-colors">Vafrakökur</a>
           </div>
         </div>

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function DivisionTicker({ isOpen }) {
   return (
     <div 
@@ -7,20 +9,20 @@ export default function DivisionTicker({ isOpen }) {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 overflow-x-auto flex items-center gap-10 md:justify-center text-[10px] md:text-xs font-bold uppercase tracking-widest whitespace-nowrap opacity-90 py-1">
         
-        <div className="flex items-center gap-2 text-gray-300 hover:text-white transition-all cursor-pointer group">
+        <Link to="/handbolti" className="flex items-center gap-2 text-gray-300 hover:text-white transition-all cursor-pointer group">
           <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e] shadow-[0_0_6px_#c8102e] group-hover:animate-pulse"></span>
           <span>Handbolti: Haukar 35 - 36 FH</span>
-        </div>
+        </Link>
 
-        <div className="flex items-center gap-2 text-gray-300 hover:text-white transition-all cursor-pointer group">
+        <Link to="/korfubolti" className="flex items-center gap-2 text-gray-300 hover:text-white transition-all cursor-pointer group">
           <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e] shadow-[0_0_6px_#c8102e] group-hover:animate-pulse"></span>
           <span>Körfubolti: Haukar 85 - 82 Stjarnan</span>
-        </div>
+        </Link>
 
-        <div className="flex items-center gap-2 text-gray-300 hover:text-white transition-all cursor-pointer group">
+        <Link to="/fotbolti" className="flex items-center gap-2 text-gray-300 hover:text-white transition-all cursor-pointer group">
           <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e] shadow-[0_0_6px_#c8102e] group-hover:animate-pulse"></span>
           <span>Fótbolti: Þróttur R. 0 - 1 Haukar</span>
-        </div>
+        </Link>
 
       </div>
     </div>

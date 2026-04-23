@@ -9,6 +9,7 @@ import Fotbolti from './pages/Fotbolti';
 import Handbolti from './pages/Handbolti';
 import Veislusalur from './pages/Veislusalur';
 import Aefingagjold from './pages/Aefingagjold';
+import Personuvernd from './pages/Personuvernd';
 import CookieBanner from './components/CookieBanner';
 import Dagatal from './pages/Dagatal';
 import Bakhjarlar from './pages/Bakhjarlar';
@@ -73,12 +74,13 @@ export default function App() {
             <Route path="/bakhjarlar" element={<Bakhjarlar />} />
             <Route path="/hafasamband" element={<HafaSamband />} />
             <Route path="/leikmannahopur" element={<Leikmannahopur />} />
-            <Route path="/grein" element={<NewsArticle />} />
+            <Route path="/frett/:slug" element={<NewsArticle />} />
             <Route path="/" element={<Home />} />
             <Route path="/leikvakt" element={<Leikvakt />} />
             <Route path="/vefverslun" element={<Vefverslun />} />
             <Route path="/sagan" element={<Sagan />} />
             <Route path="/fraedsla" element={<Fraedsla />} />
+            <Route path="/personuvernd" element={<Personuvernd />} />
           </Routes>
         </div>
 

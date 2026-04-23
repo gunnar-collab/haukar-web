@@ -27,7 +27,8 @@ export const dataKarla = {
     { number: "4", slug: "adam-haukur", name: "Adam Haukur", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5260.jpg" },
     { number: "11", slug: "birkir-snaer", name: "Birkir Snær", position: "Hornamaður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5368.jpg" },
     { number: "9", slug: "sigurdur-snaer", name: "Sigurður Snær", position: "Lína", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5278.jpg" },
-    { number: "24", slug: "olafur-aegir", name: "Ólafur Ægir", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5229.jpg" }
+    { number: "24", slug: "olafur-aegir", name: "Ólafur Ægir", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5229.jpg" },
+    { number: "47", slug: "jon-omar", name: "Jón Ómar", position: "Hornamaður", img: "/images/players/jon_omar.jpg" }
   ]
 };
 
@@ -71,8 +72,8 @@ export const handballNews = [
 ];
 
 export const socialPosts = [
-  { id: 1, platform: 'Instagram', handle: '@haukar_topphandbolti', image: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5461.jpg', text: 'Mæting á Ásvelli á morgun! Við þurfum ykkar stuðning í stúkunni ❤️🖤 #haukar #handbolti', likes: '342' },
-  { id: 2, platform: 'Facebook', handle: 'Haukar Topphandbolti', image: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5999.jpg', text: 'Sigurhátíð eftir frábæran leik hjá stelpunum í kvöld. Áfram Haukar!', likes: '512' },
-  { id: 3, platform: 'Instagram', handle: '@haukar_topphandbolti', image: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5515.jpg', text: 'Vegurinn í úrslitin. Aron Rafn lokaði markinu í gær 🧱🔥', likes: '489' },
-  { id: 4, platform: 'Facebook', handle: 'Haukar Topphandbolti', image: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5260.jpg', text: 'Viðtal við Adam Hauk eftir stórsigur gærkvöldsins er komið inn á síðuna.', likes: '280' },
+  { id: 1, platform: 'Instagram', handle: '@haukar_topphandbolti', image: '/handball_social_1.png', text: 'Enginn stöðvar okkar menn þegar þeir komast í loftið! 🚀 Hlökkum til að sjá ykkur á Ásvöllum. #haukar #handbolti #hndbl', likes: '1.2k' },
+  { id: 2, platform: 'Facebook', handle: 'Haukar Topphandbolti', image: '/handball_social_2.png', text: 'Vegurinn er lokaður! 🧱 Aron Rafn með hreint ótrúlega frammistöðu í gærkvöldi. Stúkan ætlaði um koll að keyra!', likes: '845' },
+  { id: 3, platform: 'Instagram', handle: '@haukar_topphandbolti', image: '/handball_social_3.png', text: 'Liðsheildin er okkar styrkur. ❤️🖤 Þessi sigur var fyrir ykkur, kæru stuðningsmenn! #fyrirhauka #handbolti', likes: '2.1k' },
+  { id: 4, platform: 'Facebook', handle: 'Haukar Topphandbolti', image: '/handball_social_4.png', text: 'Smáatriðin skipta máli. Klístur á fingurna og einbeiting í botni. Við erum klár í slaginn! 🔥', likes: '620' },
 ];

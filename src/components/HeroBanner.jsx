@@ -1,7 +1,9 @@
-import heroVideo from '../assets/hero-banner.mp4';
+import { useNavigate } from 'react-router-dom';
 import Button from "./Button.jsx"; 
 
 export default function HeroBanner() {
+  const navigate = useNavigate();
+
   // Swapped h-[80vh] min-h-[600px] for min-h-screen to fill the entire monitor
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-black">
@@ -45,7 +47,12 @@ export default function HeroBanner() {
                 variant="primary" 
                 icon="arrow_downward" 
                 iconPosition="right"
-                onClick={() => window.location.href = '#news'}
+                onClick={() => {
+                  const newsSection = document.getElementById('news');
+                  if (newsSection) {
+                    newsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 Nýjustu fréttir
               </Button>
@@ -54,7 +61,7 @@ export default function HeroBanner() {
                 variant="overlay" 
                 icon="live_tv" 
                 iconPosition="right"
-                onClick={() => window.location.href = '/leikvakt'}
+                onClick={() => navigate('/leikvakt')}
               >
                 Fara á Leikjavaktina
               </Button>

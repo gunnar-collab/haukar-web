@@ -24,6 +24,7 @@ const allHandballPlayers = [
     { id: 11, slug: 'skarphedinn-ivar', name: 'Skarphéðinn', number: '17', position: 'Skytta', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5273.jpg' },
     { id: 14, slug: 'olafur-aegir', name: 'Ólafur Ægir', number: '24', position: 'Skytta', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5229.jpg' },
     { id: 16, slug: 'aron-rafn', name: 'Aron Rafn', number: '27', position: 'Markvörður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5515.jpg' },
+    { id: 17, slug: 'jon-omar', name: 'Jón Ómar', number: '47', position: 'Hornamaður', team: 'karla', img: '/images/players/jon_omar.jpg' },
     { id: 18, slug: 'thrainn-orri', name: 'Þráinn Orri', number: '55', position: 'Lína', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5213.jpg' },
     
     // KVENNA
