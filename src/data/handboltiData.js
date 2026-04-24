@@ -66,6 +66,7 @@ export const dataKvenna = {
 };
 
 export const handballNews = [
+  { id: 4, slug: 'hjortur-ingi-snyr-heim', category: "Meistaraflokkur Karla", title: "Hjörtur Ingi snýr heim á Ásvelli", date: "24. Apríl", image: "/images/handball/hjortur-ingi-1.jpg" },
   { id: 1, slug: 'handbolti-sigur-fh', category: "Meistaraflokkur Karla", title: "Haukar tryggja sér sigur á lokasekúndunum gegn FH", date: "18. Apríl", image: "/assets/sports/handball/news-men-victory.png" },
   { id: 2, slug: 'handbolti-vörn-sigur', category: "Meistaraflokkur Kvenna", title: "Frábær varnarleikur skóp sigurinn á Ásvöllum", date: "16. Apríl", image: "/assets/sports/handball/news-women-defense.png" },
   { id: 3, slug: 'handbolti-sumarnamskeid', category: "Unglingaráð", title: "Skráning hafin á sumarnámskeið handboltans", date: "14. Apríl", image: "/assets/sports/handball/news-youth-camp.png" },

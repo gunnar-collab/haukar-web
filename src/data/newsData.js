@@ -1,4 +1,44 @@
 export const newsArticles = [
+  {
+    slug: 'afmaeli-hauka-95-ara',
+    category: 'Félagið',
+    date: '12. apríl 2026',
+    title: 'Glatt á hjalla á 95 ára afmæli Hauka',
+    lead: 'Haukar fögnuðu afmælinu með félagsmönnum og góðum gestum á afmælisdegi félagsins á sunnudaginn. Fánar félagsins blöktu við hún og íslenski fáninn undirstrikaði hátíðleika dagsins.',
+    image: '/images/news/anniversary/seniors.jpg',
+    images: [
+      { src: '/images/news/anniversary/couple.jpg', position: 'center' },
+      { src: '/images/news/anniversary/staff.jpg', position: 'center' },
+      { src: '/images/news/anniversary/seniors.jpg', position: 'top' },
+      { src: '/images/news/anniversary/family.jpg', position: 'center' }
+    ],
+    content: `
+      <p>Haukar fögnuðu afmælinu með félagsmönnum og góðum gestum á afmælisdegi félagsins á sunnudaginn. Fánar félagsins blöktu við hún og íslenski fáninn undirstrikaði hátíðleika dagsins. Erilsamt var á þessum góða degi og ekki var slegið af með æfingar hjá deildunum frekar en fyrri daginn.</p>
+      <p>Þegar líða tók á dag streymdi fólk að til að horfa á íslenska landsliðið í handknattleik, „stelpurnar okkar“ keppa við lið Portugal um sæti á Evrópumóti landsliða. Ísland vann þar góðan sigur og verður spennandi að fylgjast með liðinu á komandi Evrópumóti landsliða. HSÍ færði félaginu blómvönd í tilefni dagsins og um leið þakklæti fyrir ánægjulegt samstarf.</p>
+      <p>Góður afmælisdagur að baki. Áfram Haukar.</p>
+    `
+  },
+  {
+    slug: 'hjortur-ingi-snyr-heim',
+    category: 'Handbolti',
+    date: '24. apríl 2026',
+    title: 'Hjörtur Ingi snýr heim á Ásvelli',
+    lead: 'Hjörtur Ingi Halldórsson mun snúa aftur á Ásvelli frá og með næsta tímabili en hann hefur skrifað undir samning við félagið um að leika með þeim næstu árin.',
+    image: '/images/handball/hjortur-ingi-1.jpg',
+    content: `
+      <p>Hjörtur Ingi Halldórsson mun snúa aftur á Ásvelli frá og með næsta tímabili en hann hefur skrifað undir samning við félagið um að leika með þeim næstu árin.</p>
+      <p>Hjörtur Ingi kemur til liðs við Hauka frá HK þar sem hann hefur verið lykilmaður undanfarin ár en Hjörtur er vinstri skytta og miðjumaður auk þess sem að hann lætur til sín taka í vörninni.</p>
+      <div class="my-10 overflow-hidden rounded-3xl shadow-xl">
+        <img src="/images/handball/hjortur-ingi-2.jpg" alt="Hjörtur Ingi undirskrift" class="w-full h-auto" />
+      </div>
+      <p>Hjörtur Ingi sem verður 27 ára í desember er uppalinn á Ásvöllum og hefur leikið með HK frá því að hann yfirgaf Hauka sumarið 2020 en hann var hluti af meistaraflokksliði Hauka sem varð deildarmeistari 2019.</p>
+      <p>Það er gleðiefni fyrir Hauka að fá uppalda leikmenn aftur til liðs við félagið og mun koma Hjartar Inga gera gott Haukalið enn betra og hjálpa liðinu að keppast um alla þá titla sem í boði eru næstu árin.</p>
+      <blockquote class="my-10 border-l-4 border-[#c8102e] pl-6 py-2 bg-gray-50/50 rounded-r-2xl italic">
+        <p class="text-2xl md:text-3xl font-bold text-[#1c2c6c] leading-tight mb-4">„Ég er ótrúlega spenntur að snúa aftur í uppeldisfélagið mitt Hauka og hlakka til að gefa allt í komandi verkefni með liðinu“</p>
+        <footer class="text-sm font-bold text-[#c8102e] uppercase tracking-widest not-italic">— Hjörtur Ingi Halldórsson</footer>
+      </blockquote>
+    `
+  },
   // --- EXISTING HOME PAGE ARTICLES ---
   {
     slug: 'storsigur-asvollum',

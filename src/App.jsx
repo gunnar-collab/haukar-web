@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Layout Components
 import Karate from './pages/Karate';
+import Skak from './pages/Skak';
 import PlayerProfile from './pages/PlayerProfile';
 import Korfubolti from './pages/Korfubolti';
 import Fotbolti from './pages/Fotbolti';
@@ -69,12 +70,13 @@ export default function App() {
             <Route path="/korfubolti" element={<Korfubolti onOpenTickets={() => setIsTicketModalOpen(true)} />} />
             <Route path="/fotbolti" element={<Fotbolti onOpenTickets={() => setIsTicketModalOpen(true)} />} />
             <Route path="/handbolti" element={<Handbolti onOpenTickets={() => setIsTicketModalOpen(true)} />} />
+            <Route path="/skak" element={<Skak />} />
             <Route path="/veislusalur" element={<Veislusalur />} />
             <Route path="/aefingagjold" element={<Aefingagjold />} />
             <Route path="/dagatal" element={<Dagatal />} />
             <Route path="/bakhjarlar" element={<Bakhjarlar />} />
             <Route path="/hafasamband" element={<HafaSamband />} />
-            <Route path="/leikmannahopur/:sport" element={<Leikmannahopur />} />
+            <Route path="/leikmannahopur" element={<Leikmannahopur />} />
             <Route path="/arsskyrslur" element={<Arsskyrslur />} />
             <Route path="/frett/:slug" element={<NewsArticle />} />
             <Route path="/" element={<Home />} />

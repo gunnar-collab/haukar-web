@@ -4,6 +4,7 @@ export const NAV_LINKS = {
     { name: 'Fótbolti', path: '/fotbolti' },
     { name: 'Körfubolti', path: '/korfubolti' },
     { name: 'Karate', path: '/karate' },
+    { name: 'Skák', path: '/skak' },
     { name: 'Skíði', path: '#' }
   ],
   felagid: [
@@ -11,6 +12,7 @@ export const NAV_LINKS = {
     { name: 'Bakhjarlar & Styrktaraðilar', path: '/bakhjarlar' },
     { name: 'Æfingagjöld', path: '/aefingagjold' },
     { name: 'Fræðsla & Öryggi', path: '/fraedsla' },
+    { name: 'Leikmenn', path: '/leikmannahopur' },
     { name: 'Leiga á veislusal', path: '/veislusalur' },
     { name: 'Skrifstofa & Stjórn', path: '/hafasamband' }
   ]

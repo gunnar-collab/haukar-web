@@ -14,11 +14,11 @@ export const dataKarla = {
     { rank: 12, team: 'Höttur/Huginn', played: 22, w: 4, d: 5, l: 13, pts: 17 },
   ],
   nextMatch: {
-    competition: '2. deild karla',
-    home: 'Haukar',
-    away: 'Víkingur Ó.',
-    date: 'Lau 2. Maí • 14:00',
-    venue: 'Ásvellir',
+    competition: 'Lengjubikar karla',
+    home: 'Víkingur Ó.',
+    away: 'Haukar',
+    date: 'Lau 25. Apríl • 14:00',
+    venue: 'Ólafsvíkurvöllur',
   },
   lastMatch: {
     competition: '2. deild karla',
@@ -77,11 +77,11 @@ export const dataKvenna = {
     { rank: 5, team: 'Afturelding', played: 18, w: 7, d: 5, l: 6, pts: 26 },
   ],
   nextMatch: {
-    competition: 'Lengjudeild Kvenna',
-    home: 'Grótta',
+    competition: 'Lengjubikar kvenna',
+    home: 'Valur',
     away: 'Haukar',
-    date: 'Sun 16. Maí • 16:00',
-    venue: 'Vivaldivöllurinn',
+    date: 'Fim 30. Apríl • 18:00',
+    venue: 'Origo-völlurinn',
   },
   lastMatch: {
     competition: 'Lengjudeild Kvenna',

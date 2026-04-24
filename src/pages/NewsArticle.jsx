@@ -1,6 +1,69 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { newsArticles } from '../data/newsData';
+import { cn } from '../lib/utils';
+
+function NewsSlider({ images, title }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [images]);
+
+  if (!images || images.length === 0) return null;
+
+  return (
+    <div className="absolute inset-0 w-full h-full">
+      {images.map((img, idx) => (
+        <img 
+          key={typeof img === 'string' ? img : img.src}
+          src={typeof img === 'string' ? img : img.src} 
+          alt={`${title} - ${idx + 1}`} 
+          className={cn(
+            "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
+            idx === currentIndex ? "opacity-100 scale-105" : "opacity-0"
+          )}
+          style={{ objectPosition: typeof img === 'string' ? 'center' : (img.position || 'center') }}
+        />
+      ))}
+      
+      {/* Manual Controls */}
+      {images.length > 1 && (
+        <>
+          <button 
+            onClick={(e) => { e.preventDefault(); setCurrentIndex((prev) => (prev - 1 + images.length) % images.length); }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white rounded-full flex items-center justify-center transition-all z-30"
+          >
+            <span className="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button 
+            onClick={(e) => { e.preventDefault(); setCurrentIndex((prev) => (prev + 1) % images.length); }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white rounded-full flex items-center justify-center transition-all z-30"
+          >
+            <span className="material-symbols-outlined">chevron_right</span>
+          </button>
+          
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+            {images.map((_, idx) => (
+              <button 
+                key={idx}
+                onClick={(e) => { e.preventDefault(); setCurrentIndex(idx); }}
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-300",
+                  idx === currentIndex ? "w-8 bg-white" : "w-2 bg-white/40 hover:bg-white/60"
+                )}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function NewsArticle() {
   const { slug } = useParams();
@@ -46,16 +109,23 @@ export default function NewsArticle() {
         </p>
       </header>
 
-      {/* 2. Cinematic Hero Image */}
+      {/* 2. Cinematic Hero Image / Slider */}
       <div className="max-w-6xl mx-auto px-4 md:px-6 mb-12 md:mb-16">
         <div className="w-full aspect-video md:aspect-[21/9] bg-gray-100 rounded-3xl overflow-hidden shadow-lg relative group">
-          <img 
-            src={article.image} 
-            alt={article.title} 
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          />
+          {article.images && article.images.length > 1 ? (
+            <div className="w-full h-full relative">
+               <NewsSlider images={article.images} title={article.title} />
+            </div>
+          ) : (
+            <img 
+              src={article.image} 
+              alt={article.title} 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              style={{ objectPosition: article.position || 'center' }}
+            />
+          )}
           {/* Image Credit */}
-          <div className="absolute bottom-4 right-4 text-white/60 text-[9px] font-bold uppercase tracking-[0.15em] drop-shadow-sm">
+          <div className="absolute bottom-4 right-4 text-white/60 text-[9px] font-bold uppercase tracking-[0.15em] drop-shadow-sm z-20">
             Mynd: Ljósmyndari Hauka
           </div>
         </div>

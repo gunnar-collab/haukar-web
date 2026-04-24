@@ -3,19 +3,36 @@ import Button from '../components/Button';
 
 export default function Dagatal() {
   const [activeFilter, setActiveFilter] = useState('Allt');
+  const [visibleCount, setVisibleCount] = useState(10);
 
   // Always snap to the top when navigating to this page
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Mock Event Data (This is what we will eventually replace with Abler data!)
+  // Reset visible count when filter changes
+  useEffect(() => {
+    setVisibleCount(10);
+  }, [activeFilter]);
+
+  // Real Event Data from KSÍ, KKÍ, and HBStatz
   const events = [
-    { id: 1, date: '20. Apr', time: '19:30', title: 'Haukar - Valur', category: 'Handbolti', location: 'Ásvellir', isTicketed: true },
-    { id: 2, date: '22. Apr', time: '18:00', title: 'Styrktarmót Ungmennaráðs', category: 'Félagið', location: 'Ásvellir (Veislusalur)', isTicketed: false },
-    { id: 3, date: '25. Apr', time: '20:15', title: 'Haukar - Keflavík', category: 'Körfubolti', location: 'Ásvellir', isTicketed: true },
-    { id: 4, date: '01. Maí', time: '14:00', title: 'Vorhátíð Hauka', category: 'Félagið', location: 'Ásvellir (Útisvæði)', isTicketed: false },
-    { id: 5, date: '05. Maí', time: '19:15', title: 'Haukar - FH', category: 'Fótbolti', location: 'Ásvellir (Gervigras)', isTicketed: true },
+    { id: 1, date: '24. Apr', time: '19:15', title: 'Keflavík - Haukar (K)', category: 'Körfubolti', location: 'Keflavík', competition: 'Bónus deild kvenna - Úrslit', isTicketed: true },
+    { id: 2, date: '25. Apr', time: '12:00', title: 'RKVN 2 - Haukar', category: 'Fótbolti', location: 'Nettóhöllin', competition: 'Íslandsmót KSÍ 5. fl. kv. - D lið C riðill', isTicketed: false },
+    { id: 3, date: '25. Apr', time: '13:00', title: 'ÍR/Léttir - Haukar/KÁ', category: 'Fótbolti', location: 'ÍR-völlur', competition: 'Íslandsmót KSÍ 2. fl. ka. - A lið B deild', isTicketed: false },
+    { id: 4, date: '25. Apr', time: '13:00', title: 'Haukar - FH 2', category: 'Fótbolti', location: 'BIRTU völlurinn', competition: 'Íslandsmót KSÍ 4. fl. ka. - A lið D deild', isTicketed: false },
+    { id: 5, date: '25. Apr', time: '14:00', title: 'Víkingur Ó. - Haukar', category: 'Fótbolti', location: 'Ólafsvíkurvöllur', competition: 'Lengjubikar karla 2026 - B deild Úrslit', isTicketed: true },
+    { id: 6, date: '25. Apr', time: '16:00', title: 'KA/Þór - Haukar (K)', category: 'Handbolti', location: 'KA-heimilið', competition: 'Úrslitakeppni Olís deild kvenna', isTicketed: true },
+    { id: 7, date: '25. Apr', time: '19:15', title: 'Selfoss - Haukar (M)', category: 'Körfubolti', location: 'Selfoss', competition: '1. deild karla - Úrslit', isTicketed: true },
+    { id: 8, date: '26. Apr', time: '10:00', title: 'Haukar - Grótta', category: 'Fótbolti', location: 'BIRTU völlurinn', competition: 'Íslandsmót KSÍ 5. fl. ka. - A lið C riðill', isTicketed: false },
+    { id: 9, date: '26. Apr', time: '13:00', title: 'Haukar - Grótta', category: 'Fótbolti', location: 'BIRTU völlurinn', competition: 'Íslandsmót KSÍ 5. fl. ka. - C lið C riðill', isTicketed: false },
+    { id: 10, date: '27. Apr', time: '16:00', title: 'Haukar - Þróttur R.', category: 'Fótbolti', location: 'BIRTU völlurinn', competition: 'Íslandsmót KSÍ 5. fl. kv. - A lið C riðill', isTicketed: false },
+    { id: 11, date: '28. Apr', time: '19:15', title: 'Haukar - Keflavík (K)', category: 'Körfubolti', location: 'Ásvellir', competition: 'Bónus deild kvenna - Úrslit', isTicketed: true },
+    { id: 12, date: '29. Apr', time: '19:15', title: 'Haukar - Selfoss (M)', category: 'Körfubolti', location: 'Ásvellir', competition: '1. deild karla - Úrslit', isTicketed: true },
+    { id: 13, date: '30. Apr', time: '18:00', title: 'Valur - Haukar (K)', category: 'Fótbolti', location: 'Origo-völlurinn', competition: 'Lengjubikar kvenna - Úrslit', isTicketed: true },
+    { id: 14, date: '01. Maí', time: '14:00', title: 'Haukar - ÍBV (M)', category: 'Fótbolti', location: 'Ásvellir', competition: '2. deild karla', isTicketed: true },
+    { id: 15, date: '01. Maí', time: '14:00', title: 'Vorhátíð Hauka', category: 'Félagið', location: 'Ásvellir (Útisvæði)', competition: 'Félagsviðburður', isTicketed: false },
+    { id: 16, date: '02. Maí', time: '14:00', title: 'Grótta - Haukar (K)', category: 'Fótbolti', location: 'Vivaldivöllurinn', competition: 'Lengjudeild kvenna', isTicketed: true },
   ];
 
   const filters = ['Allt', 'Handbolti', 'Fótbolti', 'Körfubolti', 'Félagið'];
@@ -23,6 +40,9 @@ export default function Dagatal() {
   const filteredEvents = activeFilter === 'Allt' 
     ? events 
     : events.filter(e => e.category === activeFilter);
+
+  const displayedEvents = filteredEvents.slice(0, visibleCount);
+  const hasMore = filteredEvents.length > visibleCount;
 
   return (
     <main className="w-full bg-[#fafafa] min-h-screen pt-10 md:pt-16 pb-20 font-sans">
@@ -58,7 +78,7 @@ export default function Dagatal() {
       <div className="max-w-4xl mx-auto px-6">
         {filteredEvents.length > 0 ? (
           <div className="space-y-4">
-            {filteredEvents.map(event => (
+            {displayedEvents.map(event => (
               <div key={event.id} className="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col md:flex-row items-start md:items-center gap-6 group">
                 
                 {/* Date Block */}
@@ -81,10 +101,16 @@ export default function Dagatal() {
                   <h3 className="text-xl md:text-2xl font-black text-[#1c2c6c] uppercase tracking-tight mb-2 group-hover:text-[#c8102e] transition-colors">
                     {event.title}
                   </h3>
-                  <p className="text-gray-500 text-sm font-medium flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[16px]">location_on</span>
-                    {event.location}
-                  </p>
+                  <div className="flex flex-col gap-1">
+                    <p className="text-gray-500 text-sm font-medium flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[16px]">location_on</span>
+                      {event.location}
+                    </p>
+                    <p className="text-gray-400 text-[11px] font-bold uppercase tracking-tight flex items-center gap-1 pl-0.5">
+                      <span className="material-symbols-outlined text-[14px]">emoji_events</span>
+                      {event.competition}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Call to Action */}
@@ -102,6 +128,22 @@ export default function Dagatal() {
 
               </div>
             ))}
+
+            {hasMore && (
+              <div className="pt-8 flex justify-center">
+                <button 
+                  onClick={() => setVisibleCount(prev => prev + 10)}
+                  className="group flex flex-col items-center gap-2"
+                >
+                  <span className="text-[#1c2c6c] text-xs font-black uppercase tracking-[0.2em] group-hover:text-[#c8102e] transition-colors">
+                    Sjá fleiri viðburði
+                  </span>
+                  <div className="w-12 h-12 rounded-full border-2 border-gray-100 flex items-center justify-center group-hover:border-[#c8102e] group-hover:bg-[#c8102e]/5 transition-all duration-300">
+                    <span className="material-symbols-outlined text-gray-400 group-hover:text-[#c8102e] animate-bounce">expand_more</span>
+                  </div>
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 border-dashed">

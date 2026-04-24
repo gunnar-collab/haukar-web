@@ -1,10 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../components/Button';
 
 export default function Veislusalur() {
+  const [currentHero, setCurrentHero] = useState(0);
+  const heroImages = [
+    '/images/veislusalur-hero-1.jpg',
+    '/images/veislusalur-hero-2.jpg'
+  ];
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const nextHero = () => setCurrentHero((prev) => (prev + 1) % heroImages.length);
+  const prevHero = () => setCurrentHero((prev) => (prev - 1 + heroImages.length) % heroImages.length);
 
   const amenities = [
     { icon: 'groups', title: 'Næg pláss', desc: 'Tekur allt að 150 manns í sæti eða 200 standandi.' },
@@ -21,7 +30,7 @@ export default function Veislusalur() {
         <div className="bg-[#1c2c6c] rounded-3xl overflow-hidden shadow-2xl relative flex flex-col md:flex-row min-h-[400px]">
           
           {/* Text Content */}
-          <div className="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center relative z-10">
+          <div className="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center relative z-20">
             <span className="text-yellow-500 text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 block drop-shadow-sm">
               Leiga á aðstöðu
             </span>
@@ -38,19 +47,105 @@ export default function Veislusalur() {
             </div>
           </div>
 
-          {/* Image Side (Using an Unsplash placeholder for a nice hall) */}
-          <div className="w-full md:w-1/2 relative min-h-[300px] md:min-h-full">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1c2c6c] to-transparent z-10 hidden md:block"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1000&auto=format&fit=crop" 
-              alt="Veislusalur Hauka" 
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+          {/* Image Side (Slider) */}
+          <div className="w-full md:w-1/2 relative min-h-[350px] md:min-h-full overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1c2c6c] via-[#1c2c6c]/20 to-transparent z-10 hidden md:block"></div>
+            
+            {/* Images */}
+            {heroImages.map((img, idx) => (
+              <img 
+                key={img}
+                src={img} 
+                alt={`Veislusalur Hauka ${idx + 1}`} 
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${currentHero === idx ? 'opacity-100' : 'opacity-0'}`}
+              />
+            ))}
+
+            {/* Navigation Arrows */}
+            <div className="absolute bottom-6 right-6 z-30 flex gap-3">
+              <button 
+                onClick={prevHero}
+                className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#1c2c6c] transition-all"
+              >
+                <span className="material-symbols-outlined">chevron_left</span>
+              </button>
+              <button 
+                onClick={nextHero}
+                className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#1c2c6c] transition-all"
+              >
+                <span className="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+
+            {/* Dots */}
+            <div className="absolute bottom-6 left-6 z-30 flex gap-2">
+              {heroImages.map((_, idx) => (
+                <div 
+                  key={idx}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${currentHero === idx ? 'w-8 bg-yellow-500' : 'w-2 bg-white/30'}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* 2. Amenities Grid */}
+      {/* 2. Gallery Bento Grid */}
+      <div className="max-w-7xl mx-auto px-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 h-[600px] md:h-[800px]">
+          
+          {/* Main Large Image */}
+          <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl shadow-lg border border-white/20">
+            <img 
+              src="/images/veislusalur/IMG_4732.jpg" 
+              alt="Veislusalur Hauka - Salurinn" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+              <p className="text-white font-bold text-xl italic uppercase tracking-tighter">Rúmgóður og bjartur salur</p>
+            </div>
+          </div>
+
+          {/* Top Right Small */}
+          <div className="md:col-span-2 md:row-span-1 relative group overflow-hidden rounded-3xl shadow-lg border border-white/20">
+            <img 
+              src="/images/veislusalur/IMG_4736.jpg" 
+              alt="Veislusalur Hauka - Uppsetning" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+              <p className="text-white font-bold text-lg italic uppercase tracking-tighter">Glæsileg borðuppsetning</p>
+            </div>
+          </div>
+
+          {/* Bottom Middle Small */}
+          <div className="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-3xl shadow-lg border border-white/20">
+            <img 
+              src="/images/veislusalur/IMG_4738.jpg" 
+              alt="Veislusalur Hauka - Smáatriði" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 text-center justify-center">
+              <p className="text-white font-bold text-sm italic uppercase tracking-tighter">Vandaður frágangur</p>
+            </div>
+          </div>
+
+          {/* Bottom Right Small */}
+          <div className="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-3xl shadow-lg border border-white/20">
+            <img 
+              src="/images/veislusalur/IMG_4739.jpg" 
+              alt="Veislusalur Hauka - Stemning" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 text-center justify-center">
+              <p className="text-white font-bold text-sm italic uppercase tracking-tighter">Fullkomin lýsing</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* 3. Amenities Grid */}
       <div className="max-w-7xl mx-auto px-6 mb-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-black italic text-[#1c2c6c] uppercase tracking-tighter">
