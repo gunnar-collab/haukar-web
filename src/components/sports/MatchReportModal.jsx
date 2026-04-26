@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import TeamLogo from './TeamLogo';
 
 export default function MatchReportModal({ isOpen, onClose, match }) {
   const [activeTab, setActiveTab] = useState('atburdir'); // 'atburdir' | 'leikskyrsla'
@@ -83,10 +84,7 @@ export default function MatchReportModal({ isOpen, onClose, match }) {
             
             <div className="flex items-center justify-center gap-8 md:gap-16 mb-8 w-full max-w-2xl">
               <div className="flex-1 flex flex-col items-center text-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 rounded-3xl backdrop-blur-md mb-4 flex items-center justify-center border border-white/10">
-                  {/* Placeholder for Opponent Logo */}
-                  <span className="material-symbols-outlined text-4xl text-white/20">shield</span>
-                </div>
+                <TeamLogo teamName={match.home} className="w-16 h-16 md:w-20 md:h-20 mb-4" />
                 <h3 className="text-lg md:text-xl font-black uppercase italic tracking-tighter">{match.home}</h3>
               </div>
 
@@ -98,9 +96,7 @@ export default function MatchReportModal({ isOpen, onClose, match }) {
               </div>
 
               <div className="flex-1 flex flex-col items-center text-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 rounded-3xl backdrop-blur-md mb-4 flex items-center justify-center border border-white/10 p-4">
-                  <img src="/images/logo.png" alt="Haukar" className="w-full h-full object-contain" />
-                </div>
+                <TeamLogo teamName={match.away} className="w-16 h-16 md:w-20 md:h-20 mb-4" />
                 <h3 className="text-lg md:text-xl font-black uppercase italic tracking-tighter">{match.away}</h3>
               </div>
             </div>

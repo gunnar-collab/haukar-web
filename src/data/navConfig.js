@@ -14,6 +14,8 @@ export const NAV_LINKS = {
     { name: 'Fræðsla & Öryggi', path: '/fraedsla' },
     { name: 'Leikmenn', path: '/leikmannahopur' },
     { name: 'Leiga á veislusal', path: '/veislusalur' },
-    { name: 'Skrifstofa & Stjórn', path: '/hafasamband' }
+    { name: 'Skrifstofa & Stjórn', path: '/hafasamband' },
+    { name: 'Dagatal', path: '/dagatal' },
+    { name: 'Leikvakt', path: '/leikvakt' }
   ]
 };

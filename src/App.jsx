@@ -17,6 +17,7 @@ import Bakhjarlar from './pages/Bakhjarlar';
 import HafaSamband from './pages/HafaSamband';
 import Leikmannahopur from './pages/Leikmannahopur';
 import NewsArticle from './pages/NewsArticle';
+import Frettir from './pages/Frettir';
 import Arsskyrslur from './pages/Arsskyrslur';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -25,6 +26,7 @@ import AlertToast from './components/AlertToast';
 import DivisionTicker from './components/DivisionTicker';
 import GeminiChat from './components/GeminiChat';
 import TicketModal from './components/TicketModal';
+import LoginModal from './components/LoginModal';
 import Sponsors from './components/Sponsors'; 
 
 // Pages
@@ -33,6 +35,7 @@ import Leikvakt from './pages/Leikvakt';
 import Vefverslun from './pages/Vefverslun';
 import Sagan from './pages/Sagan';
 import Fraedsla from './pages/Fraedsla';
+import FanProfileDemo from './pages/FanProfileDemo';
 
 import { MatchProvider } from './context/MatchContext';
 import ScrollToTop from './components/ScrollToTop';
@@ -42,6 +45,7 @@ export default function App() {
   const location = useLocation();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   return (
     <MatchProvider>
@@ -51,12 +55,16 @@ export default function App() {
         
         {/* 1. Modals & Overlays */}
         <TicketModal isOpen={isTicketModalOpen} onClose={() => setIsTicketModalOpen(false)} />
+        <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
 
         {/* 2. GUARANTEED FIXED HEADER (Immune to scroll bugs) */}
         <div className="fixed top-0 left-0 w-full z-[100] bg-white shadow-md flex flex-col">
           <LiveTicker toggleDrawer={() => setIsDrawerOpen(!isDrawerOpen)} isOpen={isDrawerOpen} />
           <DivisionTicker isOpen={isDrawerOpen} />
-          <Navbar onOpenTickets={() => setIsTicketModalOpen(true)} />
+          <Navbar 
+            onOpenTickets={() => setIsTicketModalOpen(true)} 
+            onOpenLogin={() => setIsLoginModalOpen(true)}
+          />
         </div>
 
         {/* 3. STRICT CONTENT WRAPPER (Destroys all horizontal overflow) */}
@@ -78,6 +86,7 @@ export default function App() {
             <Route path="/hafasamband" element={<HafaSamband />} />
             <Route path="/leikmannahopur" element={<Leikmannahopur />} />
             <Route path="/arsskyrslur" element={<Arsskyrslur />} />
+            <Route path="/frettir" element={<Frettir />} />
             <Route path="/frett/:slug" element={<NewsArticle />} />
             <Route path="/" element={<Home />} />
             <Route path="/leikvakt" element={<Leikvakt />} />
@@ -85,12 +94,13 @@ export default function App() {
             <Route path="/sagan" element={<Sagan />} />
             <Route path="/fraedsla" element={<Fraedsla />} />
             <Route path="/personuvernd" element={<Personuvernd />} />
+            <Route path="/demo" element={<FanProfileDemo />} />
           </Routes>
         </div>
 
         {/* 4. Global Pre-Footer & Footer */}
         <AlertToast />
-        <GeminiChat />
+        <GeminiChat onOpenTickets={() => setIsTicketModalOpen(true)} />
         <CookieBanner />
         
         {/* 5. Sponsor Wall & Footer sit outside the routes so they render on every page! */}

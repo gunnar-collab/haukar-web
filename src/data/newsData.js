@@ -39,6 +39,40 @@ export const newsArticles = [
       </blockquote>
     `
   },
+  {
+    slug: 'haukar-bikar-sigur-olafsvik',
+    category: 'Fótbolti',
+    date: '26. apríl 2026',
+    title: 'Haukar unnu B-deild Lengjubikarsins eftir vító',
+    lead: 'Haukar tryggðu sér í dag sigur í B-deild Lengjubikarsins með sigri á liði Víkings frá Ólafsvík eftir gríðarlega spennandi vítaspyrnukeppni.',
+    image: '/images/soccer/celebration.png',
+    images: [
+      { src: '/images/soccer/stadium.png', position: 'center' }
+    ],
+    content: `
+      <p>Haukar tryggðu sér í dag sigur í B-deild Lengjubikarsins með sigri á liði Víkings frá Ólafsvík eftir vítaspyrnukeppni.</p>
+      
+      <div class="my-6 bg-gray-50 border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
+        <h3 class="text-xl font-black text-[#1c2c6c] uppercase tracking-tighter mb-4">Víkingur Ó. 0 - 0 Haukar <span class="text-[#c8102e]">(2-4 e.vítakeppni)</span></h3>
+        <ul class="text-gray-700 font-medium space-y-2 flex flex-col items-center">
+          <li><strong>0-1</strong> Daði Snær Ingason</li>
+          <li><strong>0-2</strong> Máni Mar Steinbjörnsson</li>
+          <li><strong>1-2</strong> Benjamín Mehic</li>
+          <li><strong>1-3</strong> Ævar Daði Segatta</li>
+          <li><strong>2-3</strong> Daði Kárason</li>
+          <li><strong>2-4</strong> Gabríel Aron Sævarsson</li>
+        </ul>
+      </div>
+
+      <h2>Krefjandi aðstæður í Ólafsvík</h2>
+      <p>Leikurinn fór fram við afar krefjandi aðstæður í Ólafsvík þar sem talsverður vindur hafði mikil áhrif á framvindu leiksins.</p>
+      <p>Vindurinn stóð beint á völlinn en hvorugu liðinu tókst að nýta sér að leika undan vindinum í sitthvorum hálfleiknum og því var gripið til vítaspyrnukeppni.</p>
+      
+      <h2>Spyrnuvél Hauka kláraði dæmið</h2>
+      <p>Í vítaspyrnukeppninni reyndust Haukar sterkari undir stjórn spyrnusérfræðingsins Guðjóns Péturs Lýðssonar og tryggðu sér Lengjubikarinn með því að skora úr fjórum spyrnum gegn tveimur frá Ólafsvíkingum.</p>
+      <p class="text-xs text-gray-400 mt-8 italic">Myndir: Fótbolti.net - Hulda Margrét</p>
+    `
+  },
   // --- EXISTING HOME PAGE ARTICLES ---
   {
     slug: 'storsigur-asvollum',

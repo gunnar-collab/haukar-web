@@ -8,6 +8,7 @@ import LeagueDashboard from '../components/LeagueDashboard';
 
 // Data imports
 import { dataKarla, dataKvenna, handballNews, socialPosts } from '../data/handboltiData.js';
+import { getDynamicMatches } from '../utils/matchUtils.js';
 import haukarStats from '../data/haukar_player_stats.json';
 import haukarWomenStats from '../data/haukar_women_player_stats.json';
 
@@ -85,6 +86,7 @@ export default function Handbolti({ onOpenTickets }) {
   }, [gender]);
 
   const currentData = gender === 'karla' ? dataKarla : dataKvenna;
+  const { lastMatch, nextMatch } = getDynamicMatches('handbolti', gender);
 
   return (
     <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#1c2c6c] selection:text-white">
@@ -98,8 +100,8 @@ export default function Handbolti({ onOpenTickets }) {
 
       <MatchDashboard 
         loading={loading}
-        lastMatch={currentData.lastMatch}
-        nextMatch={currentData.nextMatch}
+        lastMatch={lastMatch}
+        nextMatch={nextMatch}
         onOpenTickets={onOpenTickets}
         provider="HBStatz"
         statsIcon="bar_chart"

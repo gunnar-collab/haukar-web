@@ -8,6 +8,7 @@ import SocialWall from '../components/sports/SocialWall.jsx';
 
 // Data imports
 import { dataKarla, dataKvenna, footballNews, socialPosts } from '../data/fotboltiData.js';
+import { getDynamicMatches } from '../utils/matchUtils.js';
 
 export default function Fotbolti({ onOpenTickets }) {
   const [gender, setGender] = useState('karla'); // 'karla' | 'kvenna'
@@ -27,6 +28,7 @@ export default function Fotbolti({ onOpenTickets }) {
   }, [gender]);
 
   const currentData = gender === 'karla' ? dataKarla : dataKvenna;
+  const { lastMatch, nextMatch } = getDynamicMatches('fotbolti', gender);
 
   return (
     <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#1c2c6c] selection:text-white">
@@ -40,8 +42,8 @@ export default function Fotbolti({ onOpenTickets }) {
 
       <MatchDashboard 
         loading={loading}
-        lastMatch={currentData.lastMatch}
-        nextMatch={currentData.nextMatch}
+        lastMatch={lastMatch}
+        nextMatch={nextMatch}
         onOpenTickets={onOpenTickets}
         provider="KSÍ"
         statsIcon="open_in_new"

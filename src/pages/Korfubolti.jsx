@@ -8,6 +8,7 @@ import SocialWall from '../components/sports/SocialWall.jsx';
 
 // Data imports
 import { dataKarla, dataKvenna, basketballNews, socialPosts } from '../data/korfuboltiData.js';
+import { getDynamicMatches } from '../utils/matchUtils.js';
 
 export default function Korfubolti({ onOpenTickets }) {
   const [gender, setGender] = useState('karla'); // 'karla' | 'kvenna'
@@ -27,6 +28,7 @@ export default function Korfubolti({ onOpenTickets }) {
   }, [gender]);
 
   const currentData = gender === 'karla' ? dataKarla : dataKvenna;
+  const { lastMatch, nextMatch } = getDynamicMatches('korfubolti', gender);
 
   return (
     <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#c8102e] selection:text-white">

@@ -80,6 +80,7 @@ export default function Footer() {
                   'Fótbolti': 'sports_soccer',
                   'Körfubolti': 'sports_basketball',
                   'Karate': 'sports_martial_arts',
+                  'Skák': 'extension',
                   'Skíði': 'downhill_skiing'
                 };
                 return (

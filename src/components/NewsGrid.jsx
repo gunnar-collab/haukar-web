@@ -55,7 +55,7 @@ export default function NewsGrid() {
   const hjortur = newsArticles.find(a => a.slug === 'hjortur-ingi-snyr-heim');
   const nano = newsArticles.find(a => a.slug === 'nano-banana-ny-orka');
   const basket = newsArticles.find(a => a.slug === 'urslitakeppni-korfu');
-  const football = newsArticles.find(a => a.slug === 'undirbuningsmot-fotbolti');
+  const football = newsArticles.find(a => a.slug === 'haukar-bikar-sigur-olafsvik') || newsArticles.find(a => a.slug === 'undirbuningsmot-fotbolti');
   const featured = anniversary || newsArticles[0];
 
   return (
@@ -72,7 +72,7 @@ export default function NewsGrid() {
               Nýjustu Fréttir
             </h2>
           </div>
-          <Link to="/dagatal" className="font-bold text-[#c8102e] hover:text-red-800 transition-colors flex items-center gap-1 mb-2 text-sm uppercase tracking-widest">
+          <Link to="/frettir" className="font-bold text-[#c8102e] hover:text-red-800 transition-colors flex items-center gap-1 mb-2 text-sm uppercase tracking-widest">
             Sjá Allt <span className="text-xl leading-none">&rsaquo;</span>
           </Link>
         </div>

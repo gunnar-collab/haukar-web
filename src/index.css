@@ -106,3 +106,53 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+
+/* 🏆 MATCH DASHBOARD CUSTOM SCROLLBAR & ANIMATIONS 🏆 */
+
+.match-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.match-scrollbar::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.match-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15); 
+  border-radius: 10px;
+}
+
+.match-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3); 
+}
+
+/* Smooth Accordion Expansion */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content.expanded {
+  grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+  overflow: hidden;
+}
+
+/* Staggered Fade-In for Matches */
+@keyframes matchStagger {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.match-item-enter {
+  animation: matchStagger 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

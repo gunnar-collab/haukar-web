@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { NAV_LINKS } from '../data/navConfig.js';
 import { cn } from '../lib/utils.js';
 
-export default function Navbar({ onOpenTickets }) {
+export default function Navbar({ onOpenTickets, onOpenLogin }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null); 
 
@@ -84,27 +84,38 @@ export default function Navbar({ onOpenTickets }) {
               Skráning <span className="material-symbols-outlined text-[16px]" aria-hidden="true">open_in_new</span>
             </a>
 
-            {/* 4. Dagatal */}
-            <NavLink to="/dagatal" className={({ isActive }) => cn(baseClassName, isActive && activeClassName)}>
-              Dagatal
-            </NavLink>
-
-            {/* 5. Leikvakt */}
-            <NavLink to="/leikvakt" className={({ isActive }) => cn(baseClassName, isActive && activeClassName)}>
-              Leikvakt
-            </NavLink>
+            {/* Removed Dagatal and Leikvakt (moved to Félagið dropdown) */}
 
           </div>
 
-          <div className="hidden lg:flex items-center gap-4">
-            <Button variant="secondary" size="sm" icon="local_activity" onClick={onOpenTickets}>
-              Kaupa miða
-            </Button>
-            <Link to="/vefverslun" aria-label="Hauka varningur">
-              <Button variant="primary" size="sm" icon="checkroom">
-                Hauka varningur
-              </Button>
+          <div className="hidden lg:flex items-center gap-3">
+            <button 
+              onClick={onOpenLogin} 
+              className="w-10 h-10 rounded-full bg-gray-50 border border-gray-200 text-gray-500 hover:text-[#1c2c6c] hover:border-[#1c2c6c] hover:shadow-sm flex items-center justify-center transition-all group relative"
+              aria-label="Innskráning"
+            >
+              <span className="material-symbols-outlined text-[20px]">person</span>
+              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white font-bold text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap">Innskráning</div>
+            </button>
+            <Link to="/vefverslun" aria-label="Verslun">
+              <button 
+                className="w-10 h-10 rounded-full bg-gray-50 border border-gray-200 text-gray-500 hover:text-[#1c2c6c] hover:border-[#1c2c6c] hover:shadow-sm flex items-center justify-center transition-all group relative"
+              >
+                <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
+                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white font-bold text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap">Verslun</div>
+              </button>
             </Link>
+            <button 
+              onClick={onOpenTickets} 
+              className="relative w-10 h-10 flex items-center justify-center group"
+              aria-label="Miðar"
+            >
+              <div className="absolute inset-0 bg-[#c8102e] rounded-full animate-ping opacity-25"></div>
+              <div className="relative w-full h-full rounded-full bg-[#c8102e] text-white hover:bg-red-800 shadow-md flex items-center justify-center transition-all z-10">
+                <span className="material-symbols-outlined text-[20px]">local_activity</span>
+              </div>
+              <div className="absolute top-full mt-2 right-0 px-2 py-1 bg-[#c8102e] text-white font-bold text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-20 pointer-events-none">Kaupa miða</div>
+            </button>
           </div>
 
           <button 
@@ -154,21 +165,19 @@ export default function Navbar({ onOpenTickets }) {
                 Skráning <span className="material-symbols-outlined text-[16px]" aria-hidden="true">open_in_new</span>
               </a>
               
-              <Link to="/dagatal" onClick={handleMobileNav} className="flex items-center justify-between py-3 text-sm font-bold text-[#1c2c6c] uppercase tracking-wider border-b border-gray-100">
-                Dagatal
-              </Link>
-              <Link to="/leikvakt" onClick={handleMobileNav} className="flex items-center justify-between py-3 text-sm font-bold text-[#1c2c6c] uppercase tracking-wider border-b border-gray-100">
-                Leikvakt
-              </Link>
+              {/* Removed Dagatal and Leikvakt from mobile root (moved to Félagið accordion) */}
             </div>
             
             <div className="flex flex-col gap-3">
-              <Button variant="secondary" size="md" icon="local_activity" className="w-full justify-center" onClick={() => { setIsMobileMenuOpen(false); onOpenTickets(); }}>
-                Kaupa miða
+              <Button variant="outline" size="md" icon="login" className="w-full justify-center" onClick={() => { setIsMobileMenuOpen(false); onOpenLogin(); }}>
+                Innskráning
               </Button>
-              <Link to="/vefverslun" onClick={handleMobileNav} className="w-full" aria-label="Hauka varningur">
+              <Button variant="secondary" size="md" icon="local_activity" className="w-full justify-center" onClick={() => { setIsMobileMenuOpen(false); onOpenTickets(); }}>
+                Miðar
+              </Button>
+              <Link to="/vefverslun" onClick={handleMobileNav} className="w-full" aria-label="Verslun">
                 <Button variant="primary" size="md" icon="checkroom" className="w-full justify-center">
-                  Hauka varningur
+                  Verslun
                 </Button>
               </Link>
             </div>

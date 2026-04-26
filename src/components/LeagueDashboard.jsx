@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import leagueData from '../data/haukar_league_data.json';
 import MatchReportModal from './sports/MatchReportModal';
@@ -7,18 +7,64 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
   const [internalGender, setInternalGender] = useState('karla');
   const [selectedMatch, setSelectedMatch] = useState(null);
   const [isReportOpen, setIsReportOpen] = useState(false);
+  const [showAllMatches, setShowAllMatches] = useState(false);
+
+  // Drag-to-scroll state
+  const scrollRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startY, setStartY] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [dragMoved, setDragMoved] = useState(false);
 
   const activeGender = propGender || internalGender;
 
   const activeKey = sport === 'handbolti' ? activeGender : `${sport}_${activeGender}`;
   const currentData = leagueData[activeKey];
 
+  // Logic to separate played games from upcoming games
+  const playedMatches = currentData.matches.filter(m => m.score !== 'Næsti leikur' && m.score !== '- - -');
+  // Reverse upcoming so the closest future game is at the top
+  const upcomingMatches = currentData.matches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -').reverse();
+  
+  const top3Played = playedMatches.slice(0, 3);
+  const remainingMatches = [...upcomingMatches, ...playedMatches.slice(3)];
+
   const leagueName = sport === 'handbolti' ? 'Olís deildinni' : sport === 'fotbolti' ? 'deildinni' : 'Bónusdeildinni';
   const providerName = sport === 'handbolti' ? 'HBStatz' : sport === 'fotbolti' ? 'KSÍ' : 'KKÍ';
 
   const handleOpenReport = (match) => {
+    if (dragMoved) return; // Prevent opening report if the user was just dragging to scroll
     setSelectedMatch(match);
     setIsReportOpen(true);
+  };
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setDragMoved(false);
+    setStartY(e.pageY - scrollRef.current.offsetTop);
+    setScrollTop(scrollRef.current.scrollTop);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const y = e.pageY - scrollRef.current.offsetTop;
+    const walk = (y - startY) * 1.5; // Scroll speed multiplier
+    
+    // Only register as a "drag" if they move more than 5 pixels
+    if (Math.abs(y - startY) > 5) {
+      setDragMoved(true);
+    }
+    
+    scrollRef.current.scrollTop = scrollTop - walk;
   };
 
   const handballScorers = [
@@ -47,6 +93,36 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
 
   const scorers = sport === 'handbolti' ? handballScorers : sport === 'fotbolti' ? footballScorers : basketballScorers;
   const pointType = sport === 'korfubolti' ? 'Stig' : 'Mörk';
+
+  const getVenue = (homeTeam) => {
+    if (homeTeam.includes('Haukar')) return 'Ásvellir';
+    const venues = {
+      'Grótta': 'Vivaldivöllurinn',
+      'Víkingur Ó.': 'Ólafsvíkurvöllur',
+      'Ægir': 'Þorlákshafnarvöllur',
+      'Þróttur Vogum': 'Vogabæjarvöllur',
+      'Kormákur/Hvöt': 'Hvammstangavöllur',
+      'Dalvík/Reynir': 'Dalvíkurvöllur',
+      'KFA': 'Fjarðabyggðarhöllin',
+      'Kári': 'Akraneshöllin',
+      'KFG': 'Samsung völlurinn',
+      'Víðir': 'Nesfisk-völlurinn',
+      'Höttur/Huginn': 'Vilhjálmsvöllur',
+      'Selfoss': 'JÁVERK-völlurinn',
+      'Víkingur R.': 'Víkingsvöllur',
+      'Afturelding': 'Malbikstöðin að Varmá',
+      'FHL': 'Fjarðabyggðarhöllin',
+      'HK': 'Kórinn',
+      'ÍR': 'ÍR-völlurinn',
+      'Fram': 'Lambhagavöllurinn',
+      'Valur': 'N1-völlurinn Hlíðarenda',
+      'FH': 'Kaplakrikavöllur',
+      'Stjarnan': 'Samsung völlurinn',
+      'KA': 'Greifavöllurinn',
+      'ÍBV': 'Hásteinsvöllur'
+    };
+    return venues[homeTeam] || 'Útivöllur';
+  };
 
   return (
     <section className="w-full py-24 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden">
@@ -174,11 +250,14 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
               <div className="relative z-10 flex-grow">
                 <div className="flex items-center justify-between mb-8">
                   <h3 className="text-xs font-black uppercase tracking-[0.3em]">Nýjustu Úrslit</h3>
-                  <span className="bg-white/10 text-[9px] font-black px-2 py-1 rounded uppercase backdrop-blur-sm">Seinustu 3</span>
+                  <span className="bg-white/10 text-[9px] font-black px-2 py-1 rounded uppercase backdrop-blur-sm">
+                    {showAllMatches ? 'Allt Tímabilið' : 'Seinustu 3'}
+                  </span>
                 </div>
                 
-                <div className="space-y-6">
-                  {currentData.matches.slice(0, 3).map((match, idx) => (
+                {/* The Visible Matches (Always Top 3 Played) */}
+                <div className="space-y-6 relative z-10">
+                  {top3Played.map((match, idx) => (
                     <div 
                       key={idx} 
                       className="group/match cursor-pointer"
@@ -205,12 +284,75 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                   ))}
                 </div>
 
-                <Link 
-                  to="/dagatal"
+                {/* The Expanding Accordion for the Rest of the Season (Upcoming + History) */}
+                <div className={`accordion-content ${showAllMatches ? 'expanded mt-6' : ''}`}>
+                  <div 
+                    ref={scrollRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseUp={handleMouseUp}
+                    onMouseMove={handleMouseMove}
+                    className={`accordion-inner max-h-[400px] overflow-y-auto pr-2 match-scrollbar space-y-6 ${isDragging ? 'cursor-grabbing select-none' : 'cursor-grab'}`}
+                  >
+                    {remainingMatches.map((match, idx) => (
+                      <div 
+                        key={idx + 3} 
+                        className={`group/match cursor-pointer opacity-0 ${showAllMatches ? 'match-item-enter' : ''}`}
+                        style={{ animationDelay: `${idx * 0.05}s` }}
+                        onClick={() => handleOpenReport(match)}
+                      >
+                        <div className="flex justify-between items-center mb-1">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{match.date}</span>
+                            <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                            <span className="text-[9px] font-black text-white/40 uppercase">Sjá skýrslu</span>
+                          </div>
+                          <span className="text-[9px] font-black text-[#D4AF37] uppercase">{match.competition}</span>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <div className="flex-1">
+                            <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight ${match.home === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.home}</p>
+                            <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight ${match.away === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.away}</p>
+                          </div>
+                          {match.score !== 'Næsti leikur' && match.score !== '- - -' ? (
+                            <div className="bg-white text-[#c8102e] px-4 py-2 rounded-2xl font-black italic shadow-xl text-base group-hover/match:scale-110 transition-transform min-w-[75px] text-center">
+                              {match.score.replace(/\(\d+\)/g, '').trim()}
+                            </div>
+                          ) : (
+                            <a 
+                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(getVenue(match.home) + ', Iceland')}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              title="Skoða á korti"
+                              className="flex items-center gap-1.5 text-white/40 hover:text-white group-hover/match:text-white transition-all duration-300 cursor-pointer"
+                            >
+                              <span className="material-symbols-outlined text-[14px]">
+                                {match.home.includes('Haukar') ? 'home' : 'location_on'}
+                              </span>
+                              <span className="text-[10px] font-bold uppercase tracking-widest truncate max-w-[100px] text-right underline decoration-transparent group-hover/match:decoration-white/30 hover:!decoration-white underline-offset-2">
+                                {getVenue(match.home)}
+                              </span>
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Vignette Fade Overlay */}
+                {!showAllMatches && remainingMatches.length > 0 && (
+                  <div className="absolute bottom-[240px] left-0 w-full h-16 bg-gradient-to-t from-[#c8102e] to-transparent pointer-events-none z-20"></div>
+                )}
+
+                <button 
+                  onClick={() => setShowAllMatches(!showAllMatches)}
                   className="mt-8 w-full py-4 bg-white/10 hover:bg-white text-white hover:text-[#c8102e] border border-white/20 font-black uppercase tracking-widest text-[10px] rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2"
                 >
-                  Sjá alla leikjadagskrá <span className="material-symbols-outlined text-sm">calendar_month</span>
-                </Link>
+                  {showAllMatches ? 'Sjá Minna' : 'Sjá alla leikjadagskrá'} 
+                  <span className="material-symbols-outlined text-sm">{showAllMatches ? 'expand_less' : 'expand_more'}</span>
+                </button>
 
                 {/* Surprise: Top Scorers Widget */}
                 <div className="mt-10 pt-8 border-t border-white/10">

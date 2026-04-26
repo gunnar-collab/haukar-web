@@ -5,6 +5,7 @@ import Button from './Button.jsx';
 export default function TicketModal({ isOpen, onClose }) {
   const [ticketCount, setTicketCount] = useState(1);
   const [paymentStep, setPaymentStep] = useState('select'); 
+  const [isAddedToWallet, setIsAddedToWallet] = useState(false);
 
   // Reset the modal automatically 300ms after closing so it's fresh for next time
   useEffect(() => {
@@ -12,6 +13,7 @@ export default function TicketModal({ isOpen, onClose }) {
       const timeout = setTimeout(() => {
         setTicketCount(1);
         setPaymentStep('select');
+        setIsAddedToWallet(false);
       }, 300);
       document.body.style.overflow = 'unset';
       return () => clearTimeout(timeout);
@@ -110,26 +112,96 @@ export default function TicketModal({ isOpen, onClose }) {
             </div>
           </div>
         ) : (
-          
-          /* Success QR Code View */
-          <div className="p-8 flex flex-col items-center justify-center gap-4 bg-gray-50 text-center animate-in slide-in-from-right-8 duration-300">
-            <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-2 shadow-inner">
-              <span className="material-symbols-outlined text-[32px]">check_circle</span>
-            </div>
-            <h4 className="text-2xl font-black text-[#1c2c6c] uppercase tracking-tighter">Miði Staðfestur!</h4>
-            <p className="text-sm text-gray-500 mb-2">Sýndu þennan kóða við innganginn á Ásvöllum.</p>
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
-              <span className="material-symbols-outlined text-[140px] text-[#1c2c6c]">qr_code_2</span>
-            </div>
-            <p className="font-bold text-[#c8102e] mt-2 text-lg">{ticketCount}x Almennur miði</p>
+          /* Google Wallet Pass Success View */
+          <div className="bg-[#fafafa] flex flex-col items-center justify-center px-4 py-8 animate-in slide-in-from-right-8 duration-300 relative z-10">
             
-            <Button 
-              variant="outline" 
-              className="w-full mt-4"
-              onClick={onClose}
-            >
-              Loka glugga
-            </Button>
+            <h4 className="text-2xl font-black text-gray-900 uppercase tracking-tighter mb-6">Miði Staðfestur!</h4>
+
+            {/* Wallet Pass UI */}
+            <div className="w-full max-w-[340px] perspective-1000">
+              <div className="w-full bg-gradient-to-br from-[#e61932] to-[#990a21] rounded-[24px] shadow-2xl overflow-hidden relative animate-in zoom-in duration-500">
+                {/* Top Banner (Matte Red) */}
+                <div className="px-6 py-5 flex justify-between items-start border-b border-white/20">
+                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                     <span className="font-bold text-[#c8102e] text-lg">H</span>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-white/80 text-xs font-semibold uppercase tracking-wider">Haukar Íþróttafélag</p>
+                    <p className="text-white font-bold text-lg">Almennur Aðgöngumiði</p>
+                  </div>
+                </div>
+
+                {/* Match Details */}
+                <div className="px-6 py-6 bg-white/5 backdrop-blur-sm">
+                  <div className="flex justify-between items-end mb-6">
+                    <div>
+                      <p className="text-white/60 text-xs font-medium uppercase mb-1">Keppni</p>
+                      <p className="text-white font-bold text-xl">Olís deild karla</p>
+                    </div>
+                    <div className="text-right">
+                      <span className="px-3 py-1 bg-white/20 text-white text-xs font-bold rounded-full uppercase tracking-wider">
+                        19:30
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div>
+                      <p className="text-white/60 text-xs font-medium uppercase mb-1">Mótherji</p>
+                      <p className="text-white font-bold text-lg">Valur</p>
+                    </div>
+                    <div>
+                      <p className="text-white/60 text-xs font-medium uppercase mb-1">Dags</p>
+                      <p className="text-white font-bold text-lg">16. Apr</p>
+                    </div>
+                  </div>
+
+                  {/* Seat Info */}
+                  <div className="flex justify-between items-center bg-black/20 rounded-lg p-3">
+                     <div className="w-full text-center">
+                        <p className="text-white/60 text-[10px] uppercase font-bold tracking-wider">Stúka</p>
+                        <p className="text-white font-bold text-xl tracking-widest">OPIÐ SVÆÐI ({ticketCount}x)</p>
+                     </div>
+                  </div>
+                </div>
+
+                {/* Aztec Barcode Mock */}
+                <div className="bg-white px-6 py-6 text-center">
+                  <div className="w-32 h-32 bg-gray-100 border-2 border-gray-800 mx-auto rounded-lg flex flex-col items-center justify-center p-2 mb-2">
+                    <div className="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik00IDRoOHY4SDR6TTEyIDEyaDh2OEgxMnpNMjAgMjBoOHY4SDIwek0yOCA4aDh2OEgyOHpNOCAyOGg4djhIOHoiIGZpbGw9IiMzMzMiLz48L3N2Zz4=')] bg-repeat opacity-80 mix-blend-multiply"></div>
+                  </div>
+                  <p className="text-xs text-gray-400 font-mono">1234567890-HAUK</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="mt-6 w-full max-w-[340px] flex flex-col gap-3">
+              {!isAddedToWallet ? (
+                <button
+                  onClick={() => setIsAddedToWallet(true)}
+                  className="w-full bg-black text-white rounded-xl py-3.5 px-6 font-bold flex items-center justify-center gap-2 shadow-md hover:bg-gray-800 transition-transform active:scale-95"
+                >
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                    <path d="M21 18v-7h-2v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-3-11V5c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v2H3v2h18V7h-3zM8 5h8v2H8V5z" />
+                  </svg>
+                  Bæta í Google Wallet
+                </button>
+              ) : (
+                <div className="w-full bg-green-50 text-green-700 border border-green-200 rounded-xl py-3.5 px-6 font-bold flex items-center justify-center gap-2 shadow-sm animate-in fade-in zoom-in duration-300">
+                  <span className="material-symbols-outlined text-xl">check_circle</span>
+                  Vistað í Wallet!
+                </div>
+              )}
+
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={onClose}
+              >
+                Loka glugga
+              </Button>
+            </div>
           </div>
         )}
       </div>

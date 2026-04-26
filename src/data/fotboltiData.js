@@ -126,6 +126,7 @@ export const dataKvenna = {
 };
 
 export const footballNews = [
+  { id: 4, slug: 'haukar-bikar-sigur-olafsvik', category: "Meistaraflokkur Karla", title: "Haukar unnu B-deild Lengjubikarsins eftir vító", date: "26. Apríl", image: "/images/soccer/celebration.png" },
   { id: 1, slug: 'fotbolti-lengjudeild-byrjar', category: "Meistaraflokkur Karla", title: "Flautað til leiks í Lengjudeildinni á laugardaginn", date: "10. Maí", image: "/images/soccer/player_action.png" },
   { id: 2, slug: 'fotbolti-toppslagur-grotta', category: "Meistaraflokkur Kvenna", title: "Stelpurnar tilbúnar í toppslaginn gegn Gróttu", date: "8. Maí", image: "/images/soccer/celebration.png" },
   { id: 3, slug: 'fotbolti-skoli-helgi', category: "Yngri Flokkar", title: "Fjölmennt á fótboltaskóla Hauka um helgina", date: "5. Maí", image: "/images/soccer/stadium.png" },
