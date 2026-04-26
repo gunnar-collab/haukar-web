@@ -98,7 +98,7 @@ export default function GeminiChat({ onOpenTickets }) {
         }`}
       >
         {/* FIXED: Swapped to Haukar Red, updated Typography to match site branding */}
-        <div className="bg-[#c8102e] text-white p-4 flex items-center justify-between shadow-md relative z-10">
+        <div className="bg-[#c8102e] text-white p-4 flex items-center justify-between shadow-md relative z-10 rounded-t-2xl">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-yellow-400">smart_toy</span>
             <span className="text-xl font-black italic tracking-tighter uppercase">Haukur í horni</span>
