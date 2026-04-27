@@ -1,4 +1,5 @@
 import { cn } from '../../lib/utils.js';
+import { useMatch } from '../../context/MatchContext';
 
 export default function MatchDashboard({ 
   loading, 
@@ -9,6 +10,8 @@ export default function MatchDashboard({
   isTournament = false,
   statsIcon = "leaderboard"
 }) {
+  const { openReport } = useMatch();
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 -mt-8 w-full mb-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
@@ -27,8 +30,8 @@ export default function MatchDashboard({
           
           <div className="flex items-center justify-between my-auto w-full">
             <span className={cn(
-              "text-lg sm:text-xl md:text-2xl font-black italic uppercase truncate text-left",
-              isTournament ? "w-auto text-[#c8102e]" : (lastMatch.homeScore > lastMatch.awayScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]', "w-[35%]")
+              "text-lg sm:text-xl md:text-2xl font-black italic uppercase truncate text-left w-[35%]",
+              isTournament ? "w-auto text-[#c8102e]" : (lastMatch.homeScore > lastMatch.awayScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]')
             )}>
               {isTournament ? 'Afrek Hauka' : lastMatch.home}
             </span>
@@ -46,9 +49,18 @@ export default function MatchDashboard({
                 </>
               ) : (
                 <>
-                  <span className={lastMatch.homeScore > lastMatch.awayScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{lastMatch.homeScore}</span>
-                  <span className="mx-1.5 md:mx-2 text-gray-300">-</span>
-                  <span className={lastMatch.awayScore > lastMatch.homeScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{lastMatch.awayScore}</span>
+                  <div className="flex flex-col items-center">
+                    <div className="flex items-center gap-2 md:gap-4">
+                      <span className={lastMatch.homeScore > lastMatch.awayScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{lastMatch.homeScore}</span>
+                      <span className="text-gray-300">-</span>
+                      <span className={lastMatch.awayScore > lastMatch.homeScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{lastMatch.awayScore}</span>
+                    </div>
+                    {lastMatch.penaltyInfo && (
+                      <span className="text-[10px] md:text-xs font-bold text-gray-400 mt-1 not-italic tracking-wider uppercase">
+                        ({lastMatch.penaltyInfo})
+                      </span>
+                    )}
+                  </div>
                 </>
               )}
             </div>
@@ -62,10 +74,13 @@ export default function MatchDashboard({
             )}
           </div>
           
-          <a href={lastMatch.statsLink} target="_blank" rel="noreferrer" className="w-full bg-[#1c2c6c] hover:bg-black text-white py-3 md:py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors text-[10px] sm:text-[11px] font-bold uppercase tracking-widest shadow-md">
+          <button 
+            onClick={() => openReport(lastMatch)}
+            className="w-full bg-[#1c2c6c] hover:bg-black text-white py-3 md:py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors text-[10px] sm:text-[11px] font-bold uppercase tracking-widest shadow-md"
+          >
             <span className="material-symbols-outlined text-[16px]">{statsIcon}</span>
             Skoða {isTournament ? 'Úrslit' : 'Tölfræði/Skýrslu'} á {provider}
-          </a>
+          </button>
         </div>
 
         {/* NEXT MATCH */}

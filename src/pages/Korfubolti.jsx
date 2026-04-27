@@ -35,7 +35,7 @@ export default function Korfubolti({ onOpenTickets }) {
       <DivisionHero 
         sportName="Haukar Körfubolti"
         icon="sports_basketball"
-        bgImage="/images/basketball/action.png"
+        bgImage="/images/basketball/hero_bg.png"
         gender={gender}
         setGender={handleGenderChange}
       />

@@ -76,13 +76,21 @@ export function MatchProvider({ children }) {
     }
   }, [minutes, seconds]);
 
+  const [selectedReport, setSelectedReport] = useState(null);
+
+  const openReport = (match) => setSelectedReport(match);
+  const closeReport = () => setSelectedReport(null);
+
   const value = {
     minutes,
     seconds,
     haukarScore,
     fhScore,
     events,
-    latestEvent: events[0] || null
+    latestEvent: events[0] || null,
+    selectedReport,
+    openReport,
+    closeReport
   };
 
   return (

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function TrophyCabinet() {
   return (
-    <section className="w-full bg-white py-16 border-b border-gray-100">
+    <section className="w-full bg-white py-10 md:py-16 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section */}
@@ -12,7 +12,7 @@ export default function TrophyCabinet() {
               Stolt Félagsins
             </span>
             <h2 className="text-5xl font-black italic tracking-tighter text-[#c8102e]">
-              Verðlaunaskápurinn
+              Verðlaunin
             </h2>
           </div>
           <Link to="/sagan" className="font-bold text-[#c8102e] hover:text-red-800 transition-colors flex items-center gap-1 mb-2">

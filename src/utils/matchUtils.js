@@ -17,20 +17,34 @@ export const getDynamicMatches = (sport, gender) => {
     return { lastMatch: {}, nextMatch: {} };
   }
 
-  const playedMatches = currentData.matches.filter(m => m.score !== 'Næsti leikur' && m.score !== '- - -');
-  const upcomingMatches = currentData.matches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -').reverse();
+  const now = new Date();
+  now.setHours(0, 0, 0, 0); // Normalize to start of today for date comparison
+
+  // Sort matches by date to ensure we pick the correct ones
+  const sortedMatches = [...currentData.matches].sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  const playedMatches = sortedMatches.filter(m => new Date(m.date) < now).reverse();
+  const upcomingMatches = sortedMatches.filter(m => new Date(m.date) >= now);
 
   const lastRaw = playedMatches[0] || {};
   const nextRaw = upcomingMatches[0] || {};
 
   let homeScore = 0;
   let awayScore = 0;
+  let penaltyInfo = '';
   
   if (lastRaw.score) {
-    const parts = lastRaw.score.split('-');
-    if (parts.length >= 2) {
-      homeScore = parseInt(parts[0].replace(/\(\d+\)/g, '').trim()) || 0;
-      awayScore = parseInt(parts[1].replace(/\(\d+\)/g, '').trim()) || 0;
+    // Better regex to extract the main scores even with extra text
+    const scoreMatch = lastRaw.score.match(/^(\d+)\s*-\s*(\d+)/);
+    if (scoreMatch) {
+      homeScore = parseInt(scoreMatch[1]);
+      awayScore = parseInt(scoreMatch[2]);
+    }
+    
+    // Extract penalty info if present (e.g., "(2-4 vító)")
+    if (lastRaw.score.includes('vító')) {
+      const pMatch = lastRaw.score.match(/\((.*?)\)/);
+      if (pMatch) penaltyInfo = pMatch[1];
     }
   }
 
@@ -41,6 +55,7 @@ export const getDynamicMatches = (sport, gender) => {
       away: lastRaw.away || 'Útilið',
       homeScore,
       awayScore,
+      penaltyInfo,
       statsLink: lastRaw.statsLink || (sport === 'fotbolti' ? 'https://ksi.is' : 'https://hbstatz.is')
     },
     nextMatch: {

@@ -21,18 +21,18 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
 
   return (
     <nav className="w-full relative z-[100]">
-      <div className="relative w-full bg-white">
+      <div className="relative w-full bg-white/90 backdrop-blur-md border-b border-gray-100/50 shadow-sm transition-all duration-300">
         
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-30">
           
           <Link 
             to="/" 
-            className="flex items-center gap-3 cursor-pointer" 
+            className="flex items-center gap-3 cursor-pointer group" 
             aria-label="Forsíða"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <img src="/images/haukar-log.svg" alt="Haukar Logo" className="h-10 w-auto" />
-            <span className="text-2xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mt-1">Haukar</span>
+            <img src="/images/haukar-log.svg" alt="Haukar Logo" className="h-10 w-auto group-hover:scale-105 transition-transform" />
+            <span className="text-2xl font-black italic tracking-tighter text-[#c8102e] uppercase mt-1">Haukar</span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-8">
@@ -42,16 +42,17 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
               <span className="text-sm font-bold text-gray-500 group-hover:text-[#1c2c6c] uppercase tracking-wider transition-colors flex items-center gap-1">
                 Deildir <span className="material-symbols-outlined text-[18px] transition-transform group-hover:-rotate-180" aria-hidden="true">expand_more</span>
               </span>
-              <div className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col z-50">
+              <div className="absolute top-full left-0 w-56 bg-white/95 backdrop-blur-xl rounded-[1.25rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-2 overflow-hidden flex flex-col z-50 py-2">
                 {NAV_LINKS.deildir.map((link) => (
                   <NavLink 
                     key={link.name} 
                     to={link.path} 
                     className={({ isActive }) => cn(
-                      "px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 flex items-center gap-2",
-                      isActive && "bg-gray-50 text-[#c8102e]"
+                      "px-5 py-3 text-[11px] font-black uppercase tracking-widest text-gray-500 hover:text-[#c8102e] hover:bg-gray-50/50 transition-colors flex items-center gap-2",
+                      isActive && "bg-gray-50/80 text-[#c8102e]"
                     )}
                   >
+                    {link.icon && <span className="material-symbols-outlined text-[16px]">{link.icon}</span>}
                     {link.name}
                   </NavLink>
                 ))}
@@ -63,19 +64,28 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
               <span className="text-sm font-bold text-gray-500 group-hover:text-[#1c2c6c] uppercase tracking-wider transition-colors flex items-center gap-1">
                 Félagið <span className="material-symbols-outlined text-[18px] transition-transform group-hover:-rotate-180" aria-hidden="true">expand_more</span>
               </span>
-              <div className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col z-50">
-                {NAV_LINKS.felagid.map((link) => (
-                  <NavLink 
-                    key={link.name} 
-                    to={link.path} 
-                    className={({ isActive }) => cn(
-                      "px-4 py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0",
-                      isActive && "bg-gray-50 text-[#c8102e]"
-                    )}
-                  >
-                    {link.name}
-                  </NavLink>
-                ))}
+              <div className="absolute top-full left-0 w-56 bg-white/95 backdrop-blur-xl rounded-[1.25rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-2 overflow-hidden flex flex-col z-50 py-2">
+                {NAV_LINKS.felagid.map((link) => {
+                  const itemClass = "px-5 py-3 text-[11px] font-black uppercase tracking-widest text-gray-500 hover:text-[#c8102e] hover:bg-gray-50/50 transition-colors flex items-center gap-2";
+                  if (link.external) {
+                    return (
+                      <a key={link.name} href={link.path} target="_blank" rel="noopener noreferrer" className={itemClass}>
+                        {link.icon && <span className="material-symbols-outlined text-[16px]">{link.icon}</span>}
+                        {link.name}
+                      </a>
+                    );
+                  }
+                  return (
+                    <NavLink 
+                      key={link.name} 
+                      to={link.path} 
+                      className={({ isActive }) => cn(itemClass, isActive && "bg-gray-50/80 text-[#c8102e]")}
+                    >
+                      {link.icon && <span className="material-symbols-outlined text-[16px]">{link.icon}</span>}
+                      {link.name}
+                    </NavLink>
+                  );
+                })}
               </div>
             </div>
 
@@ -91,18 +101,18 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
           <div className="hidden lg:flex items-center gap-3">
             <button 
               onClick={onOpenLogin} 
-              className="w-10 h-10 rounded-full bg-gray-50 border border-gray-200 text-gray-500 hover:text-[#1c2c6c] hover:border-[#1c2c6c] hover:shadow-sm flex items-center justify-center transition-all group relative"
+              className="w-10 h-10 rounded-full bg-white border border-gray-100 text-[#c8102e] hover:text-white hover:bg-[#c8102e] hover:border-[#c8102e] hover:shadow-md hover:-translate-y-0.5 flex items-center justify-center transition-all duration-300 group relative shadow-sm"
               aria-label="Innskráning"
             >
               <span className="material-symbols-outlined text-[20px]">person</span>
-              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white font-bold text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap">Innskráning</div>
+              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white font-bold text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50">Innskráning</div>
             </button>
             <Link to="/vefverslun" aria-label="Verslun">
               <button 
-                className="w-10 h-10 rounded-full bg-gray-50 border border-gray-200 text-gray-500 hover:text-[#1c2c6c] hover:border-[#1c2c6c] hover:shadow-sm flex items-center justify-center transition-all group relative"
+                className="w-10 h-10 rounded-full bg-white border border-gray-100 text-[#c8102e] hover:text-white hover:bg-[#c8102e] hover:border-[#c8102e] hover:shadow-md hover:-translate-y-0.5 flex items-center justify-center transition-all duration-300 group relative shadow-sm"
               >
                 <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
-                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white font-bold text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap">Verslun</div>
+                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white font-bold text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50">Verslun</div>
               </button>
             </Link>
             <button 
@@ -141,7 +151,8 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
               {mobileExpanded === 'deildir' && (
                 <div className="flex flex-col pl-4 border-b border-gray-50 bg-gray-50/50">
                   {NAV_LINKS.deildir.map((link) => (
-                    <Link key={link.name} to={link.path} onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">
+                    <Link key={link.name} to={link.path} onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0 flex items-center gap-2">
+                      {link.icon && <span className="material-symbols-outlined text-[18px]">{link.icon}</span>}
                       {link.name}
                     </Link>
                   ))}
@@ -153,11 +164,23 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
               </button>
               {mobileExpanded === 'felagid' && (
                 <div className="flex flex-col pl-4 border-b border-gray-50 bg-gray-50/50">
-                  {NAV_LINKS.felagid.map((link) => (
-                    <Link key={link.name} to={link.path} onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0">
-                      {link.name}
-                    </Link>
-                  ))}
+                  {NAV_LINKS.felagid.map((link) => {
+                    const itemClass = "py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0 flex items-center gap-2";
+                    if (link.external) {
+                      return (
+                        <a key={link.name} href={link.path} target="_blank" rel="noopener noreferrer" onClick={handleMobileNav} className={itemClass}>
+                          {link.icon && <span className="material-symbols-outlined text-[18px]">{link.icon}</span>}
+                          {link.name}
+                        </a>
+                      );
+                    }
+                    return (
+                      <Link key={link.name} to={link.path} onClick={handleMobileNav} className={itemClass}>
+                        {link.icon && <span className="material-symbols-outlined text-[18px]">{link.icon}</span>}
+                        {link.name}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
 

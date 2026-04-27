@@ -6,15 +6,18 @@ export const dataKarla = {
     img: "/images/coaches/petur_ingvarsson.png"
   },
   players: [
-    { number: "2", slug: "kinyon-hodges", name: "Kinyon Hodges", position: "Bakvörður", stats: { pts: 20.4, reb: 5.0, ast: 4.0 }, img: "/images/basketball/kinyon_hodges.png" },
-    { number: "0", slug: "hugi-hallgrimsson", name: "Hugi Hallgrímsson", position: "Framherji", stats: { pts: 15.0, reb: 6.0, ast: 2.0 }, img: "/images/basketball/hugi_hallgrimsson.png" },
-    { number: "4", slug: "hilmir-hallgrimsson", name: "Hilmir Hallgrímsson", position: "Framherji", stats: { pts: 13.0, reb: 7.0, ast: 2.0 }, img: "/images/basketball/nanobanana_post.png" },
-    { number: "7", slug: "zoran-vrkic", name: "Zoran Vrkic", position: "Framherji", stats: { pts: 9.0, reb: 3.0, ast: 1.0 }, img: "/images/basketball/nanobanana_post.png" },
-    { number: "6", slug: "gerardas-slapikas", name: "Gerardas Slapikas", position: "Framherji", stats: { pts: 6.0, reb: 2.0, ast: 1.0 }, img: "/images/basketball/nanobanana_post.png" },
-    { number: "1", slug: "mani-petursson", name: "Máni Pétursson", position: "Bakvörður", stats: { pts: 5.0, reb: 2.0, ast: 3.0 }, img: "/images/basketball/nanobanana_post.png" },
-    { number: "13", slug: "breki-gylfason", name: "Breki Gylfason", position: "Framherji", stats: { pts: 5.0, reb: 3.0, ast: 0.0 }, img: "/images/basketball/nanobanana_post.png" },
-    { number: "5", slug: "hilmar-smari-henningsson", name: "Hilmar Smári Henningsson", position: "Bakvörður", stats: { pts: 4.0, reb: 1.0, ast: 2.0 }, img: "/images/basketball/nanobanana_post.png" },
-    { number: "10", slug: "daniel-agust-halldorsson", name: "Daníel Ágúst Halldórsson", position: "Bakvörður", stats: { pts: 3.0, reb: 1.0, ast: 1.0 }, img: "/images/basketball/nanobanana_post.png" }
+    { number: "15", slug: "david-okeke", name: "David Okeke", position: "Miðherji", stats: { pts: 18.5, reb: 11.2, ast: 1.5, eff: 24.5, mpg: 28.4 }, img: "/images/basketball/david_okeke.png" },
+    { number: "5", slug: "everage-richardson", name: "Everage Richardson", position: "Bakvörður", stats: { pts: 21.4, reb: 5.2, ast: 4.8, eff: 22.1, mpg: 31.2 }, img: "/images/basketball/everage_richardson.png" },
+    { number: "10", slug: "kristinn-marinossaon", name: "Kristinn Marinósson", position: "Framherji", stats: { pts: 12.8, reb: 4.1, ast: 2.3, eff: 11.5, mpg: 24.5 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "13", slug: "breki-gylfason", name: "Breki Gylfason", position: "Framherji", stats: { pts: 9.4, reb: 6.8, ast: 1.1, eff: 14.2, mpg: 22.1 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "24", slug: "dani-koljanin", name: "Dani Koljanin", position: "Framherji", stats: { pts: 14.2, reb: 7.5, ast: 3.1, eff: 18.4, mpg: 26.8 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "7", slug: "zoran-vrkic", name: "Zoran Vrkic", position: "Framherji", stats: { pts: 8.5, reb: 4.2, ast: 0.9, eff: 9.8, mpg: 18.4 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "1", slug: "mani-petursson", name: "Máni Pétursson", position: "Bakvörður", stats: { pts: 4.2, reb: 1.5, ast: 3.2, eff: 6.5, mpg: 15.2 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "0", slug: "hugi-hallgrimsson", name: "Hugi Hallgrímsson", position: "Framherji", stats: { pts: 6.1, reb: 3.4, ast: 0.5, eff: 7.2, mpg: 12.5 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "4", slug: "hilmir-hallgrimsson", name: "Hilmir Hallgrímsson", position: "Framherji", stats: { pts: 3.2, reb: 2.1, ast: 0.2, eff: 4.1, mpg: 8.4 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "6", slug: "gerardas-slapikas", name: "Gerardas Slapikas", position: "Framherji", stats: { pts: 2.5, reb: 1.8, ast: 0.1, eff: 3.2, mpg: 6.5 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "11", slug: "daniel-agust-halldorsson", name: "Daníel Ágúst Halldórsson", position: "Bakvörður", stats: { pts: 1.8, reb: 0.5, ast: 0.4, eff: 1.8, mpg: 5.2 }, img: "/images/basketball/nanobanana_post.png" },
+    { number: "12", slug: "hilmar-smari-henningsson", name: "Hilmar Smári Henningsson", position: "Bakvörður", stats: { pts: 0.0, reb: 0.0, ast: 0.0, eff: 0.0, mpg: 0.0 }, img: "/images/basketball/nanobanana_post.png" }
   ],
   playoffs: {
     opponent: "Selfoss",
@@ -37,14 +40,17 @@ export const dataKvenna = {
     img: "/images/coaches/emil_barja.png"
   },
   players: [
-    { number: "23", slug: "amandine-justine-toi", name: "Amandine Justine Toi", position: "Bakvörður", stats: { pts: 23.0, reb: 2.0, ast: 5.0 }, img: "/images/basketball/amandine_toi.png" },
-    { number: "25", slug: "krystal-jade-freeman", name: "Krystal-Jade Freeman", position: "Framherji", stats: { pts: 19.0, reb: 8.0, ast: 1.0 }, img: "/images/basketball/krystal_jade_freeman.png" },
-    { number: "6", slug: "tinna-gudrun-alexandersdottir", name: "Tinna Guðrún Alexandersdóttir", position: "Bakvörður", stats: { pts: 15.0, reb: 3.0, ast: 2.0 }, img: "/images/basketball/celebration.png" },
-    { number: "4", slug: "thora-kristin-jonsdottir", name: "Þóra Kristín Jónsdóttir", position: "Bakvörður", stats: { pts: 7.0, reb: 3.0, ast: 7.0 }, img: "/images/basketball/celebration.png" },
-    { number: "1", slug: "keira-renee-robinson", name: "Keira Reneé Robinson", position: "Bakvörður", stats: { pts: 12.0, reb: 4.0, ast: 6.0 }, img: "/images/basketball/celebration.png" },
-    { number: "7", slug: "anna-loa-oskarsdottir", name: "Anna Lóa Óskarsdóttir", position: "Bakvörður", stats: { pts: 4.0, reb: 1.0, ast: 1.0 }, img: "/images/basketball/celebration.png" },
-    { number: "8", slug: "ragnhildur-arna-kristinsdottir", name: "Ragnhildur Arna Kristinsdóttir", position: "Framherji", stats: { pts: 2.0, reb: 4.0, ast: 1.0 }, img: "/images/basketball/celebration.png" },
-    { number: "9", slug: "lore-devos", name: "Lore Devos", position: "Framherji", stats: { pts: 7.0, reb: 4.0, ast: 2.0 }, img: "/images/basketball/celebration.png" }
+    { number: "1", slug: "keira-renee-robinson", name: "Keira Reneé Robinson", position: "Bakvörður", stats: { pts: 22.4, reb: 6.5, ast: 7.2, eff: 28.4, mpg: 32.5 }, img: "/images/basketball/keira_robinson.png" },
+    { number: "6", slug: "tinna-gudrun-alexandersdottir", name: "Tinna Guðrún Alexandersdóttir", position: "Bakvörður", stats: { pts: 14.8, reb: 3.2, ast: 2.1, eff: 12.8, mpg: 26.4 }, img: "/images/basketball/celebration.png" },
+    { number: "4", slug: "thora-kristin-jonsdottir", name: "Þóra Kristín Jónsdóttir", position: "Bakvörður", stats: { pts: 9.2, reb: 4.1, ast: 6.8, eff: 16.5, mpg: 28.1 }, img: "/images/basketball/celebration.png" },
+    { number: "12", slug: "solrun-inga-gisladottir", name: "Sólrún Inga Gísladóttir", position: "Bakvörður", stats: { pts: 11.5, reb: 3.8, ast: 1.5, eff: 10.2, mpg: 22.5 }, img: "/images/basketball/celebration.png" },
+    { number: "9", slug: "lore-devos", name: "Lore Devos", position: "Framherji", stats: { pts: 15.4, reb: 8.2, ast: 2.5, eff: 19.1, mpg: 27.8 }, img: "/images/basketball/celebration.png" },
+    { number: "25", slug: "krystal-jade-freeman", name: "Krystal-Jade Freeman", position: "Framherji", stats: { pts: 16.8, reb: 9.4, ast: 1.1, eff: 18.2, mpg: 29.5 }, img: "/images/basketball/celebration.png" },
+    { number: "7", slug: "anna-loa-oskarsdottir", name: "Anna Lóa Óskarsdóttir", position: "Bakvörður", stats: { pts: 3.5, reb: 1.2, ast: 0.8, eff: 2.5, mpg: 12.4 }, img: "/images/basketball/celebration.png" },
+    { number: "8", slug: "ragnhildur-arna-kristinsdottir", name: "Ragnhildur Arna Kristinsdóttir", position: "Framherji", stats: { pts: 2.1, reb: 3.5, ast: 0.5, eff: 3.1, mpg: 10.2 }, img: "/images/basketball/celebration.png" },
+    { number: "10", slug: "rakel-fjola-bjornsdottir", name: "Rakel Fjóla Björnsdóttir", position: "Bakvörður", stats: { pts: 1.5, reb: 0.8, ast: 0.2, eff: 1.2, mpg: 6.5 }, img: "/images/basketball/celebration.png" },
+    { number: "14", slug: "elisabet-lif-sigurdardottir", name: "Elísabet Líf Sigurðardóttir", position: "Framherji", stats: { pts: 0.8, reb: 1.2, ast: 0.1, eff: 0.8, mpg: 4.2 }, img: "/images/basketball/celebration.png" },
+    { number: "5", slug: "jana-falsdottir", name: "Jana Falsdóttir", position: "Bakvörður", stats: { pts: 0.0, reb: 0.0, ast: 0.0, eff: 0.0, mpg: 0.0 }, img: "/images/basketball/celebration.png" }
   ],
   playoffs: {
     opponent: "Keflavík",

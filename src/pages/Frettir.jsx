@@ -24,12 +24,12 @@ export default function Frettir() {
           </h1>
 
           {/* Filters */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap md:pb-0 md:overflow-visible">
             {categories.map(category => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${
+                className={`px-4 py-2 rounded-full text-sm font-bold transition-all whitespace-nowrap ${
                   filter === category
                     ? 'bg-[#c8102e] text-white shadow-md'
                     : 'bg-white text-gray-500 border border-gray-200 hover:border-[#c8102e] hover:text-[#c8102e]'

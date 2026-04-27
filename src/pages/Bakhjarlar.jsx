@@ -86,25 +86,32 @@ export default function Bakhjarlar() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-red-50 rounded-full blur-3xl -z-0 transform translate-x-1/2 -translate-y-1/2 opacity-50"></div>
 
             {/* Left: Visual Phone Frame */}
-            <div className="w-full lg:w-2/5 flex justify-center relative z-10 lg:order-1">
-               <div className="w-[280px] h-[580px] bg-gray-900 rounded-[3rem] border-[8px] border-gray-800 shadow-2xl relative flex justify-center p-4">
-                  <div className="absolute top-0 w-32 h-6 bg-gray-800 rounded-b-xl z-20"></div>
-                  <div className="w-full h-full bg-gray-100 rounded-[2rem] overflow-hidden flex flex-col pt-12 px-4 pb-4">
-                    <h4 className="text-center font-bold text-gray-400 uppercase tracking-widest text-[10px] mb-4">Apple Wallet</h4>
-                    <div className="w-full h-[400px] bg-gradient-to-br from-[#c8102e] to-[#8a0a1e] rounded-3xl p-5 shadow-xl relative overflow-hidden flex flex-col">
-                      <span className="material-symbols-outlined absolute -right-10 -bottom-10 text-white/10 text-[200px] rotate-12">workspace_premium</span>
+            <div className="w-full lg:w-2/5 flex justify-center relative z-10 lg:order-1 scale-90 md:scale-100">
+               <div className="w-[280px] h-[540px] bg-gray-900 rounded-[3rem] border-[8px] border-gray-800 shadow-2xl relative flex justify-center p-3">
+                  <div className="absolute top-0 w-28 h-5 bg-gray-800 rounded-b-xl z-20"></div>
+                  <div className="w-full h-full bg-gray-100 rounded-[2.2rem] overflow-hidden flex flex-col pt-10 px-3 pb-3">
+                    <h4 className="text-center font-bold text-gray-400 uppercase tracking-widest text-[9px] mb-3">Google Wallet</h4>
+                    <div className="w-full bg-gradient-to-br from-[#c8102e] to-[#8a0a1e] rounded-[1.5rem] p-4 shadow-xl relative overflow-hidden flex flex-col mb-4">
+                      <span className="material-symbols-outlined absolute -right-10 -bottom-10 text-white/10 text-[180px] rotate-12">workspace_premium</span>
                       <div className="relative z-10">
-                        <p className="text-white/70 text-[10px] uppercase font-bold tracking-widest mb-1">Ársmiði</p>
-                        <h3 className="text-white font-black italic text-2xl uppercase tracking-tighter mb-8">Haukar í Horni</h3>
-                        <div className="bg-white/10 rounded-xl p-3 backdrop-blur-md mb-auto">
-                           <p className="text-white text-xs font-bold mb-1">Gildir fyrir:</p>
-                           <p className="text-white/90 text-[11px] font-medium">Mfl. Karla & Kvenna<br/>(Fótbolti, Handbolti, Karfa)</p>
+                        <p className="text-white/70 text-[9px] uppercase font-bold tracking-widest mb-1">Bakhjarl</p>
+                        <h3 className="text-white font-black italic text-xl uppercase tracking-tighter mb-6">Haukar í Horni</h3>
+                        <div className="bg-white/10 rounded-xl p-3 backdrop-blur-md mb-4">
+                           <p className="text-white text-[10px] font-bold mb-0.5">Meðlimur:</p>
+                           <p className="text-white/90 text-[11px] font-black uppercase italic">Gullfélagi</p>
                         </div>
                       </div>
-                      <div className="mt-auto relative z-10 bg-white rounded-lg p-2 text-center">
-                        <span className="material-symbols-outlined text-[#c8102e] text-[40px]">qr_code_scanner</span>
+                      <div className="mt-auto relative z-10 bg-white rounded-lg p-2 text-center flex items-center justify-center">
+                        <div className="w-24 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik00IDRoOHY4SDR6TTEyIDEyaDh2OEgxMnpNMjAgMjBoOHY4SDIwek0yOCA4aDh2OEgyOHpNOCAyOGg4djhIOHoiIGZpbGw9IiMzMzMiLz48L3N2Zz4=')] bg-repeat opacity-80"></div>
                       </div>
                     </div>
+
+                    <button className="w-full bg-black text-white rounded-lg py-2 text-[10px] font-bold flex items-center justify-center gap-1.5 shadow-md">
+                      <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current">
+                        <path d="M21 18v-7h-2v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-3-11V5c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v2H3v2h18V7h-3zM8 5h8v2H8V5z" />
+                      </svg>
+                      Add to Google Wallet
+                    </button>
                   </div>
                </div>
             </div>

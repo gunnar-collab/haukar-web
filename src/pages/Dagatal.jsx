@@ -3,15 +3,29 @@ import Button from '../components/Button';
 import TeamLogo from '../components/sports/TeamLogo';
 import leagueData from '../data/haukar_league_data.json';
 import youthData from '../data/haukar_youth_data.json';
+import { getVenueForTeam } from '../data/venueMap';
 
-// Utility to generate a calendar file download
-const downloadICal = () => {
+// Utility to generate calendar links
+const getCalendarLinks = (event) => {
+  const startDate = new Date(event.dateRaw).toISOString().replace(/-|:|\.\d\d\d/g, "");
+  const endDate = new Date(new Date(event.dateRaw).getTime() + 2 * 60 * 60 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, "");
+  
+  const googleUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(event.competition)}&location=${encodeURIComponent(event.location)}`;
+  
+  const icalContent = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${event.title}\nDTSTART:${startDate}\nDTEND:${endDate}\nLOCATION:${event.location}\nDESCRIPTION:${event.competition}\nEND:VEVENT\nEND:VCALENDAR`;
+  
+  return { googleUrl, icalContent };
+};
+
+const downloadEventICal = (event) => {
+  const { icalContent } = getCalendarLinks(event);
   const element = document.createElement("a");
-  const file = new Blob(["BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Haukar//NONSGML v1.0//EN\nBEGIN:VEVENT\nUID:123456\nDTSTAMP:20260426T120000Z\nDTSTART:20260502T120000Z\nDTEND:20260502T140000Z\nSUMMARY:Haukar Leikur\nEND:VEVENT\nEND:VCALENDAR"], {type: 'text/calendar'});
+  const file = new Blob([icalContent], {type: 'text/calendar'});
   element.href = URL.createObjectURL(file);
-  element.download = "haukar_dagatal.ics";
+  element.download = `${event.title.replace(/\s+/g, '_')}.ics`;
   document.body.appendChild(element);
   element.click();
+  document.body.removeChild(element);
 };
 
 const formatDateObj = (dateStr) => {
@@ -29,6 +43,7 @@ export default function Dagatal() {
   const [activeSportFilter, setActiveSportFilter] = useState('Allt');
   const [activeAgeFilter, setActiveAgeFilter] = useState('Allir Flokkar');
   const [visibleCount, setVisibleCount] = useState(15);
+  const [showCalendarMenu, setShowCalendarMenu] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -46,7 +61,7 @@ export default function Dagatal() {
     adultKeys.forEach(key => {
       const data = leagueData[key];
       if (data && data.matches) {
-        data.matches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -').forEach(m => {
+        data.matches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -' || !m.score).forEach(m => {
           let sport = key.includes('fotbolti') ? 'Fótbolti' : key.includes('korfubolti') ? 'Körfubolti' : 'Handbolti';
           allEvents.push({
             id: `adult_${key}_${m.date}_${m.away}`,
@@ -58,7 +73,7 @@ export default function Dagatal() {
             category: sport,
             ageGroup: 'Meistaraflokkur',
             competition: m.competition,
-            location: m.home === 'Haukar' ? 'Ásvellir' : 'Útivöllur',
+            location: m.home === 'Haukar' ? 'Ásvellir' : getVenueForTeam(m.home, sport),
             isTicketed: true
           });
         });
@@ -117,144 +132,186 @@ export default function Dagatal() {
   const hasMore = filteredEvents.length > visibleCount;
 
   return (
-    <main className="w-full bg-[#fafafa] min-h-screen pt-10 md:pt-16 pb-20 font-sans">
+    <main className="w-full bg-[#fafafa] min-h-screen font-sans overflow-x-hidden">
       
       {/* Hero Header */}
-      <div className="max-w-5xl mx-auto px-6 mb-12 text-center">
-        <span className="text-[#c8102e] text-sm font-black uppercase tracking-widest mb-2 block">
+      <div className="pt-16 pb-12 px-6 text-center bg-white border-b border-gray-100">
+        <span className="text-[#c8102e] text-[10px] font-black uppercase tracking-[0.3em] mb-3 block">
           Hvað er framundan?
         </span>
-        <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mb-8">
+        <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mb-4">
           Á döfinni
         </h1>
-        
-        <div className="flex flex-col items-center gap-4">
-          {/* Top Row: Export Button */}
-          <div className="flex justify-end w-full mb-2">
-            <button 
-              onClick={downloadICal}
-              className="flex items-center gap-2 bg-[#1c2c6c]/10 text-[#1c2c6c] hover:bg-[#1c2c6c] hover:text-white px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest transition-all"
-            >
-              <span className="material-symbols-outlined text-[16px]">calendar_add_on</span>
-              Bæta við dagatal
-            </button>
-          </div>
+        <p className="text-gray-400 text-xs font-bold uppercase tracking-widest max-w-xs mx-auto">
+          Allir leikir og viðburðir hjá félaginu á einum stað
+        </p>
+      </div>
 
-          {/* Primary Filters (Sport) */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
+      {/* Sticky Filter Bar */}
+      <div className="sticky top-[64px] z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 py-3 shadow-sm overflow-x-auto no-scrollbar">
+        <div className="max-w-5xl mx-auto px-6 flex items-center gap-2 min-w-max md:justify-center">
             {sportFilters.map(filter => (
               <button
                 key={filter}
                 onClick={() => setActiveSportFilter(filter)}
-                className={`px-4 md:px-6 py-2.5 rounded-full text-[11px] md:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-sm ${
+                className={`px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all duration-300 ${
                   activeSportFilter === filter 
-                    ? 'bg-[#1c2c6c] text-white scale-105' 
-                    : 'bg-white text-gray-500 border border-gray-200 hover:border-[#1c2c6c] hover:text-[#1c2c6c]'
+                    ? 'bg-[#1c2c6c] text-white shadow-lg shadow-[#1c2c6c]/20 scale-105' 
+                    : 'bg-gray-50 text-gray-400 border border-transparent hover:bg-gray-100'
                 }`}
               >
                 {filter}
               </button>
             ))}
-          </div>
+        </div>
+      </div>
 
-          {/* Secondary Filters (Age Group) */}
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-8">
+          
+          {/* Secondary Age Filter */}
           {activeSportFilter !== 'Félagið' && (
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3 w-full mt-2 p-2 bg-gray-100 rounded-2xl max-w-fit mx-auto border border-gray-200/50">
+            <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto no-scrollbar pb-2">
               {ageFilters.map(filter => (
                 <button
                   key={filter}
                   onClick={() => setActiveAgeFilter(filter)}
-                  className={`px-4 md:px-5 py-2 rounded-xl text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest whitespace-nowrap transition-all ${
                     activeAgeFilter === filter 
-                      ? 'bg-white text-[#c8102e] shadow-sm border border-gray-200' 
+                      ? 'bg-white text-[#c8102e] shadow-md border border-gray-100' 
                       : 'text-gray-400 hover:text-[#1c2c6c]'
                   }`}
                 >
+                  <span className={`w-1.5 h-1.5 rounded-full transition-all ${
+                      activeAgeFilter === filter ? 'bg-[#c8102e] scale-125' : 'bg-gray-200'
+                  }`}></span>
                   {filter}
                 </button>
               ))}
             </div>
           )}
-        </div>
-      </div>
 
-      {/* The Agenda List */}
-      <div className="max-w-4xl mx-auto px-6">
+        {/* The Agenda List */}
         {filteredEvents.length > 0 ? (
-          <div className="space-y-4">
+          <div className="space-y-6">
             {displayedEvents.map(event => (
-              <div key={event.id} className="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col md:flex-row items-start md:items-center gap-6 group">
+              <div 
+                key={event.id} 
+                className={`group relative bg-white rounded-[2.5rem] p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] transition-all duration-500 border-l-[6px] ${
+                    event.category === 'Handbolti' ? 'border-[#c8102e]' : 
+                    event.category === 'Fótbolti' ? 'border-green-500' : 
+                    event.category === 'Körfubolti' ? 'border-[#1c2c6c]' : 'border-[#D4AF37]'
+                } flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12`}
+              >
                 
-                {/* Date Block */}
-                <div className="flex md:flex-col items-center justify-center bg-gray-50 md:w-24 px-4 py-3 md:py-4 rounded-xl border border-gray-100 shrink-0 gap-2 md:gap-0 self-start md:self-stretch h-full">
-                  <span className="text-gray-500 text-xs font-bold uppercase tracking-widest">{event.month}</span>
-                  <span className="text-2xl md:text-3xl font-black italic text-[#c8102e] leading-none">{event.day}</span>
+                {/* Modern Date Block */}
+                <div className="flex md:flex-col items-center justify-center shrink-0 min-w-[70px] text-center border-r border-gray-100 pr-8 md:pr-0 md:border-r-0 md:border-b md:border-gray-50 md:pb-4">
+                  <span className="text-[#c8102e] text-[10px] font-black uppercase tracking-[0.4em] mb-1">{event.month}</span>
+                  <span className="text-4xl font-black italic text-[#1c2c6c] leading-none tracking-tighter">{event.day}</span>
                 </div>
 
-                {/* Team Logo (If not Félagið) */}
-                {event.category !== 'Félagið' && (
-                  <div className="hidden md:flex items-center justify-center gap-2 shrink-0 w-28">
-                    {event.ageGroup === 'Námskeið' ? (
-                      <TeamLogo teamName="Haukar" className="w-12 h-12" />
-                    ) : (
-                      <>
-                        <TeamLogo teamName={event.home} className="w-10 h-10" />
-                        <span className="text-gray-300 text-[10px] font-black italic">VS</span>
-                        <TeamLogo teamName={event.away} className="w-10 h-10" />
-                      </>
-                    )}
-                  </div>
-                )}
-
-                {/* Event Details */}
-                <div className="flex-grow">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="text-[#1c2c6c] text-[10px] font-bold uppercase tracking-widest bg-[#1c2c6c]/5 border border-[#1c2c6c]/10 px-2 py-1 rounded">
-                      {event.category}
-                    </span>
-                    {event.ageGroup && event.ageGroup !== 'Allir Flokkar' && (
-                      <span className="text-[#c8102e] text-[9px] font-bold uppercase tracking-widest bg-[#c8102e]/5 border border-[#c8102e]/10 px-2 py-1 rounded">
-                        {event.ageGroup}
-                      </span>
-                    )}
-                    <span className="text-gray-400 text-xs font-bold flex items-center gap-1 ml-auto md:ml-0">
-                      <span className="material-symbols-outlined text-[14px]">schedule</span>
+                {/* Event Content */}
+                <div className="flex-grow min-w-0">
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
+                    <div className="flex items-center gap-2">
+                        <span className={`w-2 h-2 rounded-full animate-pulse ${
+                             event.category === 'Handbolti' ? 'bg-[#c8102e]' : 
+                             event.category === 'Fótbolti' ? 'bg-green-500' : 'bg-[#1c2c6c]'
+                        }`}></span>
+                        <span className="text-[#1c2c6c] text-[9px] font-black uppercase tracking-[0.2em]">
+                        {event.category} • {event.ageGroup}
+                        </span>
+                    </div>
+                    <span className="hidden md:inline text-gray-200">|</span>
+                    <span className="text-gray-400 text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 bg-gray-50 px-3 py-1 rounded-full">
+                      <span className="material-symbols-outlined text-[16px]">schedule</span>
                       {event.time}
                     </span>
                   </div>
 
-                  <h3 className="text-xl md:text-2xl font-black italic uppercase tracking-tighter text-[#1c2c6c] mb-1">
+                  <h3 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-[#1c2c6c] mb-3 group-hover:text-[#c8102e] transition-colors">
                     {event.title}
                   </h3>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-sm text-gray-500 font-medium">
-                    <span className="flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-[16px] text-[#c8102e]">emoji_events</span>
-                      <span className="truncate max-w-[200px]" title={event.competition}>{event.competition}</span>
-                    </span>
-                    <span className="hidden sm:inline text-gray-300">•</span>
-                    <span className="flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-[16px] text-gray-400">location_on</span>
-                      {event.location}
-                    </span>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                    <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-[#D4AF37]/10 flex items-center justify-center">
+                            <span className="material-symbols-outlined text-[18px] text-[#D4AF37]">emoji_events</span>
+                        </div>
+                        <span className="text-[11px] font-black uppercase tracking-widest text-gray-500 truncate max-w-[200px] md:max-w-none">
+                            {event.competition}
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+                            <span className="material-symbols-outlined text-[18px] text-gray-400">location_on</span>
+                        </div>
+                        <a 
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location + ' Iceland')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[11px] font-black uppercase tracking-widest text-gray-400 hover:text-[#c8102e] transition-colors"
+                        >
+                            {event.location}
+                        </a>
+                    </div>
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-row md:flex-col items-center justify-end gap-2 w-full md:w-auto shrink-0 mt-4 md:mt-0 self-stretch">
+                <div className="flex items-center gap-3 w-full md:w-auto shrink-0 mt-6 md:mt-0 pt-6 md:pt-0 border-t md:border-t-0 border-gray-50">
+                  <div className="relative flex-grow md:flex-grow-0">
+                    <button 
+                      onClick={() => setShowCalendarMenu(showCalendarMenu === event.id ? null : event.id)}
+                      className="w-full md:w-14 h-14 flex items-center justify-center gap-3 md:gap-0 bg-white border-2 border-gray-100 text-[#1c2c6c] hover:border-[#1c2c6c] hover:bg-[#1c2c6c]/5 rounded-[1.25rem] transition-all shadow-sm"
+                      title="Bæta við dagatal"
+                    >
+                      <span className="material-symbols-outlined text-2xl">calendar_add_on</span>
+                      <span className="md:hidden text-[10px] font-black uppercase tracking-widest">Bæta við</span>
+                    </button>
+                    
+                    {showCalendarMenu === event.id && (
+                        <div className="absolute bottom-full md:bottom-auto md:top-full right-0 mb-4 md:mt-4 w-56 bg-white/95 backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/20 py-3 z-[60] animate-in fade-in zoom-in-95 duration-200">
+                            <div className="px-4 py-2 mb-1">
+                                <p className="text-[8px] font-black uppercase tracking-[0.2em] text-gray-400">Veldu dagatal</p>
+                            </div>
+                            <a 
+                                href={getCalendarLinks(event).googleUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-widest text-gray-600 hover:bg-[#1c2c6c] hover:text-white transition-all"
+                                onClick={() => setShowCalendarMenu(null)}
+                            >
+                                <img src="https://www.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_31_2x.png" className="w-5 h-5" alt="" />
+                                Google Calendar
+                            </a>
+                            <button 
+                                onClick={() => { downloadEventICal(event); setShowCalendarMenu(null); }}
+                                className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-widest text-gray-600 hover:bg-[#c8102e] hover:text-white transition-all"
+                            >
+                                <span className="material-symbols-outlined text-lg">apple</span>
+                                Apple / Outlook
+                            </button>
+                        </div>
+                    )}
+                  </div>
+
                   {event.isTicketed && (
-                    <Button variant="primary" className="w-full md:w-32 py-2.5 text-xs">
+                    <a 
+                      href="https://stubb.is"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-grow md:flex-grow-0 bg-[#c8102e] text-white px-8 h-14 flex items-center justify-center rounded-[1.25rem] text-[11px] font-black uppercase tracking-[0.2em] hover:bg-black transition-all shadow-xl shadow-[#c8102e]/20 hover:-translate-y-1"
+                    >
                       Miðar
-                    </Button>
+                    </a>
                   )}
                   {event.ablerLink && (
                     <a 
                       href={event.ablerLink} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-full md:w-32 flex items-center justify-center gap-1.5 bg-[#4B5CC4] hover:bg-[#3A4899] text-white py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all shadow-md"
+                      className="flex-grow md:flex-grow-0 bg-[#4B5CC4] text-white px-8 h-14 flex items-center justify-center rounded-[1.25rem] text-[11px] font-black uppercase tracking-[0.2em] hover:bg-[#3A4899] transition-all shadow-xl shadow-[#4B5CC4]/20 hover:-translate-y-1"
                     >
-                      <span className="material-symbols-outlined text-[14px]">open_in_new</span>
                       Í Abler
                     </a>
                   )}
@@ -264,19 +321,19 @@ export default function Dagatal() {
             ))}
           </div>
         ) : (
-          <div className="bg-white rounded-2xl p-12 text-center border border-gray-100 shadow-sm">
-            <span className="material-symbols-outlined text-4xl text-gray-300 mb-2">event_busy</span>
-            <h3 className="text-xl font-bold text-[#1c2c6c] mb-1">Engir viðburðir fundust</h3>
-            <p className="text-gray-500">Reyndu að breyta leitarskilyrðum eða velja annan flokk.</p>
+          <div className="bg-white rounded-3xl p-16 text-center border border-gray-100 shadow-sm">
+            <span className="material-symbols-outlined text-5xl text-gray-200 mb-4">event_busy</span>
+            <h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1c2c6c] mb-2">Engir viðburðir fundust</h3>
+            <p className="text-gray-400 text-xs font-bold uppercase tracking-widest">Reyndu að breyta leitarskilyrðum</p>
           </div>
         )}
 
         {/* Load More */}
         {hasMore && (
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center">
             <button 
               onClick={() => setVisibleCount(prev => prev + 10)}
-              className="bg-white border-2 border-gray-200 text-gray-600 hover:border-[#1c2c6c] hover:text-[#1c2c6c] px-8 py-3 rounded-xl font-bold uppercase tracking-widest text-sm transition-all shadow-sm"
+              className="bg-white border border-gray-200 text-[#1c2c6c] hover:border-[#1c2c6c] px-10 py-4 rounded-[1.5rem] text-[10px] font-black uppercase tracking-widest transition-all shadow-sm active:scale-95"
             >
               Hlaða fleiri viðburðum
             </button>

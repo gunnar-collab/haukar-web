@@ -1,190 +1,1193 @@
 {
   "karla": {
     "standings": [
-      { "rank": 1, "team": "Valur", "played": 27, "wins": 22, "points": 44 },
-      { "rank": 2, "team": "FH", "played": 28, "wins": 21, "points": 43 },
-      { "rank": 3, "team": "Haukar", "played": 29, "wins": 18, "points": 36 },
-      { "rank": 4, "team": "KA", "played": 27, "wins": 15, "points": 31 },
-      { "rank": 5, "team": "Afturelding", "played": 25, "wins": 14, "points": 28 },
-      { "rank": 6, "team": "ÍBV", "played": 24, "wins": 13, "points": 27 },
-      { "rank": 7, "team": "Fram", "played": 24, "wins": 13, "points": 26 },
-      { "rank": 8, "team": "HK", "played": 24, "wins": 8, "points": 16 },
-      { "rank": 9, "team": "Þór", "played": 22, "wins": 7, "points": 14 },
-      { "rank": 10, "team": "Selfoss", "played": 22, "wins": 6, "points": 12 },
-      { "rank": 11, "team": "Stjarnan", "played": 22, "wins": 5, "points": 10 },
-      { "rank": 12, "team": "ÍR", "played": 22, "wins": 4, "points": 9 }
+      {
+        "rank": 1,
+        "team": "Valur",
+        "played": 27,
+        "wins": 22,
+        "points": 44
+      },
+      {
+        "rank": 2,
+        "team": "FH",
+        "played": 28,
+        "wins": 21,
+        "points": 43
+      },
+      {
+        "rank": 3,
+        "team": "Haukar",
+        "played": 29,
+        "wins": 18,
+        "points": 36
+      },
+      {
+        "rank": 4,
+        "team": "KA",
+        "played": 27,
+        "wins": 15,
+        "points": 31
+      },
+      {
+        "rank": 5,
+        "team": "Afturelding",
+        "played": 25,
+        "wins": 14,
+        "points": 28
+      },
+      {
+        "rank": 6,
+        "team": "ÍBV",
+        "played": 24,
+        "wins": 13,
+        "points": 27
+      },
+      {
+        "rank": 7,
+        "team": "Fram",
+        "played": 24,
+        "wins": 13,
+        "points": 26
+      },
+      {
+        "rank": 8,
+        "team": "HK",
+        "played": 24,
+        "wins": 8,
+        "points": 16
+      },
+      {
+        "rank": 9,
+        "team": "Þór",
+        "played": 22,
+        "wins": 7,
+        "points": 14
+      },
+      {
+        "rank": 10,
+        "team": "Selfoss",
+        "played": 22,
+        "wins": 6,
+        "points": 12
+      },
+      {
+        "rank": 11,
+        "team": "Stjarnan",
+        "played": 22,
+        "wins": 5,
+        "points": 10
+      },
+      {
+        "rank": 12,
+        "team": "ÍR",
+        "played": 22,
+        "wins": 4,
+        "points": 9
+      }
     ],
     "matches": [
-      { "date": "2026-04-17", "home": "Haukar", "away": "FH", "score": "35 (14) - 36 (19)", "competition": "Úrslitakeppni karla" },
-      { "date": "2026-04-14", "home": "FH", "away": "Haukar", "score": "27 (14) - 23 (12)", "competition": "Úrslitakeppni karla" },
-      { "date": "2026-04-10", "home": "Haukar", "away": "FH", "score": "27 (13) - 22 (11)", "competition": "Úrslitakeppni karla" },
-      { "date": "2026-04-07", "home": "FH", "away": "Haukar", "score": "27 (11) - 21 (12)", "competition": "Úrslitakeppni karla" },
-      { "date": "2026-04-02", "home": "Haukar", "away": "Afturelding", "score": "32 (15) - 24 (13)", "competition": "Úrslitakeppni karla" },
-      { "date": "2026-03-30", "home": "Afturelding", "away": "Haukar", "score": "26 (14) - 22 (12)", "competition": "Úrslitakeppni karla" },
-      { "date": "2026-03-26", "home": "Haukar", "away": "Afturelding", "score": "34 (20) - 26 (12)", "competition": "Úrslitakeppni karla" },
-      { "date": "2026-03-12", "home": "HK", "away": "Haukar", "score": "26 (15) - 23 (10)", "competition": "Olís karla" },
-      { "date": "2026-03-09", "home": "Haukar", "away": "Selfoss", "score": "35 (17) - 28 (16)", "competition": "Olís karla" },
-      { "date": "2026-03-04", "home": "Thor", "away": "Haukar", "score": "28 (13) - 34 (18)", "competition": "Olís karla" },
-      { "date": "2026-02-28", "home": "Haukar", "away": "IR", "score": "28 (14) - 21 (6)", "competition": "Bikarkeppni" },
-      { "date": "2026-02-26", "home": "FH", "away": "Haukar", "score": "21 (9) - 25 (11)", "competition": "Bikarkeppni" },
-      { "date": "2026-02-19", "home": "Haukar", "away": "FH", "score": "25 (12) - 32 (17)", "competition": "Olís karla" },
-      { "date": "2026-02-13", "home": "Stjarnan", "away": "Haukar", "score": "25 (11) - 27 (13)", "competition": "Olís karla" },
-      { "date": "2026-02-08", "home": "Haukar", "away": "IBV", "score": "28 (11) - 29 (13)", "competition": "Olís karla" },
-      { "date": "2026-02-05", "home": "Valur", "away": "Haukar", "score": "34 (15) - 41 (22)", "competition": "Olís karla" },
-      { "date": "2025-12-19", "home": "HK", "away": "Haukar", "score": "21 (11) - 28 (16)", "competition": "Bikarkeppni" },
-      { "date": "2025-12-15", "home": "Haukar", "away": "Fram", "score": "25 (12) - 27 (13)", "competition": "Olís karla" },
-      { "date": "2025-12-10", "home": "IR", "away": "Haukar", "score": "31 (14) - 39 (18)", "competition": "Olís karla" },
-      { "date": "2025-12-03", "home": "Haukar", "away": "KA", "score": "42 (17) - 38 (19)", "competition": "Olís karla" },
-      { "date": "2025-11-27", "home": "Afturelding", "away": "Haukar", "score": "31 (15) - 22 (9)", "competition": "Olís karla" },
-      { "date": "2025-11-20", "home": "Haukar", "away": "HK", "score": "33 (12) - 19 (11)", "competition": "Olís karla" },
-      { "date": "2025-11-13", "home": "Selfoss", "away": "Haukar", "score": "30 (16) - 35 (16)", "competition": "Olís karla" },
-      { "date": "2025-11-07", "home": "Haukar", "away": "Thor", "score": "35 (18) - 31 (12)", "competition": "Olís karla" },
-      { "date": "2025-10-23", "home": "FH", "away": "Haukar", "score": "27 (9) - 26 (12)", "competition": "Olís karla" },
-      { "date": "2025-10-16", "home": "Haukar", "away": "Stjarnan", "score": "30 (17) - 26 (11)", "competition": "Olís karla" },
-      { "date": "2025-10-12", "home": "IBV", "away": "Haukar", "score": "29 (13) - 39 (20)", "competition": "Olís karla" },
-      { "date": "2025-10-06", "home": "Haukar", "away": "Valur", "score": "39 (13) - 38 (13)", "competition": "Bikarkeppni (Vító)" },
-      { "date": "2025-10-02", "home": "Haukar", "away": "Valur", "score": "37 (17) - 27 (17)", "competition": "Olís karla" },
-      { "date": "2025-09-25", "home": "Fram", "away": "Haukar", "score": "27 (14) - 32 (12)", "competition": "Olís karla" },
-      { "date": "2025-09-18", "home": "Haukar", "away": "IR", "score": "44 (20) - 28 (16)", "competition": "Olís karla" },
-      { "date": "2025-09-12", "home": "KA", "away": "Haukar", "score": "32 (14) - 33 (17)", "competition": "Olís karla" },
-      { "date": "2025-09-04", "home": "Haukar", "away": "Afturelding", "score": "27 (11) - 28 (15)", "competition": "Olís karla" }
+      {
+        "date": "2026-04-17",
+        "home": "Haukar",
+        "away": "FH",
+        "score": "35 (14) - 36 (19)",
+        "competition": "Úrslitakeppni karla",
+        "id": "12905"
+      },
+      {
+        "date": "2026-04-14",
+        "home": "FH",
+        "away": "Haukar",
+        "score": "27 (14) - 23 (12)",
+        "competition": "Úrslitakeppni karla",
+        "id": "12900"
+      },
+      {
+        "date": "2026-04-10",
+        "home": "Haukar",
+        "away": "FH",
+        "score": "27 (13) - 22 (11)",
+        "competition": "Úrslitakeppni karla",
+        "id": "12897"
+      },
+      {
+        "date": "2026-04-07",
+        "home": "FH",
+        "away": "Haukar",
+        "score": "27 (11) - 21 (12)",
+        "competition": "Úrslitakeppni karla",
+        "id": "12893"
+      },
+      {
+        "date": "2026-04-02",
+        "home": "Haukar",
+        "away": "Afturelding",
+        "score": "32 (15) - 24 (13)",
+        "competition": "Úrslitakeppni karla",
+        "id": "12890"
+      },
+      {
+        "date": "2026-03-30",
+        "home": "Afturelding",
+        "away": "Haukar",
+        "score": "26 (14) - 22 (12)",
+        "competition": "Úrslitakeppni karla",
+        "id": "12886"
+      },
+      {
+        "date": "2026-03-26",
+        "home": "Haukar",
+        "away": "Afturelding",
+        "score": "34 (20) - 26 (12)",
+        "competition": "Úrslitakeppni karla",
+        "id": "12875"
+      },
+      {
+        "date": "2026-03-12",
+        "home": "HK",
+        "away": "Haukar",
+        "score": "26 (15) - 23 (10)",
+        "competition": "Olís karla",
+        "id": "12852"
+      },
+      {
+        "date": "2026-03-09",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "35 (17) - 28 (16)",
+        "competition": "Olís karla",
+        "id": "12846"
+      },
+      {
+        "date": "2026-03-04",
+        "home": "Þór",
+        "away": "Haukar",
+        "score": "28 (13) - 34 (18)",
+        "competition": "Olís karla",
+        "id": "12838"
+      },
+      {
+        "date": "2026-02-28",
+        "home": "Haukar",
+        "away": "IR",
+        "score": "28 (14) - 21 (6)",
+        "competition": "Bikarkeppni",
+        "id": "12835"
+      },
+      {
+        "date": "2026-02-26",
+        "home": "FH",
+        "away": "Haukar",
+        "score": "21 (9) - 25 (11)",
+        "competition": "Bikarkeppni",
+        "id": "12832"
+      },
+      {
+        "date": "2026-02-19",
+        "home": "Haukar",
+        "away": "FH",
+        "score": "25 (12) - 32 (17)",
+        "competition": "Olís karla",
+        "id": "12821"
+      },
+      {
+        "date": "2026-02-13",
+        "home": "Stjarnan",
+        "away": "Haukar",
+        "score": "25 (11) - 27 (13)",
+        "competition": "Olís karla"
+      },
+      {
+        "date": "2026-02-08",
+        "home": "Haukar",
+        "away": "IBV",
+        "score": "28 (11) - 29 (13)",
+        "competition": "Olís karla",
+        "id": "12804"
+      },
+      {
+        "date": "2026-02-05",
+        "home": "Valur",
+        "away": "Haukar",
+        "score": "34 (15) - 41 (22)",
+        "competition": "Olís karla",
+        "id": "12796"
+      },
+      {
+        "date": "2025-12-19",
+        "home": "HK",
+        "away": "Haukar",
+        "score": "21 (11) - 28 (16)",
+        "competition": "Bikarkeppni",
+        "id": "12756"
+      },
+      {
+        "date": "2025-12-15",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "25 (12) - 27 (13)",
+        "competition": "Olís karla"
+      },
+      {
+        "date": "2025-12-10",
+        "home": "IR",
+        "away": "Haukar",
+        "score": "31 (14) - 39 (18)",
+        "competition": "Olís karla",
+        "id": "12737"
+      },
+      {
+        "date": "2025-12-03",
+        "home": "Haukar",
+        "away": "KA",
+        "score": "42 (17) - 38 (19)",
+        "competition": "Olís karla",
+        "id": "12729"
+      },
+      {
+        "date": "2025-11-27",
+        "home": "Afturelding",
+        "away": "Haukar",
+        "score": "31 (15) - 22 (9)",
+        "competition": "Olís karla",
+        "id": "12723"
+      },
+      {
+        "date": "2025-11-20",
+        "home": "Haukar",
+        "away": "HK",
+        "score": "33 (12) - 19 (11)",
+        "competition": "Olís karla",
+        "id": "12712"
+      },
+      {
+        "date": "2025-11-13",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "30 (16) - 35 (16)",
+        "competition": "Olís karla",
+        "id": "12703"
+      },
+      {
+        "date": "2025-11-07",
+        "home": "Haukar",
+        "away": "Þór",
+        "score": "35 (18) - 31 (12)",
+        "competition": "Olís karla",
+        "id": "12699"
+      },
+      {
+        "date": "2025-10-23",
+        "home": "FH",
+        "away": "Haukar",
+        "score": "27 (9) - 26 (12)",
+        "competition": "Olís karla",
+        "id": "12671"
+      },
+      {
+        "date": "2025-10-16",
+        "home": "Haukar",
+        "away": "Stjarnan",
+        "score": "30 (17) - 26 (11)",
+        "competition": "Olís karla",
+        "id": "12666"
+      },
+      {
+        "date": "2025-10-12",
+        "home": "IBV",
+        "away": "Haukar",
+        "score": "29 (13) - 39 (20)",
+        "competition": "Olís karla",
+        "id": "12661"
+      },
+      {
+        "date": "2025-10-06",
+        "home": "Haukar",
+        "away": "Valur",
+        "score": "39 (13) - 38 (13)",
+        "competition": "Bikarkeppni (Vító)",
+        "id": "12650"
+      },
+      {
+        "date": "2025-10-02",
+        "home": "Haukar",
+        "away": "Valur",
+        "score": "37 (17) - 27 (17)",
+        "competition": "Olís karla",
+        "id": "12643"
+      },
+      {
+        "date": "2025-09-25",
+        "home": "Fram",
+        "away": "Haukar",
+        "score": "27 (14) - 32 (12)",
+        "competition": "Olís karla",
+        "id": "12630"
+      },
+      {
+        "date": "2025-09-18",
+        "home": "Haukar",
+        "away": "IR",
+        "score": "44 (20) - 28 (16)",
+        "competition": "Olís karla",
+        "id": "12619"
+      },
+      {
+        "date": "2025-09-12",
+        "home": "KA",
+        "away": "Haukar",
+        "score": "32 (14) - 33 (17)",
+        "competition": "Olís karla",
+        "id": "12612"
+      },
+      {
+        "date": "2025-09-04",
+        "home": "Haukar",
+        "away": "Afturelding",
+        "score": "27 (11) - 28 (15)",
+        "competition": "Olís karla",
+        "id": "12596"
+      }
     ]
   },
   "kvenna": {
     "standings": [
-      { "rank": 1, "team": "Valur", "played": 23, "wins": 21, "points": 42 },
-      { "rank": 2, "team": "ÍBV", "played": 23, "wins": 17, "points": 34 },
-      { "rank": 3, "team": "Haukar", "played": 25, "wins": 16, "points": 32 },
-      { "rank": 4, "team": "Fram", "played": 25, "wins": 12, "points": 24 },
-      { "rank": 5, "team": "ÍR", "played": 23, "wins": 12, "points": 24 },
-      { "rank": 6, "team": "KA/Þór", "played": 23, "wins": 7, "points": 15 },
-      { "rank": 7, "team": "Stjarnan", "played": 21, "wins": 3, "points": 7 },
-      { "rank": 8, "team": "Selfoss", "played": 21, "wins": 3, "points": 6 }
+      {
+        "rank": 1,
+        "team": "Valur",
+        "played": 23,
+        "wins": 21,
+        "points": 42
+      },
+      {
+        "rank": 2,
+        "team": "ÍBV",
+        "played": 23,
+        "wins": 17,
+        "points": 34
+      },
+      {
+        "rank": 3,
+        "team": "Haukar",
+        "played": 25,
+        "wins": 16,
+        "points": 32
+      },
+      {
+        "rank": 4,
+        "team": "Fram",
+        "played": 25,
+        "wins": 12,
+        "points": 24
+      },
+      {
+        "rank": 5,
+        "team": "ÍR",
+        "played": 23,
+        "wins": 12,
+        "points": 24
+      },
+      {
+        "rank": 6,
+        "team": "KA/Þór",
+        "played": 23,
+        "wins": 7,
+        "points": 15
+      },
+      {
+        "rank": 7,
+        "team": "Stjarnan",
+        "played": 21,
+        "wins": 3,
+        "points": 7
+      },
+      {
+        "rank": 8,
+        "team": "Selfoss",
+        "played": 21,
+        "wins": 3,
+        "points": 6
+      }
     ],
     "matches": [
-      { "date": "2026-04-18", "home": "Haukar", "away": "IBV", "score": "28 (16) - 29 (13)", "competition": "Úrslitakeppni kvenna" },
-      { "date": "2026-04-15", "home": "IBV", "away": "Haukar", "score": "26 (13) - 29 (12)", "competition": "Úrslitakeppni kvenna" },
-      { "date": "2026-04-01", "home": "KA/Thor", "away": "Haukar", "score": "20 (11) - 25 (14)", "competition": "Úrslitakeppni kvenna" },
-      { "date": "2026-03-28", "home": "Haukar", "away": "KA/Thor", "score": "27 (11) - 24 (13)", "competition": "Úrslitakeppni kvenna" },
-      { "date": "2026-03-27", "home": "Haukar", "away": "KA/Thor", "score": "27 (11) - 24 (13)", "competition": "Úrslitakeppni kvenna" },
-      { "date": "2026-03-21", "home": "Haukar", "away": "Stjarnan", "score": "26 (17) - 26 (11)", "competition": "Olís kvenna" },
-      { "date": "2026-03-18", "home": "Selfoss", "away": "Haukar", "score": "22 (13) - 30 (12)", "competition": "Olís kvenna" },
-      { "date": "2026-03-14", "home": "Haukar", "away": "IBV", "score": "25 (15) - 23 (12)", "competition": "Olís kvenna" },
-      { "date": "2026-02-28", "home": "Haukar", "away": "Valur", "score": "19 (11) - 23 (10)", "competition": "Bikarkeppni" },
-      { "date": "2026-02-25", "home": "Haukar", "away": "Fram", "score": "32 (14) - 29 (14)", "competition": "Bikarkeppni" },
-      { "date": "2026-02-19", "home": "KA/Thor", "away": "Haukar", "score": "20 (13) - 31 (15)", "competition": "Olís kvenna" },
-      { "date": "2026-02-11", "home": "Haukar", "away": "Fram", "score": "35 (19) - 27 (16)", "competition": "Olís kvenna" },
-      { "date": "2026-02-07", "home": "Valur", "away": "Haukar", "score": "29 (17) - 23 (13)", "competition": "Olís kvenna" },
-      { "date": "2026-01-29", "home": "Haukar", "away": "IR", "score": "23 (13) - 22 (11)", "competition": "Olís kvenna" },
-      { "date": "2026-01-21", "home": "Stjarnan", "away": "Haukar", "score": "24 (12) - 28 (16)", "competition": "Olís kvenna" },
-      { "date": "2026-01-15", "home": "Haukar", "away": "Selfoss", "score": "34 (19) - 28 (10)", "competition": "Olís kvenna" },
-      { "date": "2026-01-10", "home": "IBV", "away": "Haukar", "score": "23 (13) - 20 (10)", "competition": "Olís kvenna" },
-      { "date": "2025-12-18", "home": "Selfoss", "away": "Haukar", "score": "25 (13) - 32 (16)", "competition": "Olís kvenna" },
-      { "date": "2025-12-13", "home": "Haukar", "away": "KA/Thor", "score": "35 (24) - 20 (10)", "competition": "Olís kvenna" },
-      { "date": "2025-11-11", "home": "Fram", "away": "Haukar", "score": "31 (18) - 29 (16)", "competition": "Olís kvenna" },
-      { "date": "2025-11-05", "home": "Haukar", "away": "Valur", "score": "24 (12) - 31 (13)", "competition": "Olís kvenna" },
-      { "date": "2025-11-02", "home": "IR", "away": "Haukar", "score": "30 (16) - 26 (11)", "competition": "Olís kvenna" },
-      { "date": "2025-10-25", "home": "Haukar", "away": "Stjarnan", "score": "34 (18) - 27 (13)", "competition": "Olís kvenna" },
-      { "date": "2025-10-08", "home": "Haukar", "away": "IBV", "score": "18 (10) - 20 (13)", "competition": "Olís kvenna" },
-      { "date": "2025-10-04", "home": "KA/Thor", "away": "Haukar", "score": "23 (11) - 27 (12)", "competition": "Olís kvenna" },
-      { "date": "2025-09-27", "home": "Haukar", "away": "Fram", "score": "27 (13) - 27 (13)", "competition": "Olís kvenna" },
-      { "date": "2025-09-13", "home": "Valur", "away": "Haukar", "score": "21 (9) - 24 (14)", "competition": "Olís kvenna" },
-      { "date": "2025-09-06", "home": "Haukar", "away": "IR", "score": "27 (14) - 30 (14)", "competition": "Olís kvenna" },
-      { "date": "2025-08-30", "home": "Valur", "away": "Haukar", "score": "22 (9) - 15 (7)", "competition": "Meistarakeppni HSÍ" }
+      {
+        "date": "2026-04-18",
+        "home": "Haukar",
+        "away": "IBV",
+        "score": "28 (16) - 29 (13)",
+        "competition": "Úrslitakeppni kvenna",
+        "id": "12804"
+      },
+      {
+        "date": "2026-04-15",
+        "home": "IBV",
+        "away": "Haukar",
+        "score": "26 (13) - 29 (12)",
+        "competition": "Úrslitakeppni kvenna"
+      },
+      {
+        "date": "2026-04-01",
+        "home": "KA/Þór",
+        "away": "Haukar",
+        "score": "20 (11) - 25 (14)",
+        "competition": "Úrslitakeppni kvenna"
+      },
+      {
+        "date": "2026-03-28",
+        "home": "Haukar",
+        "away": "KA/Þór",
+        "score": "27 (11) - 24 (13)",
+        "competition": "Úrslitakeppni kvenna"
+      },
+      {
+        "date": "2026-03-27",
+        "home": "Haukar",
+        "away": "KA/Þór",
+        "score": "27 (11) - 24 (13)",
+        "competition": "Úrslitakeppni kvenna"
+      },
+      {
+        "date": "2026-03-21",
+        "home": "Haukar",
+        "away": "Stjarnan",
+        "score": "26 (17) - 26 (11)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2026-03-18",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "22 (13) - 30 (12)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2026-03-14",
+        "home": "Haukar",
+        "away": "IBV",
+        "score": "25 (15) - 23 (12)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2026-02-28",
+        "home": "Haukar",
+        "away": "Valur",
+        "score": "19 (11) - 23 (10)",
+        "competition": "Bikarkeppni"
+      },
+      {
+        "date": "2026-02-25",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "32 (14) - 29 (14)",
+        "competition": "Bikarkeppni"
+      },
+      {
+        "date": "2026-02-19",
+        "home": "KA/Þór",
+        "away": "Haukar",
+        "score": "20 (13) - 31 (15)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2026-02-11",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "35 (19) - 27 (16)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2026-02-07",
+        "home": "Valur",
+        "away": "Haukar",
+        "score": "29 (17) - 23 (13)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2026-01-29",
+        "home": "Haukar",
+        "away": "IR",
+        "score": "23 (13) - 22 (11)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2026-01-21",
+        "home": "Stjarnan",
+        "away": "Haukar",
+        "score": "24 (12) - 28 (16)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2026-01-15",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "34 (19) - 28 (10)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2026-01-10",
+        "home": "IBV",
+        "away": "Haukar",
+        "score": "23 (13) - 20 (10)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-12-18",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "25 (13) - 32 (16)",
+        "competition": "Olís kvenna",
+        "id": "12821"
+      },
+      {
+        "date": "2025-12-13",
+        "home": "Haukar",
+        "away": "KA/Þór",
+        "score": "35 (24) - 20 (10)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-11-11",
+        "home": "Fram",
+        "away": "Haukar",
+        "score": "31 (18) - 29 (16)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-11-05",
+        "home": "Haukar",
+        "away": "Valur",
+        "score": "24 (12) - 31 (13)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-11-02",
+        "home": "IR",
+        "away": "Haukar",
+        "score": "30 (16) - 26 (11)",
+        "competition": "Olís kvenna",
+        "id": "12666"
+      },
+      {
+        "date": "2025-10-25",
+        "home": "Haukar",
+        "away": "Stjarnan",
+        "score": "34 (18) - 27 (13)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-10-08",
+        "home": "Haukar",
+        "away": "IBV",
+        "score": "18 (10) - 20 (13)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-10-04",
+        "home": "KA/Þór",
+        "away": "Haukar",
+        "score": "23 (11) - 27 (12)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-09-27",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "27 (13) - 27 (13)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-09-13",
+        "home": "Valur",
+        "away": "Haukar",
+        "score": "21 (9) - 24 (14)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-09-06",
+        "home": "Haukar",
+        "away": "IR",
+        "score": "27 (14) - 30 (14)",
+        "competition": "Olís kvenna"
+      },
+      {
+        "date": "2025-08-30",
+        "home": "Valur",
+        "away": "Haukar",
+        "score": "22 (9) - 15 (7)",
+        "competition": "Meistarakeppni HSÍ"
+      }
     ]
   },
   "fotbolti_karla": {
     "standings": [
-      { "rank": 1, "team": "Ægir", "played": 22, "wins": 14, "points": 44 },
-      { "rank": 2, "team": "Grótta", "played": 22, "wins": 13, "points": 44 },
-      { "rank": 3, "team": "Þróttur Vogum", "played": 22, "wins": 13, "points": 42 },
-      { "rank": 4, "team": "Kormákur/Hvöt", "played": 22, "wins": 11, "points": 35 },
-      { "rank": 5, "team": "Dalvík/Reynir", "played": 22, "wins": 10, "points": 34 },
-      { "rank": 6, "team": "KFA", "played": 22, "wins": 9, "points": 32 },
-      { "rank": 7, "team": "Haukar", "played": 22, "wins": 9, "points": 31 },
-      { "rank": 8, "team": "Víkingur Ólafsvík", "played": 22, "wins": 8, "points": 28 },
-      { "rank": 9, "team": "Kári", "played": 22, "wins": 8, "points": 24 },
-      { "rank": 10, "team": "KFG", "played": 22, "wins": 6, "points": 23 },
-      { "rank": 11, "team": "Víðir", "played": 22, "wins": 5, "points": 20 },
-      { "rank": 12, "team": "Höttur/Huginn", "played": 22, "wins": 4, "points": 17 }
+      {
+        "rank": 1,
+        "team": "Ægir",
+        "played": 22,
+        "wins": 14,
+        "points": 44
+      },
+      {
+        "rank": 2,
+        "team": "Grótta",
+        "played": 22,
+        "wins": 13,
+        "points": 44
+      },
+      {
+        "rank": 3,
+        "team": "Þróttur Vogum",
+        "played": 22,
+        "wins": 13,
+        "points": 42
+      },
+      {
+        "rank": 4,
+        "team": "Kormákur/Hvöt",
+        "played": 22,
+        "wins": 11,
+        "points": 35
+      },
+      {
+        "rank": 5,
+        "team": "Dalvík/Reynir",
+        "played": 22,
+        "wins": 10,
+        "points": 34
+      },
+      {
+        "rank": 6,
+        "team": "KFA",
+        "played": 22,
+        "wins": 9,
+        "points": 32
+      },
+      {
+        "rank": 7,
+        "team": "Haukar",
+        "played": 22,
+        "wins": 9,
+        "points": 31
+      },
+      {
+        "rank": 8,
+        "team": "Víkingur Ólafsvík",
+        "played": 22,
+        "wins": 8,
+        "points": 28
+      },
+      {
+        "rank": 9,
+        "team": "Kári",
+        "played": 22,
+        "wins": 8,
+        "points": 24
+      },
+      {
+        "rank": 10,
+        "team": "KFG",
+        "played": 22,
+        "wins": 6,
+        "points": 23
+      },
+      {
+        "rank": 11,
+        "team": "Víðir",
+        "played": 22,
+        "wins": 5,
+        "points": 20
+      },
+      {
+        "rank": 12,
+        "team": "Höttur/Huginn",
+        "played": 22,
+        "wins": 4,
+        "points": 17
+      }
     ],
     "matches": [
-      { "date": "2026-09-12", "home": "Haukar", "away": "Grótta", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-09-05", "home": "Ægir", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-08-29", "home": "Haukar", "away": "Þróttur Vogum", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-08-22", "home": "Kormákur/Hvöt", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-08-15", "home": "Haukar", "away": "Dalvík/Reynir", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-08-08", "home": "KFA", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-07-25", "home": "Kári", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-07-18", "home": "Haukar", "away": "KFG", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-07-11", "home": "Víðir", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-07-04", "home": "Haukar", "away": "Höttur/Huginn", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-06-27", "home": "Víkingur Ó.", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-06-20", "home": "Grótta", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-06-13", "home": "Haukar", "away": "Ægir", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-06-06", "home": "Þróttur Vogum", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-05-30", "home": "Haukar", "away": "Kormákur/Hvöt", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-05-23", "home": "Dalvík/Reynir", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-05-16", "home": "Haukar", "away": "KFA", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-05-09", "home": "Höttur/Huginn", "away": "Haukar", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-05-02", "home": "Haukar", "away": "Víkingur Ó.", "score": "Næsti leikur", "competition": "2. deild karla" },
-      { "date": "2026-04-26", "home": "Víkingur Ó.", "away": "Haukar", "score": "0 - 0 (2-4 vító)", "competition": "Lengjubikarinn" },
-      { "date": "2026-04-25", "home": "Selfoss", "away": "Haukar", "score": "1 - 1", "competition": "Fótbolta.net mótið" },
-      { "date": "2026-04-18", "home": "Haukar", "away": "KFG", "score": "2 - 0", "competition": "Fótbolta.net mótið" }
+      {
+        "date": "2026-09-12",
+        "home": "Haukar",
+        "away": "Grótta",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-09-05",
+        "home": "Ægir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-08-29",
+        "home": "Haukar",
+        "away": "Þróttur Vogum",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-08-22",
+        "home": "Kormákur/Hvöt",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-08-15",
+        "home": "Haukar",
+        "away": "Dalvík/Reynir",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-08-08",
+        "home": "KFA",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-07-25",
+        "home": "Kári",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-07-18",
+        "home": "Haukar",
+        "away": "KFG",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-07-11",
+        "home": "Víðir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-07-04",
+        "home": "Haukar",
+        "away": "Höttur/Huginn",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-06-27",
+        "home": "Víkingur Ó.",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-06-20",
+        "home": "Grótta",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-06-13",
+        "home": "Haukar",
+        "away": "Ægir",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-06-06",
+        "home": "Þróttur Vogum",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-05-30",
+        "home": "Haukar",
+        "away": "Kormákur/Hvöt",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-05-23",
+        "home": "Dalvík/Reynir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-05-16",
+        "home": "Haukar",
+        "away": "KFA",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-05-09",
+        "home": "Höttur/Huginn",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-05-09",
+        "home": "Haukar",
+        "away": "Víkingur Ó.",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-05-01",
+        "home": "Þróttur V.",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla"
+      },
+      {
+        "date": "2026-04-25",
+        "home": "Víkingur Ó.",
+        "away": "Haukar",
+        "score": "0 - 0 (2-4 vító)",
+        "competition": "Lengjubikarinn",
+        "id": "7350245"
+      },
+      {
+        "date": "2026-04-18",
+        "home": "Haukar",
+        "away": "KFG",
+        "score": "2 - 0",
+        "competition": "Fótbolta.net mótið"
+      }
     ]
   },
   "fotbolti_kvenna": {
     "standings": [
-      { "rank": 1, "team": "Víkingur R.", "played": 18, "wins": 12, "points": 40 },
-      { "rank": 2, "team": "Haukar", "played": 18, "wins": 11, "points": 38 },
-      { "rank": 3, "team": "Grótta", "played": 18, "wins": 10, "points": 33 },
-      { "rank": 4, "team": "FHL", "played": 18, "wins": 8, "points": 28 },
-      { "rank": 5, "team": "Afturelding", "played": 18, "wins": 7, "points": 26 }
+      {
+        "rank": 1,
+        "team": "Víkingur R.",
+        "played": 18,
+        "wins": 12,
+        "points": 40
+      },
+      {
+        "rank": 2,
+        "team": "Haukar",
+        "played": 18,
+        "wins": 11,
+        "points": 38
+      },
+      {
+        "rank": 3,
+        "team": "Grótta",
+        "played": 18,
+        "wins": 10,
+        "points": 33
+      },
+      {
+        "rank": 4,
+        "team": "FHL",
+        "played": 18,
+        "wins": 8,
+        "points": 28
+      },
+      {
+        "rank": 5,
+        "team": "Afturelding",
+        "played": 18,
+        "wins": 7,
+        "points": 26
+      }
     ],
     "matches": [
-      { "date": "2026-09-10", "home": "Grótta", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-09-03", "home": "Haukar", "away": "FHL", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-08-27", "home": "Víkingur R.", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-08-20", "home": "Haukar", "away": "Afturelding", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-08-13", "home": "HK", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-08-06", "home": "Haukar", "away": "ÍR", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-07-30", "home": "Fram", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-07-23", "home": "Haukar", "away": "Grótta", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-07-16", "home": "FHL", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-07-09", "home": "Haukar", "away": "Víkingur R.", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-07-02", "home": "Afturelding", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-06-25", "home": "Haukar", "away": "HK", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-06-18", "home": "ÍR", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-06-11", "home": "Haukar", "away": "Fram", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-06-04", "home": "Valur", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjubikar kvenna" },
-      { "date": "2026-05-28", "home": "Grótta", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-05-21", "home": "Haukar", "away": "FHL", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-05-14", "home": "Víkingur R.", "away": "Haukar", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-05-07", "home": "Haukar", "away": "Afturelding", "score": "Næsti leikur", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-04-19", "home": "Haukar", "away": "Víkingur R.", "score": "1 - 1", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-04-12", "home": "Afturelding", "away": "Haukar", "score": "0 - 2", "competition": "Lengjudeild kvenna" },
-      { "date": "2026-04-05", "home": "Haukar", "away": "FHL", "score": "4 - 1", "competition": "Lengjudeild kvenna" }
+      {
+        "date": "2026-09-10",
+        "home": "Grótta",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-09-03",
+        "home": "Haukar",
+        "away": "FHL",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-08-27",
+        "home": "Víkingur R.",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-08-20",
+        "home": "Haukar",
+        "away": "Afturelding",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-08-13",
+        "home": "HK",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-08-06",
+        "home": "Haukar",
+        "away": "ÍR",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-07-30",
+        "home": "Fram",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-07-23",
+        "home": "Haukar",
+        "away": "Grótta",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-07-16",
+        "home": "FHL",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-07-09",
+        "home": "Haukar",
+        "away": "Víkingur R.",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-07-02",
+        "home": "Afturelding",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-06-25",
+        "home": "Haukar",
+        "away": "HK",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-06-18",
+        "home": "ÍR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-06-11",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-06-04",
+        "home": "Valur",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjubikar kvenna"
+      },
+      {
+        "date": "2026-05-28",
+        "home": "Grótta",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-05-21",
+        "home": "Haukar",
+        "away": "FHL",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-05-14",
+        "home": "Víkingur R.",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-05-07",
+        "home": "Haukar",
+        "away": "Afturelding",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-04-19",
+        "home": "Haukar",
+        "away": "Víkingur R.",
+        "score": "1 - 1",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-04-12",
+        "home": "Afturelding",
+        "away": "Haukar",
+        "score": "0 - 2",
+        "competition": "Lengjudeild kvenna"
+      },
+      {
+        "date": "2026-04-05",
+        "home": "Haukar",
+        "away": "FHL",
+        "score": "4 - 1",
+        "competition": "Lengjudeild kvenna"
+      }
     ]
   },
   "korfubolti_karla": {
     "standings": [
-      { "rank": 1, "team": "Höttur", "played": 22, "wins": 18, "points": 36 },
-      { "rank": 2, "team": "Sindri", "played": 22, "wins": 17, "points": 34 },
-      { "rank": 3, "team": "Haukar", "played": 22, "wins": 17, "points": 34 },
-      { "rank": 4, "team": "Fjölnir", "played": 22, "wins": 15, "points": 30 },
-      { "rank": 5, "team": "Breiðablik", "played": 22, "wins": 15, "points": 30 },
-      { "rank": 6, "team": "Skallagrímur", "played": 22, "wins": 11, "points": 22 },
-      { "rank": 7, "team": "KV", "played": 22, "wins": 10, "points": 20 },
-      { "rank": 8, "team": "Selfoss", "played": 22, "wins": 10, "points": 20 },
-      { "rank": 9, "team": "Snæfell", "played": 22, "wins": 7, "points": 14 },
-      { "rank": 10, "team": "Þór Ak.", "played": 22, "wins": 4, "points": 8 },
-      { "rank": 11, "team": "Fylkir", "played": 22, "wins": 4, "points": 8 },
-      { "rank": 12, "team": "Hamar", "played": 22, "wins": 4, "points": 8 }
+      {
+        "rank": 1,
+        "team": "Höttur",
+        "played": 22,
+        "wins": 18,
+        "points": 36
+      },
+      {
+        "rank": 2,
+        "team": "Sindri",
+        "played": 22,
+        "wins": 17,
+        "points": 34
+      },
+      {
+        "rank": 3,
+        "team": "Haukar",
+        "played": 22,
+        "wins": 17,
+        "points": 34
+      },
+      {
+        "rank": 4,
+        "team": "Fjölnir",
+        "played": 22,
+        "wins": 15,
+        "points": 30
+      },
+      {
+        "rank": 5,
+        "team": "Breiðablik",
+        "played": 22,
+        "wins": 15,
+        "points": 30
+      },
+      {
+        "rank": 6,
+        "team": "Skallagrímur",
+        "played": 22,
+        "wins": 11,
+        "points": 22
+      },
+      {
+        "rank": 7,
+        "team": "KV",
+        "played": 22,
+        "wins": 10,
+        "points": 20
+      },
+      {
+        "rank": 8,
+        "team": "Selfoss",
+        "played": 22,
+        "wins": 10,
+        "points": 20
+      },
+      {
+        "rank": 9,
+        "team": "Snæfell",
+        "played": 22,
+        "wins": 7,
+        "points": 14
+      },
+      {
+        "rank": 10,
+        "team": "Þór Ak.",
+        "played": 22,
+        "wins": 4,
+        "points": 8
+      },
+      {
+        "rank": 11,
+        "team": "Fylkir",
+        "played": 22,
+        "wins": 4,
+        "points": 8
+      },
+      {
+        "rank": 12,
+        "team": "Hamar",
+        "played": 22,
+        "wins": 4,
+        "points": 8
+      }
     ],
     "matches": [
-      { "date": "2026-04-21", "home": "Haukar", "away": "Selfoss", "score": "90 - 89", "competition": "1. deild karla - Úrslit" },
-      { "date": "2026-04-17", "home": "Selfoss", "away": "Haukar", "score": "84 - 75", "competition": "1. deild karla - Úrslit" },
-      { "date": "2026-04-13", "home": "Haukar", "away": "Selfoss", "score": "76 - 86", "competition": "1. deild karla - Úrslit" }
+      { "date": "2026-04-29", "home": "Haukar", "away": "Selfoss", "score": "Næsti leikur", "competition": "1. deild karla - Úrslit" },
+      { "date": "2026-04-25", "home": "Selfoss", "away": "Haukar", "score": "Næsti leikur", "competition": "1. deild karla - Úrslit" },
+      { "date": "2026-04-21", "home": "Haukar", "away": "Selfoss", "score": "90 - 89", "competition": "1. deild karla - Úrslit", 
+        "report": {
+          "events": [
+            { "min": 10, "type": "goal", "player": "Hilmar Pétursson", "team": "Haukar", "text": "Hilmar Pétursson (22 stig)" },
+            { "min": 20, "type": "goal", "player": "Eivydas Mološčiakas", "team": "Haukar", "text": "Eivydas Mološčiakas (18 stig)" },
+            { "min": 30, "type": "goal", "player": "Kristinn Marinósson", "team": "Haukar", "text": "Kristinn Marinósson (15 stig)" },
+            { "min": 40, "type": "goal", "player": "Ísak Jónsson", "team": "Selfoss", "text": "Ísak Jónsson (24 stig)" }
+          ]
+        }
+      },
+      { "date": "2026-04-17", "home": "Selfoss", "away": "Haukar", "score": "84 - 75", "competition": "1. deild karla - Úrslit",
+        "report": {
+          "events": [
+            { "min": 40, "type": "goal", "player": "Eivydas Mološčiakas", "team": "Haukar", "text": "Eivydas Mološčiakas (20 stig)" },
+            { "min": 40, "type": "goal", "player": "Hilmar Pétursson", "team": "Haukar", "text": "Hilmar Pétursson (18 stig)" }
+          ]
+        }
+      },
+      { "date": "2026-04-13", "home": "Haukar", "away": "Selfoss", "score": "76 - 86", "competition": "1. deild karla - Úrslit" },
+      { "date": "2026-03-20", "home": "KV", "away": "Haukar", "score": "78 - 85", "competition": "1. deild karla",
+        "report": {
+          "events": [
+            { "min": 40, "type": "goal", "player": "Hilmar Pétursson", "team": "Haukar", "text": "Hilmar Pétursson (25 stig)" },
+            { "min": 40, "type": "goal", "player": "Eivydas Mološčiakas", "team": "Haukar", "text": "Eivydas Mološčiakas (21 stig)" }
+          ]
+        }
+      },
+      { "date": "2026-03-13", "home": "Haukar", "away": "Snæfell", "score": "102 - 74", "competition": "1. deild karla" },
+      { "date": "2026-03-06", "home": "Þór Ak.", "away": "Haukar", "score": "88 - 92", "competition": "1. deild karla" },
+      { "date": "2026-02-27", "home": "Haukar", "away": "Fylkir", "score": "95 - 82", "competition": "1. deild karla" },
+      { "date": "2026-02-20", "home": "Hamar", "away": "Haukar", "score": "76 - 94", "competition": "1. deild karla" },
+      { "date": "2026-02-13", "home": "Haukar", "away": "Skallagrímur", "score": "82 - 79", "competition": "1. deild karla" },
+      { "date": "2026-02-06", "home": "Sindri", "away": "Haukar", "score": "88 - 84", "competition": "1. deild karla" },
+      { "date": "2026-01-30", "home": "Skallagrímur", "away": "Haukar", "score": "82 - 88", "competition": "1. deild karla" },
+      { "date": "2026-01-23", "home": "Haukar", "away": "Sindri", "score": "74 - 81", "competition": "1. deild karla" },
+      { "date": "2026-01-16", "home": "Selfoss", "away": "Haukar", "score": "92 - 95", "competition": "1. deild karla" },
+      { "date": "2026-01-09", "home": "Haukar", "away": "Höttur", "score": "71 - 84", "competition": "1. deild karla" },
+      { "date": "2025-12-19", "home": "Snæfell", "away": "Haukar", "score": "78 - 105", "competition": "1. deild karla" },
+      { "date": "2025-12-12", "home": "Haukar", "away": "Þór Ak.", "score": "88 - 82", "competition": "1. deild karla" }
     ]
   },
   "korfubolti_kvenna": {
@@ -201,8 +1204,52 @@
       { "rank": 10, "team": "Ármann", "played": 22, "wins": 3, "points": 6 }
     ],
     "matches": [
-      { "date": "2026-04-20", "home": "Haukar", "away": "Keflavík", "score": "85 - 71", "competition": "Bónus deild kvenna - Úrslit" },
-      { "date": "2026-04-24", "home": "Keflavík", "away": "Haukar", "score": "Næsti leikur", "competition": "Bónus deild kvenna - Úrslit" }
+      { "date": "2026-05-06", "home": "Haukar", "away": "Keflavík", "score": "Næsti leikur", "competition": "Bónus deild kvenna - Úrslit" },
+      { "date": "2026-05-02", "home": "Keflavík", "away": "Haukar", "score": "Næsti leikur", "competition": "Bónus deild kvenna - Úrslit" },
+      { "date": "2026-04-28", "home": "Haukar", "away": "Keflavík", "score": "Næsti leikur", "competition": "Bónus deild kvenna - Úrslit" },
+      { "date": "2026-04-24", "home": "Keflavík", "away": "Haukar", "score": "Næsti leikur", "competition": "Bónus deild kvenna - Úrslit" },
+      { "date": "2026-04-20", "home": "Haukar", "away": "Keflavík", "score": "85 - 71", "competition": "Bónus deild kvenna - Úrslit",
+        "report": {
+          "events": [
+            { "min": 40, "type": "goal", "player": "Keira Robinson", "team": "Haukar", "text": "Keira Robinson (24 stig)" },
+            { "min": 40, "type": "goal", "player": "Tinna Guðrún Alexandersdóttir", "team": "Haukar", "text": "Tinna Guðrún (18 stig)" },
+            { "min": 40, "type": "goal", "player": "Sólrún Inga Gísladóttir", "team": "Haukar", "text": "Sólrún Inga (12 stig)" }
+          ]
+        }
+      },
+      { "date": "2026-03-18", "home": "Haukar", "away": "Njarðvík", "score": "82 - 75", "competition": "Bónus deild kvenna",
+        "report": {
+          "events": [
+            { "min": 40, "type": "goal", "player": "Keira Robinson", "team": "Haukar", "text": "Keira Robinson (28 stig)" },
+            { "min": 40, "type": "goal", "player": "Þóra Kristín Jónsdóttir", "team": "Haukar", "text": "Þóra Kristín (15 stig)" }
+          ]
+        }
+      },
+      { "date": "2026-03-11", "home": "KR", "away": "Haukar", "score": "68 - 79", "competition": "Bónus deild kvenna",
+        "report": {
+          "events": [
+            { "min": 40, "type": "goal", "player": "Tinna Guðrún Alexandersdóttir", "team": "Haukar", "text": "Tinna Guðrún (22 stig)" },
+            { "min": 40, "type": "goal", "player": "Keira Robinson", "team": "Haukar", "text": "Keira Robinson (19 stig)" }
+          ]
+        }
+      },
+      { "date": "2026-03-04", "home": "Haukar", "away": "Valur", "score": "88 - 84", "competition": "Bónus deild kvenna",
+        "report": {
+          "events": [
+            { "min": 40, "type": "goal", "player": "Keira Robinson", "team": "Haukar", "text": "Keira Robinson (32 stig)" }
+          ]
+        }
+      },
+      { "date": "2026-02-25", "home": "Grindavík", "away": "Haukar", "score": "72 - 88", "competition": "Bónus deild kvenna" },
+      { "date": "2026-02-18", "home": "Haukar", "away": "Keflavík", "score": "75 - 82", "competition": "Bónus deild kvenna" },
+      { "date": "2026-02-11", "home": "Tindastóll", "away": "Haukar", "score": "70 - 92", "competition": "Bónus deild kvenna" },
+      { "date": "2026-02-04", "home": "Haukar", "away": "Stjarnan", "score": "95 - 68", "competition": "Bónus deild kvenna" },
+      { "date": "2026-01-28", "home": "Haukar", "away": "Tindastóll", "score": "88 - 64", "competition": "Bónus deild kvenna" },
+      { "date": "2026-01-21", "home": "Stjarnan", "away": "Haukar", "score": "75 - 82", "competition": "Bónus deild kvenna" },
+      { "date": "2026-01-14", "home": "Haukar", "away": "Hamar/Þór", "score": "102 - 58", "competition": "Bónus deild kvenna" },
+      { "date": "2026-01-07", "home": "Ármann", "away": "Haukar", "score": "62 - 95", "competition": "Bónus deild kvenna" },
+      { "date": "2025-12-17", "home": "Njarðvík", "away": "Haukar", "score": "84 - 88", "competition": "Bónus deild kvenna" },
+      { "date": "2025-12-10", "home": "Haukar", "away": "KR", "score": "72 - 68", "competition": "Bónus deild kvenna" }
     ]
   }
 }

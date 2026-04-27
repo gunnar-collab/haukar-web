@@ -28,7 +28,7 @@ export default function SkokkPromotion() {
 
           <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter mb-8 leading-[0.9] drop-shadow-xl">
             Ertu klár í <br />
-            <span className="text-[#c8102e] underline decoration-4 underline-offset-8">skokkið!</span>
+            <span className="text-[#c8102e]">skokkið?</span>
           </h2>
 
           <p className="text-xl md:text-2xl text-white/90 font-medium mb-10 max-w-xl leading-relaxed">

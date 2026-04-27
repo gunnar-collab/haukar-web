@@ -28,7 +28,7 @@ body {
 
 @keyframes pageEnter {
   from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: none; }
 }
 
 .page-transition {
@@ -109,6 +109,11 @@ body {
 
 /* 🏆 MATCH DASHBOARD CUSTOM SCROLLBAR & ANIMATIONS 🏆 */
 
+.match-scrollbar {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
 .match-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
@@ -118,12 +123,12 @@ body {
 }
 
 .match-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15); 
+  background: rgba(255, 255, 255, 0.3); 
   border-radius: 10px;
 }
 
 .match-scrollbar:hover::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3); 
+  background: rgba(255, 255, 255, 0.5); 
 }
 
 /* Smooth Accordion Expansion */
@@ -131,14 +136,16 @@ body {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
 .accordion-content.expanded {
   grid-template-rows: 1fr;
+  overflow: visible; 
 }
 
 .accordion-inner {
-  overflow: hidden;
+  min-height: 0;
 }
 
 /* Staggered Fade-In for Matches */
@@ -155,4 +162,42 @@ body {
 
 .match-item-enter {
   animation: matchStagger 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* 🌟 GLOBAL GOOGLE STANDARD POLISH 🌟 */
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #c8102e;
+  color: white;
+}
+
+/* Global sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(28, 44, 108, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(28, 44, 108, 0.5);
 }

@@ -20,7 +20,7 @@ export default function RosterPreview({ players, loading, title, subtitle, sport
         )}
       </div>
       
-      <div className={`grid grid-cols-2 ${noContainer ? 'md:grid-cols-2' : 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'} gap-6 relative flex-grow`}>
+      <div className={`flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none gap-4 md:gap-6 pb-6 md:pb-0 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0 ${noContainer ? 'md:grid-cols-2' : 'md:grid-cols-3 lg:grid-cols-5'} relative flex-grow`}>
         {loading && (
           <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10"></div>
         )}
@@ -31,7 +31,7 @@ export default function RosterPreview({ players, loading, title, subtitle, sport
           return (
             <Wrapper 
               {...wrapperProps}
-              className={`group relative overflow-hidden rounded-2xl bg-gray-200 aspect-[3/4] ${!isKarate ? 'cursor-pointer' : ''} shadow-lg block border border-transparent hover:border-[#c8102e]/50`}
+              className={`group relative overflow-hidden rounded-2xl bg-gray-200 aspect-[3/4] ${!isKarate ? 'cursor-pointer' : ''} shadow-lg block border border-transparent hover:border-[#c8102e]/50 flex-none w-[65vw] sm:w-[45vw] md:w-auto snap-center md:snap-align-none`}
             >
               <img src={player.img} alt={player.name} className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 object-top" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1c2c6c]/60 via-transparent to-transparent opacity-100 transition-opacity duration-300"></div>
@@ -64,7 +64,7 @@ export default function RosterPreview({ players, loading, title, subtitle, sport
   if (noContainer) return content;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 mb-24 w-full">
+    <div className="max-w-7xl mx-auto px-6 mb-12 md:mb-24 w-full">
       {content}
     </div>
   );

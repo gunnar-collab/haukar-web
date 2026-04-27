@@ -56,9 +56,8 @@ export default function BakhjarlModal({ isOpen, onClose, initialTier = 'gull' })
   };
 
   return createPortal(
-    // FIXED: z-[9999] ensures this sits ABOVE the sticky Navbar (which is z-[100])
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-md p-4">
-      <div className="bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300 border border-white/20">
+    <div className="fixed inset-0 z-[10000] flex flex-col items-center justify-start md:justify-center bg-black/80 backdrop-blur-md p-4 pt-8 md:pt-4 overflow-y-auto">
+      <div className="bg-white w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300 border border-white/20 mb-8 md:mb-0">
         
         {/* Header - Haukar Red */}
         <div className="bg-[#c8102e] p-5 flex justify-between items-center text-white relative shadow-md">

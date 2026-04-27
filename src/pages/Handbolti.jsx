@@ -93,7 +93,7 @@ export default function Handbolti({ onOpenTickets }) {
       <DivisionHero 
         sportName="Haukar Handbolti"
         icon="sports_handball"
-        bgImage="https://images.unsplash.com/photo-1589801258579-18e091f4ca26?auto=format&fit=crop&q=80&w=2000"
+        bgImage="/images/handball/hero_bg.png"
         gender={gender}
         setGender={handleGenderChange}
       />

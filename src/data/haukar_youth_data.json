@@ -779,6 +779,18 @@
       "competition": "Leikjaskóli Barna | Leikjaskólinn",
       "venue": "Ásvellir",
       "ablerLink": "https://www.abler.io/shop/haukar/leikjaskoli?program=Q2x1YlNlcnZpY2U6NTIyMTE="
+    },
+    {
+      "id": "prog_15",
+      "date": "2026-06-01T10:00:00",
+      "home": "Haukar",
+      "away": "Leikjaskóli",
+      "sport": "Félagið",
+      "category": "Félagið",
+      "ageGroup": "Námskeið",
+      "competition": "Leikjaskóli Barna | Leikjaskólinn",
+      "venue": "Ásvellir",
+      "ablerLink": "https://www.abler.io/shop/haukar/leikjaskoli?program=Q2x1YlNlcnZpY2U6NTIyMTE="
     }
   ]
 }

@@ -21,13 +21,13 @@ import Frettir from './pages/Frettir';
 import Arsskyrslur from './pages/Arsskyrslur';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import LiveTicker from './components/LiveTicker';
 import AlertToast from './components/AlertToast';
-import DivisionTicker from './components/DivisionTicker';
 import GeminiChat from './components/GeminiChat';
 import TicketModal from './components/TicketModal';
 import LoginModal from './components/LoginModal';
 import Sponsors from './components/Sponsors'; 
+import MatchReportModal from './components/sports/MatchReportModal';
+import { useMatch } from './context/MatchContext';
 
 // Pages
 import Home from './pages/Home';
@@ -41,26 +41,26 @@ import { MatchProvider } from './context/MatchContext';
 import ScrollToTop from './components/ScrollToTop';
 import NavigationProgressBar from './components/NavigationProgressBar';
 
-export default function App() {
+function AppContent() {
   const location = useLocation();
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const { selectedReport, closeReport } = useMatch();
 
   return (
-    <MatchProvider>
-      <ScrollToTop />
-      <NavigationProgressBar />
-      <div className="bg-[#fafafa] text-gray-900 font-sans selection:bg-[#c8102e] selection:text-white flex flex-col min-h-screen">
-        
-        {/* 1. Modals & Overlays */}
-        <TicketModal isOpen={isTicketModalOpen} onClose={() => setIsTicketModalOpen(false)} />
-        <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
+    <div className="bg-[#fafafa] text-gray-900 font-sans selection:bg-[#c8102e] selection:text-white flex flex-col min-h-screen">
+      
+      {/* 1. Modals & Overlays */}
+      <TicketModal isOpen={isTicketModalOpen} onClose={() => setIsTicketModalOpen(false)} />
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
+      <MatchReportModal 
+        isOpen={!!selectedReport} 
+        onClose={closeReport} 
+        match={selectedReport} 
+      />
 
         {/* 2. GUARANTEED FIXED HEADER (Immune to scroll bugs) */}
         <div className="fixed top-0 left-0 w-full z-[100] bg-white shadow-md flex flex-col">
-          <LiveTicker toggleDrawer={() => setIsDrawerOpen(!isDrawerOpen)} isOpen={isDrawerOpen} />
-          <DivisionTicker isOpen={isDrawerOpen} />
           <Navbar 
             onOpenTickets={() => setIsTicketModalOpen(true)} 
             onOpenLogin={() => setIsLoginModalOpen(true)}
@@ -70,7 +70,7 @@ export default function App() {
         {/* 3. STRICT CONTENT WRAPPER (Destroys all horizontal overflow) */}
         <div 
           key={location.key}
-          className="flex-grow relative z-10 overflow-x-hidden w-full pt-[120px] page-transition"
+          className="flex-grow relative z-10 overflow-x-hidden w-full pt-[72px] page-transition"
         >
           <Routes>
             <Route path="/leikmenn/:slug" element={<PlayerProfile />} />
@@ -108,6 +108,15 @@ export default function App() {
         <Footer />
         
       </div>
+  );
+}
+
+export default function App() {
+  return (
+    <MatchProvider>
+      <ScrollToTop />
+      <NavigationProgressBar />
+      <AppContent />
     </MatchProvider>
   );
 }

@@ -111,34 +111,39 @@ export default function PlayerProfile() {
                   </div>
                   <div className="flex gap-4">
                     <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/10 text-center">
-                      <span className="block text-white/40 text-[9px] font-black uppercase mb-1">Skilvirkni</span>
-                      <span className="text-2xl font-black italic text-[#D4AF37]">Top 5</span>
+                      <span className="block text-white/40 text-[9px] font-black uppercase mb-1">Framlag (EFF)</span>
+                      <span className="text-2xl font-black italic text-[#D4AF37]">{player.stats.eff || '--'}</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="p-10 grid grid-cols-2 md:grid-cols-4 gap-12">
                   <div className="flex flex-col items-center justify-center text-center group">
-                    <span className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mb-3 group-hover:text-[#c8102e] transition-colors">Stig á leik</span>
+                    <span className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mb-3 group-hover:text-[#c8102e] transition-colors">Stig í leik</span>
                     <div className="relative">
-                      <span className="text-7xl font-black italic text-[#1c2c6c] tabular-nums leading-none">{player.stats.pts || 0}</span>
+                      <span className="text-6xl font-black italic text-[#1c2c6c] tabular-nums leading-none">{player.stats.pts || 0}</span>
                       <div className="absolute -right-4 -top-2 w-3 h-3 bg-[#c8102e] rounded-full animate-pulse"></div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col items-center justify-center text-center group border-x border-gray-100">
+                  <div className="flex flex-col items-center justify-center text-center group">
                     <span className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mb-3 group-hover:text-[#c8102e] transition-colors">Fráköst</span>
-                    <span className="text-7xl font-black italic text-[#c8102e] tabular-nums leading-none">{player.stats.reb || 0}</span>
+                    <span className="text-6xl font-black italic text-[#c8102e] tabular-nums leading-none">{player.stats.reb || 0}</span>
                   </div>
 
                   <div className="flex flex-col items-center justify-center text-center group">
                     <span className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mb-3 group-hover:text-[#c8102e] transition-colors">Stoðsendingar</span>
-                    <span className="text-7xl font-black italic text-[#1c2c6c] tabular-nums leading-none">{player.stats.ast || 0}</span>
+                    <span className="text-6xl font-black italic text-[#1c2c6c] tabular-nums leading-none">{player.stats.ast || 0}</span>
+                  </div>
+
+                  <div className="flex flex-col items-center justify-center text-center group">
+                    <span className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mb-3 group-hover:text-[#c8102e] transition-colors">Mínútur</span>
+                    <span className="text-6xl font-black italic text-[#c8102e] tabular-nums leading-none">{player.stats.mpg || '--'}</span>
                   </div>
                 </div>
 
                 <div className="bg-gray-50 p-6 border-t border-gray-100 flex justify-center">
-                   <p className="text-gray-400 text-[10px] font-bold italic">Gögnum er streymt beint frá KKÍ.is og eru uppfærð eftir hvern leik.</p>
+                   <p className="text-gray-400 text-[10px] font-bold italic uppercase tracking-widest">Gögnum streymt frá KKÍ.is • Uppfært í dag</p>
                 </div>
               </div>
             ) : isFootball ? (

@@ -34,7 +34,7 @@ export default function Karate() {
       <DivisionHero 
         sportName="Haukar Karate"
         icon="sports_martial_arts"
-        bgImage="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&q=80&w=2000"
+        bgImage="/images/karate/hero_bg.png"
         gender={gender}
         setGender={handleGenderChange}
         isKarate={true}

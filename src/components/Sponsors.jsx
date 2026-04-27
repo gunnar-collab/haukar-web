@@ -14,7 +14,7 @@ export default function Sponsors() {
     <section className="w-full flex flex-col selection:bg-[#1c2c6c] selection:text-white">
       
       {/* 1. HAUKAR Í HORNI - The Digital Wallet Teaser */}
-      <div className="w-full bg-[#fafafa] py-24 border-t border-gray-200 relative overflow-hidden">
+      <div className="w-full bg-[#fafafa] py-12 md:py-24 border-t border-gray-200 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             
@@ -77,7 +77,7 @@ export default function Sponsors() {
       </div>
 
       {/* 2. CORPORATE SPONSORS - The Grayscale Grid */}
-      <div className="w-full bg-white py-16 border-t border-gray-100">
+      <div className="w-full bg-white py-10 md:py-16 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <span className="text-[#c8102e] text-[10px] font-bold uppercase tracking-widest block mb-2">

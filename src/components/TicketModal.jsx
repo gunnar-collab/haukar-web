@@ -29,9 +29,8 @@ export default function TicketModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return createPortal(
-    // FIXED: Bumped to z-[9999] so it perfectly overlays the sticky z-[100] Navbar
-    <div className="fixed inset-0 bg-[#1c2c6c]/90 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden relative animate-in fade-in zoom-in duration-300 flex flex-col">
+    <div className="fixed inset-0 bg-[#1c2c6c]/95 backdrop-blur-md z-[10000] flex flex-col items-center justify-start md:justify-center overflow-y-auto p-4 pt-8 md:pt-4">
+      <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md overflow-hidden relative animate-in fade-in zoom-in duration-300 flex flex-col mb-8 md:mb-0">
         
         {/* Close Button */}
         <button 
@@ -42,12 +41,12 @@ export default function TicketModal({ isOpen, onClose }) {
         </button>
 
         {/* Premium Red Hero Header */}
-        <div className="bg-gradient-to-br from-[#c8102e] to-[#9b0c23] p-8 text-center relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#c8102e] to-[#9b0c23] p-6 md:p-8 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full opacity-10 flex items-center justify-center">
             <span className="material-symbols-outlined text-[150px] text-white">sports_handball</span>
           </div>
           <span className="text-white/90 text-xs font-bold uppercase tracking-widest relative z-10 mb-2 block">Olís deild karla</span>
-          <h3 className="text-4xl font-black italic tracking-tighter text-white uppercase relative z-10">
+          <h3 className="text-2xl md:text-4xl font-black italic tracking-tighter text-white uppercase relative z-10">
             Haukar <span className="text-[#1c2c6c] mx-2">-</span> Valur
           </h3>
           <div className="text-white/90 text-sm font-medium mt-4 relative z-10 flex flex-col gap-1 items-center">
@@ -57,7 +56,7 @@ export default function TicketModal({ isOpen, onClose }) {
         </div>
 
         {paymentStep === 'select' ? (
-          <div className="p-8 flex flex-col gap-6 bg-gray-50">
+          <div className="p-6 md:p-8 flex flex-col gap-6 bg-gray-50">
             
             {/* Ticket Counter */}
             <div className="flex items-center justify-between bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
@@ -113,9 +112,9 @@ export default function TicketModal({ isOpen, onClose }) {
           </div>
         ) : (
           /* Google Wallet Pass Success View */
-          <div className="bg-[#fafafa] flex flex-col items-center justify-center px-4 py-8 animate-in slide-in-from-right-8 duration-300 relative z-10">
+          <div className="bg-[#fafafa] flex flex-col items-center justify-center px-4 py-6 md:py-8 animate-in slide-in-from-right-8 duration-300 relative z-10">
             
-            <h4 className="text-2xl font-black text-gray-900 uppercase tracking-tighter mb-6">Miði Staðfestur!</h4>
+            <h4 className="text-xl md:text-2xl font-black text-gray-900 uppercase tracking-tighter mb-4 md:mb-6">Miði Staðfestur!</h4>
 
             {/* Wallet Pass UI */}
             <div className="w-full max-w-[340px] perspective-1000">

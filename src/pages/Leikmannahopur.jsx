@@ -100,13 +100,14 @@ export default function Leikmannahopur() {
 
   // Samþætta gögn úr HBStatz skafanum fyrir bæði kyn (aðeins fyrir handbolta)
   const players = basePlayers.map(p => {
-    if (activeSport === 'handbolti') {
-        const statsSource = p.team === 'karla' ? haukarStats : haukarWomenStats;
-        const scrapedData = statsSource.find(s => s.name.includes(p.name) || p.name.includes(s.name));
+    if (activeSport === 'handbolti' || activeSport === 'korfubolti') {
+        const statsSource = activeSport === 'handbolti' 
+            ? (p.team === 'karla' ? haukarStats : haukarWomenStats)
+            : []; // Basketball stats are currently inline in the data object
+        
         return {
           ...p,
-          stats: scrapedData?.stats || null,
-          statsLabel: scrapedData ? 'Sjá Tölfræði' : 'Sjá Prófíl'
+          statsLabel: 'Sjá Tölfræði'
         };
     }
     return {
@@ -145,28 +146,28 @@ export default function Leikmannahopur() {
                     Körfubolti
                 </button>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter text-white uppercase drop-shadow-lg">
-              {activeSport === 'handbolti' ? 'Handboltahópurinn' : activeSport === 'fotbolti' ? 'Fótboltahópurinn' : 'Körfuboltahópurinn'}
+            <h1 className="text-4xl md:text-7xl font-black italic tracking-tighter text-white uppercase drop-shadow-lg">
+              Hópurinn
             </h1>
           </div>
 
           {/* Clean Toggle Switch */}
-          <div className="flex bg-[#a30d25] p-1.5 rounded-xl shadow-inner">
+          <div className="flex bg-black/20 backdrop-blur-sm p-1 rounded-2xl shadow-inner w-full md:w-auto">
             <button 
               onClick={() => setActiveTeam('karla')}
-              className={`px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                activeTeam === 'karla' ? 'bg-[#1c2c6c] text-white shadow-md' : 'text-white/70 hover:text-white'
+              className={`flex-1 md:flex-none md:px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${
+                activeTeam === 'karla' ? 'bg-[#1c2c6c] text-white shadow-lg' : 'text-white/60 hover:text-white'
               }`}
             >
-              M.fl. Karla
+              Karlar
             </button>
             <button 
               onClick={() => setActiveTeam('kvenna')}
-              className={`px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                activeTeam === 'kvenna' ? 'bg-[#1c2c6c] text-white shadow-md' : 'text-white/70 hover:text-white'
+              className={`flex-1 md:flex-none md:px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${
+                activeTeam === 'kvenna' ? 'bg-[#1c2c6c] text-white shadow-lg' : 'text-white/60 hover:text-white'
               }`}
             >
-              M.fl Kvenna
+              Konur
             </button>
           </div>
 

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import leagueData from '../data/haukar_league_data.json';
 import MatchReportModal from './sports/MatchReportModal';
@@ -8,13 +8,6 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
   const [selectedMatch, setSelectedMatch] = useState(null);
   const [isReportOpen, setIsReportOpen] = useState(false);
   const [showAllMatches, setShowAllMatches] = useState(false);
-
-  // Drag-to-scroll state
-  const scrollRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startY, setStartY] = useState(0);
-  const [scrollTop, setScrollTop] = useState(0);
-  const [dragMoved, setDragMoved] = useState(false);
 
   const activeGender = propGender || internalGender;
 
@@ -33,38 +26,8 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
   const providerName = sport === 'handbolti' ? 'HBStatz' : sport === 'fotbolti' ? 'KSÍ' : 'KKÍ';
 
   const handleOpenReport = (match) => {
-    if (dragMoved) return; // Prevent opening report if the user was just dragging to scroll
     setSelectedMatch(match);
     setIsReportOpen(true);
-  };
-
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    setDragMoved(false);
-    setStartY(e.pageY - scrollRef.current.offsetTop);
-    setScrollTop(scrollRef.current.scrollTop);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const y = e.pageY - scrollRef.current.offsetTop;
-    const walk = (y - startY) * 1.5; // Scroll speed multiplier
-    
-    // Only register as a "drag" if they move more than 5 pixels
-    if (Math.abs(y - startY) > 5) {
-      setDragMoved(true);
-    }
-    
-    scrollRef.current.scrollTop = scrollTop - walk;
   };
 
   const handballScorers = [
@@ -76,19 +39,19 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
   ];
 
   const footballScorers = [
-    { name: "Fannar Óli", goals: 10, rank: 1, slug: "fannar-oli", position: "Sóknarmaður" },
-    { name: "Sigurður Hrannar", goals: 5, rank: 2, slug: "sigurdur-hrannar", position: "Miðjumaður" },
-    { name: "Daði Snær", goals: 2, rank: 3, slug: "dadi-snaer", position: "Varnarmaður" },
-    { name: "Guðjón Pétur", goals: 1, rank: 4, slug: "gudjon-petur", position: "Miðjumaður" },
-    { name: "Haukur Darri", goals: 1, rank: 5, slug: "haukur-darri", position: "Miðjumaður" }
+    { name: "Kristín Lind", goals: 11, rank: 1, slug: "kristin-lind", position: "Sóknarmaður" },
+    { name: "Birta Rós", goals: 4, rank: 2, slug: "birta-ros", position: "Miðjumaður" },
+    { name: "Katrín María", goals: 3, rank: 3, slug: "katrin-maria", position: "Kantmaður" },
+    { name: "Sigurður Hrannar", goals: 2, rank: 4, slug: "sigurdur-hrannar", position: "Sóknarmaður" },
+    { name: "Daði Snær", goals: 1, rank: 5, slug: "dadi-snaer", position: "Sóknarmaður" }
   ];
 
   const basketballScorers = [
-    { name: "Keira Robinson", goals: 22.5, rank: 1, slug: "keira-robinson", position: "Bakvörður" },
-    { name: "Diamond Battles", goals: 18.2, rank: 2, slug: "diamond-battles", position: "Bakvörður" },
-    { name: "Hilmar Smári", goals: 16.5, rank: 3, slug: "hilmar-smari", position: "Bakvörður" },
-    { name: "Gerald Robinson", goals: 15.8, rank: 4, slug: "gerald-robinson", position: "Framherji" },
-    { name: "Lore Devos", goals: 14.2, rank: 5, slug: "lore-devos", position: "Framherji" }
+    { name: "Keira Robinson", goals: 22.4, rank: 1, slug: "keira-renee-robinson", position: "Bakvörður" },
+    { name: "Everage Richardson", goals: 21.4, rank: 2, slug: "everage-richardson", position: "Bakvörður" },
+    { name: "David Okeke", goals: 18.5, rank: 3, slug: "david-okeke", position: "Miðherji" },
+    { name: "Krystal Freeman", goals: 16.8, rank: 4, slug: "krystal-jade-freeman", position: "Framherji" },
+    { name: "Lore Devos", goals: 15.4, rank: 5, slug: "lore-devos", position: "Framherji" }
   ];
 
   const scorers = sport === 'handbolti' ? handballScorers : sport === 'fotbolti' ? footballScorers : basketballScorers;
@@ -125,7 +88,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
   };
 
   return (
-    <section className="w-full py-24 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden">
+    <section className="w-full py-12 md:py-24 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
@@ -169,7 +132,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
           
           {/* 1. STANDINGS TABLE - High Detail (2/3 width) */}
           <div className="lg:col-span-2 h-full">
-            <div className="bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden shadow-2xl h-full flex flex-col transition-all hover:shadow-[#1c2c6c]/5">
+            <div className="bg-white rounded-[2rem] border border-gray-100 overflow-hidden shadow-2xl h-full flex flex-col transition-all hover:shadow-[#1c2c6c]/5">
               <div className="bg-[#1c2c6c] p-7 flex justify-between items-center">
                 <h3 className="text-white font-black uppercase tracking-widest text-sm flex items-center gap-3">
                   <span className="material-symbols-outlined text-[#D4AF37] text-2xl">leaderboard</span>
@@ -242,7 +205,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
           <div className="lg:col-span-1 flex flex-col gap-6 h-full">
             
             {/* Recent Results */}
-            <div className="bg-[#c8102e] rounded-[2.5rem] p-10 text-white shadow-2xl relative overflow-hidden group flex-1 flex flex-col justify-between">
+            <div className="bg-[#c8102e] rounded-[2rem] p-10 text-white shadow-2xl relative overflow-hidden group flex-1 flex flex-col justify-between">
               <div className="absolute -top-12 -right-12 opacity-10 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-1000">
                 <span className="material-symbols-outlined text-[180px]">history</span>
               </div>
@@ -272,11 +235,11 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                         <span className="text-[9px] font-black text-[#D4AF37] uppercase">{match.competition}</span>
                       </div>
                       <div className="flex items-center gap-4">
-                        <div className="flex-1">
-                          <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight ${match.home === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.home}</p>
-                          <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight ${match.away === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.away}</p>
+                        <div className="flex-1 min-w-0 pr-2">
+                          <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight truncate ${match.home === 'Haukar' ? 'text-white' : 'text-white/70'}`} title={match.home}>{match.home}</p>
+                          <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight truncate ${match.away === 'Haukar' ? 'text-white' : 'text-white/70'}`} title={match.away}>{match.away}</p>
                         </div>
-                        <div className="bg-white text-[#c8102e] px-4 py-2 rounded-2xl font-black italic shadow-xl text-base group-hover/match:scale-110 transition-transform min-w-[75px] text-center">
+                        <div className="bg-white text-[#c8102e] px-4 py-2 rounded-2xl font-black italic shadow-xl text-base group-hover/match:scale-110 transition-transform min-w-[75px] text-center shrink-0">
                           {match.score.replace(/\(\d+\)/g, '').trim()}
                         </div>
                       </div>
@@ -285,66 +248,87 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                 </div>
 
                 {/* The Expanding Accordion for the Rest of the Season (Upcoming + History) */}
-                <div className={`accordion-content ${showAllMatches ? 'expanded mt-6' : ''}`}>
-                  <div 
-                    ref={scrollRef}
-                    onMouseDown={handleMouseDown}
-                    onMouseLeave={handleMouseLeave}
-                    onMouseUp={handleMouseUp}
-                    onMouseMove={handleMouseMove}
-                    className={`accordion-inner max-h-[400px] overflow-y-auto pr-2 match-scrollbar space-y-6 ${isDragging ? 'cursor-grabbing select-none' : 'cursor-grab'}`}
-                  >
-                    {remainingMatches.map((match, idx) => (
-                      <div 
-                        key={idx + 3} 
-                        className={`group/match cursor-pointer opacity-0 ${showAllMatches ? 'match-item-enter' : ''}`}
-                        style={{ animationDelay: `${idx * 0.05}s` }}
-                        onClick={() => handleOpenReport(match)}
-                      >
-                        <div className="flex justify-between items-center mb-1">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{match.date}</span>
-                            <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                            <span className="text-[9px] font-black text-white/40 uppercase">Sjá skýrslu</span>
+                <div className="relative">
+                  <div className={`accordion-content ${showAllMatches ? 'expanded mt-8' : ''}`}>
+                    <div className={`accordion-inner space-y-10 pb-10 max-h-[700px] overflow-y-auto pr-3 match-scrollbar overscroll-contain`}>
+                      
+                      {/* Section: Upcoming Matches */}
+                      {upcomingMatches.length > 0 && (
+                        <div>
+                          <h4 className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40 mb-4 px-1 border-l-2 border-[#D4AF37] ml-1">Næstu Leikir</h4>
+                          <div className="space-y-6">
+                            {upcomingMatches.map((match) => (
+                              <div 
+                                key={`${match.date}-${match.home}-upcoming`} 
+                                className="group/match cursor-pointer opacity-0 match-item-enter"
+                                onClick={() => handleOpenReport(match)}
+                              >
+                                <div className="flex justify-between items-center mb-1">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{match.date}</span>
+                                    <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                                    <span className="text-[9px] font-black text-white/40 uppercase">Leikvöllur</span>
+                                  </div>
+                                  <span className="text-[9px] font-black text-[#D4AF37] uppercase">{match.competition}</span>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                  <div className="flex-1 min-w-0 pr-2">
+                                    <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight truncate ${match.home === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.home}</p>
+                                    <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight truncate ${match.away === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.away}</p>
+                                  </div>
+                                  <a 
+                                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(getVenue(match.home) + ', Iceland')}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="flex items-center gap-1.5 text-white/40 hover:text-white transition-all cursor-pointer"
+                                  >
+                                    <span className="material-symbols-outlined text-[14px]">{match.home.includes('Haukar') ? 'home' : 'location_on'}</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-widest underline decoration-transparent hover:decoration-white/30">{getVenue(match.home)}</span>
+                                  </a>
+                                </div>
+                              </div>
+                            ))}
                           </div>
-                          <span className="text-[9px] font-black text-[#D4AF37] uppercase">{match.competition}</span>
                         </div>
-                        <div className="flex items-center gap-4">
-                          <div className="flex-1">
-                            <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight ${match.home === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.home}</p>
-                            <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight ${match.away === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.away}</p>
+                      )}
+
+                      {/* Section: Past Matches (History) */}
+                      {playedMatches.slice(3).length > 0 && (
+                        <div>
+                          <h4 className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40 mb-4 px-1 border-l-2 border-white/20 ml-1">Fyrri Leikir</h4>
+                          <div className="space-y-6">
+                            {playedMatches.slice(3).map((match) => (
+                              <div 
+                                key={`${match.date}-${match.home}-past`} 
+                                className="group/match cursor-pointer opacity-0 match-item-enter"
+                                onClick={() => handleOpenReport(match)}
+                              >
+                                <div className="flex justify-between items-center mb-1">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{match.date}</span>
+                                    <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                                    <span className="text-[9px] font-black text-white/40 uppercase">Sjá skýrslu</span>
+                                  </div>
+                                  <span className="text-[9px] font-black text-white/40 uppercase">{match.competition}</span>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                  <div className="flex-1 min-w-0 pr-2">
+                                    <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight truncate ${match.home === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.home}</p>
+                                    <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight truncate ${match.away === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.away}</p>
+                                  </div>
+                                  <div className="bg-white/10 text-white px-4 py-2 rounded-2xl font-black italic shadow-xl text-base group-hover/match:scale-105 transition-transform min-w-[75px] text-center border border-white/5">
+                                    {match.score.replace(/\(\d+\)/g, '').trim()}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
                           </div>
-                          {match.score !== 'Næsti leikur' && match.score !== '- - -' ? (
-                            <div className="bg-white text-[#c8102e] px-4 py-2 rounded-2xl font-black italic shadow-xl text-base group-hover/match:scale-110 transition-transform min-w-[75px] text-center">
-                              {match.score.replace(/\(\d+\)/g, '').trim()}
-                            </div>
-                          ) : (
-                            <a 
-                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(getVenue(match.home) + ', Iceland')}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              title="Skoða á korti"
-                              className="flex items-center gap-1.5 text-white/40 hover:text-white group-hover/match:text-white transition-all duration-300 cursor-pointer"
-                            >
-                              <span className="material-symbols-outlined text-[14px]">
-                                {match.home.includes('Haukar') ? 'home' : 'location_on'}
-                              </span>
-                              <span className="text-[10px] font-bold uppercase tracking-widest truncate max-w-[100px] text-right underline decoration-transparent group-hover/match:decoration-white/30 hover:!decoration-white underline-offset-2">
-                                {getVenue(match.home)}
-                              </span>
-                            </a>
-                          )}
                         </div>
-                      </div>
-                    ))}
+                      )}
+                    </div>
                   </div>
                 </div>
-
-                {/* Vignette Fade Overlay */}
-                {!showAllMatches && remainingMatches.length > 0 && (
-                  <div className="absolute bottom-[240px] left-0 w-full h-16 bg-gradient-to-t from-[#c8102e] to-transparent pointer-events-none z-20"></div>
-                )}
 
                 <button 
                   onClick={() => setShowAllMatches(!showAllMatches)}
@@ -369,18 +353,18 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                           pIdx === 0 ? 'bg-white/5 border-white/5 hover:bg-white/10 hover:translate-x-1' : 'hover:translate-x-1 border-transparent'
                         }`}
                       >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-white shadow-lg ${
+                        <div className="flex items-center gap-3 min-w-0 flex-1 mr-4">
+                          <div className={`w-8 h-8 shrink-0 rounded-full flex items-center justify-center text-[10px] font-black text-white shadow-lg ${
                             pIdx === 0 ? 'bg-[#D4AF37]' : 'bg-white/5 text-white/50'
                           }`}>
                             {player.rank}
                           </div>
-                          <div>
-                            <p className="text-xs font-black uppercase italic tracking-tight group-hover/player:text-[#D4AF37] transition-colors">{player.name}</p>
-                            <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest">{player.position}</p>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-xs font-black uppercase italic tracking-tight group-hover/player:text-[#D4AF37] transition-colors truncate" title={player.name}>{player.name}</p>
+                            <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest truncate">{player.position}</p>
                           </div>
                         </div>
-                        <div className="text-right">
+                        <div className="text-right shrink-0">
                           <p className="text-sm font-black italic">{player.goals}</p>
                           <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest">{pointType}</p>
                         </div>
@@ -392,7 +376,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
             </div>
 
             {/* Next Match Highlight */}
-            <div className="bg-[#1c2c6c] rounded-[2.5rem] p-10 text-white shadow-2xl relative overflow-hidden group">
+            <div className="bg-[#1c2c6c] rounded-[2rem] p-10 text-white shadow-2xl relative overflow-hidden group">
                {/* Animated Background Element */}
                <div className="absolute inset-0 bg-gradient-to-br from-[#1c2c6c] to-[#2a3b7d] z-0"></div>
                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#c8102e] rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity"></div>

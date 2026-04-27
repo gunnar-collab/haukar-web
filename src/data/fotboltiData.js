@@ -14,56 +14,69 @@ export const dataKarla = {
     { rank: 12, team: 'Höttur/Huginn', played: 22, w: 4, d: 5, l: 13, pts: 17 },
   ],
   nextMatch: {
-    competition: 'Lengjubikar karla',
-    home: 'Víkingur Ó.',
+    competition: '2. deild karla',
+    home: 'Þróttur V.',
     away: 'Haukar',
-    date: 'Lau 25. Apríl • 14:00',
-    venue: 'Ólafsvíkurvöllur',
+    date: 'Fös 01. Maí • 14:00',
+    venue: 'Vogaídýfuvöllur',
   },
   lastMatch: {
-    competition: '2. deild karla',
-    home: 'Selfoss',
+    competition: 'Lengjubikarinn',
+    home: 'Víkingur Ó.',
     away: 'Haukar',
-    homeScore: 1,
-    awayScore: 1,
-    statsLink: 'https://www.ksi.is/oll-mot/mot?id=7025548'
+    homeScore: 0,
+    awayScore: 0,
+    penaltyScore: '2-4',
+    statsLink: 'https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7350245'
   },
   players: [
     { 
       number: "1", slug: "sveinn-oli", name: "Sveinn Óli", position: "Markvörður", 
       bio: "Sveinn Óli er öruggur markvörður sem veitir vörninni mikið öryggi. Hann er þekktur fyrir góð viðbrögð og forystuhæfileika á vellinum.",
-      stats: { sport: "fotbolti", gamesPlayed: 18, goals: 0, cleanSheets: 5, yellowCards: 0, redCards: 0 }, 
+      stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, cleanSheets: 1, yellowCards: 0, redCards: 0 }, 
       img: "/images/players/sveinn_oli.png" 
     },
     { 
-      number: "4", slug: "fannar-oli", name: "Fannar Óli", position: "Sóknarmaður", 
-      bio: "Fannar Óli er einn öflugasti sóknarmaður deildarinnar og var markahæstur Hauka á síðasta tímabili. Hann er þekktur fyrir mikla vinnusemi og nefi fyrir mörkum.",
-      stats: { sport: "fotbolti", gamesPlayed: 22, goals: 10, assists: 4, yellowCards: 2, redCards: 0 }, 
-      img: "/images/players/fannar_oli.png" 
+      number: "4", slug: "mani-mar", name: "Máni Mar", position: "Varnarmaður", 
+      bio: "Öflugur og traustur varnarmaður sem stýrir afturlínunni af mikilli yfirvegun. Máni er lykilmaður í varnarleik Hauka.",
+      stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 1, redCards: 0 }, 
+      img: "/images/players/mani_mar.png" 
     },
     { 
-      number: "7", slug: "haukur-darri", name: "Haukur Darri", position: "Miðjumaður", 
-      bio: "Haukur Darri er vinnusamur miðjumaður sem gefur aldrei tommu eftir. Hann er mikilvægur hlekkur í að tengja vörn og sókn hjá liðinu.",
-      stats: { sport: "fotbolti", gamesPlayed: 20, goals: 3, assists: 2, yellowCards: 4, redCards: 0 }, 
-      img: "/images/players/haukur_darri.png" 
+      number: "6", slug: "oliver-steinar", name: "Óliver Steinar", position: "Miðjumaður", 
+      bio: "Vinnusamur miðjumaður sem tengir vel vörn og sókn. Óliver er þekktur fyrir mikinn hlaupakraft og fína tækni.",
+      stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
+      img: "/images/players/oliver_steinar.png" 
     },
     { 
-      number: "9", slug: "sigurdur-hrannar", name: "Sigurður Hrannar", position: "Miðjumaður", 
+      number: "9", slug: "sigurdur-hrannar", name: "Sigurður Hrannar", position: "Sóknarmaður", 
       bio: "Sigurður Hrannar er hjartað í miðjuspili Hauka. Hann stýrir spilinu af mikilli yfirvegun og er með frábæra sendingargetu og yfirsýn.",
-      stats: { sport: "fotbolti", gamesPlayed: 20, goals: 5, assists: 8, yellowCards: 3, redCards: 0 }, 
+      stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
       img: "/images/players/sigurdur_hrannar.png" 
     },
     { 
-      number: "10", slug: "dadi-snaer", name: "Daði Snær", position: "Varnarmaður", 
-      bio: "Daði Snær er öflugur varnarmaður sem gefur aldrei tommu eftir. Hann er mikilvægur hlekkur í vörninni og hættulegur í loftinu í föstum leikatriðum.",
-      stats: { sport: "fotbolti", gamesPlayed: 21, goals: 2, assists: 1, yellowCards: 5, redCards: 1 }, 
+      number: "10", slug: "dadi-snaer", name: "Daði Snær", position: "Sóknarmaður", 
+      bio: "Daði Snær er skapandi sóknarmaður sem getur spilað bæði á kanti og sem framherji. Hann er síógnandi með boltann.",
+      stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
       img: "/images/players/dadi_snaer.png" 
     },
     { 
-      number: "23", slug: "gudjon-petur", name: "Guðjón Pétur", position: "Miðjumaður", 
-      bio: "Guðjón Pétur er afar reynslumikill leikmaður sem kemur með mikil gæði. Hans helsta vopn eru hárnákvæmar spyrnur og mikil yfirsýn á vellinum.",
-      stats: { sport: "fotbolti", gamesPlayed: 18, goals: 1, assists: 12, yellowCards: 4, redCards: 0 }, 
-      img: "/images/players/sigurdur_hrannar.png" 
+      number: "23", slug: "pablo-punyed", name: "Pablo Punyed", position: "Miðjumaður", 
+      bio: "Pablo Punyed er einn reynslumesti leikmaður deildarinnar. Hann kemur með mikil gæði og leiðtogahæfileika inn í lið Hauka.",
+      stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 1, redCards: 0 }, 
+      img: "/images/players/pablo_punyed.png" 
+    },
+    { 
+      number: "25", slug: "hallur-huni", name: "Hallur Húni", position: "Varnarmaður", 
+      bio: "Snöggur og öflugur bakvörður sem tekur virkan þátt í sóknarleiknum. Hallur er erfiður viðureignar á kantinum.",
+      stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 1, redCards: 0 }, 
+      img: "/images/players/hallur_huni.png" 
+    },
+    { 
+      number: "82", slug: "markus-breki", name: "Markús Breki", position: "Varnarmaður", 
+      bio: "Traustur varnarmaður sem gefur aldrei tommu eftir í návígjum. Markús er mikilvægur hlekkur í vörninni.",
+      stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
+      img: "/images/players/markus_breki.png" 
     }
   ]
 };
@@ -127,6 +140,8 @@ export const dataKvenna = {
 
 export const footballNews = [
   { id: 4, slug: 'haukar-bikar-sigur-olafsvik', category: "Meistaraflokkur Karla", title: "Haukar unnu B-deild Lengjubikarsins eftir vító", date: "26. Apríl", image: "/images/soccer/celebration.png" },
+  { id: 5, slug: 'samhentir-framlengja-samning', category: "Knattspyrnudeild", title: "Samhentir áfram aðalstyrktaraðili knattspyrnunnar", date: "27. Apríl", image: "/images/soccer/news_sponsor.png" },
+  { id: 6, slug: 'nytt-nano-banana-utlit', category: "Vörumerki", title: "Nýtt útlit á leikmannakynningum - Nano Banana hönnun", date: "27. Apríl", image: "/images/soccer/news_design.png" },
   { id: 1, slug: 'fotbolti-lengjudeild-byrjar', category: "Meistaraflokkur Karla", title: "Flautað til leiks í Lengjudeildinni á laugardaginn", date: "10. Maí", image: "/images/soccer/player_action.png" },
   { id: 2, slug: 'fotbolti-toppslagur-grotta', category: "Meistaraflokkur Kvenna", title: "Stelpurnar tilbúnar í toppslaginn gegn Gróttu", date: "8. Maí", image: "/images/soccer/celebration.png" },
   { id: 3, slug: 'fotbolti-skoli-helgi', category: "Yngri Flokkar", title: "Fjölmennt á fótboltaskóla Hauka um helgina", date: "5. Maí", image: "/images/soccer/stadium.png" },

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function GrantBanner() {
   return (
-    <section className="w-full bg-[#c8102e] py-16 relative overflow-hidden">
+    <section className="w-full bg-[#c8102e] py-10 md:py-16 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[#1c2c6c] skew-x-[-15deg] translate-x-24 opacity-20"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-32 translate-y-32"></div>
