@@ -56,6 +56,8 @@ export const getDynamicMatches = (sport, gender) => {
       homeScore,
       awayScore,
       penaltyInfo,
+      id: lastRaw.id,
+      report: lastRaw.report,
       statsLink: lastRaw.statsLink || (sport === 'fotbolti' ? 'https://ksi.is' : 'https://hbstatz.is')
     },
     nextMatch: {
@@ -63,7 +65,9 @@ export const getDynamicMatches = (sport, gender) => {
       home: nextRaw.home || 'Heimalið',
       away: nextRaw.away || 'Útilið',
       date: nextRaw.date ? formatDate(nextRaw.date) : 'Óákveðið',
-      venue: nextRaw.home === 'Haukar' ? 'Ásvellir' : 'Útivöllur'
+      venue: nextRaw.home === 'Haukar' ? 'Ásvellir' : 'Útivöllur',
+      id: nextRaw.id,
+      report: nextRaw.report
     }
   };
 };

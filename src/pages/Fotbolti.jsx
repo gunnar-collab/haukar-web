@@ -31,7 +31,7 @@ export default function Fotbolti({ onOpenTickets }) {
   const { lastMatch, nextMatch } = getDynamicMatches('fotbolti', gender);
 
   return (
-    <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#1c2c6c] selection:text-white">
+    <div className="flex flex-col w-full bg-white selection:bg-[#1c2c6c] selection:text-white">
       <DivisionHero 
         sportName="Haukar Fótbolti"
         icon="sports_soccer"

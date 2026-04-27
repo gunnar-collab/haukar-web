@@ -17,7 +17,7 @@ export default function Aefingagjold() {
   ];
 
   return (
-    <main className="w-full bg-[#fafafa] min-h-screen pt-10 md:pt-16 pb-20 font-sans">
+    <main className="w-full bg-white min-h-screen pt-10 md:pt-16 pb-20 font-sans">
       
       {/* 1. Hero Section */}
       <div className="bg-[#1c2c6c] text-white py-20 px-6 text-center relative overflow-hidden shadow-md">

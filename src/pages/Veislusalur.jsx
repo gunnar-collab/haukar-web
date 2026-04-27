@@ -23,7 +23,7 @@ export default function Veislusalur() {
   ];
 
   return (
-    <main className="w-full bg-[#fafafa] min-h-screen pt-10 md:pt-16 pb-20 font-sans">
+    <main className="w-full bg-white min-h-screen pt-10 md:pt-16 pb-20 font-sans">
       
       {/* 1. Hero Section */}
       <div className="max-w-7xl mx-auto px-6 mb-16">

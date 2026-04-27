@@ -52,33 +52,25 @@ export default function Veggurinn() {
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-[#1c2c6c] bg-white px-3 py-1 rounded-full font-black tracking-widest uppercase text-[10px] shadow-lg flex items-center gap-2">
-                <span className="material-symbols-outlined text-[14px]">public</span>
-                Haukar á samfélagsmiðlum
-              </span>
-              <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-1">
-                <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
-                #ÁframHaukar
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter text-white uppercase drop-shadow-2xl leading-none">
+        {/* Minimalist Header Section (Uniform with NewsGrid & TrophyCabinet) */}
+        <div className="flex justify-between items-end mb-8">
+          <div>
+            <span className="text-white/70 text-xs font-bold uppercase tracking-widest block mb-1">
+              #ÁframHaukar
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black italic tracking-normal text-white drop-shadow-md">
               Veggurinn á Ásvöllum
             </h2>
-            <p className="text-white/80 text-sm font-medium mt-6 leading-relaxed">
-              Taktu þátt í stemningunni! Merktu myndirnar þínar með <strong className="text-white font-black underline decoration-[#1c2c6c] decoration-4 underline-offset-4">#ÁframHaukar</strong> til að birtast á veggnum.
-            </p>
           </div>
-
-          <div className="flex gap-4 w-full md:w-auto">
-             <button className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-white text-[#c8102e] px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-xl hover:scale-105 active:scale-95">
-               Fylgjast með
-             </button>
-          </div>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hidden md:flex font-bold text-white hover:text-white/70 transition-colors items-center gap-1 mb-2 text-sm uppercase tracking-widest">
+            Fylgjast Með <span className="text-xl leading-none">&rsaquo;</span>
+          </a>
         </div>
+        
+        {/* Mobile Link placed below title for better flow */}
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="md:hidden font-bold text-white hover:text-white/70 transition-colors flex items-center gap-1 mb-8 text-sm uppercase tracking-widest">
+          Fylgjast Með <span className="text-xl leading-none">&rsaquo;</span>
+        </a>
 
         {/* Mobile: Horizontal Snap Scroll | Desktop: Grid */}
         <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 overflow-x-auto md:overflow-visible pb-12 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">

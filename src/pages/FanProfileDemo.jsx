@@ -22,7 +22,7 @@ export default function FanProfileDemo() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] py-12 px-4 sm:px-6 lg:px-8 font-sans">
+    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12">
         
         {/* Left Column: Dashboard & Controls */}

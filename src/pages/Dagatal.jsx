@@ -132,7 +132,7 @@ export default function Dagatal() {
   const hasMore = filteredEvents.length > visibleCount;
 
   return (
-    <main className="w-full bg-[#fafafa] min-h-screen font-sans overflow-x-hidden">
+    <main className="w-full bg-white min-h-screen font-sans overflow-x-hidden">
       
       {/* Hero Header */}
       <div className="pt-16 pb-12 px-6 text-center bg-white border-b border-gray-100">

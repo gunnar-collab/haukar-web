@@ -55,7 +55,7 @@ export default function PlayerOfTheWeek() {
           {/* Right Column: Bio & Stats */}
           <div className="w-full md:w-1/2 lg:w-7/12">
             <div className="mb-8">
-              <span className="text-[#c8102e] text-sm font-bold uppercase tracking-widest flex items-center gap-2 mb-3">
+              <span className="metallic-gold text-sm font-bold uppercase tracking-widest flex items-center gap-2 mb-3 w-max">
                 <span className="material-symbols-outlined text-[18px]">workspace_premium</span>
                 Í nærmynd
               </span>
@@ -74,22 +74,22 @@ export default function PlayerOfTheWeek() {
 
             {/* Stat Grid */}
             <div className="grid grid-cols-3 gap-4 lg:gap-6 mb-10 max-w-lg">
-              <div className="bg-[#fafafa] p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Mörk</p>
                 <p className="text-4xl font-black italic text-[#1c2c6c]">{spotlightPlayer.stats.offensive.totalGoals}</p>
               </div>
-              <div className="bg-[#fafafa] p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Stöðvanir</p>
                 <p className="text-4xl font-black italic text-[#c8102e]">{spotlightPlayer.stats.defensive.legalStops}</p>
               </div>
-              <div className="bg-[#fafafa] p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Nýting</p>
                 <p className="text-4xl font-black italic text-[#1c2c6c]">66%</p>
               </div>
             </div>
 
             {/* Fired up with the Global Button */}
-            <Link to="/leikmenn/freyr-aronsson" state={{ player: spotlightPlayer }}>
+            <Link to="/leikmenn/freyr-aronsson" state={{ player: spotlightPlayer }} className="inline-block active:scale-95 transition-transform">
               <Button variant="primary" icon="arrow_forward" iconPosition="right">
                 Skoða leikmann
               </Button>

@@ -5,19 +5,8 @@ import { NAV_LINKS } from '../data/navConfig.js';
 import { cn } from '../lib/utils.js';
 
 export default function Navbar({ onOpenTickets, onOpenLogin }) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileExpanded, setMobileExpanded] = useState(null); 
-
   const activeClassName = "text-[#1c2c6c] border-b-2 border-[#c8102e]";
   const baseClassName = "text-sm font-bold text-gray-500 hover:text-[#1c2c6c] uppercase tracking-wider transition-all py-2";
-
-  const toggleMobileAccordion = (section) => {
-    setMobileExpanded(mobileExpanded === section ? null : section);
-  };
-
-  const handleMobileNav = () => {
-    setIsMobileMenuOpen(false);
-  };
 
   return (
     <nav className="w-full relative z-[100]">
@@ -99,9 +88,23 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
+            {/* AI Search Button */}
+            <button 
+              className="w-10 h-10 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200 text-[#1c2c6c] hover:text-white hover:from-[#1c2c6c] hover:to-[#2a3b7d] hover:border-[#1c2c6c] hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center transition-all duration-300 group relative shadow-sm"
+              aria-label="Snjall Leit"
+            >
+              <span className="material-symbols-outlined text-[20px]">search</span>
+              <span className="material-symbols-outlined text-[10px] text-[#D4AF37] absolute top-2 right-2 opacity-100 group-hover:animate-ping">auto_awesome</span>
+              
+              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 text-white font-bold text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 flex items-center gap-1.5 shadow-xl border border-white/10 pointer-events-none">
+                <span className="material-symbols-outlined text-[14px] text-[#D4AF37]">auto_awesome</span>
+                Snjall-Leit
+              </div>
+            </button>
+
             <button 
               onClick={onOpenLogin} 
-              className="w-10 h-10 rounded-full bg-white border border-gray-100 text-[#c8102e] hover:text-white hover:bg-[#c8102e] hover:border-[#c8102e] hover:shadow-md hover:-translate-y-0.5 flex items-center justify-center transition-all duration-300 group relative shadow-sm"
+              className="w-10 h-10 rounded-full bg-white border border-gray-100 text-[#c8102e] hover:text-white hover:bg-[#c8102e] hover:border-[#c8102e] hover:shadow-md hover:-translate-y-0.5 active:scale-95 flex items-center justify-center transition-all duration-300 group relative shadow-sm"
               aria-label="Innskráning"
             >
               <span className="material-symbols-outlined text-[20px]">person</span>
@@ -109,7 +112,7 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
             </button>
             <Link to="/vefverslun" aria-label="Verslun">
               <button 
-                className="w-10 h-10 rounded-full bg-white border border-gray-100 text-[#c8102e] hover:text-white hover:bg-[#c8102e] hover:border-[#c8102e] hover:shadow-md hover:-translate-y-0.5 flex items-center justify-center transition-all duration-300 group relative shadow-sm"
+                className="w-10 h-10 rounded-full bg-white border border-gray-100 text-[#c8102e] hover:text-white hover:bg-[#c8102e] hover:border-[#c8102e] hover:shadow-md hover:-translate-y-0.5 active:scale-95 flex items-center justify-center transition-all duration-300 group relative shadow-sm"
               >
                 <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
                 <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white font-bold text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50">Verslun</div>
@@ -117,7 +120,7 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
             </Link>
             <button 
               onClick={onOpenTickets} 
-              className="relative w-10 h-10 flex items-center justify-center group"
+              className="relative w-10 h-10 flex items-center justify-center group active:scale-95 transition-transform"
               aria-label="Miðar"
             >
               <div className="absolute inset-0 bg-[#c8102e] rounded-full animate-ping opacity-25"></div>
@@ -128,84 +131,19 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
             </button>
           </div>
 
-          <button 
-            className="lg:hidden text-[#1c2c6c] p-2 hover:bg-gray-50 rounded-lg transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Loka valmynd" : "Opna valmynd"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span className="material-symbols-outlined text-[28px]" aria-hidden="true">
-              {isMobileMenuOpen ? 'close' : 'menu'}
-            </span>
-          </button>
+          <div className="flex lg:hidden items-center gap-2">
+            {/* AI Search Mobile (Navbar) */}
+            <button 
+              className="w-10 h-10 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200 text-[#1c2c6c] active:bg-gray-100 active:scale-90 flex items-center justify-center transition-all relative shadow-sm"
+              aria-label="Snjall Leit"
+            >
+              <span className="material-symbols-outlined text-[20px]">search</span>
+              <span className="material-symbols-outlined text-[10px] text-[#D4AF37] absolute top-2 right-2">auto_awesome</span>
+            </button>
+
+          </div>
         </div>
 
-        {/* Mobile Accordion Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl py-6 px-6 flex flex-col gap-2 z-40 border-t border-gray-100 max-h-[85vh] overflow-y-auto">
-            <div className="flex flex-col gap-1 mb-4">
-              
-              <button onClick={() => toggleMobileAccordion('deildir')} className="flex items-center justify-between py-3 text-sm font-bold text-[#1c2c6c] uppercase tracking-wider border-b border-gray-100" aria-expanded={mobileExpanded === 'deildir'}>
-                Deildir <span className={cn("material-symbols-outlined transition-transform duration-300", mobileExpanded === 'deildir' ? '-rotate-180' : '')} aria-hidden="true">expand_more</span>
-              </button>
-              {mobileExpanded === 'deildir' && (
-                <div className="flex flex-col pl-4 border-b border-gray-50 bg-gray-50/50">
-                  {NAV_LINKS.deildir.map((link) => (
-                    <Link key={link.name} to={link.path} onClick={handleMobileNav} className="py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0 flex items-center gap-2">
-                      {link.icon && <span className="material-symbols-outlined text-[18px]">{link.icon}</span>}
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-
-              <button onClick={() => toggleMobileAccordion('felagid')} className="flex items-center justify-between py-3 text-sm font-bold text-[#1c2c6c] uppercase tracking-wider border-b border-gray-100" aria-expanded={mobileExpanded === 'felagid'}>
-                Félagið <span className={cn("material-symbols-outlined transition-transform duration-300", mobileExpanded === 'felagid' ? '-rotate-180' : '')} aria-hidden="true">expand_more</span>
-              </button>
-              {mobileExpanded === 'felagid' && (
-                <div className="flex flex-col pl-4 border-b border-gray-50 bg-gray-50/50">
-                  {NAV_LINKS.felagid.map((link) => {
-                    const itemClass = "py-3 text-sm font-bold text-gray-500 hover:text-[#c8102e] border-b border-gray-100 last:border-0 flex items-center gap-2";
-                    if (link.external) {
-                      return (
-                        <a key={link.name} href={link.path} target="_blank" rel="noopener noreferrer" onClick={handleMobileNav} className={itemClass}>
-                          {link.icon && <span className="material-symbols-outlined text-[18px]">{link.icon}</span>}
-                          {link.name}
-                        </a>
-                      );
-                    }
-                    return (
-                      <Link key={link.name} to={link.path} onClick={handleMobileNav} className={itemClass}>
-                        {link.icon && <span className="material-symbols-outlined text-[18px]">{link.icon}</span>}
-                        {link.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
-
-              <a href="https://www.abler.io/shop/haukar/" target="_blank" rel="noopener noreferrer" onClick={handleMobileNav} className="flex items-center justify-between py-3 text-sm font-bold text-[#c8102e] uppercase tracking-wider border-b border-gray-100">
-                Skráning <span className="material-symbols-outlined text-[16px]" aria-hidden="true">open_in_new</span>
-              </a>
-              
-              {/* Removed Dagatal and Leikvakt from mobile root (moved to Félagið accordion) */}
-            </div>
-            
-            <div className="flex flex-col gap-3">
-              <Button variant="outline" size="md" icon="login" className="w-full justify-center" onClick={() => { setIsMobileMenuOpen(false); onOpenLogin(); }}>
-                Innskráning
-              </Button>
-              <Button variant="secondary" size="md" icon="local_activity" className="w-full justify-center" onClick={() => { setIsMobileMenuOpen(false); onOpenTickets(); }}>
-                Miðar
-              </Button>
-              <Link to="/vefverslun" onClick={handleMobileNav} className="w-full" aria-label="Verslun">
-                <Button variant="primary" size="md" icon="checkroom" className="w-full justify-center">
-                  Verslun
-                </Button>
-              </Link>
-            </div>
-          </div>
-        )}
       </div>
     </nav>
   );

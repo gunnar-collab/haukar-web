@@ -21,7 +21,7 @@ export default function Arsskyrslur() {
   ];
 
   return (
-    <main className="w-full bg-[#fafafa] flex-grow pb-20">
+    <main className="w-full bg-white flex-grow pb-20">
       
       {/* Hero Section */}
       <div className="bg-[#1c2c6c] text-white py-20 px-6 text-center relative overflow-hidden">

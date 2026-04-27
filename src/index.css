@@ -15,11 +15,16 @@
   }
 }
 
-/* Anti-Flicker Curtain Drop */
+/* Anti-Flicker Curtain Drop and Mobile App Feel */
 body {
     opacity: 0;
     animation: bodyFadeIn 0.3s ease-in forwards 0.15s;
     background-color: #ffffff;
+    
+    /* App-like behaviors */
+    overscroll-behavior-y: none; /* Kemur í veg fyrir rubber-banding á iOS */
+    -webkit-tap-highlight-color: transparent; /* Engir bláir kassar á takka */
+    -webkit-touch-callout: none; /* Disable long-press popup */
 }
 
 @keyframes bodyFadeIn {
@@ -200,4 +205,8 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(28, 44, 108, 0.5);
+}
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(calc(-100% / 3)); }
 }

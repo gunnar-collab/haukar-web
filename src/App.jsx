@@ -28,6 +28,7 @@ import LoginModal from './components/LoginModal';
 import Sponsors from './components/Sponsors'; 
 import MatchReportModal from './components/sports/MatchReportModal';
 import { useMatch } from './context/MatchContext';
+import MobileBottomNav from './components/MobileBottomNav';
 
 // Pages
 import Home from './pages/Home';
@@ -48,7 +49,7 @@ function AppContent() {
   const { selectedReport, closeReport } = useMatch();
 
   return (
-    <div className="bg-[#fafafa] text-gray-900 font-sans selection:bg-[#c8102e] selection:text-white flex flex-col min-h-screen">
+    <div className="bg-white text-gray-900 font-sans selection:bg-[#c8102e] selection:text-white flex flex-col min-h-screen">
       
       {/* 1. Modals & Overlays */}
       <TicketModal isOpen={isTicketModalOpen} onClose={() => setIsTicketModalOpen(false)} />
@@ -70,7 +71,7 @@ function AppContent() {
         {/* 3. STRICT CONTENT WRAPPER (Destroys all horizontal overflow) */}
         <div 
           key={location.key}
-          className="flex-grow relative z-10 overflow-x-hidden w-full pt-[72px] page-transition"
+          className="flex-grow relative z-10 overflow-x-hidden w-full pt-[72px] pb-20 lg:pb-0 page-transition"
         >
           <Routes>
             <Route path="/leikmenn/:slug" element={<PlayerProfile />} />
@@ -106,6 +107,7 @@ function AppContent() {
         {/* 5. Sponsor Wall & Footer sit outside the routes so they render on every page! */}
         <Sponsors />
         <Footer />
+        <MobileBottomNav onOpenTickets={() => setIsTicketModalOpen(true)} />
         
       </div>
   );

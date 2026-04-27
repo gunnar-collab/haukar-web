@@ -55,9 +55,13 @@ export default function LoginModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in duration-200">
+    <div className="fixed inset-0 z-[200] flex flex-col items-center justify-end md:justify-center bg-black/50 backdrop-blur-sm overflow-hidden">
+      <div className="bg-white rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto relative animate-in slide-in-from-bottom-12 md:zoom-in-95 duration-200 flex flex-col">
         
+        {/* Mobile Drag Indicator */}
+        <div className="md:hidden w-full flex justify-center pt-4 pb-2 absolute top-0 z-30">
+          <div className="w-12 h-1.5 bg-white/40 rounded-full"></div>
+        </div>
         {/* Header */}
         <div className="bg-[#c8102e] p-6 text-center relative">
           <button 

@@ -1,133 +1,30 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import leagueData from '../data/haukar_league_data.json';
-import MatchReportModal from './sports/MatchReportModal';
+import os
 
-export default function LeagueDashboard({ gender: propGender, onOpenTickets, sport = "handbolti" }) {
-  const [internalGender, setInternalGender] = useState('karla');
-  const [selectedMatch, setSelectedMatch] = useState(null);
-  const [isReportOpen, setIsReportOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('stadan');
+with open('src/components/LeagueDashboard.jsx', 'r') as f:
+    content = f.read()
 
-  const activeGender = propGender || internalGender;
+# 1. State changes
+content = content.replace(
+    "const [showAllMatches, setShowAllMatches] = useState(false);",
+    "const [activeTab, setActiveTab] = useState('stadan');"
+)
+content = content.replace(
+    "const top3Played = playedMatches.slice(0, 3);\n  const remainingMatches = [...upcomingMatches, ...playedMatches.slice(3)];",
+    ""
+)
 
-  const activeKey = sport === 'handbolti' ? activeGender : `${sport}_${activeGender}`;
-  const currentData = leagueData[activeKey];
+# 2. Find Standings Table
+start_standings = content.find('<div className="bg-white rounded-[2rem] border border-gray-100 overflow-hidden shadow-2xl h-full flex flex-col transition-all hover:shadow-[#1c2c6c]/5">')
+end_standings_marker = 'Uppfært rauntíma frá {providerName} Data Engine\n              </div>\n            </div>'
+end_standings = content.find(end_standings_marker) + len(end_standings_marker)
 
-  // Logic to separate played games from upcoming games
-  const playedMatches = currentData.matches.filter(m => m.score !== 'Næsti leikur' && m.score !== '- - -');
-  // Reverse upcoming so the closest future game is at the top
-  const upcomingMatches = currentData.matches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -').reverse();
-  
-  
+standings_html = content[start_standings:end_standings]
 
-  const leagueName = sport === 'handbolti' ? 'Olís deildinni' : sport === 'fotbolti' ? 'deildinni' : 'Bónusdeildinni';
-  const providerName = sport === 'handbolti' ? 'HBStatz' : sport === 'fotbolti' ? 'KSÍ' : 'KKÍ';
+# 3. Find Layout Block
+start_layout = content.find('<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">')
+end_layout = content.find('</div>\n      </div>\n\n      <MatchReportModal')
 
-  const handleOpenReport = (match) => {
-    setSelectedMatch(match);
-    setIsReportOpen(true);
-  };
-
-  const handballScorers = [
-    { name: "Freyr Aronsson", goals: 180, rank: 1, slug: "freyr-aronsson", position: "Skytta" },
-    { name: "Skarphéðinn Ívar", goals: 130, rank: 2, slug: "skarphedinn-ivar", position: "Skytta" },
-    { name: "Össur Haraldsson", goals: 100, rank: 3, slug: "ossur-haraldsson", position: "Skytta" },
-    { name: "Birkir Snær", goals: 91, rank: 4, slug: "birkir-snaer", position: "Hornamaður" },
-    { name: "Hergeir Grímsson", goals: 82, rank: 5, slug: "hergeir-grimsson", position: "Skytta" }
-  ];
-
-  const footballScorers = [
-    { name: "Kristín Lind", goals: 11, rank: 1, slug: "kristin-lind", position: "Sóknarmaður" },
-    { name: "Birta Rós", goals: 4, rank: 2, slug: "birta-ros", position: "Miðjumaður" },
-    { name: "Katrín María", goals: 3, rank: 3, slug: "katrin-maria", position: "Kantmaður" },
-    { name: "Sigurður Hrannar", goals: 2, rank: 4, slug: "sigurdur-hrannar", position: "Sóknarmaður" },
-    { name: "Daði Snær", goals: 1, rank: 5, slug: "dadi-snaer", position: "Sóknarmaður" }
-  ];
-
-  const basketballScorers = [
-    { name: "Keira Robinson", goals: 22.4, rank: 1, slug: "keira-renee-robinson", position: "Bakvörður" },
-    { name: "Everage Richardson", goals: 21.4, rank: 2, slug: "everage-richardson", position: "Bakvörður" },
-    { name: "David Okeke", goals: 18.5, rank: 3, slug: "david-okeke", position: "Miðherji" },
-    { name: "Krystal Freeman", goals: 16.8, rank: 4, slug: "krystal-jade-freeman", position: "Framherji" },
-    { name: "Lore Devos", goals: 15.4, rank: 5, slug: "lore-devos", position: "Framherji" }
-  ];
-
-  const scorers = sport === 'handbolti' ? handballScorers : sport === 'fotbolti' ? footballScorers : basketballScorers;
-  const pointType = sport === 'korfubolti' ? 'Stig' : 'Mörk';
-
-  const getVenue = (homeTeam) => {
-    if (homeTeam.includes('Haukar')) return 'Ásvellir';
-    const venues = {
-      'Grótta': 'Vivaldivöllurinn',
-      'Víkingur Ó.': 'Ólafsvíkurvöllur',
-      'Ægir': 'Þorlákshafnarvöllur',
-      'Þróttur Vogum': 'Vogabæjarvöllur',
-      'Kormákur/Hvöt': 'Hvammstangavöllur',
-      'Dalvík/Reynir': 'Dalvíkurvöllur',
-      'KFA': 'Fjarðabyggðarhöllin',
-      'Kári': 'Akraneshöllin',
-      'KFG': 'Samsung völlurinn',
-      'Víðir': 'Nesfisk-völlurinn',
-      'Höttur/Huginn': 'Vilhjálmsvöllur',
-      'Selfoss': 'JÁVERK-völlurinn',
-      'Víkingur R.': 'Víkingsvöllur',
-      'Afturelding': 'Malbikstöðin að Varmá',
-      'FHL': 'Fjarðabyggðarhöllin',
-      'HK': 'Kórinn',
-      'ÍR': 'ÍR-völlurinn',
-      'Fram': 'Lambhagavöllurinn',
-      'Valur': 'N1-völlurinn Hlíðarenda',
-      'FH': 'Kaplakrikavöllur',
-      'Stjarnan': 'Samsung völlurinn',
-      'KA': 'Greifavöllurinn',
-      'ÍBV': 'Hásteinsvöllur'
-    };
-    return venues[homeTeam] || 'Útivöllur';
-  };
-
-  return (
-    <section className="w-full py-12 md:py-24 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
-          <div className="max-w-2xl">
-            <span className="text-[#c8102e] text-sm font-black uppercase tracking-[0.3em] mb-3 block">
-              Staðan & Leikir
-            </span>
-            <h2 className="text-5xl md:text-6xl font-black text-[#1c2c6c] uppercase tracking-tighter italic leading-none mb-6">
-              Deildin og úrslit
-            </h2>
-            <p className="text-gray-500 font-medium text-lg leading-relaxed">
-              Fylgstu með gengi Hauka í {leagueName}. Hér sérðu nýjustu úrslit, næstu leiki og stöðuna í deildinni í rauntíma.
-            </p>
-          </div>
-
-          {/* Gender Toggle - Only show if not controlled by prop */}
-          {!propGender && (
-            <div className="flex bg-gray-100 p-1.5 rounded-2xl shadow-inner mb-2">
-              <button 
-                onClick={() => setInternalGender('karla')}
-                className={`px-8 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                  activeGender === 'karla' ? 'bg-[#1c2c6c] text-white shadow-lg' : 'text-gray-400 hover:text-[#1c2c6c]'
-                }`}
-              >
-                M.fl. Karla
-              </button>
-              <button 
-                onClick={() => setInternalGender('kvenna')}
-                className={`px-8 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                  activeGender === 'kvenna' ? 'bg-[#1c2c6c] text-white shadow-lg' : 'text-gray-400 hover:text-[#1c2c6c]'
-                }`}
-              >
-                M.fl. Kvenna
-              </button>
-            </div>
-          )}
-        </div>
-
-        
+new_ui = """
         {/* Tabs Header */}
         <div className="flex justify-center mb-10">
           <div className="bg-gray-100 p-1.5 rounded-2xl inline-flex flex-wrap justify-center gap-1 shadow-inner">
@@ -157,73 +54,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
           {/* Main Content Area (2/3 width) */}
           <div className="lg:col-span-2 h-[600px]">
             {activeTab === 'stadan' && (
-              <div className="bg-white rounded-[2rem] border border-gray-100 overflow-hidden shadow-2xl h-full flex flex-col transition-all hover:shadow-[#1c2c6c]/5">
-              <div className="bg-[#1c2c6c] p-7 flex justify-between items-center">
-                <h3 className="text-white font-black uppercase tracking-widest text-sm flex items-center gap-3">
-                  <span className="material-symbols-outlined text-[#D4AF37] text-2xl">leaderboard</span>
-                  Staðan í deildinni
-                </h3>
-                <div className="hidden md:flex gap-4">
-                   <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#D4AF37]"></span>
-                      <span className="text-[10px] font-bold text-white/60 uppercase tracking-widest">Úrslitakeppni</span>
-                   </div>
-                </div>
-              </div>
-              <div className="overflow-x-auto flex-grow">
-                <table className="w-full text-left">
-                  <thead>
-                    <tr className="border-b border-gray-100 bg-gray-50/50">
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400">Röð</th>
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400">Lið</th>
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">L</th>
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">U</th>
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">Stig</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {currentData.standings.map((team, idx) => (
-                      <tr 
-                        key={idx} 
-                        className={`border-b border-gray-50 transition-colors hover:bg-gray-50/50 ${
-                          team.team.includes('Haukar') ? 'bg-[#c8102e]/5' : ''
-                        }`}
-                      >
-                        <td className="px-4 md:px-8 py-6">
-                          <span className={`w-7 h-7 flex items-center justify-center rounded-full text-[11px] font-black ${
-                            team.rank <= 4 ? 'bg-[#D4AF37] text-white shadow-sm' : 'bg-gray-100 text-gray-400'
-                          }`}>
-                            {team.rank}
-                          </span>
-                        </td>
-                        <td className="px-4 md:px-8 py-6">
-                          <div className="flex items-center gap-3">
-                            {team.team.includes('Haukar') && (
-                              <img src="/images/logo.png" alt="" className="w-6 h-6 object-contain" />
-                            )}
-                            <span className={`font-black uppercase italic tracking-tight text-sm md:text-base ${
-                              team.team.includes('Haukar') ? 'text-[#c8102e]' : 'text-[#1c2c6c]'
-                            }`}>
-                              {team.team}
-                            </span>
-                          </div>
-                        </td>
-                        <td className="px-4 md:px-8 py-6 text-center font-bold text-gray-400">{team.played}</td>
-                        <td className="px-4 md:px-8 py-6 text-center font-bold text-gray-400">{team.wins ?? 0}</td>
-                        <td className="px-4 md:px-8 py-6 text-center">
-                          <span className="font-black text-[#1c2c6c] text-lg bg-gray-100 px-4 py-1.5 rounded-xl shadow-inner inline-block min-w-[50px]">
-                            {team.points}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="p-4 bg-gray-50 text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em] text-center border-t border-gray-100 italic">
-                Uppfært rauntíma frá {providerName} Data Engine
-              </div>
-            </div>
+              STANDINGS_PLACEHOLDER
             )}
 
             {activeTab === 'leikir' && (
@@ -303,7 +134,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                                 <p className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-tight truncate ${match.away === 'Haukar' ? 'text-white' : 'text-white/70'}`}>{match.away}</p>
                               </div>
                               <div className="bg-white/10 text-white px-4 py-2 rounded-2xl font-black italic shadow-xl text-base group-hover/match:scale-105 transition-transform min-w-[75px] text-center border border-white/5">
-                                {match.score.replace(/\(\d+\)/g, '').trim()}
+                                {match.score.replace(r'\(.*?\)', '').strip()}
                               </div>
                             </div>
                           </div>
@@ -407,13 +238,14 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
           </div>
 
         </div>
-      </div>
+"""
 
-      <MatchReportModal 
-        isOpen={isReportOpen} 
-        onClose={() => setIsReportOpen(false)} 
-        match={selectedMatch} 
-      />
-    </section>
-  );
-}
+new_ui = new_ui.replace("STANDINGS_PLACEHOLDER", standings_html)
+# Because I used r'\(.*?\)' inside JS string replacement, let's fix it for React!
+new_ui = new_ui.replace("match.score.replace(r'\\(.*?\\)', '').strip()", "match.score.replace(/\\(\\d+\\)/g, '').trim()")
+
+content = content[:start_layout] + new_ui + '\n' + content[end_layout:]
+
+with open('src/components/LeagueDashboard.jsx', 'w') as f:
+    f.write(content)
+

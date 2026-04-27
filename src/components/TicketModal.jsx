@@ -29,9 +29,13 @@ export default function TicketModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return createPortal(
-    <div className="fixed inset-0 bg-[#1c2c6c]/95 backdrop-blur-md z-[10000] flex flex-col items-center justify-start md:justify-center overflow-y-auto p-4 pt-8 md:pt-4">
-      <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md overflow-hidden relative animate-in fade-in zoom-in duration-300 flex flex-col mb-8 md:mb-0">
+    <div className="fixed inset-0 bg-[#1c2c6c]/80 backdrop-blur-md z-[10000] flex flex-col items-center justify-end md:justify-center overflow-hidden">
+      <div className="bg-white rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto relative animate-in slide-in-from-bottom-12 md:zoom-in-95 duration-300 flex flex-col">
         
+        {/* Mobile Drag Indicator */}
+        <div className="md:hidden w-full flex justify-center pt-4 pb-2 absolute top-0 z-30">
+          <div className="w-12 h-1.5 bg-white/40 rounded-full"></div>
+        </div>
         {/* Close Button */}
         <button 
           onClick={onClose} 
@@ -112,7 +116,7 @@ export default function TicketModal({ isOpen, onClose }) {
           </div>
         ) : (
           /* Google Wallet Pass Success View */
-          <div className="bg-[#fafafa] flex flex-col items-center justify-center px-4 py-6 md:py-8 animate-in slide-in-from-right-8 duration-300 relative z-10">
+          <div className="bg-white flex flex-col items-center justify-center px-4 py-6 md:py-8 animate-in slide-in-from-right-8 duration-300 relative z-10">
             
             <h4 className="text-xl md:text-2xl font-black text-gray-900 uppercase tracking-tighter mb-4 md:mb-6">Miði Staðfestur!</h4>
 

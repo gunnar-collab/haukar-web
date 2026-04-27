@@ -16,7 +16,7 @@ export default function PlayerProfile() {
 
   if (!player) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fafafa]">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center p-8 bg-white rounded-3xl shadow-xl border border-gray-100 max-w-md w-full">
           <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-300">
             <span className="material-symbols-outlined text-5xl">person_off</span>
@@ -40,7 +40,7 @@ export default function PlayerProfile() {
   const isBasketball = player.stats?.sport === 'korfubolti' || player.sport === 'korfubolti';
 
   return (
-    <main className="w-full min-h-screen bg-[#fafafa] font-sans pb-24 selection:bg-[#1c2c6c] selection:text-white">
+    <main className="w-full min-h-screen bg-white font-sans pb-24 selection:bg-[#1c2c6c] selection:text-white">
       
       {/* 1. HERO SECTION */}
       <div className="relative w-full h-[55vh] min-h-[450px] bg-[#c8102e] flex items-end overflow-hidden">
@@ -374,7 +374,7 @@ export default function PlayerProfile() {
                 </div>
                 <div className="pt-4 border-t border-white/10">
                   <p className="text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Tölfræði moli</p>
-                  <p className="text-sm font-medium">Hefur tekið þátt í {player.gamesPlayed || player.stats?.offensive?.gamesPlayed || 0} leikjum og er með eina bestu nýtingu liðsins.</p>
+                  <p className="text-sm font-medium">Hefur tekið þátt í {player.gamesPlayed || player.stats?.gamesPlayed || player.stats?.offensive?.gamesPlayed || player.stats?.goalkeeper?.gamesPlayed || 0} leikjum og er með eina bestu nýtingu liðsins.</p>
                 </div>
               </div>
             </div>

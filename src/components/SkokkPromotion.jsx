@@ -2,7 +2,7 @@ import Button from './Button';
 
 export default function SkokkPromotion() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#1c2c6c] min-h-[600px] flex items-center shadow-2xl my-16">
+    <section className="relative w-full overflow-hidden bg-[#1c2c6c] min-h-[600px] flex items-center shadow-2xl">
 
       {/* 1. Full-Bleed Background Image with Deep Gradient Overlay */}
       <div className="absolute inset-0 z-0">
@@ -55,9 +55,9 @@ export default function SkokkPromotion() {
             >
               Skrá mig núna
             </Button>
-            <div className="flex items-center gap-4 px-8 py-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-xl">
+            <div className="flex items-center justify-center gap-4 px-8 py-5 w-full sm:w-auto rounded-[1.25rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-xl">
               <span className="material-symbols-outlined text-[#c8102e] text-3xl">location_on</span>
-              <div>
+              <div className="text-left">
                 <p className="text-[10px] font-black text-white/50 uppercase tracking-widest">Mæting</p>
                 <p className="text-lg font-black uppercase italic tracking-tight">Ásvellir</p>
               </div>
@@ -75,7 +75,7 @@ export default function SkokkPromotion() {
             { day: 'Miðvikudagar', time: '17:30', icon: 'event_repeat' },
             { day: 'Laugardagar', time: '09:00', icon: 'wb_sunny' }
           ].map((item, idx) => (
-            <div key={idx} className="bg-white/5 backdrop-blur-xl border border-white/10 p-5 md:p-6 rounded-[24px] flex items-center justify-between gap-12 min-w-[300px] hover:bg-[#c8102e] hover:border-transparent hover:scale-105 hover:-translate-x-2 transition-all duration-500 cursor-default shadow-xl group">
+            <div key={idx} className="bg-white/5 backdrop-blur-xl border border-white/10 p-5 md:p-6 rounded-[1.25rem] w-full flex items-center justify-between gap-12 hover:bg-[#c8102e] hover:border-transparent hover:scale-105 hover:-translate-x-2 transition-all duration-500 cursor-default shadow-xl group">
               <div className="flex items-center gap-4">
                 <span className="material-symbols-outlined text-white/30 group-hover:text-white transition-colors">{item.icon}</span>
                 <span className="font-black uppercase italic tracking-tighter text-lg">{item.day}</span>

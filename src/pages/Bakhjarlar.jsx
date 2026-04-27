@@ -33,7 +33,7 @@ export default function Bakhjarlar() {
 
   return (
     // FIXED: Removed pt-10 md:pt-16 so the hero snaps directly against the navbar!
-    <main className="w-full bg-[#fafafa] flex-grow pb-20 font-sans">
+    <main className="w-full bg-white flex-grow pb-20 font-sans">
       
       {/* Universal Hero Section - NOW IN HAUKAR RED WITH NAVY ACCENTS */}
       <div className="bg-[#c8102e] text-white py-24 px-6 text-center relative overflow-hidden shadow-md">

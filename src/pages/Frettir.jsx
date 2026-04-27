@@ -11,7 +11,7 @@ export default function Frettir() {
     : newsArticles.filter(a => a.category === filter);
 
   return (
-    <div className="bg-[#fafafa] min-h-screen py-12 px-6">
+    <div className="bg-white min-h-screen py-12 px-6">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}

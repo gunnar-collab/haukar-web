@@ -13,7 +13,7 @@ export default function Vefverslun() {
     : merchandise.filter(p => p.shopName === filter);
 
   return (
-    <main className="w-full bg-[#fafafa] flex-grow pb-20 selection:bg-[#1c2c6c] selection:text-white">
+    <main className="w-full bg-white flex-grow pb-20 selection:bg-[#1c2c6c] selection:text-white">
       
       {/* 1. SHOP HERO - HAUKAR RED */}
       <div className="bg-[#c8102e] text-white py-24 px-6 text-center relative overflow-hidden shadow-lg border-b-4 border-[#1c2c6c]">

@@ -14,15 +14,13 @@ export default function Sponsors() {
     <section className="w-full flex flex-col selection:bg-[#1c2c6c] selection:text-white">
       
       {/* 1. HAUKAR Í HORNI - The Digital Wallet Teaser */}
-      <div className="w-full bg-[#fafafa] py-12 md:py-24 border-t border-gray-200 relative overflow-hidden">
+      <div className="w-full bg-white py-12 md:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             
             {/* Left: The Digital Wallet Pass Graphic */}
             <div className="w-full lg:w-5/12 flex justify-center lg:justify-end relative group cursor-pointer">
-              {/* Glowing background effect */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-[#c8102e]/20 to-[#1c2c6c]/20 blur-3xl rounded-full z-0 group-hover:scale-110 transition-transform duration-700"></div>
-              
+              {/* Removed glowing background to keep pure white minimalism */}
               {/* The Pass - HAUKAR RED GRADIENT */}
               <div className="relative z-10 w-72 h-[450px] bg-gradient-to-br from-[#c8102e] to-[#9b0c23] rounded-[2.5rem] shadow-2xl border-4 border-gray-900/10 p-6 flex flex-col transform -rotate-6 group-hover:rotate-0 group-hover:-translate-y-4 transition-all duration-500">
                 
@@ -77,7 +75,7 @@ export default function Sponsors() {
       </div>
 
       {/* 2. CORPORATE SPONSORS - The Grayscale Grid */}
-      <div className="w-full bg-white py-10 md:py-16 border-t border-gray-100">
+      <div className="w-full bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <span className="text-[#c8102e] text-[10px] font-bold uppercase tracking-widest block mb-2">
@@ -88,16 +86,23 @@ export default function Sponsors() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 lg:gap-20">
-            {corporateSponsors.map((sponsor) => (
-              <div key={sponsor.id} className="group cursor-pointer">
-                <img 
-                  src={sponsor.logo} 
-                  alt={sponsor.name} 
-                  className="h-10 md:h-14 w-auto object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105"
-                />
-              </div>
-            ))}
+          <div className="relative w-full overflow-hidden mt-6">
+            {/* Fade Gradients to hide the edges seamlessly */}
+            <div className="absolute top-0 left-0 w-16 md:w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-16 md:w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+            {/* The Infinite Scrolling Track */}
+            <div className="flex w-max animate-[marquee_40s_linear_infinite] hover:[animation-play-state:paused] items-center gap-16 md:gap-24 pl-16 md:pl-24">
+              {[...corporateSponsors, ...corporateSponsors, ...corporateSponsors].map((sponsor, idx) => (
+                <div key={`${sponsor.id}-${idx}`} className="group cursor-pointer shrink-0">
+                  <img 
+                    src={sponsor.logo} 
+                    alt={sponsor.name} 
+                    className="h-10 md:h-14 w-auto max-w-[150px] object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

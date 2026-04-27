@@ -59,7 +59,7 @@ export default function NewsGrid() {
   const featured = anniversary || newsArticles[0];
 
   return (
-    <section className="w-full bg-[#fafafa] py-10 md:py-16 border-b border-gray-100">
+    <section className="w-full bg-white py-10 md:py-16 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section */}
@@ -81,7 +81,7 @@ export default function NewsGrid() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
           {/* Large Left Card: Anniversary Featured Slider */}
-          <Link to={`/frett/${featured.slug}`} className="lg:col-span-1 lg:row-span-2 rounded-[2.5rem] overflow-hidden relative group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 transition-all duration-500 min-h-[450px] lg:min-h-full flex flex-col justify-end p-6 bg-black">
+          <Link to={`/frett/${featured.slug}`} className="lg:col-span-1 lg:row-span-2 rounded-[2.5rem] overflow-hidden relative group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 min-h-[450px] lg:min-h-full flex flex-col justify-end p-6 bg-black">
              {featured.images ? (
                <NewsCardSlider images={featured.images} title={featured.title} />
              ) : (
@@ -104,7 +104,7 @@ export default function NewsGrid() {
           </Link>
 
           {/* Top Middle Card: Basketball */}
-          <Link to={`/frett/${basket.slug}`} className="bg-white rounded-[2.5rem] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 transition-all duration-500 cursor-pointer flex flex-col group">
+          <Link to={`/frett/${basket.slug}`} className="bg-white rounded-[2.5rem] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
             <div className="rounded-2xl aspect-[16/9] mb-4 overflow-hidden bg-gray-100">
               <img 
                 src={basket.image} 
@@ -121,7 +121,7 @@ export default function NewsGrid() {
           </Link>
 
           {/* Top Right Card: Football */}
-          <Link to={`/frett/${football.slug}`} className="bg-white rounded-[2.5rem] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 transition-all duration-500 cursor-pointer flex flex-col group">
+          <Link to={`/frett/${football.slug}`} className="bg-white rounded-[2.5rem] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
             <div className="rounded-2xl aspect-[16/9] mb-4 overflow-hidden bg-gray-100">
               <img 
                 src={football.image} 
@@ -138,7 +138,7 @@ export default function NewsGrid() {
           </Link>
 
           {/* Bottom Middle Card: Hjörtur Ingi (RED Highlight Card) */}
-          <Link to={`/frett/${hjortur.slug}`} className="bg-[#c8102e] rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(200,16,46,0.1)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.2)] hover:-translate-y-1 transition-all duration-500 cursor-pointer flex flex-col relative overflow-hidden group">
+          <Link to={`/frett/${hjortur.slug}`} className="bg-[#c8102e] rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(200,16,46,0.1)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.2)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col relative overflow-hidden group">
             <div className="absolute top-0 right-0 -mt-6 -mr-4 text-white/10 text-9xl font-black italic select-none">
               H
             </div>
@@ -161,7 +161,7 @@ export default function NewsGrid() {
           </Link>
 
           {/* Bottom Right Card: Nano Banana */}
-          <Link to={`/frett/${nano.slug}`} className="bg-gray-50 border border-gray-100 rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 transition-all duration-500 cursor-pointer flex flex-col group">
+          <Link to={`/frett/${nano.slug}`} className="bg-gray-50 border border-gray-100 rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
             <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3 block">
               {nano.category} • Nýtt
             </span>

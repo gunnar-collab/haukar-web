@@ -89,7 +89,7 @@ export default function Handbolti({ onOpenTickets }) {
   const { lastMatch, nextMatch } = getDynamicMatches('handbolti', gender);
 
   return (
-    <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#1c2c6c] selection:text-white">
+    <div className="flex flex-col w-full bg-white selection:bg-[#1c2c6c] selection:text-white">
       <DivisionHero 
         sportName="Haukar Handbolti"
         icon="sports_handball"

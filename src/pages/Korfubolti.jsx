@@ -31,7 +31,7 @@ export default function Korfubolti({ onOpenTickets }) {
   const { lastMatch, nextMatch } = getDynamicMatches('korfubolti', gender);
 
   return (
-    <div className="flex flex-col w-full bg-[#fafafa] selection:bg-[#c8102e] selection:text-white">
+    <div className="flex flex-col w-full bg-white selection:bg-[#c8102e] selection:text-white">
       <DivisionHero 
         sportName="Haukar Körfubolti"
         icon="sports_basketball"

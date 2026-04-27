@@ -22,7 +22,7 @@ export default function DivisionHero({ sportName, icon, bgImage, gender, setGend
   };
 
   return (
-    <div className="relative w-full h-[50vh] md:h-[45vh] min-h-[400px] flex items-end pb-14 md:pb-18 bg-[#c8102e] overflow-hidden">
+    <div className="relative w-full h-[50svh] md:h-[45svh] min-h-[400px] flex items-end pb-14 md:pb-18 bg-[#c8102e] overflow-hidden">
       {/* Immersive Background */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-40 scale-105 animate-pulse-slow"

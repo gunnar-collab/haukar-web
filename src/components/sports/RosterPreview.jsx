@@ -26,7 +26,7 @@ export default function RosterPreview({ players, loading, title, subtitle, sport
         )}
         {players.slice(0, 5).map((player) => {
           const Wrapper = isKarate ? 'div' : Link;
-          const wrapperProps = isKarate ? { key: player.slug } : { to: `/leikmenn/${player.slug}`, state: { player }, key: player.number };
+          const wrapperProps = isKarate ? { key: player.slug } : { to: `/leikmenn/${player.slug}`, state: { player: { ...player, sport } }, key: player.number };
 
           return (
             <Wrapper 
