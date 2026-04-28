@@ -27,6 +27,13 @@ body {
     -webkit-touch-callout: none; /* Disable long-press popup */
 }
 
+/* Fix for Firefox mobile scrolling issues while keeping iOS rubber-band protection */
+@supports (-moz-appearance:none) {
+    body {
+        overscroll-behavior-y: auto;
+    }
+}
+
 @keyframes bodyFadeIn {
     to { opacity: 1; }
 }

@@ -51,12 +51,12 @@ function NewsCardSlider({ images, title }) {
 export default function NewsGrid() {
   // Sort by date (assuming ISO format or descending order in array)
   // For now we just use the order in newsArticles
-  const anniversary = newsArticles.find(a => a.slug === 'afmaeli-hauka-95-ara');
+  const adalfundur = newsArticles.find(a => a.slug === 'adalfundur-2026');
   const hjortur = newsArticles.find(a => a.slug === 'hjortur-ingi-snyr-heim');
   const nano = newsArticles.find(a => a.slug === 'nano-banana-ny-orka');
   const basket = newsArticles.find(a => a.slug === 'urslitakeppni-korfu');
   const football = newsArticles.find(a => a.slug === 'haukar-bikar-sigur-olafsvik') || newsArticles.find(a => a.slug === 'undirbuningsmot-fotbolti');
-  const featured = anniversary || newsArticles[0];
+  const featured = adalfundur || newsArticles[0];
 
   return (
     <section className="w-full bg-white py-10 md:py-16 border-b border-gray-100">
@@ -95,7 +95,7 @@ export default function NewsGrid() {
              
              <div className="relative z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                <span className="bg-[#D4AF37] text-white text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded mb-3 inline-block shadow-sm">
-                 95 Ára Afmæli
+                 {featured.category}
                </span>
                <h2 className="text-3xl font-black text-white leading-tight drop-shadow-md">
                  {featured.title}
@@ -161,7 +161,7 @@ export default function NewsGrid() {
           </Link>
 
           {/* Bottom Right Card: Nano Banana */}
-          <Link to={`/frett/${nano.slug}`} className="bg-white rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
+          <Link to={`/frett/${nano.slug}`} className="bg-white rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(212,175,55,0.12)] border-t-[6px] border-[#D4AF37] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col relative overflow-hidden group">
             <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3 block">
               {nano.category} • Nýtt
             </span>

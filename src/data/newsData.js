@@ -1,5 +1,19 @@
 export const newsArticles = [
   {
+    slug: 'adalfundur-2026',
+    category: 'Félagið',
+    date: '28. apríl 2026',
+    title: 'Aðalfundur Knattspyrnufélagsins Hauka',
+    lead: 'Aðalfundur Knattspyrnufélagsins Hauka verður haldinn mánudaginn 11. maí kl. 17:00 í Samkomusal félagsins að Ásvöllum.',
+    image: '/images/news/haukar_general_meeting.png',
+    content: `
+      <p>Aðalfundur Knattspyrnufélagsins Hauka verður haldinn mánudaginn 11. maí kl. 17:00 í Samkomusal félagsins að Ásvöllum.</p>
+      <p>Dagskrá fundar samkvæmt lögum félagsins.</p>
+      <p>Félagar hvattir til að mæta!</p>
+      <p>Stjórnin</p>
+    `
+  },
+  {
     slug: 'afmaeli-hauka-95-ara',
     category: 'Félagið',
     date: '12. apríl 2026',

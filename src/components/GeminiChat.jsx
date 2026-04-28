@@ -69,6 +69,11 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
       
       MIKILVÆG REGLA UM LENGD: HALTU SVÖRUM ÞÍNUM MJÖG STUTTUM OG HNITMIÐUÐUM! Ekki skrifa langar ritgerðir. Svaraðu í mesta lagi 2-3 stuttum setningum í einu. Vertu snöggur og beittur.
       
+      MIKILVÆGT UM MÁLFAR OG ORÐALAG: 
+      - Aldrei nota orð eins og "Körfuboltakvennurnar" eða "Körfuboltakarlarnir". 
+      - Notaðu alltaf eðlilegt íslenskt talmál: "í kvennakörfunni" og "í karlakörfunni", eða "körfuboltastelpurnar" og "körfuboltastrákarnir". 
+      - Þetta gildir um allar íþróttir (t.d. "handboltastelpurnar", "fótboltastrákarnir").
+      
       MIKILVÆGAR STAÐREYNDIR UM HAUKA:
       - Núverandi ár er ${currentYear}. Haukar eru ${clubAge} ára gamlir.
       - Notandinn er að skoða deild: ${contextSportId.toUpperCase()}.
@@ -80,7 +85,10 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
       LEITARVÉL (GOOGLE SEARCH GROUNDING):
       - Þú hefur aðgang að Google Search. 
       - Ef notandinn spyr um eitthvað sem þú veist ekki (t.d. gamla leikmenn, stjórnarmenn, eða annað um félagið), leitaðu þá FYRST á opinberu heimasíðu félagsins: "haukar.is".
-      - Fyrir nýjustu íþróttafréttir eða leikmannaslúður, forgangsraðaðu að leita á "fotbolti.net", "mbl.is íþróttir", og "visir.is íþróttir".
+      - Fyrir nýjustu íþróttafréttir, forgangsraðaðu "fotbolti.net" eða "visir.is íþróttir".
+      - MIKILVÆGT: Ef spurt er um eða beðið um að sjá stöðutöflur í fótboltanum, notaðu og bentu ALLTAF á þessar nákvæmu slóðir:
+        * Karla (2. deild): https://fotbolti.net/stodutoflur-islenski/7025676
+        * Kvenna (Lengjudeild): https://fotbolti.net/stodutoflur-islenski/7025548
 
       NOTANDINN ER NÚNA Á ÞESSARI SÍÐU: "${location.pathname}"
       - Ef hann er á /fotbolti eða /korfubolti, talaðu um þá íþrótt. Tengdu alltaf við síðuna ef það á við!
@@ -166,22 +174,27 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
       <div 
         className={`fixed top-1/2 right-0 -translate-y-1/2 z-[95] transition-transform duration-500 ${isOpen ? 'translate-x-full' : 'translate-x-0'}`}
       >
-        {/* Gemini Sparkle */}
-        <div className={`absolute top-1/2 -left-6 -translate-y-1/2 pointer-events-none transition-opacity duration-1000 ${isSparkling ? 'opacity-100 animate-pulse' : 'opacity-80'}`}>
-          <span className={`material-symbols-outlined text-[#D4AF37] text-[18px] ${isSparkling ? 'animate-[spin_6s_linear_infinite]' : ''}`}>auto_awesome</span>
-        </div>
-
-        <button 
+        {/* Invisible touch target wrapper for mobile */}
+        <div 
+          className="pl-6 py-10 cursor-pointer flex items-center group"
           onClick={() => setIsOpen(true)}
-          className="relative bg-gradient-to-b from-[#D4AF37] via-yellow-200 to-[#D4AF37] text-[#1c2c6c] rounded-l-xl w-1.5 h-20 shadow-[-4px_0_15px_rgba(212,175,55,0.6)] flex items-center justify-center hover:w-6 transition-all duration-300 group focus:outline-none"
         >
-          {/* Subtle pulse effect on the sliver */}
-          <div className={`absolute inset-0 bg-white/20 rounded-l-xl transition-opacity duration-1000 ${isSparkling ? 'animate-pulse opacity-100' : 'opacity-0'}`}></div>
-          
-          <span className="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-            smart_toy
-          </span>
-        </button>
+          {/* Gemini Sparkle */}
+          <div className={`absolute top-1/2 -left-4 -translate-y-1/2 pointer-events-none transition-opacity duration-1000 ${isSparkling ? 'opacity-100 animate-pulse' : 'opacity-80'}`}>
+            <span className={`material-symbols-outlined text-[#D4AF37] text-[18px] ${isSparkling ? 'animate-[spin_6s_linear_infinite]' : ''}`}>auto_awesome</span>
+          </div>
+
+          <button 
+            className="relative bg-gradient-to-b from-[#D4AF37] via-yellow-200 to-[#D4AF37] text-[#1c2c6c] rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_15px_rgba(212,175,55,0.6)] flex items-center justify-center sm:group-hover:w-6 transition-all duration-300 focus:outline-none pointer-events-none"
+          >
+            {/* Subtle pulse effect on the sliver */}
+            <div className={`absolute inset-0 bg-white/20 rounded-l-xl transition-opacity duration-1000 ${isSparkling ? 'animate-pulse opacity-100' : 'opacity-0'}`}></div>
+            
+            <span className="material-symbols-outlined text-[16px] opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 delay-100">
+              smart_toy
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* --- DEMO: LIVE BROADCAST TRIGGER (Sleeping Mode) --- */}
