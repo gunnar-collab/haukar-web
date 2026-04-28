@@ -94,7 +94,7 @@ export default function NewsGrid() {
              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
              
              <div className="relative z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-               <span className="bg-[#fbbf24] text-black text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded mb-3 inline-block shadow-sm">
+               <span className="bg-[#D4AF37] text-white text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded mb-3 inline-block shadow-sm">
                  95 Ára Afmæli
                </span>
                <h2 className="text-3xl font-black text-white leading-tight drop-shadow-md">
@@ -115,7 +115,7 @@ export default function NewsGrid() {
             <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
               {basket.category} • {basket.date}
             </span>
-            <h3 className="text-xl font-bold text-[#c8102e] leading-tight group-hover:text-[#1c2c6c] transition-colors">
+            <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight group-hover:text-[#c8102e] transition-colors">
               {basket.title}
             </h3>
           </Link>
@@ -132,40 +132,40 @@ export default function NewsGrid() {
             <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
               {football.category} • {football.date}
             </span>
-            <h3 className="text-xl font-bold text-[#c8102e] leading-tight group-hover:text-[#1c2c6c] transition-colors">
+            <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight group-hover:text-[#c8102e] transition-colors">
               {football.title}
             </h3>
           </Link>
 
-          {/* Bottom Middle Card: Hjörtur Ingi (RED Highlight Card) */}
-          <Link to={`/frett/${hjortur.slug}`} className="bg-[#c8102e] rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(200,16,46,0.1)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.2)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col relative overflow-hidden group">
-            <div className="absolute top-0 right-0 -mt-6 -mr-4 text-white/10 text-9xl font-black italic select-none">
+          {/* Bottom Middle Card: Hjörtur Ingi (Clean White Highlight Card) */}
+          <Link to={`/frett/${hjortur.slug}`} className="bg-white rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.12)] border-t-[6px] border-[#c8102e] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col relative overflow-hidden group">
+            <div className="absolute top-0 right-0 -mt-6 -mr-4 text-[#c8102e]/5 text-9xl font-black italic select-none group-hover:text-[#c8102e]/10 transition-colors">
               H
             </div>
             
             <div className="relative z-10 flex-grow">
-              <span className="text-white/80 text-[10px] font-bold uppercase tracking-widest mb-3 block">
+              <span className="text-[#c8102e] bg-[#c8102e]/10 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-3 inline-block">
                 {hjortur.category} • {hjortur.date}
               </span>
-              <h3 className="text-2xl font-bold text-white leading-tight mb-3">
+              <h3 className="text-2xl font-bold text-[#1c2c6c] leading-tight mb-3 group-hover:text-[#c8102e] transition-colors">
                 {hjortur.title}
               </h3>
-              <p className="text-white/90 text-sm line-clamp-2">
+              <p className="text-gray-500 text-sm line-clamp-2">
                 {hjortur.lead}
               </p>
             </div>
             
-            <div className="relative z-10 mt-4 flex items-center text-white text-sm font-bold">
+            <div className="relative z-10 mt-4 flex items-center text-[#c8102e] text-sm font-bold">
               Lesa meira <span className="ml-1 text-lg leading-none group-hover:translate-x-1 transition-transform">&rsaquo;</span>
             </div>
           </Link>
 
           {/* Bottom Right Card: Nano Banana */}
-          <Link to={`/frett/${nano.slug}`} className="bg-gray-50 border border-gray-100 rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
+          <Link to={`/frett/${nano.slug}`} className="bg-white rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
             <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3 block">
               {nano.category} • Nýtt
             </span>
-            <h3 className="text-xl font-bold text-[#c8102e] leading-tight mb-3">
+            <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight mb-3 group-hover:text-[#c8102e] transition-colors">
               {nano.title}
             </h3>
             <p className="text-gray-500 text-sm line-clamp-3 mb-4 flex-grow">

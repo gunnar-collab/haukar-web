@@ -49,11 +49,11 @@ export default function Fraedsla() {
         </div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <span className="text-[#c8102e] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Haukar • Fræðsla & Öryggi</span>
-          <h1 className="text-5xl lg:text-7xl font-black italic tracking-tighter text-white uppercase leading-none mb-6">
-            Öruggt og faglegt <br /> <span className="text-[#c8102e]">íþróttastarf</span>
+          <span className="text-[#D4AF37] text-xs font-bold uppercase tracking-[0.3em] mb-4 block drop-shadow-sm">Haukar • Fræðsla & Öryggi</span>
+          <h1 className="text-5xl lg:text-7xl font-black italic tracking-tighter text-white uppercase leading-none mb-6 drop-shadow-lg">
+            Öruggt og faglegt <br /> <span className="text-[#D4AF37]">íþróttastarf</span>
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto font-medium">
+          <p className="text-white/80 text-lg max-w-2xl mx-auto font-medium">
             Hjá Haukum leggjum við ríka áherslu á að veita iðkendum, foreldrum og þjálfurum góða fræðslu. Við vinnum náið með ÍSÍ að því að tryggja faglegt og öruggt umhverfi á Ásvöllum.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function Fraedsla() {
       {/* Intro Text & Response Team */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          <div className="bg-gray-50 p-10 rounded-[40px] border border-gray-100 flex flex-col justify-center">
+          <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100 flex flex-col justify-center">
             <h2 className="text-2xl lg:text-3xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mb-6 leading-tight">
               Samskiptaráðgjafi <br /> 
               <span className="text-[#c8102e] text-lg lg:text-2xl tracking-normal whitespace-nowrap block mt-1">íþróttahreyfingarinnar</span>
@@ -75,7 +75,7 @@ export default function Fraedsla() {
             </a>
           </div>
 
-          <div className="bg-white p-10 rounded-[40px] border-2 border-[#1c2c6c]/5 shadow-sm">
+          <div className="bg-white p-10 rounded-3xl border-2 border-[#1c2c6c]/5 shadow-sm">
             <h2 className="text-3xl font-black italic tracking-tighter text-[#1c2c6c] uppercase mb-6 leading-none">Viðbragðsteymi <br /> <span className="text-[#c8102e]">Hauka</span></h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">
               Viðbragðsteymi Hauka er virkt við óvæntum áföllum, grun um einelti, áreitni eða ofbeldi.
@@ -109,7 +109,7 @@ export default function Fraedsla() {
               { step: "04", stepLabel: "Úrvinnsla", desc: "Leyst innan félags eða vísað áfram." },
               { step: "05", stepLabel: "Niðurstaða", desc: "Tilkynnt til allra hlutaðeigandi." }
             ].map((step, i) => (
-              <div key={i} className="relative bg-white border border-gray-100 p-6 rounded-3xl text-center group hover:bg-gray-50 transition-colors">
+              <div key={i} className="relative bg-white border border-gray-100 p-6 rounded-2xl text-center group hover:bg-gray-50 transition-colors">
                 <span className="text-4xl font-black text-gray-100 group-hover:text-[#c8102e]/10 transition-colors absolute top-4 left-1/2 -translate-x-1/2">{step.step}</span>
                 <div className="relative z-10 pt-8">
                   <h5 className="font-bold text-[#1c2c6c] text-sm mb-2">{step.stepLabel || step.title}</h5>
@@ -129,8 +129,8 @@ export default function Fraedsla() {
         {/* Category Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((cat, idx) => (
-            <div key={idx} className="group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col h-full">
-              <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#c8102e] group-hover:text-white transition-colors">
+            <div key={idx} className="group bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col h-full">
+              <div className="w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#c8102e] group-hover:text-white transition-colors">
                 <span className="material-symbols-outlined text-3xl">{cat.icon}</span>
               </div>
               <h4 className="text-xl font-bold text-[#1c2c6c] mb-3">{cat.title}</h4>
@@ -147,7 +147,7 @@ export default function Fraedsla() {
 
       {/* Call to Action */}
       <section className="max-w-7xl mx-auto px-6">
-        <div className="bg-[#c8102e] rounded-[40px] p-12 text-center text-white relative overflow-hidden">
+        <div className="bg-[#c8102e] rounded-3xl p-12 text-center text-white relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-4xl font-black italic tracking-tighter uppercase mb-4">Ertu með spurningar?</h2>
             <p className="text-white/80 mb-8 max-w-xl mx-auto">

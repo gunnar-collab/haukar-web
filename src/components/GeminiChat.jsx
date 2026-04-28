@@ -1,10 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useAiContext } from '../hooks/useAiContext';
+import { HAUKAR_STATIC_KNOWLEDGE } from '../data/staticKnowledge';
 
-export default function GeminiChat({ onOpenTickets }) {
+export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSearchQuery, setInitialSearchQuery }) {
   const location = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const { sportId: contextSportId, contextString } = useAiContext();
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
     { 
@@ -13,7 +16,36 @@ export default function GeminiChat({ onOpenTickets }) {
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
+  const [isSparkling, setIsSparkling] = useState(true);
   const messagesEndRef = useRef(null);
+
+  // --- SWIPE GESTURE STATE ---
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchEnd - touchStart;
+    // Drawer is on the right, so swiping right (positive distance) closes it.
+    if (distance > minSwipeDistance) {
+      setIsOpen(false);
+    }
+  };
+  // ---------------------------
+
+  // Stop the initial animation after 6 seconds to prevent UX fatigue
+  useEffect(() => {
+    const timer = setTimeout(() => setIsSparkling(false), 6000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Initialize the Gemini Engine only if the key is available
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
@@ -23,40 +55,42 @@ export default function GeminiChat({ onOpenTickets }) {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
 
-  const handleSend = async (e) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    const userText = input;
+  const triggerAiQuery = async (userText) => {
     setMessages(prev => [...prev, { role: 'user', text: userText }]);
-    setInput('');
     setIsTyping(true);
 
     try {
-      // 1. Math variables MUST be defined here before the prompt uses them!
       const currentYear = new Date().getFullYear();
       const foundationYear = 1931;
       const clubAge = currentYear - foundationYear;
 
-      // 2. The Upgraded System Prompt with Page Context & Action Triggers
       const systemPrompt = `Þú ert 'Haukur í horni', brjálaður ofuraðdáandi og goðsögn hjá Knattspyrnufélaginu Haukum á Íslandi. 
       Þú elskar klúbbinn út af lífinu. Þú ert alltaf klár í slaginn, talar af mikilli ástríðu, notar orðatiltæki eins og "Áfram Haukar!" og "Rauða maskínan!", og neitar að viðurkenna að FH sé til.
       
       MIKILVÆG REGLA UM LENGD: HALTU SVÖRUM ÞÍNUM MJÖG STUTTUM OG HNITMIÐUÐUM! Ekki skrifa langar ritgerðir. Svaraðu í mesta lagi 2-3 stuttum setningum í einu. Vertu snöggur og beittur.
       
-      MIKILVÆGAR STAÐREYNDIR:
+      MIKILVÆGAR STAÐREYNDIR UM HAUKA:
       - Núverandi ár er ${currentYear}. Haukar eru ${clubAge} ára gamlir.
-      - Nýjustu fréttir: Haukar unnu Val 24-21. Þráinn Orri var frábær. Næsti leikur er á móti FH.
-      - Æfingatafla: 5. flokkur karla og kvenna í handbolta æfa á mánudögum kl. 16:00, miðvikudögum kl. 17:00 og föstudögum kl. 15:30 á Ásvöllum.
+      - Notandinn er að skoða deild: ${contextSportId.toUpperCase()}.
+      - Hér eru nýjustu lifandi tölfræði og gögn úr gagnagrunninum (notaðu þetta til að svara spurningum!):
+        ${contextString}
+
+      ${HAUKAR_STATIC_KNOWLEDGE}
+
+      LEITARVÉL (GOOGLE SEARCH GROUNDING):
+      - Þú hefur aðgang að Google Search. 
+      - Ef notandinn spyr um eitthvað sem þú veist ekki (t.d. gamla leikmenn, stjórnarmenn, eða annað um félagið), leitaðu þá FYRST á opinberu heimasíðu félagsins: "haukar.is".
+      - Fyrir nýjustu íþróttafréttir eða leikmannaslúður, forgangsraðaðu að leita á "fotbolti.net", "mbl.is íþróttir", og "visir.is íþróttir".
 
       NOTANDINN ER NÚNA Á ÞESSARI SÍÐU: "${location.pathname}"
-      - Ef hann er á /fotbolti, minnstu á fótboltann. Ef hann er á /korfubolti, talaðu um körfuna og hrósaðu liðinu. Tengdu alltaf við síðuna ef það á við!
+      - Ef hann er á /fotbolti eða /korfubolti, talaðu um þá íþrótt. Tengdu alltaf við síðuna ef það á við!
 
       ***TÖFRAVIRKNI (ACTION TRIGGERS)***
-      Ef notandinn spyr eitthvað tengt því að kaupa miða, fara á leik, eða vill miða, ÞÁ SKALTU SETJA ÞENNAN KÓÐA NÁKVÆMLEGA SVONA INN Í SVARIÐ ÞITT: [ACTION_OPEN_TICKETS]
-      (Ég mun grípa þennan kóða og opna miðasöluna sjálfkrafa fyrir notandann).`;
+      Haukur getur stjórnað vefsíðunni! Ef notandinn biður um að gera eitthvað af eftirfarandi, bættu þá viðkomandi TÖFRAKÓÐA aftast í svarið þitt. Ég (kerfið) mun grípa kóðann og framkvæma aðgerðina:
+      1. Ef notandi vill kaupa MIÐA, spyr um MIÐASÖLU, eða vill fara á leik -> Notaðu kóðann: [ACTION_OPEN_TICKETS]
+      2. Ef notandi vill kaupa TREYJU, FATNAÐ, MERCH eða vill fara í VEFVERSLUN/BÚÐINA -> Notaðu kóðann: [ACTION_OPEN_SHOP]
+      3. Ef notandi spyr hvort VEISLUSALUR sé laus á ákveðnum degi, eða vill BÓKA SALINN -> Svaraðu að notandinn verði að senda inn fyrirspurn og notaðu síðan kóðann: [ACTION_OPEN_VEISLUSALUR]`;
       
-      // 3. Call the API
       if (!ai) {
         throw new Error('API Key is missing');
       }
@@ -64,18 +98,38 @@ export default function GeminiChat({ onOpenTickets }) {
       const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash',
         contents: `${systemPrompt}\n\nNotandi: ${userText}`,
+        config: {
+          tools: [{ googleSearch: {} }]
+        }
       });
 
       let botReply = response.text;
       
-      // 4. Parse the Action Trigger
       if (botReply.includes('[ACTION_OPEN_TICKETS]')) {
-        // Remove the invisible token
         botReply = botReply.replace('[ACTION_OPEN_TICKETS]', '').trim();
-        // Trigger the UI action
         if (onOpenTickets) {
-          setTimeout(() => onOpenTickets(), 800); // Slight delay for dramatic effect
+          setTimeout(() => onOpenTickets(), 800);
         }
+      }
+
+      if (botReply.includes('[ACTION_OPEN_SHOP]')) {
+        botReply = botReply.replace('[ACTION_OPEN_SHOP]', '').trim();
+        setTimeout(() => {
+          setIsOpen(false);
+          navigate('/vefverslun');
+        }, 1200); 
+      }
+
+      if (botReply.includes('[ACTION_OPEN_VEISLUSALUR]')) {
+        botReply = botReply.replace('[ACTION_OPEN_VEISLUSALUR]', '').trim();
+        setTimeout(() => {
+          setIsOpen(false);
+          navigate('/veislusalur');
+          // Give the page a tiny bit of time to render before scrolling to the form
+          setTimeout(() => {
+            document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        }, 1200);
       }
       
       setMessages(prev => [...prev, { role: 'gemini', text: botReply }]);
@@ -91,34 +145,104 @@ export default function GeminiChat({ onOpenTickets }) {
     }
   };
 
+  const handleSend = (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    triggerAiQuery(input);
+    setInput('');
+  };
+
+  useEffect(() => {
+    if (initialSearchQuery && isOpen) {
+      const formattedQuery = `Geturðu fundið "${initialSearchQuery}" fyrir mig?`;
+      triggerAiQuery(formattedQuery);
+      setInitialSearchQuery(''); 
+    }
+  }, [initialSearchQuery, isOpen]);
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-      
+    <>
+      {/* The Edge Panel Trigger (Closed State) */}
       <div 
-        className={`bg-white w-[calc(100vw-3rem)] sm:w-[350px] rounded-2xl shadow-2xl border border-gray-200 overflow-hidden transition-all duration-300 origin-bottom-right ${
-          isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none absolute'
-        }`}
+        className={`fixed top-1/2 right-0 -translate-y-1/2 z-[95] transition-transform duration-500 ${isOpen ? 'translate-x-full' : 'translate-x-0'}`}
       >
-        {/* FIXED: Swapped to Haukar Red, updated Typography to match site branding */}
-        <div className="bg-[#c8102e] text-white p-4 flex items-center justify-between shadow-md relative z-10 rounded-t-2xl">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-yellow-400">smart_toy</span>
-            <span className="text-xl font-black italic tracking-tighter uppercase">Haukur í horni</span>
-          </div>
-          <button onClick={() => setIsOpen(false)} className="hover:text-black/30 transition-colors">
-            <span className="material-symbols-outlined">close</span>
-          </button>
+        {/* Gemini Sparkle */}
+        <div className={`absolute top-1/2 -left-6 -translate-y-1/2 pointer-events-none transition-opacity duration-1000 ${isSparkling ? 'opacity-100 animate-pulse' : 'opacity-80'}`}>
+          <span className={`material-symbols-outlined text-[#D4AF37] text-[18px] ${isSparkling ? 'animate-[spin_6s_linear_infinite]' : ''}`}>auto_awesome</span>
         </div>
 
-        {/* FIXED: Swapped bg-surface for a clean bg-gray-50 */}
-        <div className="h-80 p-4 overflow-y-auto bg-gray-50 flex flex-col gap-4">
+        <button 
+          onClick={() => setIsOpen(true)}
+          className="relative bg-gradient-to-b from-[#D4AF37] via-yellow-200 to-[#D4AF37] text-[#1c2c6c] rounded-l-xl w-1.5 h-20 shadow-[-4px_0_15px_rgba(212,175,55,0.6)] flex items-center justify-center hover:w-6 transition-all duration-300 group focus:outline-none"
+        >
+          {/* Subtle pulse effect on the sliver */}
+          <div className={`absolute inset-0 bg-white/20 rounded-l-xl transition-opacity duration-1000 ${isSparkling ? 'animate-pulse opacity-100' : 'opacity-0'}`}></div>
+          
+          <span className="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+            smart_toy
+          </span>
+        </button>
+      </div>
+
+      {/* --- DEMO: LIVE BROADCAST TRIGGER (Sleeping Mode) --- */}
+      {/*
+      <div 
+        className={`fixed top-[65%] right-0 -translate-y-1/2 z-[95] transition-transform duration-500 ${isOpen ? 'translate-x-full' : 'translate-x-0'}`}
+      >
+        <div className="absolute top-1/2 -left-8 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+          <div className="absolute w-12 h-12 rounded-full border border-red-500 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+          <div className="absolute w-8 h-8 rounded-full border-2 border-red-500 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite_0.5s]"></div>
+          <div className="w-2.5 h-2.5 bg-red-600 rounded-full animate-pulse shadow-[0_0_10px_rgba(220,38,38,0.8)]"></div>
+        </div>
+
+        <button 
+          onClick={() => setIsOpen(true)}
+          className="relative bg-gradient-to-b from-[#c8102e] via-red-500 to-[#9b0c23] text-white rounded-l-xl w-2 h-24 shadow-[-4px_0_20px_rgba(200,16,46,0.5)] flex items-center justify-center hover:w-10 transition-all duration-300 group focus:outline-none"
+        >
+          <div className="absolute inset-0 bg-white/20 rounded-l-xl animate-pulse"></div>
+          
+          <div className="flex flex-col items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 -ml-1">
+            <span className="text-[8px] font-black tracking-widest uppercase mb-0.5">Live</span>
+            <span className="material-symbols-outlined text-[16px] animate-pulse">podcasts</span>
+          </div>
+        </button>
+      </div>
+      */}
+      {/* --------------------------------------------------------- */}
+
+      {/* Universal Background Overlay (Click to close instantly) */}
+      <div 
+        className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-[94] transition-opacity duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setIsOpen(false)}
+      ></div>
+
+      {/* The Sidebar Drawer (Open State) */}
+      <div 
+        className={`fixed top-0 right-0 h-[100dvh] w-[85vw] sm:w-[400px] bg-white shadow-2xl border-l border-gray-100 z-[95] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        
+        {/* Minimalist Close Button (Fixed within the drawer, floats below navbar) */}
+        <button 
+          onClick={() => setIsOpen(false)} 
+          className="absolute top-24 right-4 w-10 h-10 rounded-full text-gray-400 hover:text-[#c8102e] hover:bg-red-50 flex items-center justify-center transition-all z-[96] bg-white/80 backdrop-blur-sm shadow-[0_4px_10px_rgba(0,0,0,0.05)]"
+        >
+          <span className="material-symbols-outlined text-[28px]">close</span>
+        </button>
+
+        {/* Chat Area */}
+        <div className="flex-1 p-5 overflow-y-auto bg-white flex flex-col gap-4 pt-24">
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div 
-                className={`max-w-[85%] p-3 rounded-2xl text-sm font-body whitespace-pre-wrap shadow-sm ${
+                className={`max-w-[85%] p-4 rounded-[1.25rem] text-sm font-body whitespace-pre-wrap shadow-sm ${
                   msg.role === 'user' 
-                    ? 'bg-[#c8102e] text-white rounded-br-none' 
-                    : 'bg-white text-gray-800 border border-gray-200 rounded-bl-none'
+                    ? 'bg-[#1c2c6c] text-white rounded-br-sm' 
+                    : 'bg-white text-gray-800 border border-gray-100 rounded-bl-sm'
                 }`}
               >
                 {msg.text}
@@ -128,78 +252,60 @@ export default function GeminiChat({ onOpenTickets }) {
           
           {isTyping && (
             <div className="flex justify-start">
-              <div className="bg-white border border-gray-200 p-3 rounded-2xl rounded-bl-none shadow-sm flex gap-1 items-center h-[46px]">
-                <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span>
-                <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
-                <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></span>
+              <div className="bg-white border border-gray-100 p-4 rounded-[1.25rem] rounded-bl-sm shadow-sm flex gap-1 items-center h-[52px]">
+                <span className="w-2 h-2 bg-[#c8102e]/40 rounded-full animate-bounce"></span>
+                <span className="w-2 h-2 bg-[#c8102e]/60 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
+                <span className="w-2 h-2 bg-[#c8102e] rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></span>
               </div>
             </div>
           )}
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Quick Action Pills */}
-        <div className="px-3 pb-2 pt-3 bg-white border-t border-gray-100 flex gap-2 overflow-x-auto scrollbar-hide">
+        {/* Action Pills */}
+        <div className="px-4 pb-3 pt-4 bg-white border-t border-gray-100 flex gap-2 overflow-x-auto scrollbar-hide shadow-[0_-10px_20px_rgba(0,0,0,0.02)] relative z-10">
           <button 
             type="button"
             onClick={() => setInput("Hvernig kaupi ég miða?")}
-            className="whitespace-nowrap px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-xs font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
+            className="whitespace-nowrap px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-[11px] font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
           >
             🎫 Kaupa miða
           </button>
           <button 
             type="button"
             onClick={() => setInput("Hvenær er næsti leikur í Körfu?")}
-            className="whitespace-nowrap px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-xs font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
+            className="whitespace-nowrap px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-[11px] font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
           >
             🏀 Næsti körfuboltaleikur
           </button>
           <button 
             type="button"
             onClick={() => setInput("Hvenær eru æfingar hjá 5. flokki í handbolta?")}
-            className="whitespace-nowrap px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-xs font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
+            className="whitespace-nowrap px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-[11px] font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
           >
             📅 Æfingatafla 5. flokks
           </button>
-          <button 
-            type="button"
-            onClick={() => setInput("Hverjir urðu Bikarmeistarar 2026?")}
-            className="whitespace-nowrap px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-xs font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
-          >
-            🏆 Bikarmeistarar
-          </button>
         </div>
 
-        <form onSubmit={handleSend} className="p-3 bg-white flex gap-2 pt-2">
-          <input 
-            type="text" 
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Spyrðu Hauk..." 
-            // FIXED: Focus ring matched to brand color
-            className="flex-1 bg-gray-100 text-sm rounded-full px-4 py-2 outline-none focus:ring-2 focus:ring-[#c8102e]/50 transition-all font-body"
-          />
-          <button 
-            type="submit" 
-            // FIXED: Red button matched to brand color
-            className="w-9 h-9 rounded-full bg-[#c8102e] text-white flex items-center justify-center hover:bg-red-800 transition-colors shrink-0 shadow-sm"
-          >
-            <span className="material-symbols-outlined text-sm">send</span>
-          </button>
-        </form>
+        {/* Input Area */}
+        <div className="p-4 pb-6 sm:pb-8 bg-white">
+          <form onSubmit={handleSend} className="flex gap-2">
+            <input 
+              type="text" 
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Spyrðu Hauk..." 
+              className="flex-1 bg-gray-50 text-sm rounded-full px-5 py-3 outline-none focus:ring-2 focus:ring-[#c8102e]/50 transition-all font-body border border-gray-200"
+            />
+            <button 
+              type="submit" 
+              className="w-12 h-12 rounded-full bg-[#c8102e] text-white flex items-center justify-center hover:bg-[#9b0c23] hover:scale-105 active:scale-95 transition-all shrink-0 shadow-md"
+            >
+              <span className="material-symbols-outlined text-[18px]">send</span>
+            </button>
+          </form>
+        </div>
       </div>
-
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-14 h-14 bg-[#c8102e] text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 hover:bg-red-800 transition-all duration-300 focus:outline-none ${
-          isOpen ? 'scale-0 opacity-0 absolute pointer-events-none' : 'scale-100 opacity-100'
-        }`}
-      >
-        <span className="material-symbols-outlined text-2xl">
-          chat_bubble
-        </span>
-      </button>
-
-    </div>
+    </>
   );
 }

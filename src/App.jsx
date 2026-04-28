@@ -46,6 +46,8 @@ function AppContent() {
   const location = useLocation();
   const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [initialSearchQuery, setInitialSearchQuery] = useState('');
   const { selectedReport, closeReport } = useMatch();
 
   return (
@@ -65,13 +67,17 @@ function AppContent() {
           <Navbar 
             onOpenTickets={() => setIsTicketModalOpen(true)} 
             onOpenLogin={() => setIsLoginModalOpen(true)}
+            onSearchSubmit={(query) => {
+              setInitialSearchQuery(query);
+              setIsChatOpen(true);
+            }}
           />
         </div>
 
         {/* 3. STRICT CONTENT WRAPPER (Destroys all horizontal overflow) */}
         <div 
           key={location.key}
-          className="flex-grow relative z-10 overflow-x-hidden w-full pt-[72px] pb-20 lg:pb-0 page-transition"
+          className="flex-grow relative z-10 overflow-x-hidden w-full pt-[72px] page-transition"
         >
           <Routes>
             <Route path="/leikmenn/:slug" element={<PlayerProfile />} />
@@ -101,7 +107,13 @@ function AppContent() {
 
         {/* 4. Global Pre-Footer & Footer */}
         <AlertToast />
-        <GeminiChat onOpenTickets={() => setIsTicketModalOpen(true)} />
+        <GeminiChat 
+          onOpenTickets={() => setIsTicketModalOpen(true)} 
+          isOpen={isChatOpen}
+          setIsOpen={setIsChatOpen}
+          initialSearchQuery={initialSearchQuery}
+          setInitialSearchQuery={setInitialSearchQuery}
+        />
         <CookieBanner />
         
         {/* 5. Sponsor Wall & Footer sit outside the routes so they render on every page! */}

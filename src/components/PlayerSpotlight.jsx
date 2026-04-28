@@ -29,26 +29,13 @@ export default function PlayerOfTheWeek() {
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           
           {/* Left Column: The Portrait */}
-          <div className="w-full md:w-1/2 lg:w-5/12">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#1c2c6c]/20 group">
-              {/* Premium Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1c2c6c] to-transparent opacity-60 z-10"></div>
-              
+          <div className="w-full md:w-1/2 lg:w-5/12 relative">
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] group">
               <img 
                 src={spotlightPlayer.img} 
                 alt={spotlightPlayer.name} 
                 className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              
-              {/* Overlay Badge */}
-              <div className="absolute bottom-6 left-6 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <span className="bg-[#c8102e] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-2 inline-block shadow-sm">
-                  Markakóngurinn
-                </span>
-                <h3 className="text-3xl font-black text-white italic tracking-tighter uppercase leading-none drop-shadow-md">
-                  Leikmaður<br/>Vikunnar
-                </h3>
-              </div>
             </div>
           </div>
 
@@ -57,7 +44,7 @@ export default function PlayerOfTheWeek() {
             <div className="mb-8">
               <span className="metallic-gold text-sm font-bold uppercase tracking-widest flex items-center gap-2 mb-3 w-max">
                 <span className="material-symbols-outlined text-[18px]">workspace_premium</span>
-                Í nærmynd
+                Markakóngurinn!
               </span>
               <h2 className="text-5xl lg:text-7xl font-black italic tracking-tighter text-[#1c2c6c] uppercase leading-none mb-5">
                 Freyr <br className="hidden lg:block"/>
@@ -76,15 +63,15 @@ export default function PlayerOfTheWeek() {
             <div className="grid grid-cols-3 gap-4 lg:gap-6 mb-10 max-w-lg">
               <div className="bg-white p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Mörk</p>
-                <p className="text-4xl font-black italic text-[#1c2c6c]">{spotlightPlayer.stats.offensive.totalGoals}</p>
+                <p className="text-4xl lg:text-5xl font-black italic text-[#1c2c6c]">{spotlightPlayer.stats.offensive.totalGoals}</p>
               </div>
               <div className="bg-white p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Stöðvanir</p>
-                <p className="text-4xl font-black italic text-[#c8102e]">{spotlightPlayer.stats.defensive.legalStops}</p>
+                <p className="text-4xl lg:text-5xl font-black italic text-[#c8102e]">{spotlightPlayer.stats.defensive.legalStops}</p>
               </div>
               <div className="bg-white p-4 rounded-2xl border border-gray-100 text-center shadow-sm hover:shadow-md transition-shadow">
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Nýting</p>
-                <p className="text-4xl font-black italic text-[#1c2c6c]">66%</p>
+                <p className="text-4xl lg:text-5xl font-black italic text-[#1c2c6c]">66%</p>
               </div>
             </div>
 

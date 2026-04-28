@@ -22,6 +22,27 @@ export default function MobileBottomNav({ onOpenTickets }) {
     }
   };
 
+  // --- SWIPE DOWN GESTURE ---
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const minSwipeDistance = 40;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientY);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientY);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchEnd - touchStart;
+    if (distance > minSwipeDistance) {
+      setActiveSheet(null);
+    }
+  };
+  // --------------------------
+
   return (
     <>
       {/* Dimmed Overlay for Bottom Sheets */}
@@ -39,7 +60,14 @@ export default function MobileBottomNav({ onOpenTickets }) {
           activeSheet === 'deildir' ? "translate-y-0" : "translate-y-full"
         )}
       >
-        <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-6"></div>
+        <div 
+          className="w-full h-8 -mt-2 mb-4 flex items-start justify-center cursor-grab active:cursor-grabbing"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <div className="w-12 h-1.5 bg-gray-200 rounded-full mt-2"></div>
+        </div>
         <h3 className="text-center font-black uppercase tracking-widest text-[#1c2c6c] mb-6 text-sm">
           Veldu Deild
         </h3>
@@ -65,7 +93,14 @@ export default function MobileBottomNav({ onOpenTickets }) {
           activeSheet === 'meira' ? "translate-y-0" : "translate-y-full"
         )}
       >
-        <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-6 sticky top-0"></div>
+        <div 
+          className="w-full h-8 -mt-2 mb-4 flex items-start justify-center cursor-grab active:cursor-grabbing sticky top-0 bg-white"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <div className="w-12 h-1.5 bg-gray-200 rounded-full mt-2"></div>
+        </div>
         <h3 className="text-center font-black uppercase tracking-widest text-[#1c2c6c] mb-6 text-sm">
           Félagið
         </h3>

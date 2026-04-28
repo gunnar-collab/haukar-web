@@ -73,12 +73,12 @@ export default function Sagan() {
         
         <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
           
-          {/* The clean, text-only Navy Blue detail */}
-          <span className="text-[#1c2c6c] text-[10px] md:text-xs font-black uppercase tracking-widest mb-3 block">
+          {/* The clean, text-only Gold detail */}
+          <span className="text-[#D4AF37] text-[10px] md:text-xs font-black uppercase tracking-widest mb-3 block drop-shadow-sm">
             Við erum stolt af sögunni okkar
           </span>
           
-          <h1 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg text-white">
             Sagan Okkar
           </h1>
           <p className="text-white/90 font-medium text-lg md:text-xl leading-relaxed max-w-2xl text-center">

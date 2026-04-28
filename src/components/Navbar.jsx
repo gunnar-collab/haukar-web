@@ -4,9 +4,19 @@ import { NavLink, Link } from 'react-router-dom';
 import { NAV_LINKS } from '../data/navConfig.js';
 import { cn } from '../lib/utils.js';
 
-export default function Navbar({ onOpenTickets, onOpenLogin }) {
+export default function Navbar({ onOpenTickets, onOpenLogin, onSearchSubmit }) {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const activeClassName = "text-[#1c2c6c] border-b-2 border-[#c8102e]";
   const baseClassName = "text-sm font-bold text-gray-500 hover:text-[#1c2c6c] uppercase tracking-wider transition-all py-2";
+
+  const handleSearchSubmit = (e) => {
+    if (e.key === 'Enter' && searchQuery.trim()) {
+      onSearchSubmit(searchQuery.trim());
+      setSearchQuery('');
+      setIsSearchOpen(false);
+    }
+  };
 
   return (
     <nav className="w-full relative z-[100]">
@@ -88,19 +98,37 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            {/* AI Search Button */}
-            <button 
-              className="w-10 h-10 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200 text-[#1c2c6c] hover:text-white hover:from-[#1c2c6c] hover:to-[#2a3b7d] hover:border-[#1c2c6c] hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center transition-all duration-300 group relative shadow-sm"
-              aria-label="Snjall Leit"
-            >
-              <span className="material-symbols-outlined text-[20px]">search</span>
-              <span className="material-symbols-outlined text-[10px] text-[#D4AF37] absolute top-2 right-2 opacity-100 group-hover:animate-ping">auto_awesome</span>
-              
-              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 text-white font-bold text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 flex items-center gap-1.5 shadow-xl border border-white/10 pointer-events-none">
-                <span className="material-symbols-outlined text-[14px] text-[#D4AF37]">auto_awesome</span>
-                Snjall-Leit
+            {/* AI Search Button Desktop */}
+            {isSearchOpen ? (
+              <div className="relative flex items-center animate-[fadeIn_0.2s_ease-out]">
+                <input 
+                  type="text" 
+                  autoFocus
+                  placeholder="Spyrðu Hauk..."
+                  className="w-48 h-10 pl-10 pr-4 rounded-full bg-white border border-[#1c2c6c]/20 text-sm font-medium focus:outline-none focus:border-[#1c2c6c] focus:ring-1 focus:ring-[#1c2c6c] transition-all shadow-inner"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleSearchSubmit}
+                  onBlur={() => setTimeout(() => setIsSearchOpen(false), 200)}
+                />
+                <span className="material-symbols-outlined absolute left-3 text-gray-400 text-[18px]">search</span>
+                <span className="material-symbols-outlined absolute right-3 text-[#D4AF37] text-[14px]">auto_awesome</span>
               </div>
-            </button>
+            ) : (
+              <button 
+                onClick={() => setIsSearchOpen(true)}
+                className="w-10 h-10 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200 text-[#1c2c6c] hover:text-white hover:from-[#1c2c6c] hover:to-[#2a3b7d] hover:border-[#1c2c6c] hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center transition-all duration-300 group relative shadow-sm"
+                aria-label="Snjall Leit"
+              >
+                <span className="material-symbols-outlined text-[20px]">search</span>
+                <span className="material-symbols-outlined text-[10px] text-[#D4AF37] absolute top-2 right-2 opacity-100 group-hover:animate-ping">auto_awesome</span>
+                
+                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 text-white font-bold text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 flex items-center gap-1.5 shadow-xl border border-white/10 pointer-events-none">
+                  <span className="material-symbols-outlined text-[14px] text-[#D4AF37]">auto_awesome</span>
+                  Snjall-Leit
+                </div>
+              </button>
+            )}
 
             <button 
               onClick={onOpenLogin} 
@@ -133,13 +161,30 @@ export default function Navbar({ onOpenTickets, onOpenLogin }) {
 
           <div className="flex lg:hidden items-center gap-2">
             {/* AI Search Mobile (Navbar) */}
-            <button 
-              className="w-10 h-10 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200 text-[#1c2c6c] active:bg-gray-100 active:scale-90 flex items-center justify-center transition-all relative shadow-sm"
-              aria-label="Snjall Leit"
-            >
-              <span className="material-symbols-outlined text-[20px]">search</span>
-              <span className="material-symbols-outlined text-[10px] text-[#D4AF37] absolute top-2 right-2">auto_awesome</span>
-            </button>
+            {isSearchOpen ? (
+              <div className="relative flex items-center animate-[fadeIn_0.2s_ease-out] w-32 sm:w-48">
+                <input 
+                  type="text" 
+                  autoFocus
+                  placeholder="Spyrðu..."
+                  className="w-full h-10 pl-8 pr-3 rounded-full bg-white border border-[#1c2c6c]/20 text-xs font-medium focus:outline-none focus:border-[#1c2c6c] focus:ring-1 focus:ring-[#1c2c6c] transition-all shadow-inner"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleSearchSubmit}
+                  onBlur={() => setTimeout(() => setIsSearchOpen(false), 200)}
+                />
+                <span className="material-symbols-outlined absolute left-2 text-gray-400 text-[16px]">search</span>
+              </div>
+            ) : (
+              <button 
+                onClick={() => setIsSearchOpen(true)}
+                className="w-10 h-10 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200 text-[#1c2c6c] active:bg-gray-100 active:scale-90 flex items-center justify-center transition-all relative shadow-sm"
+                aria-label="Snjall Leit"
+              >
+                <span className="material-symbols-outlined text-[20px]">search</span>
+                <span className="material-symbols-outlined text-[10px] text-[#D4AF37] absolute top-2 right-2">auto_awesome</span>
+              </button>
+            )}
 
           </div>
         </div>

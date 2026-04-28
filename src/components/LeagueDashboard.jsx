@@ -129,26 +129,28 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
 
         
         {/* Tabs Header */}
-        <div className="flex justify-center mb-10">
-          <div className="bg-gray-100 p-1.5 rounded-2xl inline-flex flex-wrap justify-center gap-1 shadow-inner">
-            <button 
-              onClick={() => setActiveTab('stadan')} 
-              className={`px-6 md:px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${activeTab === 'stadan' ? 'bg-white text-[#1c2c6c] shadow-sm' : 'text-gray-400 hover:text-[#1c2c6c]'}`}
-            >
-              Staðan í deildinni
-            </button>
-            <button 
-              onClick={() => setActiveTab('leikir')} 
-              className={`px-6 md:px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${activeTab === 'leikir' ? 'bg-[#c8102e] text-white shadow-sm' : 'text-gray-400 hover:text-[#c8102e]'}`}
-            >
-              Leikjaplan
-            </button>
-            <button 
-              onClick={() => setActiveTab('tolfraedi')} 
-              className={`px-6 md:px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${activeTab === 'tolfraedi' ? 'bg-[#1c2c6c] text-white shadow-sm' : 'text-gray-400 hover:text-[#1c2c6c]'}`}
-            >
-              Tölfræði
-            </button>
+        <div className="flex justify-center mb-10 w-full overflow-hidden">
+          <div className="w-full overflow-x-auto pb-4 -mb-4 hide-scrollbar flex justify-start md:justify-center">
+            <div className="bg-gray-100 p-1.5 rounded-2xl inline-flex flex-nowrap shrink-0 gap-1 shadow-inner mx-auto">
+              <button 
+                onClick={() => setActiveTab('leikir')} 
+                className={`px-4 sm:px-6 md:px-8 py-3 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === 'leikir' ? 'bg-[#c8102e] text-white shadow-sm' : 'text-gray-400 hover:text-[#c8102e]'}`}
+              >
+                Leikjaplan
+              </button>
+              <button 
+                onClick={() => setActiveTab('stadan')} 
+                className={`px-4 sm:px-6 md:px-8 py-3 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === 'stadan' ? 'bg-white text-[#1c2c6c] shadow-sm' : 'text-gray-400 hover:text-[#1c2c6c]'}`}
+              >
+                Staðan í deildinni
+              </button>
+              <button 
+                onClick={() => setActiveTab('tolfraedi')} 
+                className={`px-4 sm:px-6 md:px-8 py-3 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === 'tolfraedi' ? 'bg-[#1c2c6c] text-white shadow-sm' : 'text-gray-400 hover:text-[#1c2c6c]'}`}
+              >
+                Tölfræði
+              </button>
+            </div>
           </div>
         </div>
 
@@ -157,7 +159,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
           {/* Main Content Area (2/3 width) */}
           <div className="lg:col-span-2 h-[600px]">
             {activeTab === 'stadan' && (
-              <div className="bg-white rounded-[2rem] border border-gray-100 overflow-hidden shadow-2xl h-full flex flex-col transition-all hover:shadow-[#1c2c6c]/5">
+              <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-2xl h-full flex flex-col transition-all hover:shadow-[#1c2c6c]/5">
               <div className="bg-[#1c2c6c] p-7 flex justify-between items-center">
                 <h3 className="text-white font-black uppercase tracking-widest text-sm flex items-center gap-3">
                   <span className="material-symbols-outlined text-[#D4AF37] text-2xl">leaderboard</span>
@@ -171,14 +173,14 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                 </div>
               </div>
               <div className="overflow-x-auto flex-grow">
-                <table className="w-full text-left">
+                <table className="w-full text-left min-w-[320px]">
                   <thead>
                     <tr className="border-b border-gray-100 bg-gray-50/50">
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400">Röð</th>
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400">Lið</th>
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">L</th>
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">U</th>
-                      <th className="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">Stig</th>
+                      <th className="px-2 sm:px-4 md:px-8 py-4 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-gray-400">Röð</th>
+                      <th className="px-2 sm:px-4 md:px-8 py-4 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-gray-400">Lið</th>
+                      <th className="px-2 sm:px-4 md:px-8 py-4 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">L</th>
+                      <th className="px-2 sm:px-4 md:px-8 py-4 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">U</th>
+                      <th className="px-2 sm:px-4 md:px-8 py-4 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">Stig</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -189,29 +191,29 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                           team.team.includes('Haukar') ? 'bg-[#c8102e]/5' : ''
                         }`}
                       >
-                        <td className="px-4 md:px-8 py-6">
-                          <span className={`w-7 h-7 flex items-center justify-center rounded-full text-[11px] font-black ${
+                        <td className="px-2 sm:px-4 md:px-8 py-4 sm:py-5">
+                          <span className={`w-5 h-5 sm:w-7 sm:h-7 flex items-center justify-center rounded-full text-[9px] sm:text-[11px] font-black ${
                             team.rank <= 4 ? 'bg-[#D4AF37] text-white shadow-sm' : 'bg-gray-100 text-gray-400'
                           }`}>
                             {team.rank}
                           </span>
                         </td>
-                        <td className="px-4 md:px-8 py-6">
-                          <div className="flex items-center gap-3">
+                        <td className="px-2 sm:px-4 md:px-8 py-4 sm:py-5">
+                          <div className="flex items-center gap-2 sm:gap-3">
                             {team.team.includes('Haukar') && (
-                              <img src="/images/logo.png" alt="" className="w-6 h-6 object-contain" />
+                              <img src="/images/logo.png" alt="" className="w-4 h-4 sm:w-6 sm:h-6 object-contain shrink-0" />
                             )}
-                            <span className={`font-black uppercase italic tracking-tight text-sm md:text-base ${
+                            <span className={`font-black uppercase italic tracking-tight text-[11px] sm:text-sm md:text-base whitespace-nowrap ${
                               team.team.includes('Haukar') ? 'text-[#c8102e]' : 'text-[#1c2c6c]'
                             }`}>
                               {team.team}
                             </span>
                           </div>
                         </td>
-                        <td className="px-4 md:px-8 py-6 text-center font-bold text-gray-400">{team.played}</td>
-                        <td className="px-4 md:px-8 py-6 text-center font-bold text-gray-400">{team.wins ?? 0}</td>
-                        <td className="px-4 md:px-8 py-6 text-center">
-                          <span className="font-black text-[#1c2c6c] text-lg bg-gray-100 px-4 py-1.5 rounded-xl shadow-inner inline-block min-w-[50px]">
+                        <td className="px-2 sm:px-4 md:px-8 py-4 sm:py-5 text-center font-bold text-gray-400 text-[11px] sm:text-sm">{team.played}</td>
+                        <td className="px-2 sm:px-4 md:px-8 py-4 sm:py-5 text-center font-bold text-gray-400 text-[11px] sm:text-sm">{team.wins ?? 0}</td>
+                        <td className="px-2 sm:px-4 md:px-8 py-4 sm:py-5 text-center">
+                          <span className="font-black text-[#1c2c6c] text-[11px] sm:text-lg bg-gray-100 px-3 sm:px-4 py-1 sm:py-1.5 rounded-lg sm:rounded-xl shadow-inner inline-block min-w-[35px] sm:min-w-[50px]">
                             {team.points}
                           </span>
                         </td>
@@ -227,7 +229,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
             )}
 
             {activeTab === 'leikir' && (
-              <div className="bg-[#c8102e] rounded-[2rem] p-8 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col h-full animate-[matchStagger_0.4s_ease-out_forwards]">
+              <div className="bg-[#c8102e] rounded-2xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col h-full animate-[matchStagger_0.4s_ease-out_forwards]">
                 <div className="absolute -top-12 -right-12 opacity-10 transform rotate-12 transition-all duration-1000">
                   <span className="material-symbols-outlined text-[180px]">history</span>
                 </div>
@@ -316,7 +318,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
             )}
 
             {activeTab === 'tolfraedi' && (
-              <div className="bg-gradient-to-br from-[#1c2c6c] to-[#0a1128] rounded-[2rem] p-8 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col h-full animate-[matchStagger_0.4s_ease-out_forwards]">
+              <div className="bg-gradient-to-br from-[#1c2c6c] to-[#0a1128] rounded-2xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col h-full animate-[matchStagger_0.4s_ease-out_forwards]">
                 <div className="absolute -bottom-10 -right-10 opacity-10">
                   <span className="material-symbols-outlined text-[180px]">workspace_premium</span>
                 </div>
@@ -359,7 +361,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
           {/* Sidebar Area (1/3 width) */}
           <div className="lg:col-span-1 flex flex-col h-full">
             {/* Next Match Highlight */}
-            <div className="bg-[#1c2c6c] rounded-[2rem] p-10 text-white shadow-2xl relative overflow-hidden group h-[600px] flex flex-col justify-center">
+            <div className="bg-[#1c2c6c] rounded-2xl p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden group min-h-[400px] lg:h-[600px] flex flex-col justify-center">
                {/* Animated Background Element */}
                <div className="absolute inset-0 bg-gradient-to-br from-[#1c2c6c] to-[#2a3b7d] z-0"></div>
                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#c8102e] rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity"></div>

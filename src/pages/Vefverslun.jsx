@@ -50,7 +50,7 @@ export default function Vefverslun() {
           </div>
           
           <div className="flex flex-wrap justify-center gap-3">
-            {['Allt', 'Errea', 'Boltamaðurinn'].map((shop) => (
+            {['Allt', 'Boltamaðurinn', 'Errea'].map((shop) => (
               <button
                 key={shop}
                 onClick={() => setFilter(shop)}

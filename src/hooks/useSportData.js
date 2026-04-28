@@ -6,13 +6,13 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { dataKarla as fotboltiKarla, dataKvenna as fotboltiKvenna } from '../data/fotboltiData';
 import { dataKarla as handboltiKarla, dataKvenna as handboltiKvenna } from '../data/handboltiData';
 import { skakData } from '../data/skakData';
-import { karateData } from '../data/karateData';
+import { dataKarla as karateKarla, dataKvenna as karateKvenna } from '../data/karateData';
 
 const LOCAL_DATA_FALLBACKS = {
   fotbolti: { karla: fotboltiKarla, kvenna: fotboltiKvenna },
   handbolti: { karla: handboltiKarla, kvenna: handboltiKvenna },
   skak: { default: skakData },
-  karate: { default: karateData }
+  karate: { karla: karateKarla, kvenna: karateKvenna }
 };
 
 /**

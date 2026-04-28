@@ -52,9 +52,12 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               {[ 
-                { icon: 'share', label: 'Facebook', url: 'https://www.facebook.com/haukar' }, 
+                { icon: 'thumb_up', label: 'Facebook', url: 'https://www.facebook.com/haukar' }, 
                 { icon: 'photo_camera', label: 'Instagram', url: 'https://www.instagram.com/haukar_hafnarfjordur/' }, 
-                { icon: 'play_arrow', label: 'YouTube', url: 'https://www.youtube.com/@HaukarTV' } 
+                { icon: 'alternate_email', label: 'X', url: 'https://twitter.com/haukar_hafnarfjordur' },
+                { icon: 'play_arrow', label: 'YouTube', url: 'https://www.youtube.com/@HaukarTV' },
+                { icon: 'music_note', label: 'TikTok', url: 'https://www.tiktok.com/@haukar_hafnarfjordur' },
+                { icon: 'camera_front', label: 'Snapchat', url: 'https://www.snapchat.com/add/haukar_sport' }
               ].map((social) => (
                 <a 
                   key={social.icon} 
@@ -70,8 +73,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Deildir with Icons */}
-          <div>
+          {/* Column 2: Deildir with Icons (Hidden on Mobile) */}
+          <div className="hidden md:block">
             <h3 className="font-bold uppercase tracking-widest mb-6 text-sm text-white">Deildir</h3>
             <ul className="space-y-4 text-sm text-white/80 font-body">
               {NAV_LINKS.deildir.map((sport) => {
@@ -95,7 +98,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          {/* Column 3: Félagið (Hidden on Mobile) */}
+          <div className="hidden md:block">
             <h3 className="font-bold uppercase tracking-widest mb-6 text-sm text-white">Félagið</h3>
             <ul className="space-y-4 text-sm text-white/80 font-body">
               {NAV_LINKS.felagid.map((link) => (
@@ -149,7 +153,7 @@ export default function Footer() {
       </div>
 
       {/* FULL WIDTH Bottom Bar - Dark Crimson */}
-      <div className="bg-[#9b0c23] py-6 w-full">
+      <div className="bg-[#9b0c23] pt-6 pb-[90px] lg:py-6 w-full">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/70 font-body">
           <p>&copy; {new Date().getFullYear()} Íþróttafélagið Haukar. Allur réttur áskilinn.</p>
           <div className="flex gap-6">

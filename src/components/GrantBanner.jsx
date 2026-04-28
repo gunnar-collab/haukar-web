@@ -3,52 +3,34 @@ import { Link } from 'react-router-dom';
 
 export default function GrantBanner() {
   return (
-    <section className="w-full bg-[#c8102e] py-10 md:py-16 relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#1c2c6c] skew-x-[-15deg] translate-x-24 opacity-20"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-32 translate-y-32"></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+    <section className="w-full bg-white py-10 md:py-16">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_10px_40px_rgba(200,16,46,0.08)] border-t-[6px] border-[#c8102e] flex flex-col md:flex-row items-center justify-between gap-10">
           
-          <div className="max-w-2xl text-center lg:text-left">
-            <span className="inline-flex items-center gap-2 bg-white/20 text-white text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full mb-6 border border-white/30">
-              <span className="material-symbols-outlined text-[14px]">info</span>
-              Hafnarfjarðarbær • Frístundastyrkur
+          <div className="flex-1 text-center md:text-left">
+            <span className="inline-flex items-center gap-2 bg-[#c8102e]/10 text-[#c8102e] text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 border border-[#c8102e]/20">
+              <span className="material-symbols-outlined text-[14px]">volunteer_activism</span>
+              54.500 kr. Frístundastyrkur
             </span>
-            <h2 className="text-4xl lg:text-5xl font-black italic tracking-tighter text-white uppercase leading-none mb-6">
-              Nýttu <span className="text-[#1c2c6c]">frístundastyrkinn</span> <br className="hidden lg:block"/> 
-              við skráningu hjá Haukum
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter text-[#1c2c6c] uppercase leading-tight mb-4">
+              Nýttu <span className="text-[#c8102e]">styrkinn</span> við skráningu
             </h2>
-            <p className="text-white/90 text-lg font-medium leading-relaxed mb-8">
-              Börn með lögheimili í Hafnarfirði á aldrinum 6–18 ára eiga rétt á 54.500 kr. frístundastyrk á ári. Styrkurinn er dreginn beint af æfingagjöldum þegar gengið er frá skráningu í Abler.
+            <p className="text-gray-500 text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto md:mx-0">
+              Börn með lögheimili í Hafnarfirði (6–18 ára) eiga rétt á 54.500 kr. frístundastyrk á ári. Styrkurinn dregst sjálfkrafa frá æfingagjöldum þegar gengið er frá skráningu í Abler.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="https://hafnarfjordur.is/thjonusta/skolar-og-born/fristundastyrkir/" target="_blank" rel="noopener noreferrer">
-                <Button variant="secondary" icon="open_in_new" iconPosition="right">
-                  Lesa nánar á hafnarfjordur.is
-                </Button>
-              </a>
-              <Link to="/aefingagjold">
-                <Button variant="ghost" icon="payments">
-                  Sjá æfingagjöld
-                </Button>
-              </Link>
-            </div>
           </div>
 
-          {/* Graphical Element / Badge */}
-          <div className="relative group">
-            <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full bg-white/10 flex items-center justify-center border border-white/20 relative backdrop-blur-sm">
-              <div className="text-center">
-                <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1">Styrkur</p>
-                <p className="text-5xl lg:text-7xl font-black italic text-white leading-none">54.500</p>
-                <p className="text-[#D4AF37] text-xl font-bold italic uppercase tracking-tighter mt-1">krónur</p>
-              </div>
-              
-              {/* Spinning border effect - NOW IN HAUKAR GOLD */}
-              <div className="absolute inset-[-4px] rounded-full border-2 border-dashed border-[#D4AF37] animate-[spin_30s_linear_infinite] opacity-60"></div>
-            </div>
+          <div className="flex flex-col gap-3 w-full md:w-auto shrink-0">
+            <a href="https://hafnarfjordur.is/thjonusta/skolar-og-born/fristundastyrkir/" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button variant="primary" icon="open_in_new" iconPosition="right" className="w-full">
+                Lesa nánar um styrkinn
+              </Button>
+            </a>
+            <Link to="/aefingagjold" className="w-full">
+              <Button variant="outline" icon="payments" className="w-full">
+                Sjá æfingagjöld Hauka
+              </Button>
+            </Link>
           </div>
 
         </div>
