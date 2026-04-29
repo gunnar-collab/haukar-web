@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function GrantBanner() {
   return (
-    <section className="w-full bg-white py-10 md:py-16">
+    <section className="w-full bg-white py-8 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_10px_40px_rgba(200,16,46,0.08)] border-t-[6px] border-[#c8102e] flex flex-col md:flex-row items-center justify-between gap-10">
           

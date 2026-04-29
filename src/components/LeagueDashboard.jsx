@@ -87,7 +87,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
   };
 
   return (
-    <section className="w-full py-12 md:py-24 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden">
+    <section className="w-full py-8 md:py-16 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
@@ -361,7 +361,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
           {/* Sidebar Area (1/3 width) */}
           <div className="lg:col-span-1 flex flex-col h-full">
             {/* Next Match Highlight */}
-            <div className="bg-[#1c2c6c] rounded-2xl p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden group min-h-[400px] lg:h-[600px] flex flex-col justify-center">
+            <div className="bg-[#1c2c6c] rounded-2xl p-6 lg:p-8 text-white shadow-2xl relative overflow-hidden group min-h-[400px] lg:h-[600px] flex flex-col justify-center">
                {/* Animated Background Element */}
                <div className="absolute inset-0 bg-gradient-to-br from-[#1c2c6c] to-[#2a3b7d] z-0"></div>
                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#c8102e] rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity"></div>
@@ -371,14 +371,14 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                     Næsti Heimaleikur
                   </div>
                   
-                  <div className="flex items-center justify-center gap-6 mb-10 w-full">
-                    <div className="flex-1 text-right min-w-0">
-                      <p className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter truncate" title="Haukar">Haukar</p>
-                      <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Heimalið</p>
+                  <div className="flex items-center justify-center gap-3 lg:gap-4 mb-10 w-full px-2">
+                    <div className="text-right shrink-0">
+                      <p className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black italic uppercase tracking-tighter pr-1" title="Haukar">Haukar</p>
+                      <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest pr-1">Heimalið</p>
                     </div>
-                    <div className="text-[#D4AF37] font-black italic text-2xl animate-pulse shrink-0">VS</div>
-                    <div className="flex-1 text-left min-w-0">
-                      <p className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-white/70 truncate" title={sport === 'handbolti' ? 'Valur' : 'Grindavík'}>
+                    <div className="text-[#D4AF37] font-black italic text-xl md:text-2xl animate-pulse shrink-0 px-1">VS</div>
+                    <div className="text-left min-w-0 shrink">
+                      <p className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black italic uppercase tracking-tighter text-white/70 truncate pr-2" title={sport === 'handbolti' ? 'Valur' : 'Grindavík'}>
                         {sport === 'handbolti' ? 'Valur' : 'Grindavík'}
                       </p>
                       <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Gestir</p>

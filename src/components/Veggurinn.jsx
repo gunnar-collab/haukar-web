@@ -45,7 +45,7 @@ export default function Veggurinn() {
   ];
 
   return (
-    <section className="w-full bg-gradient-to-br from-[#c8102e] to-[#9b0c23] py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full py-8 md:py-16 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden border-t border-gray-100">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#1c2c6c]/20 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/4"></div>
@@ -77,7 +77,7 @@ export default function Veggurinn() {
           {posts.map((post) => (
             <div 
               key={post.id} 
-              className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center group bg-white rounded-[2.5rem] overflow-hidden hover:-translate-y-3 transition-all duration-500 shadow-2xl flex flex-col"
+              className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center group bg-white rounded-2xl overflow-hidden hover:-translate-y-3 transition-all duration-500 shadow-2xl flex flex-col"
             >
               {/* Header */}
               <div className="p-5 flex items-center justify-between border-b border-gray-50">
@@ -108,7 +108,7 @@ export default function Veggurinn() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-in-out" 
                 />
                 <div className={cn(
-                  "absolute top-5 right-5 w-10 h-10 rounded-2xl flex items-center justify-center text-white shadow-2xl backdrop-blur-md border border-white/20",
+                  "absolute top-5 right-5 w-10 h-10 rounded-sm flex items-center justify-center text-white shadow-2xl backdrop-blur-md border border-white/20",
                   post.platform === 'Instagram' ? 'bg-gradient-to-tr from-yellow-400/80 via-pink-500/80 to-purple-600/80' : 'bg-[#1877F2]/80'
                 )}>
                   <span className="material-symbols-outlined text-[20px]">

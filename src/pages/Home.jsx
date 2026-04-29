@@ -1,4 +1,5 @@
 import HeroBanner from '../components/HeroBanner';
+import NextHomeGameWidget from '../components/NextHomeGameWidget';
 import NewsGrid from '../components/NewsGrid';
 import PlayerOfTheWeek from '../components/PlayerSpotlight'; 
 import GrantBanner from '../components/GrantBanner';
@@ -13,6 +14,9 @@ export default function Home() {
       
       {/* 1. Cinematic Entry */}
       <HeroBanner />
+      
+      {/* 1.5 Smart Upselling Widget */}
+      <NextHomeGameWidget />
       
       {/* 2. Latest Club News (Bento Grid) */}
       <div id="news">

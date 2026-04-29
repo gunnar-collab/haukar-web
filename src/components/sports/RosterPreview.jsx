@@ -64,8 +64,10 @@ export default function RosterPreview({ players, loading, title, subtitle, sport
   if (noContainer) return content;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 mb-12 md:mb-24 w-full">
-      {content}
-    </div>
+    <section className="w-full bg-white py-8 md:py-16">
+      <div className="max-w-7xl mx-auto px-6 w-full">
+        {content}
+      </div>
+    </section>
   );
 }

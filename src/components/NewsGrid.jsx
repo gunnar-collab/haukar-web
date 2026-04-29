@@ -49,17 +49,14 @@ function NewsCardSlider({ images, title }) {
 }
 
 export default function NewsGrid() {
-  // Sort by date (assuming ISO format or descending order in array)
-  // For now we just use the order in newsArticles
-  const adalfundur = newsArticles.find(a => a.slug === 'adalfundur-2026');
-  const hjortur = newsArticles.find(a => a.slug === 'hjortur-ingi-snyr-heim');
-  const nano = newsArticles.find(a => a.slug === 'nano-banana-ny-orka');
-  const basket = newsArticles.find(a => a.slug === 'urslitakeppni-korfu');
-  const football = newsArticles.find(a => a.slug === 'haukar-bikar-sigur-olafsvik') || newsArticles.find(a => a.slug === 'undirbuningsmot-fotbolti');
-  const featured = adalfundur || newsArticles[0];
+  // Dynamically get the featured article and the 4 latest articles for the grid
+  const featured = newsArticles.find(a => a.featured) || newsArticles[0];
+  const gridArticles = newsArticles.filter(a => a.slug !== featured.slug).slice(0, 4);
+  
+  const [card1, card2, card3, card4] = gridArticles;
 
   return (
-    <section className="w-full bg-white py-10 md:py-16 border-b border-gray-100">
+    <section className="w-full bg-white py-8 md:py-16 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section */}
@@ -80,7 +77,7 @@ export default function NewsGrid() {
         {/* Masonry/Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          {/* Large Left Card: Anniversary Featured Slider */}
+          {/* Large Left Card: Featured Slider / Image */}
           <Link to={`/frett/${featured.slug}`} className="lg:col-span-1 lg:row-span-2 rounded-[2.5rem] overflow-hidden relative group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 min-h-[450px] lg:min-h-full flex flex-col justify-end p-6 bg-black">
              {featured.images ? (
                <NewsCardSlider images={featured.images} title={featured.title} />
@@ -103,78 +100,86 @@ export default function NewsGrid() {
              </div>
           </Link>
 
-          {/* Top Middle Card: Basketball */}
-          <Link to={`/frett/${basket.slug}`} className="bg-white rounded-[2.5rem] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
-            <div className="rounded-2xl aspect-[16/9] mb-4 overflow-hidden bg-gray-100">
-              <img 
-                src={basket.image} 
-                alt={basket.title} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
-              {basket.category} • {basket.date}
-            </span>
-            <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight group-hover:text-[#c8102e] transition-colors">
-              {basket.title}
-            </h3>
-          </Link>
-
-          {/* Top Right Card: Football */}
-          <Link to={`/frett/${football.slug}`} className="bg-white rounded-[2.5rem] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
-            <div className="rounded-2xl aspect-[16/9] mb-4 overflow-hidden bg-gray-100">
-              <img 
-                src={football.image} 
-                alt={football.title} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
-              {football.category} • {football.date}
-            </span>
-            <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight group-hover:text-[#c8102e] transition-colors">
-              {football.title}
-            </h3>
-          </Link>
-
-          {/* Bottom Middle Card: Hjörtur Ingi (Clean White Highlight Card) */}
-          <Link to={`/frett/${hjortur.slug}`} className="bg-white rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.12)] border-t-[6px] border-[#c8102e] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col relative overflow-hidden group">
-            <div className="absolute top-0 right-0 -mt-6 -mr-4 text-[#c8102e]/5 text-9xl font-black italic select-none group-hover:text-[#c8102e]/10 transition-colors">
-              H
-            </div>
-            
-            <div className="relative z-10 flex-grow">
-              <span className="text-[#c8102e] bg-[#c8102e]/10 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-3 inline-block">
-                {hjortur.category} • {hjortur.date}
+          {/* Top Middle Card */}
+          {card1 && (
+            <Link to={`/frett/${card1.slug}`} className="bg-white rounded-[2.5rem] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
+              <div className="rounded-2xl aspect-[16/9] mb-4 overflow-hidden bg-gray-100">
+                <img 
+                  src={card1.image || (card1.images && card1.images[0]?.src)} 
+                  alt={card1.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
+                {card1.category} • {card1.date}
               </span>
-              <h3 className="text-2xl font-bold text-[#1c2c6c] leading-tight mb-3 group-hover:text-[#c8102e] transition-colors">
-                {hjortur.title}
+              <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight group-hover:text-[#c8102e] transition-colors">
+                {card1.title}
               </h3>
-              <p className="text-gray-500 text-sm line-clamp-2">
-                {hjortur.lead}
-              </p>
-            </div>
-            
-            <div className="relative z-10 mt-4 flex items-center text-[#c8102e] text-sm font-bold">
-              Lesa meira <span className="ml-1 text-lg leading-none group-hover:translate-x-1 transition-transform">&rsaquo;</span>
-            </div>
-          </Link>
+            </Link>
+          )}
 
-          {/* Bottom Right Card: Nano Banana */}
-          <Link to={`/frett/${nano.slug}`} className="bg-white rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(212,175,55,0.12)] border-t-[6px] border-[#D4AF37] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col relative overflow-hidden group">
-            <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3 block">
-              {nano.category} • Nýtt
-            </span>
-            <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight mb-3 group-hover:text-[#c8102e] transition-colors">
-              {nano.title}
-            </h3>
-            <p className="text-gray-500 text-sm line-clamp-3 mb-4 flex-grow">
-              {nano.lead}
-            </p>
-            <div className="mt-auto flex items-center text-[#c8102e] text-sm font-bold">
-              Lesa meira <span className="ml-1 text-lg leading-none group-hover:translate-x-1 transition-transform">&rsaquo;</span>
-            </div>
-          </Link>
+          {/* Top Right Card */}
+          {card2 && (
+            <Link to={`/frett/${card2.slug}`} className="bg-white rounded-[2.5rem] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col group">
+              <div className="rounded-2xl aspect-[16/9] mb-4 overflow-hidden bg-gray-100">
+                <img 
+                  src={card2.image || (card2.images && card2.images[0]?.src)} 
+                  alt={card2.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2 block">
+                {card2.category} • {card2.date}
+              </span>
+              <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight group-hover:text-[#c8102e] transition-colors">
+                {card2.title}
+              </h3>
+            </Link>
+          )}
+
+          {/* Bottom Middle Card: Clean White Highlight Card */}
+          {card3 && (
+            <Link to={`/frett/${card3.slug}`} className="bg-white rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.12)] border-t-[6px] border-[#c8102e] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col relative overflow-hidden group">
+              <div className="absolute top-0 right-0 -mt-6 -mr-4 text-[#c8102e]/5 text-9xl font-black italic select-none group-hover:text-[#c8102e]/10 transition-colors">
+                H
+              </div>
+              
+              <div className="relative z-10 flex-grow">
+                <span className="text-[#c8102e] bg-[#c8102e]/10 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-3 inline-block">
+                  {card3.category} • {card3.date}
+                </span>
+                <h3 className="text-2xl font-bold text-[#1c2c6c] leading-tight mb-3 group-hover:text-[#c8102e] transition-colors">
+                  {card3.title}
+                </h3>
+                <p className="text-gray-500 text-sm line-clamp-2">
+                  {card3.lead}
+                </p>
+              </div>
+              
+              <div className="relative z-10 mt-4 flex items-center text-[#c8102e] text-sm font-bold">
+                Lesa meira <span className="ml-1 text-lg leading-none group-hover:translate-x-1 transition-transform">&rsaquo;</span>
+              </div>
+            </Link>
+          )}
+
+          {/* Bottom Right Card: Gold Highlight Card */}
+          {card4 && (
+            <Link to={`/frett/${card4.slug}`} className="bg-white rounded-[2.5rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(212,175,55,0.12)] border-t-[6px] border-[#D4AF37] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 cursor-pointer flex flex-col relative overflow-hidden group">
+              <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3 block">
+                {card4.category} • Nýtt
+              </span>
+              <h3 className="text-xl font-bold text-[#1c2c6c] leading-tight mb-3 group-hover:text-[#c8102e] transition-colors">
+                {card4.title}
+              </h3>
+              <p className="text-gray-500 text-sm line-clamp-3 mb-4 flex-grow">
+                {card4.lead}
+              </p>
+              <div className="mt-auto flex items-center text-[#c8102e] text-sm font-bold">
+                Lesa meira <span className="ml-1 text-lg leading-none group-hover:translate-x-1 transition-transform">&rsaquo;</span>
+              </div>
+            </Link>
+          )}
 
         </div>
       </div>

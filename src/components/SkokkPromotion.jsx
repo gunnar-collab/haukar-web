@@ -17,7 +17,7 @@ export default function SkokkPromotion() {
       </div>
 
       {/* 2. Content Container (Aligned to Site Grid) */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-16 md:py-24 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-8 md:py-16 flex flex-col lg:flex-row items-center justify-between gap-12">
 
         {/* Text Side */}
         <div className="w-full lg:w-3/5 text-white">

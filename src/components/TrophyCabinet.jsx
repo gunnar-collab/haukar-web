@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function TrophyCabinet() {
   return (
-    <section className="w-full bg-white py-10 md:py-16 border-b border-gray-100">
+    <section className="w-full py-8 md:py-16 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section */}

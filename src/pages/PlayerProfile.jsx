@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation, Link, useNavigate, useParams } from 'react-router-dom';
 import { findPlayerBySlug } from '../lib/playerUtils';
+import PlayerSpiderChart from '../components/sports/PlayerSpiderChart';
 
 /**
  * PlayerProfile - Sniðmát fyrir tölfræði leikmanna Hauka
@@ -363,20 +364,29 @@ export default function PlayerProfile() {
           {/* Pro Insight / Fun Fact */}
           <div className="bg-[#1c2c6c] rounded-[2.5rem] p-10 shadow-xl text-white relative overflow-hidden">
             <div className="relative z-10">
-              <div className="w-12 h-12 bg-[#c8102e] rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                <span className="material-symbols-outlined">insights</span>
-              </div>
-              <h4 className="text-xl font-bold uppercase tracking-widest mb-4">Leikgreining</h4>
-              <div className="space-y-6">
-                <div>
-                  <p className="text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Styrkleikar</p>
-                  <p className="text-sm font-medium">Framúrskarandi {player.position?.toLowerCase()} með mikla yfirsýn og öryggi í sínum aðgerðum.</p>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-[#c8102e] rounded-xl flex items-center justify-center shadow-lg">
+                  <span className="material-symbols-outlined">insights</span>
                 </div>
-                <div className="pt-4 border-t border-white/10">
-                  <p className="text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Tölfræði moli</p>
-                  <p className="text-sm font-medium">Hefur tekið þátt í {player.gamesPlayed || player.stats?.gamesPlayed || player.stats?.offensive?.gamesPlayed || player.stats?.goalkeeper?.gamesPlayed || 0} leikjum og er með eina bestu nýtingu liðsins.</p>
-                </div>
+                <h4 className="text-xl font-bold uppercase tracking-widest">Leikgreining</h4>
               </div>
+              
+              {!isFootball ? (
+                <div className="-mx-6">
+                  <PlayerSpiderChart player={player} />
+                </div>
+              ) : (
+                <div className="space-y-6 mt-6">
+                  <div>
+                    <p className="text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Styrkleikar</p>
+                    <p className="text-sm font-medium">Framúrskarandi {player.position?.toLowerCase()} með mikla yfirsýn og öryggi í sínum aðgerðum.</p>
+                  </div>
+                  <div className="pt-4 border-t border-white/10">
+                    <p className="text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Tölfræði moli</p>
+                    <p className="text-sm font-medium">Hefur tekið þátt í {player.gamesPlayed || player.stats?.gamesPlayed || player.stats?.offensive?.gamesPlayed || player.stats?.goalkeeper?.gamesPlayed || 0} leikjum og er með eina bestu nýtingu liðsins.</p>
+                  </div>
+                </div>
+              )}
             </div>
             {/* Background design */}
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#c8102e] rounded-full blur-3xl opacity-20"></div>

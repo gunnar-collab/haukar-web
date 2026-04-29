@@ -1,5 +1,77 @@
 export const newsArticles = [
   {
+    slug: 'stal-i-stal-i-eyjum',
+    featured: true,
+    category: 'Handbolti',
+    date: '29. apríl 2026',
+    title: 'Stál í stál í Eyjum',
+    lead: 'Það var boðið upp á alvöru „stríð“ þegar okkar konur sigldu yfir fjörðinn til að mæta ÍBV. Þetta var leikur sem hafði allt: læti, baráttu og spennu fram á síðustu sekúndu. Því miður féllu hlutirnir ekki með okkur í þetta skiptið og Eyjakonur knúðu fram sigur eftir hrikalega dramatík.',
+    image: '/images/handball/ibv_action_real.jpg',
+    content: `
+      <p>Það var boðið upp á alvöru „stríð“ þegar okkar konur sigldu yfir fjörðinn til að mæta ÍBV. Þetta var leikur sem hafði allt: læti, baráttu og spennu fram á síðustu sekúndu. Því miður féllu hlutirnir ekki með okkur í þetta skiptið og Eyjakonur knúðu fram sigur eftir hrikalega dramatík.</p>
+      <h2 class="text-2xl font-black text-[#1c2c6c] mt-8 mb-4">Barist um hverja einustu tommu!</h2>
+      <p>Það var ljóst frá fyrstu mínútu að ÍBV ætlaði ekki að gefa neitt eftir. Það var barist um hverja einustu tommu á gólfinu og enginn gaf tommu eftir! Haukakonur sýndu mikinn karakter með því að koma til baka, en á ögurstundu vantaði herslumuninn. Við vitum hvað við getum og mætum dýrvitlaus í næsta slag á Ásvöllum.</p>
+      <h3 class="text-xl font-bold text-[#1c2c6c] mt-6 mb-2">Heimildir:</h3>
+      <ul class="list-disc pl-5 space-y-1 mb-6">
+        <li><a href="https://mbl.is" target="_blank" rel="noopener noreferrer" class="text-[#c8102e] hover:underline font-bold">Mbl.is: Svekkjandi tap í Eyjum</a></li>
+        <li><a href="https://visir.is" target="_blank" rel="noopener noreferrer" class="text-[#c8102e] hover:underline font-bold">Vísir: Umfjöllun og viðtöl</a></li>
+      </ul>
+    `
+  },
+  {
+    slug: 'haukastoltid-maett-aftur',
+    category: 'Körfubolti',
+    date: '29. apríl 2026',
+    title: 'Haukastoltið mætt aftur!',
+    lead: 'Það var allt annað að sjá til okkar kvenna í gærkvöldi! Eftir dálítið bras í síðasta leik mættu Haukakonur gjörsamlega dýrvitlausar í Ólafssalinn.',
+    image: '/images/basketball/rosa_bjork_hero.png',
+    content: `
+      <p>Það var allt annað að sjá til okkar kvenna í gærkvöldi! Eftir dálítið bras í síðasta leik mættu Haukakonur gjörsamlega dýrvitlausar í Ólafssalinn. Þær sýndu Keflvíkingum enga miskunn, unnu leikinn 86–72 og leiða nú einvígið 2–1. Nú er bara einn sigur eftir og þá erum við komin í úrslitin!</p>
+      <h2 class="text-2xl font-black text-[#1c2c6c] mt-8 mb-4">Vörnin var eins og múrveggur</h2>
+      <p>Við vissum allar að við gætum gert betur en í síðasta leik þar sem Keflavík fékk að raða niður þristum. Rósa Björk Pétursdóttir sagði það hreint út: við mættum hreinlega til að slökkva á þeim. „Við vorum miklu ákveðnari og leyfðum þeim ekki að gera það sem þeim finnst þægilegast,“ sagði Rósa.</p>
+      <h3 class="text-xl font-bold text-[#1c2c6c] mt-6 mb-2">Heimildir:</h3>
+      <ul class="list-disc pl-5 space-y-1 mb-6">
+        <li><a href="https://mbl.is" target="_blank" rel="noopener noreferrer" class="text-[#c8102e] hover:underline font-bold">Mbl.is: Viðtal við Rósu Björk</a></li>
+        <li><a href="https://ruv.is/sport" target="_blank" rel="noopener noreferrer" class="text-[#c8102e] hover:underline font-bold">RÚV Sport: Samantekt og tölfræði</a></li>
+      </ul>
+    `
+  },
+  {
+    slug: 'haukar-bikar-sigur-olafsvik',
+    category: 'Fótbolti',
+    date: '29. apríl 2026',
+    title: 'Barátta í hávaðaroki í Ólafsvík',
+    lead: 'Það var boðið upp á alvöru íslenskar aðstæður þegar Haukar mættu Víkingum í Lengjubikarnum. Það var svo sannarlega enginn sambabolti spilaður í gærkvöldi, enda erfitt að sýna fíngerða tækni þegar það er hávaðarok og vindurinn reynir að rífa mann af vellinum!',
+    image: '/images/soccer/olafsvik_trophy.jpg',
+    images: [
+      { src: '/images/soccer/olafsvik_trophy.jpg', position: 'center' }
+    ],
+    content: `
+      <p>Það var boðið upp á alvöru íslenskar aðstæður þegar Haukar mættu Víkingum í Lengjubikarnum. Það var svo sannarlega enginn sambabolti spilaður í gærkvöldi, enda erfitt að sýna fíngerða tækni þegar það er hávaðarok og vindurinn reynir að rífa mann af vellinum!</p>
+      
+      <div class="my-6 bg-gray-50 border border-gray-100 rounded-sm p-6 text-center shadow-sm">
+        <h3 class="text-xl font-black text-[#1c2c6c] uppercase tracking-tighter mb-4">Víkingur Ó. 0 - 0 Haukar <span class="text-[#c8102e]">(2-4 e.vítakeppni)</span></h3>
+        <ul class="text-gray-700 font-medium space-y-2 flex flex-col items-center">
+          <li><strong>0-1</strong> Daði Snær Ingason</li>
+          <li><strong>0-2</strong> Máni Mar Steinbjörnsson</li>
+          <li><strong>1-2</strong> Benjamín Mehic</li>
+          <li><strong>1-3</strong> Ævar Daði Segatta</li>
+          <li><strong>2-3</strong> Daði Kárason</li>
+          <li><strong>2-4</strong> Gabríel Aron Sævarsson</li>
+        </ul>
+      </div>
+
+      <h2 class="text-2xl font-black text-[#1c2c6c] mt-8 mb-4">Aðstæður kölluðu á seiglu</h2>
+      <p>Eins og venjulega var barist um hverja einustu tommu á vellinum. Við þessar aðstæður fer fegurðin út um gluggann og eftir stendur hrein og klár seigla. Strákarnir sýndu að þeir eru tilbúnir að óhreinka sig og taka á því þegar á móti blæs – bókstaflega! Að sækja stig í Ólafsvík í svona veðri er alltaf dýrmætt.</p>
+      
+      <h3 class="text-xl font-bold text-[#1c2c6c] mt-6 mb-2">Heimildir:</h3>
+      <ul class="list-disc pl-5 space-y-1 mb-6">
+        <li><a href="https://ksi.is" target="_blank" rel="noopener noreferrer" class="text-[#c8102e] hover:underline font-bold">KSÍ.is: Leikskýrsla og tölfræði</a></li>
+        <li><a href="https://fotbolti.net" target="_blank" rel="noopener noreferrer" class="text-[#c8102e] hover:underline font-bold">Fótbolti.net: Lengjubikarinn í hnotskurn</a></li>
+      </ul>
+    `
+  },
+  {
     slug: 'adalfundur-2026',
     category: 'Félagið',
     date: '28. apríl 2026',
@@ -53,40 +125,7 @@ export const newsArticles = [
       </blockquote>
     `
   },
-  {
-    slug: 'haukar-bikar-sigur-olafsvik',
-    category: 'Fótbolti',
-    date: '26. apríl 2026',
-    title: 'Haukar unnu B-deild Lengjubikarsins eftir vító',
-    lead: 'Haukar tryggðu sér í dag sigur í B-deild Lengjubikarsins með sigri á liði Víkings frá Ólafsvík eftir gríðarlega spennandi vítaspyrnukeppni.',
-    image: '/images/soccer/celebration.png',
-    images: [
-      { src: '/images/soccer/stadium.png', position: 'center' }
-    ],
-    content: `
-      <p>Haukar tryggðu sér í dag sigur í B-deild Lengjubikarsins með sigri á liði Víkings frá Ólafsvík eftir vítaspyrnukeppni.</p>
-      
-      <div class="my-6 bg-gray-50 border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
-        <h3 class="text-xl font-black text-[#1c2c6c] uppercase tracking-tighter mb-4">Víkingur Ó. 0 - 0 Haukar <span class="text-[#c8102e]">(2-4 e.vítakeppni)</span></h3>
-        <ul class="text-gray-700 font-medium space-y-2 flex flex-col items-center">
-          <li><strong>0-1</strong> Daði Snær Ingason</li>
-          <li><strong>0-2</strong> Máni Mar Steinbjörnsson</li>
-          <li><strong>1-2</strong> Benjamín Mehic</li>
-          <li><strong>1-3</strong> Ævar Daði Segatta</li>
-          <li><strong>2-3</strong> Daði Kárason</li>
-          <li><strong>2-4</strong> Gabríel Aron Sævarsson</li>
-        </ul>
-      </div>
 
-      <h2>Krefjandi aðstæður í Ólafsvík</h2>
-      <p>Leikurinn fór fram við afar krefjandi aðstæður í Ólafsvík þar sem talsverður vindur hafði mikil áhrif á framvindu leiksins.</p>
-      <p>Vindurinn stóð beint á völlinn en hvorugu liðinu tókst að nýta sér að leika undan vindinum í sitthvorum hálfleiknum og því var gripið til vítaspyrnukeppni.</p>
-      
-      <h2>Spyrnuvél Hauka kláraði dæmið</h2>
-      <p>Í vítaspyrnukeppninni reyndust Haukar sterkari undir stjórn spyrnusérfræðingsins Guðjóns Péturs Lýðssonar og tryggðu sér Lengjubikarinn með því að skora úr fjórum spyrnum gegn tveimur frá Ólafsvíkingum.</p>
-      <p class="text-xs text-gray-400 mt-8 italic">Myndir: Fótbolti.net - Hulda Margrét</p>
-    `
-  },
   // --- EXISTING HOME PAGE ARTICLES ---
   {
     slug: 'storsigur-asvollum',
@@ -236,7 +275,7 @@ export const newsArticles = [
     date: '5. Maí',
     title: 'Fjölmennt á fótboltaskóla Hauka um helgina',
     lead: 'Gleði og fjör á Ásvöllum þar sem framtíðarstjörnurnar mættu til leiks.',
-    image: '/images/soccer/stadium.png',
+    image: '/images/soccer/kids_football_camp.png',
     content: `<p>Yfir 200 krakkar tóku þátt í fótboltaskóla Hauka um helgina. Veðrið lék við okkur og mikið var um glæsileg mörk.</p>`
   },
 

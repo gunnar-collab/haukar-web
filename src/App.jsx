@@ -21,7 +21,6 @@ import Frettir from './pages/Frettir';
 import Arsskyrslur from './pages/Arsskyrslur';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import AlertToast from './components/AlertToast';
 import GeminiChat from './components/GeminiChat';
 import TicketModal from './components/TicketModal';
 import LoginModal from './components/LoginModal';
@@ -106,7 +105,6 @@ function AppContent() {
         </div>
 
         {/* 4. Global Pre-Footer & Footer */}
-        <AlertToast />
         <GeminiChat 
           onOpenTickets={() => setIsTicketModalOpen(true)} 
           isOpen={isChatOpen}

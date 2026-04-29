@@ -13,7 +13,7 @@ export default function MatchDashboard({
   const { openReport } = useMatch();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 -mt-8 w-full mb-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 -mt-8 w-full pb-8 md:pb-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
         
         {/* LATEST MATCH */}
@@ -28,10 +28,10 @@ export default function MatchDashboard({
             Síðasti {isTournament ? 'Mót' : 'Leikur'} • {lastMatch.competition}
           </span>
           
-          <div className="flex items-center justify-between my-auto w-full">
+          <div className="flex items-center justify-between my-auto w-full gap-2">
             <span className={cn(
-              "text-lg sm:text-xl md:text-2xl font-black italic uppercase truncate text-left w-[35%]",
-              isTournament ? "w-auto text-[#c8102e]" : (lastMatch.homeScore > lastMatch.awayScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]')
+              "text-lg sm:text-xl md:text-2xl font-black italic uppercase truncate text-left",
+              isTournament ? "w-auto text-[#c8102e]" : (lastMatch.home?.includes('Haukar') ? 'text-[#c8102e]' : 'text-[#1c2c6c]')
             )}>
               {isTournament ? 'Afrek Hauka' : lastMatch.home}
             </span>
@@ -51,9 +51,9 @@ export default function MatchDashboard({
                 <>
                   <div className="flex flex-col items-center">
                     <div className="flex items-center gap-2 md:gap-4">
-                      <span className={lastMatch.homeScore > lastMatch.awayScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{lastMatch.homeScore}</span>
+                      <span className={lastMatch.home?.includes('Haukar') ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{lastMatch.homeScore}</span>
                       <span className="text-gray-300">-</span>
-                      <span className={lastMatch.awayScore > lastMatch.homeScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{lastMatch.awayScore}</span>
+                      <span className={lastMatch.away?.includes('Haukar') ? 'text-[#c8102e]' : 'text-[#1c2c6c]'}>{lastMatch.awayScore}</span>
                     </div>
                     {lastMatch.penaltyInfo && (
                       <span className="text-[10px] md:text-xs font-bold text-gray-400 mt-1 not-italic tracking-wider uppercase">
@@ -66,8 +66,8 @@ export default function MatchDashboard({
             </div>
             {!isTournament && (
               <span className={cn(
-                "text-lg sm:text-xl md:text-2xl font-black italic uppercase truncate w-[35%] text-right",
-                lastMatch.awayScore > lastMatch.homeScore ? 'text-[#c8102e]' : 'text-[#1c2c6c]'
+                "text-lg sm:text-xl md:text-2xl font-black italic uppercase truncate text-right",
+                lastMatch.away?.includes('Haukar') ? 'text-[#c8102e]' : 'text-[#1c2c6c]'
               )}>
                 {lastMatch.away}
               </span>
@@ -91,16 +91,26 @@ export default function MatchDashboard({
               <span className="text-[10px] font-bold uppercase tracking-widest text-white">Sæki leikjaplan...</span>
             </div>
           )}
-          <span className="text-[#c8102e] text-[10px] font-bold uppercase tracking-widest block">
+          <span className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-widest block">
             Næsti {isTournament ? 'Mót' : 'Leikur'} • {nextMatch.competition}
           </span>
           
           <div className="flex items-center justify-between my-auto text-lg sm:text-xl md:text-2xl font-black italic uppercase w-full">
-            <span className={cn("truncate text-left", isTournament ? "" : "w-[40%]")}>{nextMatch.home}</span>
-            <span className={cn("text-white/30 text-xs sm:text-sm px-2 shrink-0", isTournament ? "material-symbols-outlined" : "font-normal not-italic")}>
+            <span className={cn(
+              "truncate text-left", 
+              isTournament ? "" : (nextMatch.home?.includes('Haukar') ? "w-[40%] text-white" : "w-[40%] text-white/70")
+            )}>
+              {nextMatch.home}
+            </span>
+            <span className={cn("text-[#D4AF37] text-sm sm:text-lg px-2 shrink-0 animate-pulse", isTournament ? "material-symbols-outlined" : "font-black italic")}>
               {isTournament ? 'arrow_forward' : 'VS'}
             </span>
-            <span className={cn("truncate text-right", isTournament ? "" : "w-[40%]")}>{nextMatch.away}</span>
+            <span className={cn(
+              "truncate text-right", 
+              isTournament ? "" : (nextMatch.away?.includes('Haukar') ? "w-[40%] text-white" : "w-[40%] text-white/70")
+            )}>
+              {nextMatch.away}
+            </span>
           </div>
           
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-0">
@@ -118,10 +128,10 @@ export default function MatchDashboard({
             {!isTournament && (
               <button 
                 onClick={onOpenTickets}
-                className="bg-[#c8102e] text-white font-bold uppercase tracking-widest text-[10px] px-5 py-3.5 sm:py-3 rounded-xl shadow-lg hover:scale-105 hover:bg-[#a30d25] transition-all flex items-center justify-center gap-2"
+                className="bg-[#c8102e] hover:bg-[#D4AF37] text-white font-bold uppercase tracking-widest text-[10px] px-5 py-3.5 sm:py-3 rounded-xl shadow-lg hover:shadow-[#D4AF37]/30 hover:scale-105 transition-all flex items-center justify-center gap-2 group/btn"
                 aria-label="Kaupa miða"
               >
-                Kaupa Miða <span className="material-symbols-outlined text-[16px]">confirmation_number</span>
+                Kaupa Miða <span className="material-symbols-outlined text-[16px] group-hover/btn:translate-x-1 transition-transform">confirmation_number</span>
               </button>
             )}
           </div>

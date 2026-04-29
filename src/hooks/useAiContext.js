@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSportData } from './useSportData';
 import menHbStats from '../data/haukar_player_stats.json';
@@ -33,9 +34,13 @@ function getAllUpcomingEvents() {
 
   if (youthData && youthData.matches) {
     youthData.matches.forEach(m => {
+      const isCourse = m.ageGroup === 'Námskeið';
+      const title = isCourse ? m.competition : `${m.home} vs ${m.away}`;
+      const extraInfo = m.ablerLink ? ` (Skráning á Abler: ${m.ablerLink})` : '';
+      
       allEvents.push({
         dateRaw: m.date,
-        title: `${m.home} vs ${m.away}`,
+        title: `${title}${extraInfo}`,
         sportId: m.sport.toLowerCase().replace('ó', 'o'),
         category: `${m.sport} (Yngri)`,
         location: m.venue
@@ -98,6 +103,26 @@ function formatBasketballPerformers(statsArray, limit = 5) {
   return result;
 }
 
+function getLatestResults() {
+  const latest = [];
+  const adultKeys = ['fotbolti_karla', 'fotbolti_kvenna', 'karla', 'kvenna', 'korfubolti_karla', 'korfubolti_kvenna'];
+  
+  adultKeys.forEach(key => {
+    const data = leagueData[key];
+    if (data && data.matches) {
+      const pastMatches = data.matches.filter(m => m.score && m.score !== 'Næsti leikur' && m.score !== '- - -' && new Date(m.date) <= new Date());
+      pastMatches.sort((a, b) => new Date(b.date) - new Date(a.date));
+      if (pastMatches.length > 0) {
+        const m = pastMatches[0];
+        let sport = key.includes('fotbolti') ? 'Fótbolti' : key.includes('korfubolti') ? 'Körfubolti' : 'Handbolti';
+        const category = `${sport} ${key.includes('kvenna') ? 'Kvenna' : 'Karla'}`;
+        latest.push(`[${category}]: ${m.home} ${m.score} ${m.away}`);
+      }
+    }
+  });
+  return latest.length > 0 ? latest.join(' | ') : 'Engin nýleg úrslit skráð.';
+}
+
 export function useAiContext() {
   const location = useLocation();
   const path = location.pathname.toLowerCase();
@@ -109,57 +134,62 @@ export function useAiContext() {
   else if (path.includes('skak')) sportId = 'skak';
   else if (path.includes('karate')) sportId = 'karate';
 
-  // Default to fotbolti context if on the homepage to give Haukur something to talk about
-  const { data: sportData, loading } = useSportData(sportId || 'fotbolti', 'karla'); 
+  let gender = 'karla';
+  if (path.includes('kvenna')) gender = 'kvenna';
   
-  let aiContextString = '';
+  const { data: sportData, loading } = useSportData(sportId || 'fotbolti', sportId ? gender : 'karla'); 
+  
+  const aiContextString = useMemo(() => {
+    let contextStr = '';
 
-  if (sportData && !loading) {
-    if (sportData.nextMatch) {
-      aiContextString += `Næsti leikur: ${sportData.nextMatch.home} vs ${sportData.nextMatch.away} þann ${sportData.nextMatch.date} á ${sportData.nextMatch.venue}. `;
-    }
-    if (sportData.lastMatch) {
-      aiContextString += `Síðasti leikur: ${sportData.lastMatch.home} ${sportData.lastMatch.homeScore} - ${sportData.lastMatch.awayScore} ${sportData.lastMatch.away}. `;
-    }
-    if (sportData.standings && sportData.standings.length > 0) {
-      const haukarStanding = sportData.standings.find(s => s.team.includes('Haukar'));
-      if (haukarStanding) {
-         aiContextString += `Staðan í deildinni: Haukar eru í ${haukarStanding.rank}. sæti með ${haukarStanding.pts} stig. `;
+    if (sportId && sportData && !loading) {
+      if (sportData.nextMatch) {
+        contextStr += `Næsti leikur hjá ${sportId} ${gender} (${sportData.nextMatch.competition || 'Mót'}): ${sportData.nextMatch.home} vs ${sportData.nextMatch.away} þann ${sportData.nextMatch.date} á ${sportData.nextMatch.venue}. `;
       }
+      if (sportData.lastMatch) {
+        let penaltyText = sportData.lastMatch.penaltyScore ? ` (Vítakeppni: ${sportData.lastMatch.penaltyScore})` : '';
+        contextStr += `Síðasti leikur hjá ${sportId} ${gender} (${sportData.lastMatch.competition || 'Mót'}): ${sportData.lastMatch.home} ${sportData.lastMatch.homeScore} - ${sportData.lastMatch.awayScore} ${sportData.lastMatch.away}${penaltyText}. `;
+      }
+      if (sportData.standings && sportData.standings.length > 0) {
+        const haukarStanding = sportData.standings.find(s => s.team.includes('Haukar'));
+        if (haukarStanding) {
+           contextStr += `Staðan í deildinni (${gender}): Haukar eru í ${haukarStanding.rank}. sæti með ${haukarStanding.pts || haukarStanding.points} stig. `;
+        }
+      }
+      
+      if (sportData.playoffs && sportData.playoffs.schedule) {
+        contextStr += `Liðið er núna í úrslitakeppni (${sportData.playoffs.series}) á móti ${sportData.playoffs.opponent}. `;
+        const nextPlayoff = sportData.playoffs.schedule.find(g => g.result === null);
+        if (nextPlayoff) {
+          contextStr += `Næsti leikur (Leikur ${nextPlayoff.game}) er ${nextPlayoff.date} á ${nextPlayoff.venue}. `;
+        }
+      }
+    } else if (!sportId) {
+      contextStr += `Nýjustu úrslit allra meistaraflokka: ${getLatestResults()}. `;
     }
+
+    const allEvents = getAllUpcomingEvents();
+    contextStr += `\nNæstu 30 viðburðir á dagskrá hjá félaginu (Barna- og meistaraflokkar): ${formatEventsForAi(allEvents, 30)}. `;
     
-    // Basketball specific (Playoffs instead of regular standings/matches)
-    if (sportData.playoffs && sportData.playoffs.schedule) {
-      aiContextString += `Liðið er núna í úrslitakeppni (${sportData.playoffs.series}) á móti ${sportData.playoffs.opponent}. `;
-      const nextPlayoff = sportData.playoffs.schedule.find(g => g.result === null);
-      if (nextPlayoff) {
-        aiContextString += `Næsti leikur (Leikur ${nextPlayoff.game}) er ${nextPlayoff.date} á ${nextPlayoff.venue}. `;
+    if (sportId && sportId !== 'Haukar almennt') {
+      const sportEvents = allEvents.filter(e => e.sportId === sportId);
+      if (sportEvents.length > 0) {
+        contextStr += `Næstu 15 viðburðir sérstaklega í ${sportId}: ${formatEventsForAi(sportEvents, 15)}. `;
       }
     }
-  }
 
-  // Inject Upcoming Events (Calendar)
-  const allEvents = getAllUpcomingEvents();
-  aiContextString += `\nNæstu 5 viðburðir á dagskrá hjá félaginu (Barna- og meistaraflokkar): ${formatEventsForAi(allEvents, 5)}. `;
-  
-  if (sportId && sportId !== 'Haukar almennt') {
-    const sportEvents = allEvents.filter(e => e.sportId === sportId);
-    if (sportEvents.length > 0) {
-      aiContextString += `Næstu 3 viðburðir sérstaklega í ${sportId}: ${formatEventsForAi(sportEvents, 3)}. `;
+    if (sportId === 'handbolti' || !sportId) {
+      contextStr += `\nTölfræði Handbolta Karla (Helstu leikmenn): ${formatTopPerformers(menHbStats)} `;
+      contextStr += `\nTölfræði Handbolta Kvenna (Helstu leikmenn): ${formatTopPerformers(womenHbStats)} `;
     }
-  }
 
-  // Inject Player Statistics for Handball
-  if (sportId === 'handbolti' || !sportId) {
-    aiContextString += `\nTölfræði Handbolta Karla (Helstu leikmenn): ${formatTopPerformers(menHbStats)} `;
-    aiContextString += `\nTölfræði Handbolta Kvenna (Helstu leikmenn): ${formatTopPerformers(womenHbStats)} `;
-  }
+    if (sportId === 'korfubolti' || !sportId) {
+      contextStr += `\nTölfræði Körfubolta Karla (Helstu leikmenn): ${formatBasketballPerformers(korfuKarla.players)} `;
+      contextStr += `\nTölfræði Körfubolta Kvenna (Helstu leikmenn): ${formatBasketballPerformers(korfuKvenna.players)} `;
+    }
 
-  // Inject Player Statistics for Basketball
-  if (sportId === 'korfubolti' || !sportId) {
-    aiContextString += `\nTölfræði Körfubolta Karla (Helstu leikmenn): ${formatBasketballPerformers(korfuKarla.players)} `;
-    aiContextString += `\nTölfræði Körfubolta Kvenna (Helstu leikmenn): ${formatBasketballPerformers(korfuKvenna.players)} `;
-  }
+    return contextStr;
+  }, [sportId, gender, sportData, loading]);
 
   return {
     sportId: sportId || 'Haukar almennt',

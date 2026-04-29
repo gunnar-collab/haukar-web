@@ -13,7 +13,7 @@ export default function FanZone() {
   };
 
   return (
-    <section className="w-full bg-[#1c2c6c] py-12 md:py-24 relative overflow-hidden">
+    <section className="w-full py-8 md:py-16 bg-gradient-to-br from-[#c8102e] to-[#9b0c23] text-white overflow-hidden relative">
       {/* Audio Element (Hidden) */}
       <audio ref={audioRef} src="https://www.soundjay.com/human/sounds/cheer-01.mp3" preload="auto" />
       

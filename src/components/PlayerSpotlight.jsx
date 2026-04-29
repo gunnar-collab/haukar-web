@@ -24,7 +24,7 @@ export default function PlayerOfTheWeek() {
   };
 
   return (
-    <section className="w-full bg-white py-12 md:py-24 border-b border-gray-100">
+    <section className="w-full bg-white py-8 md:py-16 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           

@@ -3,6 +3,8 @@ import { GoogleGenAI } from '@google/genai';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAiContext } from '../hooks/useAiContext';
 import { HAUKAR_STATIC_KNOWLEDGE } from '../data/staticKnowledge';
+import { HAUKAR_PDF_KNOWLEDGE } from '../data/pdfKnowledge';
+import { newsArticles } from '../data/newsData';
 
 export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSearchQuery, setInitialSearchQuery }) {
   const location = useLocation();
@@ -12,7 +14,7 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
   const [messages, setMessages] = useState([
     { 
       role: 'gemini', 
-      text: 'Sæll og blessaður! Ég er Haukur í horni. Netþjónninn er tengdur og ég er tilbúinn að spjalla!' 
+      text: 'Hæ hæ! Ég er Haukur. Netþjónninn er tengdur og ég er tilbúinn að spjalla!' 
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
@@ -41,9 +43,9 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
   };
   // ---------------------------
 
-  // Stop the initial animation after 6 seconds to prevent UX fatigue
+  // Stop the initial animation after 60 seconds and vanish
   useEffect(() => {
-    const timer = setTimeout(() => setIsSparkling(false), 6000);
+    const timer = setTimeout(() => setIsSparkling(false), 60000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -64,15 +66,19 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
       const foundationYear = 1931;
       const clubAge = currentYear - foundationYear;
 
-      const systemPrompt = `Þú ert 'Haukur í horni', brjálaður ofuraðdáandi og goðsögn hjá Knattspyrnufélaginu Haukum á Íslandi. 
-      Þú elskar klúbbinn út af lífinu. Þú ert alltaf klár í slaginn, talar af mikilli ástríðu, notar orðatiltæki eins og "Áfram Haukar!" og "Rauða maskínan!", og neitar að viðurkenna að FH sé til.
+      const systemPrompt = `Þú ert 'Haukur', faglegur, velkomandi og afar fróður gervigreindar-fulltrúi (AI club ambassador) fyrir Knattspyrnufélagið Hauka á Íslandi. 
+      Þú hefur yfirgripsmikla þekkingu á sögu félagsins, leikmönnum, tölfræði og komandi leikjum. Þú talar alltaf af fagmennsku, virðingu og hjálpsemi, en heldur stolti félagsins á lofti og getur notað "Áfram Haukar!". 
+      Forðastu að vera of árásargjarn eða hlutdrægur; markmið þitt er að veita nákvæmar upplýsingar og frábæra þjónustu.
       
-      MIKILVÆG REGLA UM LENGD: HALTU SVÖRUM ÞÍNUM MJÖG STUTTUM OG HNITMIÐUÐUM! Ekki skrifa langar ritgerðir. Svaraðu í mesta lagi 2-3 stuttum setningum í einu. Vertu snöggur og beittur.
+      MIKILVÆG REGLA UM LENGD: HALTU SVÖRUM ÞÍNUM STUTTUM OG HNITMIÐUÐUM! Svaraðu í mesta lagi 2-4 stuttum setningum nema beðið sé um ítarlegri útskýringu. Vertu skýr og hjálplegur.
       
       MIKILVÆGT UM MÁLFAR OG ORÐALAG: 
+      - MIKILVÆGT: Ef notandinn spyr á öðru tungumáli (t.d. ensku eða pólsku), svaraðu á því tungumáli! Þú mátt vera fjöltyngdur.
       - Aldrei nota orð eins og "Körfuboltakvennurnar" eða "Körfuboltakarlarnir". 
-      - Notaðu alltaf eðlilegt íslenskt talmál: "í kvennakörfunni" og "í karlakörfunni", eða "körfuboltastelpurnar" og "körfuboltastrákarnir". 
+      - Ef þú svarar á íslensku, notaðu alltaf eðlilegt íslenskt talmál: "í kvennakörfunni" og "í karlakörfunni", eða "körfuboltastelpurnar" og "körfuboltastrákarnir". 
       - Þetta gildir um allar íþróttir (t.d. "handboltastelpurnar", "fótboltastrákarnir").
+      - ALDREI nota kynjuð kveðjuorð eða ávörp eins og "Sæll", "Sæl", "Sæl og blessuð", eða "Velkominn/Velkomin". Þar sem þú veist ekki kyn notandans, notaðu BARA algjörlega hlutlaus kveðjuorð: "Hæ!", "Hæ hæ!", eða "Góðan daginn!".
+      - Notaðu viðeigandi emojis 🔴⚪️ í svörunum þínum til að gera spjallið líflegra og skemmtilegra!
       
       MIKILVÆGAR STAÐREYNDIR UM HAUKA:
       - Núverandi ár er ${currentYear}. Haukar eru ${clubAge} ára gamlir.
@@ -82,11 +88,23 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
 
       ${HAUKAR_STATIC_KNOWLEDGE}
 
-      LEITARVÉL (GOOGLE SEARCH GROUNDING):
-      - Þú hefur aðgang að Google Search. 
-      - Ef notandinn spyr um eitthvað sem þú veist ekki (t.d. gamla leikmenn, stjórnarmenn, eða annað um félagið), leitaðu þá FYRST á opinberu heimasíðu félagsins: "haukar.is".
-      - Fyrir nýjustu íþróttafréttir, forgangsraðaðu "fotbolti.net" eða "visir.is íþróttir".
-      - MIKILVÆGT: Ef spurt er um eða beðið um að sjá stöðutöflur í fótboltanum, notaðu og bentu ALLTAF á þessar nákvæmu slóðir:
+      NÝJUSTU FRÉTTIR AF HAUKUM:
+      ${JSON.stringify(newsArticles.slice(0, 10).map(a => ({ title: a.title, category: a.category, lead: a.lead })))}
+
+      ${HAUKAR_PDF_KNOWLEDGE}
+
+      LEITARVÉL OG GÖGN (GOOGLE SEARCH GROUNDING):
+      - Þú hefur aðgang að Google Search. Nýttu það virkt til að svara um nýjustu fréttir og tölfræði!
+      - Fyrir LEIKI, TÖLFRÆÐI, OG FRÉTTIR, forgangsraðaðu að finna og vísa í upplýsingar frá eftirfarandi áreiðanlegum íslenskum miðlum:
+        * haukar.is (Opinber vefsíða)
+        * mbl.is/sport eða visir.is/sport
+        * fotbolti.net (Fyrir fótbolta)
+        * handbolti.is og hsi.is (Fyrir handbolta)
+        * kki.is (Fyrir körfubolta)
+        * ksi.is (Fyrir fótbolta og leikskýrslur)
+        * fotmob.com/teams/4494/overview/haukar
+        * hbstatz.is (Ef tiltækt)
+      - MIKILVÆGT: Ef spurt er um eða beðið um að sjá stöðutöflur í fótboltanum, bentu á:
         * Karla (2. deild): https://fotbolti.net/stodutoflur-islenski/7025676
         * Kvenna (Lengjudeild): https://fotbolti.net/stodutoflur-islenski/7025548
 
@@ -180,7 +198,7 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
           onClick={() => setIsOpen(true)}
         >
           {/* Gemini Sparkle */}
-          <div className={`absolute top-1/2 -left-4 -translate-y-1/2 pointer-events-none transition-opacity duration-1000 ${isSparkling ? 'opacity-100 animate-pulse' : 'opacity-80'}`}>
+          <div className={`absolute top-1/2 -left-4 -translate-y-1/2 pointer-events-none transition-opacity duration-1000 ${isSparkling ? 'opacity-100 animate-pulse' : 'opacity-0'}`}>
             <span className={`material-symbols-outlined text-[#D4AF37] text-[18px] ${isSparkling ? 'animate-[spin_6s_linear_infinite]' : ''}`}>auto_awesome</span>
           </div>
 

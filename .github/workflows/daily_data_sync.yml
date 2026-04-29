@@ -1,0 +1,60 @@
+name: Omnisport Data Sync
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Runs daily at 04:00 AM UTC
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  scrape-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      # 1. Setup Node.js (for KSÍ & HSÍ/HBStatz)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install Node Dependencies
+        run: npm install axios cheerio
+        
+      # 2. Run Node.js Scrapers
+      - name: Run KSÍ Scraper (Football)
+        run: node scripts/scrape_ksi.js
+
+      - name: Run HBStatz Scraper (Handball)
+        run: node scripts/scrape_hsi.js
+
+      # 3. Setup Python (for KKÍ Playwright)
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install Python Dependencies & Playwright
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          playwright install chromium
+          
+      - name: Run KKÍ Scraper (Basketball)
+        run: python scripts/scrape_kki.py
+        
+      - name: Run Stubbur Ticket Scraper
+        run: python scripts/scrape_stubbur.py
+        
+      # 4. Commit all changes to the repository
+      - name: Commit and Push Data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/haukar_league_data.json
+          git commit -m "chore: automated omnisport data sync" || exit 0
+          git push

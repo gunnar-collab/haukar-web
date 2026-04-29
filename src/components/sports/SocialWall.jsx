@@ -2,7 +2,7 @@ import { cn } from '../../lib/utils.js';
 
 export default function SocialWall({ title, socialPosts }) {
   return (
-    <div className="w-full bg-gradient-to-br from-[#c8102e] to-[#9b0c23] py-12 md:py-24 mt-12 relative overflow-hidden">
+    <div className="w-full bg-gradient-to-br from-[#c8102e] to-[#9b0c23] py-8 md:py-16 relative overflow-hidden">
       {/* Dynamic Background Patterns */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
@@ -43,7 +43,7 @@ export default function SocialWall({ title, socialPosts }) {
           {socialPosts.map((post, idx) => (
             <div 
               key={post.id} 
-              className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center group bg-white rounded-[2rem] overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-2xl flex flex-col"
+              className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center group bg-white rounded-2xl overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-2xl flex flex-col"
             >
               {/* Card Header (IG/FB Style) */}
               <div className="p-4 flex items-center justify-between border-b border-gray-50">
