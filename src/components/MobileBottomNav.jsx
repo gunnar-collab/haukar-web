@@ -89,7 +89,7 @@ export default function MobileBottomNav({ onOpenTickets }) {
       {/* Meira (Félagið) Bottom Sheet */}
       <div 
         className={cn(
-          "lg:hidden fixed bottom-[64px] left-0 w-full bg-white rounded-t-[2rem] shadow-[0_-20px_50px_rgba(0,0,0,0.1)] z-[85] p-6 pb-10 transition-transform duration-300 ease-out transform max-h-[70vh] overflow-y-auto",
+          "lg:hidden fixed bottom-[64px] left-0 w-full bg-white rounded-t-[2rem] shadow-[0_-20px_50px_rgba(0,0,0,0.1)] z-[85] p-6 pb-10 transition-transform duration-300 ease-out transform max-h-[70vh] overflow-y-auto scrollbar-hide",
           activeSheet === 'meira' ? "translate-y-0" : "translate-y-full"
         )}
       >

@@ -34,8 +34,8 @@ export const getDynamicMatches = (sport, gender) => {
   let penaltyInfo = '';
   
   if (lastRaw.score) {
-    // Better regex to extract the main scores even with extra text
-    const scoreMatch = lastRaw.score.match(/^(\d+)\s*-\s*(\d+)/);
+    // Better regex to extract the main scores even with extra text (e.g. "28 (16) - 29 (13)")
+    const scoreMatch = lastRaw.score.match(/^(\d+).*?-\s*(\d+)/);
     if (scoreMatch) {
       homeScore = parseInt(scoreMatch[1]);
       awayScore = parseInt(scoreMatch[2]);
@@ -55,10 +55,12 @@ export const getDynamicMatches = (sport, gender) => {
       away: lastRaw.away || 'Útilið',
       homeScore,
       awayScore,
+      score: lastRaw.score,
       penaltyInfo,
       id: lastRaw.id,
       report: lastRaw.report,
-      statsLink: lastRaw.statsLink || (sport === 'fotbolti' ? 'https://ksi.is' : 'https://hbstatz.is')
+      statsLink: lastRaw.statsLink || (sport === 'fotbolti' ? 'https://ksi.is' : 'https://hbstatz.is'),
+      sport
     },
     nextMatch: {
       competition: nextRaw.competition || 'Mót',
@@ -67,7 +69,8 @@ export const getDynamicMatches = (sport, gender) => {
       date: nextRaw.date ? formatDate(nextRaw.date) : 'Óákveðið',
       venue: nextRaw.home === 'Haukar' ? 'Ásvellir' : 'Útivöllur',
       id: nextRaw.id,
-      report: nextRaw.report
+      report: nextRaw.report,
+      sport
     }
   };
 };

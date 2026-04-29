@@ -1,5 +1,6 @@
 import { cn } from '../../lib/utils.js';
 import { useMatch } from '../../context/MatchContext';
+import matchReports from '../../data/match_reports.json';
 
 export default function MatchDashboard({ 
   loading, 
@@ -11,6 +12,8 @@ export default function MatchDashboard({
   statsIcon = "leaderboard"
 }) {
   const { openReport } = useMatch();
+  
+  const hasLocalReport = lastMatch?.id && matchReports[lastMatch.id] && (matchReports[lastMatch.id].events?.length > 0 || matchReports[lastMatch.id].lineup);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 -mt-8 w-full pb-8 md:pb-16">
@@ -74,13 +77,25 @@ export default function MatchDashboard({
             )}
           </div>
           
-          <button 
-            onClick={() => openReport(lastMatch)}
-            className="w-full bg-[#1c2c6c] hover:bg-black text-white py-3 md:py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors text-[10px] sm:text-[11px] font-bold uppercase tracking-widest shadow-md"
-          >
-            <span className="material-symbols-outlined text-[16px]">{statsIcon}</span>
-            Skoða {isTournament ? 'Úrslit' : 'Tölfræði/Skýrslu'} á {provider}
-          </button>
+          {hasLocalReport ? (
+            <button 
+              onClick={() => openReport(lastMatch)}
+              className="w-full bg-[#1c2c6c] hover:bg-black text-white py-3 md:py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors text-[10px] sm:text-[11px] font-bold uppercase tracking-widest shadow-md"
+            >
+              <span className="material-symbols-outlined text-[16px]">{statsIcon}</span>
+              Skoða {isTournament ? 'Úrslit' : 'Tölfræði/Skýrslu'} á {provider}
+            </button>
+          ) : (
+            <a 
+              href={lastMatch.statsLink || (provider === 'HBStatz' ? 'https://hbstatz.is' : 'https://ksi.is')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-[#1c2c6c] hover:bg-black text-white py-3 md:py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors text-[10px] sm:text-[11px] font-bold uppercase tracking-widest shadow-md"
+            >
+              <span className="material-symbols-outlined text-[16px]">{statsIcon}</span>
+              Skoða {isTournament ? 'Úrslit' : 'Tölfræði/Skýrslu'} á {provider} <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+            </a>
+          )}
         </div>
 
         {/* NEXT MATCH */}

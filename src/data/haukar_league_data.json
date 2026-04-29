@@ -93,7 +93,8 @@
         "away": "FH",
         "score": "35 (14) - 36 (19)",
         "competition": "Úrslitakeppni karla",
-        "id": "12905"
+        "id": "12905",
+        "statsLink": "https://hbstatz.is/OlisDeildKarlaLeikur.php?ID=12905"
       },
       {
         "date": "2026-04-14",
@@ -360,6 +361,11 @@
             "totalGoals": 180,
             "totalShots": 272,
             "shootingPercentage": "66.2%"
+          },
+          "defensive": {
+            "legalStops": 139,
+            "steals": 24,
+            "blockedShots": 4
           }
         }
       },
@@ -372,6 +378,11 @@
             "totalGoals": 130,
             "totalShots": 226,
             "shootingPercentage": "57.5%"
+          },
+          "defensive": {
+            "legalStops": 120,
+            "steals": 6,
+            "blockedShots": 10
           }
         }
       },
@@ -384,6 +395,11 @@
             "totalGoals": 100,
             "totalShots": 131,
             "shootingPercentage": "76.3%"
+          },
+          "defensive": {
+            "legalStops": 19,
+            "steals": 25,
+            "blockedShots": 0
           }
         }
       },
@@ -396,6 +412,11 @@
             "totalGoals": 91,
             "totalShots": 153,
             "shootingPercentage": "59.5%"
+          },
+          "defensive": {
+            "legalStops": 64,
+            "steals": 4,
+            "blockedShots": 2
           }
         }
       },
@@ -408,6 +429,11 @@
             "totalGoals": 82,
             "totalShots": 132,
             "shootingPercentage": "62.1%"
+          },
+          "defensive": {
+            "legalStops": 59,
+            "steals": 8,
+            "blockedShots": 0
           }
         }
       },
@@ -420,6 +446,11 @@
             "totalGoals": 71,
             "totalShots": 109,
             "shootingPercentage": "65.1%"
+          },
+          "defensive": {
+            "legalStops": 7,
+            "steals": 12,
+            "blockedShots": 0
           }
         }
       },
@@ -432,6 +463,11 @@
             "totalGoals": 59,
             "totalShots": 100,
             "shootingPercentage": "59%"
+          },
+          "defensive": {
+            "legalStops": 51,
+            "steals": 9,
+            "blockedShots": 7
           }
         }
       },
@@ -444,6 +480,11 @@
             "totalGoals": 51,
             "totalShots": 70,
             "shootingPercentage": "72.9%"
+          },
+          "defensive": {
+            "legalStops": 16,
+            "steals": 11,
+            "blockedShots": 0
           }
         }
       },
@@ -456,6 +497,11 @@
             "totalGoals": 35,
             "totalShots": 51,
             "shootingPercentage": "68.6%"
+          },
+          "defensive": {
+            "legalStops": 49,
+            "steals": 7,
+            "blockedShots": 9
           }
         }
       },
@@ -468,6 +514,11 @@
             "totalGoals": 34,
             "totalShots": 52,
             "shootingPercentage": "65.4%"
+          },
+          "defensive": {
+            "legalStops": 4,
+            "steals": 4,
+            "blockedShots": 0
           }
         }
       },
@@ -480,6 +531,11 @@
             "totalGoals": 29,
             "totalShots": 44,
             "shootingPercentage": "65.9%"
+          },
+          "defensive": {
+            "legalStops": 29,
+            "steals": 7,
+            "blockedShots": 5
           }
         }
       },
@@ -492,6 +548,11 @@
             "totalGoals": 24,
             "totalShots": 39,
             "shootingPercentage": "61.5%"
+          },
+          "defensive": {
+            "legalStops": 89,
+            "steals": 4,
+            "blockedShots": 5
           }
         }
       },
@@ -504,6 +565,11 @@
             "totalGoals": 7,
             "totalShots": 11,
             "shootingPercentage": "63.6%"
+          },
+          "defensive": {
+            "legalStops": 4,
+            "steals": 1,
+            "blockedShots": 0
           }
         }
       },
@@ -516,6 +582,11 @@
             "totalGoals": 3,
             "totalShots": 5,
             "shootingPercentage": "60%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -528,6 +599,11 @@
             "totalGoals": 2,
             "totalShots": 2,
             "shootingPercentage": "100%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 1,
+            "blockedShots": 0
           }
         }
       },
@@ -540,6 +616,11 @@
             "totalGoals": 1,
             "totalShots": 1,
             "shootingPercentage": "100%"
+          },
+          "defensive": {
+            "legalStops": 59,
+            "steals": 7,
+            "blockedShots": 7
           }
         }
       },
@@ -552,6 +633,11 @@
             "totalGoals": 1,
             "totalShots": 3,
             "shootingPercentage": "33.3%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 1,
+            "blockedShots": 0
           }
         }
       },
@@ -564,6 +650,11 @@
             "totalGoals": 0,
             "totalShots": 0,
             "shootingPercentage": "0%"
+          },
+          "defensive": {
+            "legalStops": 12,
+            "steals": 1,
+            "blockedShots": 2
           }
         }
       },
@@ -576,6 +667,11 @@
             "totalGoals": 0,
             "totalShots": 0,
             "shootingPercentage": "0%"
+          },
+          "defensive": {
+            "legalStops": 1,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -588,6 +684,11 @@
             "totalGoals": 0,
             "totalShots": 0,
             "shootingPercentage": "0%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -600,6 +701,11 @@
             "totalGoals": 0,
             "totalShots": 0,
             "shootingPercentage": "0%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -611,6 +717,11 @@
             "gamesPlayed": 13,
             "totalSaves": 89,
             "savePercentage": "28.9%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 1,
+            "blockedShots": 0
           }
         }
       },
@@ -622,6 +733,11 @@
             "gamesPlayed": 23,
             "totalSaves": 189,
             "savePercentage": "31.7%"
+          },
+          "defensive": {
+            "legalStops": 3,
+            "steals": 2,
+            "blockedShots": 0
           }
         }
       },
@@ -633,6 +749,11 @@
             "gamesPlayed": 22,
             "totalSaves": 70,
             "savePercentage": "28.8%"
+          },
+          "defensive": {
+            "legalStops": 8,
+            "steals": 2,
+            "blockedShots": 0
           }
         }
       },
@@ -644,6 +765,11 @@
             "gamesPlayed": 3,
             "totalSaves": 1,
             "savePercentage": "11.1%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       }
@@ -715,7 +841,8 @@
         "away": "IBV",
         "score": "28 (16) - 29 (13)",
         "competition": "Úrslitakeppni kvenna",
-        "id": "12804"
+        "statsLink": "https://hbstatz.is/OlisDeildKvennaLeikur.php?ID=12917",
+        "id": "12917"
       },
       {
         "date": "2026-04-15",
@@ -926,6 +1053,11 @@
             "totalGoals": 168,
             "totalShots": 308,
             "shootingPercentage": "54.5%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -938,6 +1070,11 @@
             "totalGoals": 147,
             "totalShots": 207,
             "shootingPercentage": "71%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -950,6 +1087,11 @@
             "totalGoals": 134,
             "totalShots": 235,
             "shootingPercentage": "57%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -962,6 +1104,11 @@
             "totalGoals": 94,
             "totalShots": 152,
             "shootingPercentage": "61.8%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -974,6 +1121,11 @@
             "totalGoals": 71,
             "totalShots": 141,
             "shootingPercentage": "50.4%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -986,6 +1138,11 @@
             "totalGoals": 49,
             "totalShots": 70,
             "shootingPercentage": "70%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -998,6 +1155,11 @@
             "totalGoals": 42,
             "totalShots": 85,
             "shootingPercentage": "49.4%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1010,6 +1172,11 @@
             "totalGoals": 34,
             "totalShots": 56,
             "shootingPercentage": "60.7%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1022,6 +1189,11 @@
             "totalGoals": 29,
             "totalShots": 70,
             "shootingPercentage": "41.4%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1034,6 +1206,11 @@
             "totalGoals": 21,
             "totalShots": 29,
             "shootingPercentage": "72.4%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1046,6 +1223,11 @@
             "totalGoals": 11,
             "totalShots": 18,
             "shootingPercentage": "61.1%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1058,6 +1240,11 @@
             "totalGoals": 11,
             "totalShots": 20,
             "shootingPercentage": "55%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1070,6 +1257,11 @@
             "totalGoals": 3,
             "totalShots": 7,
             "shootingPercentage": "42.9%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1082,6 +1274,11 @@
             "totalGoals": 2,
             "totalShots": 4,
             "shootingPercentage": "50%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1094,6 +1291,11 @@
             "totalGoals": 1,
             "totalShots": 2,
             "shootingPercentage": "50%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1106,6 +1308,11 @@
             "totalGoals": 0,
             "totalShots": 0,
             "shootingPercentage": "0%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1117,6 +1324,11 @@
             "gamesPlayed": 0,
             "totalSaves": 343,
             "savePercentage": "34.3%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1128,6 +1340,11 @@
             "gamesPlayed": 0,
             "totalSaves": 34,
             "savePercentage": "30.4%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       },
@@ -1139,6 +1356,11 @@
             "gamesPlayed": 0,
             "totalSaves": 5,
             "savePercentage": "35.7%"
+          },
+          "defensive": {
+            "legalStops": 0,
+            "steals": 0,
+            "blockedShots": 0
           }
         }
       }
@@ -1788,84 +2010,6 @@
       }
     ],
     "matches": [
-      {
-        "date": "2026-04-29",
-        "home": "Haukar",
-        "away": "Selfoss",
-        "score": "Næsti leikur",
-        "competition": "1. deild karla - Úrslit"
-      },
-      {
-        "date": "2026-04-25",
-        "home": "Selfoss",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "1. deild karla - Úrslit"
-      },
-      {
-        "date": "2026-04-21",
-        "home": "Haukar",
-        "away": "Selfoss",
-        "score": "90 - 89",
-        "competition": "1. deild karla - Úrslit",
-        "report": {
-          "events": [
-            {
-              "min": 10,
-              "type": "goal",
-              "player": "Hilmar Pétursson",
-              "team": "Haukar",
-              "text": "Hilmar Pétursson (22 stig)"
-            },
-            {
-              "min": 20,
-              "type": "goal",
-              "player": "Eivydas Mološčiakas",
-              "team": "Haukar",
-              "text": "Eivydas Mološčiakas (18 stig)"
-            },
-            {
-              "min": 30,
-              "type": "goal",
-              "player": "Kristinn Marinósson",
-              "team": "Haukar",
-              "text": "Kristinn Marinósson (15 stig)"
-            },
-            {
-              "min": 40,
-              "type": "goal",
-              "player": "Ísak Jónsson",
-              "team": "Selfoss",
-              "text": "Ísak Jónsson (24 stig)"
-            }
-          ]
-        }
-      },
-      {
-        "date": "2026-04-17",
-        "home": "Selfoss",
-        "away": "Haukar",
-        "score": "84 - 75",
-        "competition": "1. deild karla - Úrslit",
-        "report": {
-          "events": [
-            {
-              "min": 40,
-              "type": "goal",
-              "player": "Eivydas Mološčiakas",
-              "team": "Haukar",
-              "text": "Eivydas Mološčiakas (20 stig)"
-            },
-            {
-              "min": 40,
-              "type": "goal",
-              "player": "Hilmar Pétursson",
-              "team": "Haukar",
-              "text": "Hilmar Pétursson (18 stig)"
-            }
-          ]
-        }
-      },
       {
         "date": "2026-04-13",
         "home": "Haukar",

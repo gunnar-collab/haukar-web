@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useLocation, Link, useNavigate, useParams } from 'react-router-dom';
 import { findPlayerBySlug } from '../lib/playerUtils';
 import PlayerSpiderChart from '../components/sports/PlayerSpiderChart';
+import leagueData from '../data/haukar_league_data.json';
 
 /**
  * PlayerProfile - Sniðmát fyrir tölfræði leikmanna Hauka
@@ -13,7 +14,22 @@ export default function PlayerProfile() {
   const { slug } = useParams();
 
   // Sjálfgefin gögn ef engin gögn berast
-  const player = location.state?.player || findPlayerBySlug(slug);
+  let player = location.state?.player || findPlayerBySlug(slug);
+
+  // If player doesn't have stats, try to auto-fetch from league data
+  if (player && !player.stats && player.sport === 'handbolti') {
+    const statsSource = player.gender === 'karla' || player.team === 'karla' ? leagueData.karla?.player_stats : leagueData.kvenna?.player_stats;
+    if (statsSource) {
+      const match = statsSource.find(stat => 
+          stat.name.toLowerCase().includes(player.name.toLowerCase()) || 
+          player.name.toLowerCase().includes(stat.name.toLowerCase())
+      );
+      if (match && match.stats) {
+          player = { ...player, stats: match.stats };
+          player.stats.gamesPlayed = match.gamesPlayed;
+      }
+    }
+  }
 
   if (!player) {
     return (
@@ -236,7 +252,7 @@ export default function PlayerProfile() {
               /* --- HANDBOLTI TÖLFRÆÐI --- */
               <>
                 {/* Sóknartölfræði */}
-                {(!isGoalkeeper || (player.stats.offensive?.totalGoals > 0 || player.stats.offensive?.totalShots > 0)) && (
+                {!isGoalkeeper && (
                   <div className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden">
                     <div className="bg-[#1c2c6c] p-6 flex justify-between items-center">
                       <h2 className="text-xl font-black italic text-white uppercase tracking-tight flex items-center gap-2">
@@ -247,19 +263,19 @@ export default function PlayerProfile() {
                     </div>
                     
                     <div className="p-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-                      <div className="flex flex-col">
+                      <div className="flex flex-col items-center text-center">
                         <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Leikir</span>
                         <span className="text-4xl font-black italic text-[#1c2c6c]">{player.stats.offensive?.gamesPlayed || player.stats.goalkeeper?.gamesPlayed || 0}</span>
                       </div>
-                      <div className="flex flex-col">
+                      <div className="flex flex-col items-center text-center">
                         <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Mörk</span>
                         <span className="text-4xl font-black italic text-[#c8102e]">{player.stats.offensive?.totalGoals || 0}</span>
                       </div>
-                      <div className="flex flex-col">
+                      <div className="flex flex-col items-center text-center">
                         <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Skot</span>
                         <span className="text-4xl font-black italic text-[#1c2c6c]">{player.stats.offensive?.totalShots || 0}</span>
                       </div>
-                      <div className="flex flex-col">
+                      <div className="flex flex-col items-center text-center">
                         <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Nýting</span>
                         <span className="text-4xl font-black italic text-[#c8102e]">{player.stats.offensive?.shootingPercentage || '0%'}</span>
                       </div>
@@ -268,46 +284,48 @@ export default function PlayerProfile() {
                 )}
 
                 {/* Varnartölfræði */}
-                <div className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden">
-                  <div className="bg-[#c8102e] p-6 flex justify-between items-center">
-                    <h2 className="text-xl font-black italic text-white uppercase tracking-tight flex items-center gap-2">
-                      <span className="material-symbols-outlined text-white/80">shield</span>
-                      Varnartölfræði
-                    </h2>
-                  </div>
-                  
-                  <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                      <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#c8102e]">
-                        <span className="material-symbols-outlined">front_hand</span>
-                      </div>
-                      <div>
-                        <span className="text-gray-400 text-[9px] font-bold uppercase tracking-widest block">Stöðvanir</span>
-                        <span className="text-3xl font-black italic text-[#1c2c6c]">{player.stats.defensive?.legalStops || 0}</span>
-                      </div>
+                {!isGoalkeeper && (
+                  <div className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden">
+                    <div className="bg-[#c8102e] p-6 flex justify-between items-center">
+                      <h2 className="text-xl font-black italic text-white uppercase tracking-tight flex items-center gap-2">
+                        <span className="material-symbols-outlined text-white/80">shield</span>
+                        Varnartölfræði
+                      </h2>
                     </div>
+                    
+                    <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                      <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                        <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#c8102e]">
+                          <span className="material-symbols-outlined">front_hand</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 text-[9px] font-bold uppercase tracking-widest block">Stöðvanir</span>
+                          <span className="text-3xl font-black italic text-[#1c2c6c]">{player.stats.defensive?.legalStops || 0}</span>
+                        </div>
+                      </div>
 
-                    <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                      <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#c8102e]">
-                        <span className="material-symbols-outlined">pan_tool</span>
+                      <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                        <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#c8102e]">
+                          <span className="material-symbols-outlined">pan_tool</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 text-[9px] font-bold uppercase tracking-widest block">Stolnir</span>
+                          <span className="text-3xl font-black italic text-[#1c2c6c]">{player.stats.defensive?.steals || 0}</span>
+                        </div>
                       </div>
-                      <div>
-                        <span className="text-gray-400 text-[9px] font-bold uppercase tracking-widest block">Stolnir</span>
-                        <span className="text-3xl font-black italic text-[#1c2c6c]">{player.stats.defensive?.steals || 0}</span>
-                      </div>
-                    </div>
 
-                    <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                      <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#c8102e]">
-                        <span className="material-symbols-outlined">block</span>
-                      </div>
-                      <div>
-                        <span className="text-gray-400 text-[9px] font-bold uppercase tracking-widest block">Blokk</span>
-                        <span className="text-3xl font-black italic text-[#1c2c6c]">{player.stats.defensive?.blockedShots || 0}</span>
+                      <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                        <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#c8102e]">
+                          <span className="material-symbols-outlined">block</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 text-[9px] font-bold uppercase tracking-widest block">Blokk</span>
+                          <span className="text-3xl font-black italic text-[#1c2c6c]">{player.stats.defensive?.blockedShots || 0}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                )}
 
                 {/* Markvarsla (Handbolti) */}
                 {isGoalkeeper && player.stats.goalkeeper && (
@@ -371,7 +389,12 @@ export default function PlayerProfile() {
                 <h4 className="text-xl font-bold uppercase tracking-widest">Leikgreining</h4>
               </div>
               
-              {!isFootball ? (
+              {!player.stats ? (
+                <div className="mt-8 flex flex-col items-center justify-center text-center p-8 bg-white/5 rounded-3xl border border-white/10 border-dashed">
+                  <span className="material-symbols-outlined text-white/30 text-5xl mb-4">query_stats</span>
+                  <p className="text-white/60 font-medium italic text-sm">Tölfræði er í vinnslu eða ekki aðgengileg fyrir yfirstandandi mót.</p>
+                </div>
+              ) : !isFootball ? (
                 <div className="-mx-6">
                   <PlayerSpiderChart player={player} />
                 </div>
@@ -383,7 +406,7 @@ export default function PlayerProfile() {
                   </div>
                   <div className="pt-4 border-t border-white/10">
                     <p className="text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Tölfræði moli</p>
-                    <p className="text-sm font-medium">Hefur tekið þátt í {player.gamesPlayed || player.stats?.gamesPlayed || player.stats?.offensive?.gamesPlayed || player.stats?.goalkeeper?.gamesPlayed || 0} leikjum og er með eina bestu nýtingu liðsins.</p>
+                    <p className="text-sm font-medium">Hefur tekið þátt í {player.gamesPlayed || player.stats?.gamesPlayed || player.stats?.offensive?.gamesPlayed || player.stats?.goalkeeper?.gamesPlayed || 0} leikjum og er mikilvægur hlekkur í liðinu.</p>
                   </div>
                 </div>
               )}

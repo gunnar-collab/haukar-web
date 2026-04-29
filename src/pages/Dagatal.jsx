@@ -297,7 +297,7 @@ export default function Dagatal() {
 
                   {event.isTicketed && (
                     <a 
-                      href="https://stubb.is"
+                      href={event.ticketLink || "https://stubb.is/haukar/tickets"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-grow md:flex-grow-0 bg-[#c8102e] text-white px-8 h-14 flex items-center justify-center rounded-[1.25rem] text-[11px] font-black uppercase tracking-[0.2em] hover:bg-black transition-all shadow-xl shadow-[#c8102e]/20 hover:-translate-y-1"

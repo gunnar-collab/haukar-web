@@ -25,8 +25,10 @@ export default function TrophyCabinet() {
           
           {/* Handbolti Cabinet */}
           <div className="group relative bg-white rounded-[2.5rem] p-6 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.12)] transition-all duration-500 flex flex-col h-full overflow-hidden pl-[30px] lg:pl-[38px]">
-            {/* Animated Gold/Red Border */}
-            <div className="absolute top-0 left-0 w-[6px] h-full bg-gradient-to-b from-[#D4AF37] via-[#c8102e] to-[#D4AF37] bg-[length:100%_200%] animate-gradient-y"></div>
+            {/* Animated Gold/Red Curved Left Border */}
+            <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-b from-[#D4AF37] via-[#c8102e] to-[#D4AF37] bg-[length:100%_200%] animate-gradient-y rounded-l-[2.5rem] z-0">
+              <div className="absolute top-0 bottom-0 right-0 left-[6px] bg-white rounded-l-[2.5rem]"></div>
+            </div>
             <span className="material-symbols-outlined absolute -right-8 -bottom-8 text-[150px] lg:text-[180px] text-gray-50 group-hover:text-[#D4AF37]/10 transition-colors pointer-events-none transform -rotate-12 z-0">
               emoji_events
             </span>
@@ -69,8 +71,10 @@ export default function TrophyCabinet() {
 
           {/* Körfubolti Cabinet */}
           <div className="group relative bg-white rounded-[2.5rem] p-6 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.12)] transition-all duration-500 flex flex-col h-full overflow-hidden pl-[30px] lg:pl-[38px]">
-            {/* Animated Gold/Red Border */}
-            <div className="absolute top-0 left-0 w-[6px] h-full bg-gradient-to-b from-[#D4AF37] via-[#c8102e] to-[#D4AF37] bg-[length:100%_200%] animate-gradient-y"></div>
+            {/* Animated Gold/Red Curved Left Border */}
+            <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-b from-[#D4AF37] via-[#c8102e] to-[#D4AF37] bg-[length:100%_200%] animate-gradient-y rounded-l-[2.5rem] z-0">
+              <div className="absolute top-0 bottom-0 right-0 left-[6px] bg-white rounded-l-[2.5rem]"></div>
+            </div>
             <span className="material-symbols-outlined absolute -right-8 -bottom-8 text-[150px] lg:text-[180px] text-gray-50 group-hover:text-[#D4AF37]/10 transition-colors pointer-events-none transform -rotate-12 z-0">
               emoji_events
             </span>
@@ -113,8 +117,10 @@ export default function TrophyCabinet() {
 
           {/* Fótbolti Cabinet */}
           <div className="group relative bg-white rounded-[2.5rem] p-6 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.12)] transition-all duration-500 flex flex-col h-full overflow-hidden pl-[30px] lg:pl-[38px]">
-            {/* Animated Gold/Red Border */}
-            <div className="absolute top-0 left-0 w-[6px] h-full bg-gradient-to-b from-[#D4AF37] via-[#c8102e] to-[#D4AF37] bg-[length:100%_200%] animate-gradient-y"></div>
+            {/* Animated Gold/Red Curved Left Border */}
+            <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-b from-[#D4AF37] via-[#c8102e] to-[#D4AF37] bg-[length:100%_200%] animate-gradient-y rounded-l-[2.5rem] z-0">
+              <div className="absolute top-0 bottom-0 right-0 left-[6px] bg-white rounded-l-[2.5rem]"></div>
+            </div>
             <span className="material-symbols-outlined absolute -right-8 -bottom-8 text-[150px] lg:text-[180px] text-gray-50 group-hover:text-[#D4AF37]/10 transition-colors pointer-events-none transform -rotate-12 z-0">
               emoji_events
             </span>
@@ -145,8 +151,10 @@ export default function TrophyCabinet() {
 
           {/* Aðrar greinar Cabinet */}
           <div className="group relative bg-white rounded-[2.5rem] p-6 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(200,16,46,0.12)] transition-all duration-500 flex flex-col h-full overflow-hidden pl-[30px] lg:pl-[38px]">
-            {/* Animated Gold/Red Border */}
-            <div className="absolute top-0 left-0 w-[6px] h-full bg-gradient-to-b from-[#D4AF37] via-[#c8102e] to-[#D4AF37] bg-[length:100%_200%] animate-gradient-y"></div>
+            {/* Animated Gold/Red Curved Left Border */}
+            <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-b from-[#D4AF37] via-[#c8102e] to-[#D4AF37] bg-[length:100%_200%] animate-gradient-y rounded-l-[2.5rem] z-0">
+              <div className="absolute top-0 bottom-0 right-0 left-[6px] bg-white rounded-l-[2.5rem]"></div>
+            </div>
             <span className="material-symbols-outlined absolute -right-8 -bottom-8 text-[150px] lg:text-[180px] text-gray-50 group-hover:text-[#D4AF37]/10 transition-colors pointer-events-none transform -rotate-12 z-0">
               emoji_events
             </span>

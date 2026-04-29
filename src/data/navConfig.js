@@ -10,7 +10,7 @@ export const NAV_LINKS = {
   felagid: [
     { name: 'Sagan Okkar', path: '/sagan', icon: 'history' },
     { name: 'Bakhjarlar & Styrktaraðilar', path: '/bakhjarlar', icon: 'handshake' },
-    { name: 'Æfingagjöld', path: '/aefingagjold', icon: 'payments' },
+    { name: 'Barnastarf', path: '/barnastarf', icon: 'child_care' },
     { name: 'Fræðsla & Öryggi', path: '/fraedsla', icon: 'school' },
     { name: 'Leikmenn', path: '/leikmannahopur', icon: 'groups' },
     { name: 'Leiga á veislusal', path: '/veislusalur', icon: 'celebration' },

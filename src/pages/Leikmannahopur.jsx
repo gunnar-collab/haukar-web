@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import haukarStats from '../data/haukar_player_stats.json';
-import haukarWomenStats from '../data/haukar_women_player_stats.json';
+import leagueData from '../data/haukar_league_data.json';
 import { dataKarla as footballKarla, dataKvenna as footballKvenna } from '../data/fotboltiData.js';
 import { dataKarla as basketballKarla, dataKvenna as basketballKvenna } from '../data/korfuboltiData.js';
 
@@ -100,11 +99,27 @@ export default function Leikmannahopur() {
 
   // Samþætta gögn úr HBStatz skafanum fyrir bæði kyn (aðeins fyrir handbolta)
   const players = basePlayers.map(p => {
-    if (activeSport === 'handbolti' || activeSport === 'korfubolti') {
-        const statsSource = activeSport === 'handbolti' 
-            ? (p.team === 'karla' ? haukarStats : haukarWomenStats)
-            : []; // Basketball stats are currently inline in the data object
+    let playerStats = p.stats || null; // For basketball it's already on p
+    
+    if (activeSport === 'handbolti') {
+        const statsSource = p.team === 'karla' ? leagueData.karla?.player_stats : leagueData.kvenna?.player_stats;
+        if (statsSource) {
+            const match = statsSource.find(stat => 
+                stat.name.toLowerCase().includes(p.name.toLowerCase()) || 
+                p.name.toLowerCase().includes(stat.name.toLowerCase())
+            );
+            if (match && match.stats) {
+                playerStats = match.stats;
+                playerStats.gamesPlayed = match.gamesPlayed; // attach games played at top level too
+            }
+        }
         
+        return {
+          ...p,
+          stats: playerStats,
+          statsLabel: 'Sjá Tölfræði'
+        };
+    } else if (activeSport === 'korfubolti') {
         return {
           ...p,
           statsLabel: 'Sjá Tölfræði'

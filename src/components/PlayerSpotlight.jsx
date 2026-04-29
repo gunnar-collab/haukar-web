@@ -76,11 +76,16 @@ export default function PlayerOfTheWeek() {
             </div>
 
             {/* Fired up with the Global Button */}
-            <Link to="/leikmenn/freyr-aronsson" state={{ player: spotlightPlayer }} className="inline-block active:scale-95 transition-transform">
-              <Button variant="primary" icon="arrow_forward" iconPosition="right">
-                Skoða leikmann
-              </Button>
-            </Link>
+            <Button 
+              to="/leikmenn/freyr-aronsson" 
+              state={{ player: spotlightPlayer }} 
+              className="active:scale-95 transition-transform"
+              variant="primary" 
+              icon="arrow_forward" 
+              iconPosition="right"
+            >
+              Skoða leikmann
+            </Button>
           </div>
 
         </div>

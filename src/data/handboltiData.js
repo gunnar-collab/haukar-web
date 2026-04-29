@@ -57,7 +57,7 @@ export const dataKvenna = {
   },
   players: [
     { number: "1", slug: "elisa-helga", name: "Elísa Helga", position: "Markvörður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5999.jpg" },
-    { number: "4", slug: "sara-sif", name: "Sara Sif", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6121.jpg" },
+    { number: "4", slug: "sara-sif", name: "Sara Sif", position: "Markvörður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6121.jpg" },
     { number: "91", slug: "johanna-margret", name: "Jóhanna Margrét", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5741.jpg" },
     { number: "7", slug: "rakel-oddny", name: "Rakel Oddný", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5780.jpg" },
     { id: 33, slug: 'ebba-gudridur', name: 'Ebba Guðríður', number: '15', position: 'Lína', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5916.jpg' },

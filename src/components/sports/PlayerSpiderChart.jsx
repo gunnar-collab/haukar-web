@@ -45,7 +45,7 @@ export default function PlayerSpiderChart({ player }) {
       // Outfield Handball Player
       const MAX_GOALS = 120;
       const MAX_SHOTS = 180;
-      const MAX_STOPS = 30;
+      const MAX_STOPS = 60; // Up to 60 legal stops over a season
       const MAX_STEALS = 30;
       const MAX_SHOOTING_PCT = 80;
 

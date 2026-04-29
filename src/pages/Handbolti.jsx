@@ -30,7 +30,7 @@ const allHandballPlayers = [
     
     // KVENNA
     { id: 24, slug: 'elisa-helga', name: 'Elísa Helga', number: '1', position: 'Markvörður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5999.jpg' },
-    { id: 25, slug: 'sara-sif', name: 'Sara Sif', number: '4', position: 'Skytta', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6121.jpg' },
+    { id: 25, slug: 'sara-sif', name: 'Sara Sif', number: '4', position: 'Markvörður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6121.jpg' },
     { id: 26, slug: 'ragnheidur-5', name: 'Ragnheiður', number: '5', position: 'Hornamaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5800.jpg' },
     { id: 28, slug: 'rakel-oddny', name: 'Rakel Oddný', number: '7', position: 'Skytta', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5780.jpg' },
     { id: 33, slug: 'ebba-gudridur', name: 'Ebba Guðríður', number: '15', position: 'Lína', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5916.jpg' },

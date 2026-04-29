@@ -10,6 +10,11 @@ import Fotbolti from './pages/Fotbolti';
 import Handbolti from './pages/Handbolti';
 import Veislusalur from './pages/Veislusalur';
 import Aefingagjold from './pages/Aefingagjold';
+import Aefingatoflur from './pages/Aefingatoflur';
+import AefingataflaDetail from './pages/AefingataflaDetail';
+import Sumarskoli from './pages/Sumarskoli';
+import Leikjaskoli from './pages/Leikjaskoli';
+import Barnastarf from './pages/Barnastarf';
 import Personuvernd from './pages/Personuvernd';
 import CookieBanner from './components/CookieBanner';
 import Dagatal from './pages/Dagatal';
@@ -87,6 +92,11 @@ function AppContent() {
             <Route path="/skak" element={<Skak />} />
             <Route path="/veislusalur" element={<Veislusalur />} />
             <Route path="/aefingagjold" element={<Aefingagjold />} />
+            <Route path="/aefingatoflur" element={<Aefingatoflur />} />
+            <Route path="/aefingatoflur/:id" element={<AefingataflaDetail />} />
+            <Route path="/sumarskoli" element={<Sumarskoli />} />
+            <Route path="/leikjaskoli" element={<Leikjaskoli />} />
+            <Route path="/barnastarf" element={<Barnastarf />} />
             <Route path="/dagatal" element={<Dagatal />} />
             <Route path="/bakhjarlar" element={<Bakhjarlar />} />
             <Route path="/hafasamband" element={<HafaSamband />} />

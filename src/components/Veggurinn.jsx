@@ -45,30 +45,30 @@ export default function Veggurinn() {
   ];
 
   return (
-    <section className="w-full py-8 md:py-16 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden border-t border-gray-100">
+    <section className="relative w-full py-8 md:py-16 bg-white font-sans selection:bg-[#1c2c6c] selection:text-white overflow-hidden border-t border-gray-100">
       {/* Background Decor */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#1c2c6c]/20 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/4"></div>
+      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_center,_#1c2c6c_1px,_transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#1c2c6c]/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Minimalist Header Section (Uniform with NewsGrid & TrophyCabinet) */}
         <div className="flex justify-between items-end mb-8">
           <div>
-            <span className="text-white/70 text-xs font-bold uppercase tracking-widest block mb-1">
+            <span className="text-[#1c2c6c] text-xs font-bold uppercase tracking-widest block mb-1">
               #ÁframHaukar
             </span>
-            <h2 className="text-5xl md:text-6xl font-black italic tracking-normal text-white drop-shadow-md">
+            <h2 className="text-5xl md:text-6xl font-black italic tracking-normal text-[#c8102e] drop-shadow-sm">
               Veggurinn á Ásvöllum
             </h2>
           </div>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hidden md:flex font-bold text-white hover:text-white/70 transition-colors items-center gap-1 mb-2 text-sm uppercase tracking-widest">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hidden md:flex font-bold text-[#1c2c6c] hover:text-[#c8102e] transition-colors items-center gap-1 mb-2 text-sm uppercase tracking-widest">
             Fylgjast Með <span className="text-xl leading-none">&rsaquo;</span>
           </a>
         </div>
         
         {/* Mobile Link placed below title for better flow */}
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="md:hidden font-bold text-white hover:text-white/70 transition-colors flex items-center gap-1 mb-8 text-sm uppercase tracking-widest">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="md:hidden font-bold text-[#1c2c6c] hover:text-[#c8102e] transition-colors flex items-center gap-1 mb-8 text-sm uppercase tracking-widest">
           Fylgjast Með <span className="text-xl leading-none">&rsaquo;</span>
         </a>
 

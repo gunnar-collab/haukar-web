@@ -12,14 +12,16 @@ export default function MatchReportModal({ isOpen, onClose, match }) {
   if (!isOpen || !match) return null;
 
   // Detect sport
-  const isBasketball = match.competition?.toLowerCase().includes('karla') || 
-                       match.competition?.toLowerCase().includes('bónus deild') ||
-                       match.competition?.toLowerCase().includes('1. deild') ||
-                       match.competition?.toLowerCase().includes('körfu');
-  const isHandball = match.competition?.toLowerCase().includes('olís') || 
+  const isBasketball = match.sport === 'korfubolti' || 
+                       (!match.sport && (match.competition?.toLowerCase().includes('bónus deild') ||
+                       match.competition?.toLowerCase().includes('körfu')));
+                       
+  const isHandball = match.sport === 'handbolti' || 
+                     (!match.sport && (match.competition?.toLowerCase().includes('olís') || 
                      match.competition?.toLowerCase().includes('grill') ||
-                     match.competition?.toLowerCase().includes('hand');
-  const isFootball = !isBasketball && !isHandball;
+                     match.competition?.toLowerCase().includes('hand')));
+                     
+  const isFootball = match.sport === 'fotbolti' || (!isBasketball && !isHandball);
 
   const isUpcoming = match.score === 'Næsti leikur' || match.score === '- - -' || !match.score;
 
@@ -32,9 +34,62 @@ export default function MatchReportModal({ isOpen, onClose, match }) {
     min: e.time === 'PSO' ? 120 : (parseInt(e.time.split(':')[0]) || parseInt(e.time.replace("'", "")) || 0)
   })) : null;
 
+  const getDerivedLineup = (teamName) => {
+    const events = parsedEvents || match.report?.events || [];
+    if (!events || events.length === 0) return null;
+    
+    // Opponent events might be tagged as "Andstæðingur" by parseGenericEvent
+    const teamEvents = events.filter(e => 
+        e.team === teamName || (teamName !== 'Haukar' && e.team === 'Andstæðingur')
+    );
+    const players = new Map();
+    
+    teamEvents.forEach(e => {
+        let rawName = e.text || e.player;
+        if (!rawName) return;
+        
+        let name = rawName;
+        let number = '-';
+        
+        // Remove known event prefixes (including uppercase action prefixes like SÓKNARBROT Á)
+        name = name.replace(/MARK!\s*/i, '')
+                   .replace(/VARIÐ!\s*/i, '')
+                   .replace(/VÍTI!\s*/i, '')
+                   .replace(/SÓKNARBROT Á\s*/i, '');
+        
+        const numMatch = name.match(/^(\d+)\.\s+/);
+        if (numMatch) {
+            number = numMatch[1];
+            name = name.replace(/^\d+\.\s*/, '');
+        }
+        
+        // Clean up common action phrases in handball/basketball reports
+        name = name.replace(/\s+(skorar|ver|fær|klikkar|tapar|með|fiskar|brýtur|varið|vítakast|reynir|hittir|missir|stelur|nær).*/i, '').trim();
+        
+        // Remove any trailing exclamation marks or punctuation
+        name = name.replace(/[!.,]+$/, '');
+
+        const isSystemEvent = name.includes('---') || 
+                              name.toLowerCase().includes('hálfleikur') || 
+                              name.toLowerCase().includes('leik lokið') ||
+                              name.toLowerCase().includes('leikhlé');
+
+        if (name && name.length > 2 && !isSystemEvent && name.toLowerCase() !== 'leikmaður' && name !== teamName) {
+            if (!players.has(name) || players.get(name) === '-') {
+                players.set(name, number);
+            }
+        }
+    });
+    
+    if (players.size === 0) return null;
+    return {
+        starting: Array.from(players.entries()).map(([name, number]) => ({ name, number })).sort((a, b) => a.name.localeCompare(b.name))
+    };
+  };
+
   const report = {
-    lineup: realReport?.lineup || match.report?.lineup || null,
-    opponentLineup: realReport?.opponentLineup || null,
+    lineup: realReport?.lineup || match.report?.lineup || getDerivedLineup(match.home === 'Haukar' ? match.home : match.away),
+    opponentLineup: realReport?.opponentLineup || match.report?.opponentLineup || getDerivedLineup(match.home === 'Haukar' ? match.away : match.home),
     events: parsedEvents || match.report?.events || []
   };
 
@@ -297,9 +352,22 @@ export default function MatchReportModal({ isOpen, onClose, match }) {
                           <span className="w-8 h-[2px] bg-gray-200"></span>
                           {match.home === 'Haukar' ? match.away : match.home}
                       </h4>
-                      <div className="bg-gray-100 rounded-3xl h-64 flex items-center justify-center text-[10px] font-black uppercase tracking-widest text-gray-300">
-                          {isFootball ? 'Sækja gögn frá KSÍ...' : 'Tölfræði í vinnslu...'}
-                      </div>
+                      {report.opponentLineup ? (
+                        <div className="bg-gray-50/50 rounded-3xl border border-gray-100 overflow-hidden">
+                            {report.opponentLineup.starting.map((player, idx) => (
+                                <div key={idx} className="flex items-center gap-4 p-4 border-b border-gray-100 last:border-0 hover:bg-white transition-colors">
+                                    <span className="w-6 h-6 rounded-lg bg-gray-200 text-gray-600 flex items-center justify-center text-[10px] font-black shrink-0">
+                                        {player.number}
+                                    </span>
+                                    <span className="text-xs font-bold text-gray-600 uppercase italic tracking-tight flex-grow">{player.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                      ) : (
+                        <div className="bg-gray-100 rounded-3xl h-64 flex items-center justify-center text-[10px] font-black uppercase tracking-widest text-gray-300">
+                            {isFootball ? 'Sækja gögn frá KSÍ...' : 'Tölfræði í vinnslu...'}
+                        </div>
+                      )}
                     </div>
                   )}
               </div>
