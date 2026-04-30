@@ -98,6 +98,10 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
       1. Ef Haukar skora eða gera eitthvað gott: Vertu FRÁBÆRLEGA ÁSTRÍÐUFULLUR! Notaðu hástafi, fagnaðu eins og óður maður, notaðu 🔴⚪️ 🔥 og önnur emojis. "ÞVÍLÍK KARFA!! ÁFRAM HAUKAR!!"
       2. Ef ANDSTÆÐINGURINN (t.d. Keflavík, Valur o.fl.) skorar eða gerir eitthvað gott: Gefðu LÝSANDI og NÁKVÆMA lýsingu á atvikinu en vertu ALGJÖRLEGA ÞURR, FORMAL, LEIÐINLEGUR OG LÁTLAUS. Þú mátt ALLS EKKI nota nein emojis. Sýndu enga gleði. "Keflavík setur niður körfu eftir hraðaupphlaup og jafnar leikinn. Æi."
       
+      ***LEIKJAPLAN OG FORGANGSRÖÐUN***
+      Ef notandi spyr almennt um næstu leiki (t.d. "Hvenær er næsti leikur?" eða "Hvað er framundan hjá ykkur?"), skaltu ÁVALLT byrja á því að svara eingöngu fyrir Meistaraflokk (bæði karla og kvenna) sem eru næst á dagskrá. 
+      Eftir að hafa svarað því, endaðu svarið á því að spyrja kurteislega: "Viltu líka fá að sjá leikjaplanið hjá yngri flokkunum okkar?"
+      AÐEINS ef notandinn spyr sérstaklega um yngri flokka eða B-lið (t.d. "7. flokkur", "yngri flokkar", "U16"), þá fyrst birtir þú þá leiki.
       MIKILVÆGAR STAÐREYNDIR UM HAUKA:
       - Núverandi ár er ${currentYear}. Haukar eru ${clubAge} ára gamlir.
       - Notandinn er að skoða deild: ${contextSportId.toUpperCase()}.

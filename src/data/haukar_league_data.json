@@ -1503,159 +1503,2608 @@
     ],
     "matches": [
       {
-        "date": "2026-09-12",
+        "date": "2026-01-18",
+        "home": "Keflavík U12 Karlar",
+        "away": "Haukar U12 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6979731",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6979731"
+      },
+      {
+        "date": "2026-01-18",
+        "home": "Keflavík U12 Karlar",
+        "away": "Haukar U12 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - D lið B riðill",
+        "statsScraped": true,
+        "id": "6980669",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6980669"
+      },
+      {
+        "date": "2026-01-25",
+        "home": "HK/Ýmir U19 Karlar 2",
+        "away": "Haukar/KÁ U19 Karlar",
+        "score": "3 - 5",
+        "competition": "Faxaflóamót 2. flokkur karla 2026 - A lið E riðill",
+        "statsScraped": true,
+        "id": "6976915",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6976915"
+      },
+      {
+        "date": "2026-01-26",
+        "home": "Breiðablik U16 Karlar 2",
+        "away": "Haukar U16 Karlar",
+        "score": "9 - 2",
+        "competition": "Faxaflóamót 3. flokkur karla 2026 - C lið B riðill",
+        "statsScraped": true,
+        "id": "7021185",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7021185"
+      },
+      {
+        "date": "2026-02-01",
+        "home": "Haukar U12 Karlar",
+        "away": "Grótta U12 Karlar",
+        "score": "0 - 3",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6979735",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6979735"
+      },
+      {
+        "date": "2026-02-01",
+        "home": "Haukar U12 Karlar",
+        "away": "Grótta U12 Karlar",
+        "score": "0 - 0",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - D lið B riðill",
+        "statsScraped": true,
+        "id": "6980673",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6980673"
+      },
+      {
+        "date": "2026-02-01",
+        "home": "Haukar U12 Karlar",
+        "away": "Grótta U12 Karlar",
+        "score": "0 - 2",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7003041",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7003041"
+      },
+      {
+        "date": "2026-02-04",
+        "home": "Keflavík/Reynir/Hafnir 2",
+        "away": "Haukar/KÁ U19 Karlar",
+        "score": "2 - 4",
+        "competition": "Faxaflóamót 2. flokkur karla 2026 - A lið E riðill",
+        "statsScraped": true,
+        "id": "6976916",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6976916"
+      },
+      {
+        "date": "2026-02-07",
+        "home": "Haukar U16 Karlar",
+        "away": "Stjarnan U16 Karlar",
+        "score": "1 - 11",
+        "competition": "Faxaflóamót 3. flokkur karla 2026 - C lið B riðill",
+        "statsScraped": true,
+        "id": "7021193",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7021193"
+      },
+      {
+        "date": "2026-02-10",
+        "home": "Haukar U14 Karlar",
+        "away": "Njarðvík/Reynir/Víðir U14 karla",
+        "score": "7 - 2",
+        "competition": "Faxaflóamót 4. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "7027902",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7027902"
+      },
+      {
+        "date": "2026-02-14",
+        "home": "Haukar",
+        "away": "Hvíti riddarinn",
+        "score": "4 - 0",
+        "competition": "Lengjubikar karla 2026 - B deild Riðill 3",
+        "statsScraped": true,
+        "id": "6962749",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6962749"
+      },
+      {
+        "date": "2026-02-14",
+        "home": "Stjarnan U14 Karlar 2",
+        "away": "Haukar U14 Karlar",
+        "score": "0 - 2",
+        "competition": "Faxaflóamót 4. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "7027903",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7027903"
+      },
+      {
+        "date": "2026-02-14",
+        "home": "Stjarnan U12 Karlar 2",
+        "away": "Haukar U12 Karlar",
+        "score": "10 - 0",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6979739",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6979739"
+      },
+      {
+        "date": "2026-02-16",
+        "home": "Haukar/KÁ U19 Karlar",
+        "away": "Keflavík/Reynir/Hafnir",
+        "score": "5 - 2",
+        "competition": "Faxaflóamót 2. flokkur karla 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "6977100",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6977100"
+      },
+      {
+        "date": "2026-02-16",
+        "home": "HK/Ýmir U16 Karlar 2",
+        "away": "Haukar U16 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 3. flokkur karla 2026 - C lið B riðill",
+        "statsScraped": true,
+        "id": "7021194",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7021194"
+      },
+      {
+        "date": "2026-02-19",
+        "home": "KH",
+        "away": "Haukar",
+        "score": "1 - 3",
+        "competition": "Lengjubikar karla 2026 - B deild Riðill 3",
+        "statsScraped": true,
+        "id": "6962753",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6962753"
+      },
+      {
+        "date": "2026-02-22",
+        "home": "Haukar/KÁ U19 Karlar",
+        "away": "FH/ÍH U19 Karlar 3",
+        "score": "3 - 7",
+        "competition": "Faxaflóamót 2. flokkur karla 2026 - A lið E riðill",
+        "statsScraped": true,
+        "id": "6976919",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6976919"
+      },
+      {
+        "date": "2026-02-28",
+        "home": "Haukar U12 Karlar",
+        "away": "ÍBV U12 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6979743",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6979743"
+      },
+      {
+        "date": "2026-02-28",
+        "home": "Haukar U12 Karlar",
+        "away": "ÍBV U12 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - D lið B riðill",
+        "statsScraped": true,
+        "id": "6980681",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6980681"
+      },
+      {
+        "date": "2026-02-28",
+        "home": "Haukar U12 Karlar",
+        "away": "ÍBV U12 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7003049",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7003049"
+      },
+      {
+        "date": "2026-03-01",
+        "home": "Fylkir/Elliði",
+        "away": "Haukar/KÁ",
+        "score": "9 - 1",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7068788",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7068788"
+      },
+      {
+        "date": "2026-03-03",
+        "home": "Haukar U16 Karlar",
+        "away": "FH/ÍH U16 Karlar 2",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 3. flokkur karla 2026 - C lið B riðill",
+        "statsScraped": true,
+        "id": "7021200",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7021200"
+      },
+      {
+        "date": "2026-03-04",
+        "home": "Haukar U14 Karlar",
+        "away": "FH U14 Karlar 2",
+        "score": "1 - 8",
+        "competition": "Faxaflóamót 4. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "7027907",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7027907"
+      },
+      {
+        "date": "2026-03-07",
+        "home": "Haukar",
+        "away": "Þróttur V.",
+        "score": "3 - 3",
+        "competition": "Lengjubikar karla 2026 - B deild Riðill 3",
+        "statsScraped": true,
+        "id": "6962754",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6962754"
+      },
+      {
+        "date": "2026-03-07",
+        "home": "Breiðablik U14 Karlar 2",
+        "away": "Haukar U14 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 4. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "7027910",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7027910"
+      },
+      {
+        "date": "2026-03-08",
+        "home": "Njarðvík/Víðir/Grindavík U19 Karlar",
+        "away": "Haukar/KÁ U19 Karlar",
+        "score": "3 - 6",
+        "competition": "Faxaflóamót 2. flokkur karla 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "6977102",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6977102"
+      },
+      {
+        "date": "2026-03-08",
+        "home": "Selfoss U16 Karlar 2",
+        "away": "Haukar U16 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 3. flokkur karla 2026 - C lið B riðill",
+        "statsScraped": true,
+        "id": "7021203",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7021203"
+      },
+      {
+        "date": "2026-03-09",
+        "home": "Víkingur R. 2",
+        "away": "Haukar",
+        "score": "4 - 2",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true,
+        "id": "7072507",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7072507"
+      },
+      {
+        "date": "2026-03-11",
+        "home": "Haukar/KÁ",
+        "away": "Valur/KH/Fálkar",
+        "score": "2 - 4",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7068793",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7068793"
+      },
+      {
+        "date": "2026-03-14",
+        "home": "Haukar",
+        "away": "Ýmir",
+        "score": "5 - 0",
+        "competition": "Lengjubikar karla 2026 - B deild Riðill 3",
+        "statsScraped": true,
+        "id": "6962759",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6962759"
+      },
+      {
+        "date": "2026-03-14",
+        "home": "Hamar/Ægir U12 Karlar",
+        "away": "Haukar U12 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7003053",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7003053"
+      },
+      {
+        "date": "2026-03-15",
+        "home": "Haukar U16 Karlar",
+        "away": "Keflavík U16 Karlar 2",
+        "score": "1 - 5",
+        "competition": "Faxaflóamót 3. flokkur karla 2026 - C lið B riðill",
+        "statsScraped": true,
+        "id": "7021207",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7021207"
+      },
+      {
+        "date": "2026-03-15",
+        "home": "FH U12 Karlar 2",
+        "away": "Haukar U12 Karlar",
+        "score": "0 - 0",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6979747",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6979747"
+      },
+      {
+        "date": "2026-03-15",
+        "home": "FH U12 Karlar 2",
+        "away": "Haukar U12 Karlar",
+        "score": "0 - 0",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - D lið B riðill",
+        "statsScraped": true,
+        "id": "6980685",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6980685"
+      },
+      {
+        "date": "2026-03-15",
+        "home": "Haukar/KÁ",
+        "away": "Þór/THK/Völs/Magni 2",
+        "score": "8 - 2",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7068802",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7068802"
+      },
+      {
+        "date": "2026-03-15",
+        "home": "Haukar",
+        "away": "KA/KF/Dalvík 2",
+        "score": "2 - 6",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true,
+        "id": "7072504",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7072504"
+      },
+      {
+        "date": "2026-03-17",
+        "home": "Haukar",
+        "away": "Stjarnan/KFG 2",
+        "score": "1 - 3",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true,
+        "id": "7072509",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7072509"
+      },
+      {
+        "date": "2026-03-19",
+        "home": "Vængir Júpiters",
+        "away": "Haukar",
+        "score": "2 - 3",
+        "competition": "Mjólkurbikar karla 2026",
+        "statsScraped": true,
+        "id": "7067199",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7067199"
+      },
+      {
+        "date": "2026-03-22",
+        "home": "Haukar U14 Karlar",
+        "away": "ÍBV U14 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 4. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "7027912",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7027912"
+      },
+      {
+        "date": "2026-03-28",
+        "home": "Haukar U12 Karlar",
+        "away": "Njarðvík/Reynir/Víðir U12 karla",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6979751",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6979751"
+      },
+      {
+        "date": "2026-03-28",
+        "home": "Haukar U12 Karlar",
+        "away": "Njarðvík/Reynir/Víðir U12 karla",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - D lið B riðill",
+        "statsScraped": true,
+        "id": "6980689",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6980689"
+      },
+      {
+        "date": "2026-03-28",
+        "home": "Haukar U12 Karlar",
+        "away": "Njarðvík/Reynir/Víðir U12 karla",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7003057",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7003057"
+      },
+      {
+        "date": "2026-03-30",
+        "home": "Haukar",
+        "away": "KFR",
+        "score": "3 - 0",
+        "competition": "Mjólkurbikar karla 2026",
+        "statsScraped": true,
+        "id": "7067251",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7067251"
+      },
+      {
+        "date": "2026-04-06",
+        "home": "ÍA",
+        "away": "Haukar",
+        "score": "4 - 0",
+        "competition": "Mjólkurbikar karla 2026",
+        "statsScraped": true,
+        "id": "7067956",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7067956"
+      },
+      {
+        "date": "2026-04-07",
+        "home": "Njarðvík/Grindavík/Víðir",
+        "away": "Haukar/KÁ",
+        "score": "2 - 1",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7068810",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7068810"
+      },
+      {
+        "date": "2026-04-09",
+        "home": "Álftanes U12 Karlar",
+        "away": "Haukar U12 Karlar",
+        "score": "9 - 1",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7003037",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7003037"
+      },
+      {
+        "date": "2026-04-11",
+        "home": "Haukar",
+        "away": "Víðir",
+        "score": "2 - 2",
+        "competition": "Lengjubikar karla 2026 - B deild Riðill 3",
+        "statsScraped": true,
+        "id": "6962761",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6962761"
+      },
+      {
+        "date": "2026-04-11",
+        "home": "Breiðablik U12 Karlar 3",
+        "away": "Haukar U12 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6979755",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6979755"
+      },
+      {
+        "date": "2026-04-11",
+        "home": "Snæfellsnes",
+        "away": "Haukar U12 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7003061",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7003061"
+      },
+      {
+        "date": "2026-04-11",
+        "home": "Snæfellsnes",
+        "away": "Haukar U12 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur karla 2026 - D lið B riðill",
+        "statsScraped": true,
+        "id": "6980693",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6980693"
+      },
+      {
+        "date": "2026-04-11",
+        "home": "Grótta U14 Karlar",
+        "away": "Haukar U14 Karlar",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 4. flokkur karla 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "7027917",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7027917"
+      },
+      {
+        "date": "2026-04-12",
+        "home": "Haukar U16 Karlar",
+        "away": "Afturelding U16 Karlar 2",
+        "score": "1 - 7",
+        "competition": "Faxaflóamót 3. flokkur karla 2026 - C lið B riðill",
+        "statsScraped": true,
+        "id": "7021214",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7021214"
+      },
+      {
+        "date": "2026-04-15",
+        "home": "Selfoss/Árborg/Ægir/Stokkseyri",
+        "away": "Haukar/KÁ",
+        "score": "1 - 4",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7068811",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7068811"
+      },
+      {
+        "date": "2026-04-18",
+        "home": "Haukar",
+        "away": "FH/ÍH 2",
+        "score": "2 - 7",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true,
+        "id": "7072520",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7072520"
+      },
+      {
+        "date": "2026-04-19",
+        "home": "Haukar",
+        "away": "Fjölnir",
+        "score": "4 - 1",
+        "competition": "Lengjubikar karla 2026 - B deild Úrslit",
+        "statsScraped": true,
+        "id": "7080229",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7080229"
+      },
+      {
+        "date": "2026-04-19",
+        "home": "Haukar/KÁ",
+        "away": "KA/Dalvík/KF/Hamrar 2",
+        "score": "6 - 1",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7068820",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7068820"
+      },
+      {
+        "date": "2026-04-21",
+        "home": "Grótta/Kría",
+        "away": "Haukar",
+        "score": "9 - 1",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true,
+        "id": "7072514",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7072514"
+      },
+      {
+        "date": "2026-04-25",
+        "home": "ÍR/Léttir",
+        "away": "Haukar/KÁ",
+        "score": "7 - 0",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7068799",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7068799"
+      },
+      {
+        "date": "2026-04-25",
+        "home": "Haukar",
+        "away": "FH 2",
+        "score": "2 - 5",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true,
+        "id": "7333260",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7333260"
+      },
+      {
+        "date": "2026-04-25",
+        "home": "Víkingur Ó.",
+        "away": "Haukar",
+        "score": "0 - 0",
+        "competition": "Lengjubikar karla 2026 - B deild Úrslit",
+        "statsScraped": true,
+        "id": "7350245",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7350245"
+      },
+      {
+        "date": "2026-04-26",
         "home": "Haukar",
         "away": "Grótta",
         "score": "Næsti leikur",
-        "competition": "2. deild karla"
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true,
+        "id": "7151183",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7151183"
       },
       {
-        "date": "2026-09-05",
-        "home": "Ægir",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-08-29",
+        "date": "2026-04-26",
         "home": "Haukar",
-        "away": "Þróttur Vogum",
+        "away": "Grótta",
         "score": "Næsti leikur",
-        "competition": "2. deild karla"
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true,
+        "id": "7153722",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7153722"
       },
       {
-        "date": "2026-08-22",
-        "home": "Kormákur/Hvöt",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-08-15",
+        "date": "2026-04-26",
         "home": "Haukar",
-        "away": "Dalvík/Reynir",
+        "away": "Grótta",
         "score": "Næsti leikur",
-        "competition": "2. deild karla"
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true,
+        "id": "7155646",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7155646"
       },
       {
-        "date": "2026-08-08",
-        "home": "KFA",
+        "date": "2026-04-26",
+        "home": "ÍBV/KFS",
         "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
+        "score": "3 - 0",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true,
+        "id": "7072521",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7072521"
       },
       {
-        "date": "2026-07-25",
-        "home": "Kári",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
+        "date": "2026-04-29",
+        "home": "Leiknir/Árbær/KB",
+        "away": "Haukar/KÁ",
+        "score": "4 - 1",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7068822",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7068822"
       },
       {
-        "date": "2026-07-18",
-        "home": "Haukar",
-        "away": "KFG",
+        "date": "2026-05-01",
+        "home": "Njarðvík/Reynir/Víðir 2 U16 karla",
+        "away": "Haukar U16 Karlar",
         "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-07-11",
-        "home": "Víðir",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-07-04",
-        "home": "Haukar",
-        "away": "Höttur/Huginn",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-06-27",
-        "home": "Víkingur Ó.",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-06-20",
-        "home": "Grótta",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-06-13",
-        "home": "Haukar",
-        "away": "Ægir",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-06-06",
-        "home": "Þróttur Vogum",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-05-30",
-        "home": "Haukar",
-        "away": "Kormákur/Hvöt",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-05-23",
-        "home": "Dalvík/Reynir",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-05-16",
-        "home": "Haukar",
-        "away": "KFA",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-05-09",
-        "home": "Höttur/Huginn",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
-      },
-      {
-        "date": "2026-05-09",
-        "home": "Haukar",
-        "away": "Víkingur Ó.",
-        "score": "Næsti leikur",
-        "competition": "2. deild karla"
+        "competition": "Faxaflóamót 3. flokkur karla 2026 - C lið B riðill",
+        "statsScraped": true,
+        "id": "7021212",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7021212"
       },
       {
         "date": "2026-05-01",
         "home": "Þróttur V.",
         "away": "Haukar",
         "score": "Næsti leikur",
-        "competition": "2. deild karla"
+        "competition": "2. deild karla",
+        "statsScraped": false,
+        "id": "7053200",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7053200"
       },
       {
-        "date": "2026-04-25",
-        "home": "Víkingur Ó.",
+        "date": "2026-05-05",
+        "home": "Haukar",
+        "away": "Fjölnir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-05",
+        "home": "Haukar/KÁ",
+        "away": "Víkingur/BF108",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - A lið - B deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-06",
+        "home": "Selfoss",
         "away": "Haukar",
-        "score": "0 - 0 (2-4 vító)",
-        "competition": "Lengjubikarinn",
-        "id": "7350245"
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
       },
       {
-        "date": "2026-04-18",
+        "date": "2026-05-06",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-06",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-08",
+        "home": "Haukar",
+        "away": "FH/ÍH 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-09",
+        "home": "Haukar",
+        "away": "ÍBV",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-09",
+        "home": "Haukar",
+        "away": "ÍBV",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-09",
+        "home": "Haukar",
+        "away": "Magni",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-05-10",
+        "home": "Haukar/KÁ",
+        "away": "ÍR/Léttir",
+        "score": "Næsti leikur",
+        "competition": "Bikarkeppni KSÍ - 2. flokkur karla",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-10",
+        "home": "ÍBV",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Bikarkeppni KSÍ - 3. flokkur karla",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-13",
+        "home": "Haukar/KÁ",
+        "away": "Fjölnir/Vængir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-14",
+        "home": "ÍBV",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-15",
+        "home": "Haukar",
+        "away": "Fjölnir",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-05-15",
+        "home": "ÍR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-18",
+        "home": "ÍR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-18",
+        "home": "ÍR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-19",
+        "home": "Selfoss/Hamar/Ægir 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-21",
+        "home": "KFG",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-05-23",
+        "home": "Haukar",
+        "away": "Breiðablik 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-23",
+        "home": "Haukar",
+        "away": "Breiðablik 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-23",
+        "home": "Haukar",
+        "away": "Víkingur Ó/Reynir H",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-23",
+        "home": "Haukar",
+        "away": "Breiðablik 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-23",
+        "home": "Haukar",
+        "away": "Leiknir R.",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-25",
+        "home": "Haukar",
+        "away": "Stjarnan 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-27",
+        "home": "Haukar",
+        "away": "Höttur",
+        "score": "Næsti leikur",
+        "competition": "Gatorade bikarinn 2026",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-05-28",
+        "home": "Haukar",
+        "away": "Álftanes",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-28",
+        "home": "Haukar",
+        "away": "Leiknir R.",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-29",
+        "home": "Haukar/KÁ",
+        "away": "KR/KV",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-31",
+        "home": "ÍBV",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-31",
+        "home": "ÍBV",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-31",
+        "home": "ÍBV",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-31",
+        "home": "Haukar",
+        "away": "KFA",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-05-31",
+        "home": "Fylkir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - A lið - D deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-03",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-03",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-03",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-03",
+        "home": "Víkingur R.",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-03",
+        "home": "Víkingur R.",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-04",
+        "home": "Haukar",
+        "away": "Fylkir",
+        "score": "Næsti leikur",
+        "competition": "Bikarkeppni KSÍ - 4. flokkur karla 2026",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-05",
+        "home": "Hvíti riddarinn",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-06-06",
+        "home": "KFR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-07",
+        "home": "Sindri/Neisti",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-09",
+        "home": "Víkingur/BF108",
+        "away": "Haukar/KÁ",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-10",
+        "home": "Haukar",
+        "away": "Fjölnir/Vængir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-10",
+        "home": "Haukar",
+        "away": "Fjölnir/Vængir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-10",
+        "home": "Haukar",
+        "away": "Kormákur/Hvöt",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-06-12",
+        "home": "Njarðvík/Reynir/Víðir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-12",
+        "home": "Njarðvík/Reynir/Víðir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-12",
+        "home": "Haukar",
+        "away": "Uppsveitir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-12",
+        "home": "Njarðvík/Reynir/Víðir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-12",
+        "home": "Haukar",
+        "away": "Grótta",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-14",
+        "home": "Dalvík/Reynir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-06-15",
+        "home": "Haukar/KÁ",
+        "away": "Fylkir/Elliði",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-16",
+        "home": "Grótta",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-16",
+        "home": "Grótta",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-16",
+        "home": "Grótta",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-16",
+        "home": "Njarðvík/Reynir/Víðir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-16",
+        "home": "Njarðvík/Reynir/Víðir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-18",
+        "home": "Breiðablik 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-18",
+        "home": "Breiðablik 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-20",
+        "home": "Haukar",
+        "away": "Víkingur Ó.",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-06-25",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-25",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-25",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-25",
+        "home": "Njarðvík/Grindavík/Víðir",
+        "away": "Haukar/KÁ",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-26",
+        "home": "Haukar",
+        "away": "Fjölnir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-26",
+        "home": "Haukar",
+        "away": "KFR",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-26",
+        "home": "Haukar",
+        "away": "Fjölnir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-26",
+        "home": "Haukar",
+        "away": "Afturelding/Hvíti/Álafoss",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-26",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-06-28",
+        "home": "Haukar",
+        "away": "KF/Dalvík",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-01",
+        "home": "Haukar",
+        "away": "Kári",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-07-02",
+        "home": "Haukar/KÁ",
+        "away": "Grótta/Kría",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-02",
+        "home": "FH/ÍH 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-09",
+        "home": "Fjölnir/Vængir",
+        "away": "Haukar/KÁ",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-12",
+        "home": "Magni",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-07-17",
+        "home": "Haukar",
+        "away": "Þróttur V.",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-07-24",
+        "home": "Fjölnir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-07-29",
         "home": "Haukar",
         "away": "KFG",
-        "score": "2 - 0",
-        "competition": "Fótbolta.net mótið"
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-08",
+        "home": "KFA",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-09",
+        "home": "Tindastóll/HFK",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-10",
+        "home": "Haukar",
+        "away": "ÍR",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-13",
+        "home": "KR/KV",
+        "away": "Haukar/KÁ",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-14",
+        "home": "Haukar",
+        "away": "Hvíti riddarinn",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-17",
+        "home": "Haukar",
+        "away": "Fylkir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-17",
+        "home": "Víkingur Ó/Reynir H",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-17",
+        "home": "Leiknir R.",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-17",
+        "home": "Haukar",
+        "away": "Fylkir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-18",
+        "home": "Breiðablik 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-18",
+        "home": "Breiðablik 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-18",
+        "home": "Breiðablik 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-19",
+        "home": "Kormákur/Hvöt",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-20",
+        "home": "Haukar/KÁ",
+        "away": "Víkingur/BF108",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-23",
+        "home": "Haukar",
+        "away": "Dalvík/Reynir",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-25",
+        "home": "Haukar",
+        "away": "ÍBV",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-25",
+        "home": "Haukar",
+        "away": "ÍBV",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-25",
+        "home": "Haukar",
+        "away": "ÍBV",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-25",
+        "home": "Haukar",
+        "away": "Víkingur R.",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-25",
+        "home": "Haukar",
+        "away": "Víkingur R.",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-29",
+        "home": "FH 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-29",
+        "home": "Vestri",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-29",
+        "home": "Víkingur Ó.",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-09-01",
+        "home": "Fram",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-01",
+        "home": "Fram",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-01",
+        "home": "Fram",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-03",
+        "home": "Fylkir/Elliði",
+        "away": "Haukar/KÁ",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-04",
+        "home": "Fjölnir/Vængir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-04",
+        "home": "Fjölnir/Vængir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-05",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-09-06",
+        "home": "Haukar",
+        "away": "Njarðvík/Reynir/Víðir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - A lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-06",
+        "home": "Haukar",
+        "away": "Njarðvík/Reynir/Víðir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - C lið - C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-06",
+        "home": "Haukar",
+        "away": "Njarðvík/Reynir/Víðir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur karla 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-10",
+        "home": "Haukar",
+        "away": "Víkingur R. 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-10",
+        "home": "Haukar/KÁ",
+        "away": "Njarðvík/Grindavík/Víðir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-11",
+        "home": "Haukar",
+        "away": "Njarðvík/Reynir/Víðir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-11",
+        "home": "Haukar",
+        "away": "Njarðvík/Reynir/Víðir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-12",
+        "home": "Kári",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "2. deild karla",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-09-17",
+        "home": "Grótta/Kría",
+        "away": "Haukar/KÁ",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 2. flokkur karla 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-20",
+        "home": "KFR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - B lið - C deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-20",
+        "home": "Afturelding/Hvíti/Álafoss",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur karla 2026 - C lið - C deild",
+        "statsScraped": true
+      }
+    ],
+    "player_stats": [
+      {
+        "name": "Hólmar Egill Hólmarsson",
+        "ksiId": "64680",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 3,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Phakawin Phokhamphok",
+        "ksiId": "65247",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 3,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Borgþór Stefánsson",
+        "ksiId": "65290",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 3,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Aleksander Koscielecki",
+        "ksiId": "80994",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 3,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Lawson Adedayo Oloyede",
+        "ksiId": "83004",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 3,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Renato Uku",
+        "ksiId": "85758",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Ikuala Zeeb",
+        "ksiId": "87881",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 3,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Sigurður Hrannar Þorsteinsson",
+        "ksiId": "6728",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Einar Karl Ingvarsson",
+        "ksiId": "23007",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Máni Mar Steinbjörnsson",
+        "ksiId": "35572",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Daði Snær Ingason",
+        "ksiId": "36572",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 2,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Ísak Jónsson",
+        "ksiId": "38285",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Kári Vilberg Atlason",
+        "ksiId": "44999",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Hallur Húni Þorsteinsson",
+        "ksiId": "46195",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Óliver Steinar Guðmundsson",
+        "ksiId": "47751",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Steingrímur Orri Nikulásson",
+        "ksiId": "53689",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Eiríkur Þróttur Helgason",
+        "ksiId": "54001",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Ólafur Darri Sigurjónsson",
+        "ksiId": "54285",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Hjálmar Magnússon",
+        "ksiId": "55524",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Gabríel Aron Sævarsson",
+        "ksiId": "55966",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 0,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Pablo Oshan Punyed Dubon",
+        "ksiId": "56812",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Baldvin Már Víðisson",
+        "ksiId": "57919",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Viktor Ben Hermannsson",
+        "ksiId": "58085",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Dagur Máni Daðason",
+        "ksiId": "59469",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 0,
+          "goals": 1,
+          "yellowCards": 1,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Kristófer Þrastarson",
+        "ksiId": "59477",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Sveinn Óli Guðnason",
+        "ksiId": "59744",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Óliver Þorkelsson",
+        "ksiId": "62139",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Ísak Freyr Jóhannsson",
+        "ksiId": "62246",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Stefán Logi Guðmundsson",
+        "ksiId": "62830",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Matthías Logi Baldursson",
+        "ksiId": "63834",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Sebastian Sigurðsson Bornachera",
+        "ksiId": "64158",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Óskar Leó Þorleifsson",
+        "ksiId": "69131",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 2,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Uni Chawan Guðmundsson",
+        "ksiId": "69931",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Jón Gísli Stefánsson",
+        "ksiId": "70506",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Aron Vattnes Einarsson",
+        "ksiId": "70870",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Magnús Logi Þorkelsson",
+        "ksiId": "70925",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Alexander Árni Alves Danielsson",
+        "ksiId": "71562",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Baltasar Trausti Ingvarsson",
+        "ksiId": "74883",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Adam Breki Hallsson",
+        "ksiId": "78907",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Benjamín Óliver Óttarsson",
+        "ksiId": "79477",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Markús Breki Steinsson",
+        "ksiId": "80041",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Aron Poul Ásgrímsson",
+        "ksiId": "83113",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Gunnlaugur Fannar Guðmundsson",
+        "ksiId": "21187",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Arnór Yngvason",
+        "ksiId": "53668",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Sigursteinn Ýmir Birgisson",
+        "ksiId": "54399",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Fannar Frank Kristjánsson",
+        "ksiId": "55859",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Kjartan Steinn Jónasson",
+        "ksiId": "56687",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Hannes Ágúst Hjartarson",
+        "ksiId": "57953",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Hörður Rafnar Auðars Pálmarsson",
+        "ksiId": "58286",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Atlas Nói Einvarðsson",
+        "ksiId": "60159",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Ívar Rúnarsson",
+        "ksiId": "62007",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Benjamín Kári Matthíasson",
+        "ksiId": "65481",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Tómas Atli Björgvinsson",
+        "ksiId": "65531",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Styrmir Snær Þórðarson",
+        "ksiId": "65700",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Sölvi Sigurðarson",
+        "ksiId": "65701",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Vilhelm Máni Magnússon",
+        "ksiId": "65705",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Ævar Daði Segatta",
+        "ksiId": "66382",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Ísak Vilhelm Leifsson",
+        "ksiId": "69170",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 1,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Torfi Haraldsson",
+        "ksiId": "69925",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Hilmir Sveinsson",
+        "ksiId": "69933",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Gunnlaugur Orri Önnuson",
+        "ksiId": "70007",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Stormur Björnsson",
+        "ksiId": "70388",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Heiðar Óli Helgason",
+        "ksiId": "70932",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Gabriel Leó Konstantínsson",
+        "ksiId": "71075",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Alan Lukasz Zynda",
+        "ksiId": "71089",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Emil Ágúst Hilmarsson",
+        "ksiId": "71575",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Bergur Magnús Sigmundsson",
+        "ksiId": "73318",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Óliver Hauksson",
+        "ksiId": "74421",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Ægir Eyfjörð Gunnþórsson",
+        "ksiId": "74852",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Jóhann Nóel Kristinsson",
+        "ksiId": "75124",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Grímur Elí Kjartansson",
+        "ksiId": "76354",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Emil Ari Steinþórsson",
+        "ksiId": "77848",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Askur Nói Barry",
+        "ksiId": "78519",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Hermann Ágúst Tryggvason",
+        "ksiId": "79573",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Kristof Ares Pétursson",
+        "ksiId": "79589",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Viktor Máni Arnarsson",
+        "ksiId": "83330",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Ragnar Halldór Bogason",
+        "ksiId": "84855",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Franz Sigurjónsson",
+        "ksiId": "15489",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Jón Arnar Barðdal",
+        "ksiId": "15572",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Haukur Darri Pálsson",
+        "ksiId": "35070",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Guðjón Pétur Lýðsson",
+        "ksiId": "35804",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Daníel Smári Sigurðsson",
+        "ksiId": "44720",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Reynir Leó Egilsson",
+        "ksiId": "48891",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Alexander Aron Tómasson",
+        "ksiId": "51774",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Andri Steinn Ingvarsson",
+        "ksiId": "60834",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
       }
     ]
   },
@@ -1774,151 +4223,2043 @@
     ],
     "matches": [
       {
-        "date": "2026-09-10",
-        "home": "Grótta",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "date": "2026-01-18",
+        "home": "Selfoss U20 Konur",
+        "away": "Haukar U20 Konur",
+        "score": "2 - 0",
+        "competition": "Faxaflóamót 2. flokkur kvenna 2026 - A riðill",
+        "statsScraped": true,
+        "id": "6981451",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6981451"
       },
       {
-        "date": "2026-08-27",
-        "home": "Afturelding",
-        "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "date": "2026-01-22",
+        "home": "Stjarnan/Álftanes U16 Konur 2",
+        "away": "Haukar U16 Konur",
+        "score": "2 - 3",
+        "competition": "Faxaflóamót 3. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7009371",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7009371"
       },
       {
-        "date": "2026-08-20",
+        "date": "2026-01-31",
+        "home": "Haukar U20 Konur",
+        "away": "ÍA U20 Konur",
+        "score": "0 - 4",
+        "competition": "Faxaflóamót 2. flokkur kvenna 2026 - A riðill",
+        "statsScraped": true,
+        "id": "6981453",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6981453"
+      },
+      {
+        "date": "2026-02-01",
+        "home": "ÍA U14 Konur",
+        "away": "Haukar U14 Konur",
+        "score": "0 - 5",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6982183",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982183"
+      },
+      {
+        "date": "2026-02-01",
+        "home": "ÍA U14 Konur",
+        "away": "Haukar U14 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "6982410",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982410"
+      },
+      {
+        "date": "2026-02-08",
+        "home": "Haukar U12 Konur",
+        "away": "KFR U12 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur kvenna 2026 - B lið C riðill",
+        "statsScraped": true,
+        "id": "6983780",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6983780"
+      },
+      {
+        "date": "2026-02-08",
+        "home": "Afturelding U16 Konur",
+        "away": "Haukar U16 Konur",
+        "score": "5 - 4",
+        "competition": "Faxaflóamót 3. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true,
+        "id": "6981734",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6981734"
+      },
+      {
+        "date": "2026-02-12",
+        "home": "Haukar U16 Konur",
+        "away": "Stjarnan/Álftanes U16 Konur 2",
+        "score": "0 - 8",
+        "competition": "Faxaflóamót 3. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true,
+        "id": "6981737",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6981737"
+      },
+      {
+        "date": "2026-02-14",
+        "home": "ÍBV U14 Konur",
+        "away": "Haukar U14 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6982184",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982184"
+      },
+      {
+        "date": "2026-02-15",
+        "home": "RKVN U14 Konur 2",
+        "away": "Haukar U14 Konur",
+        "score": "3 - 0",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "6982411",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982411"
+      },
+      {
+        "date": "2026-02-21",
+        "home": "Hamar/Ægir U12 Konur",
+        "away": "Haukar U12 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true,
+        "id": "6983193",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6983193"
+      },
+      {
+        "date": "2026-02-21",
+        "home": "Hamar/Ægir U12 Konur",
+        "away": "Haukar U12 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur kvenna 2026 - B lið C riðill",
+        "statsScraped": true,
+        "id": "6983782",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6983782"
+      },
+      {
+        "date": "2026-02-21",
         "home": "Haukar",
-        "away": "Víkingur R.",
-        "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "away": "KR",
+        "score": "2 - 3",
+        "competition": "Lengjubikar kvenna 2026 - B deild",
+        "statsScraped": true,
+        "id": "6994028",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6994028"
       },
       {
-        "date": "2026-08-13",
-        "home": "FHL",
+        "date": "2026-02-27",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "3 - 0",
+        "competition": "Lengjubikar kvenna 2026 - B deild",
+        "statsScraped": true,
+        "id": "6994032",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6994032"
+      },
+      {
+        "date": "2026-02-27",
+        "home": "Haukar U14 Konur",
+        "away": "ÍBV U14 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6982190",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982190"
+      },
+      {
+        "date": "2026-03-01",
+        "home": "Haukar U16 Konur",
+        "away": "RKVN U16 Konur 2",
+        "score": "4 - 2",
+        "competition": "Faxaflóamót 3. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7009377",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7009377"
+      },
+      {
+        "date": "2026-03-01",
+        "home": "Haukar U14 Konur",
+        "away": "Grótta U14 Konur",
+        "score": "4 - 3",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6982187",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982187"
+      },
+      {
+        "date": "2026-03-01",
+        "home": "Haukar U14 Konur",
+        "away": "Grótta U14 Konur",
+        "score": "4 - 9",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "6982414",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982414"
+      },
+      {
+        "date": "2026-03-04",
+        "home": "Haukar",
+        "away": "ÍA",
+        "score": "2 - 3",
+        "competition": "Lengjubikar kvenna 2026 - B deild",
+        "statsScraped": true,
+        "id": "6994035",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6994035"
+      },
+      {
+        "date": "2026-03-06",
+        "home": "ÍA/Víkingur Ó",
         "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "score": "7 - 2",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7073158",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7073158"
       },
       {
-        "date": "2026-08-06",
+        "date": "2026-03-08",
+        "home": "Haukar U12 Konur",
+        "away": "Álftanes U12 Konur",
+        "score": "0 - 15",
+        "competition": "Faxaflóamót 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true,
+        "id": "6983196",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6983196"
+      },
+      {
+        "date": "2026-03-08",
+        "home": "Haukar U12 Konur",
+        "away": "Álftanes U12 Konur",
+        "score": "0 - 20",
+        "competition": "Faxaflóamót 5. flokkur kvenna 2026 - B lið C riðill",
+        "statsScraped": true,
+        "id": "6983785",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6983785"
+      },
+      {
+        "date": "2026-03-08",
+        "home": "Afturelding U16 Konur",
+        "away": "Haukar U16 Konur",
+        "score": "4 - 0",
+        "competition": "Faxaflóamót 3. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7009378",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7009378"
+      },
+      {
+        "date": "2026-03-11",
+        "home": "Keflavík",
+        "away": "Haukar",
+        "score": "1 - 2",
+        "competition": "Lengjubikar kvenna 2026 - B deild",
+        "statsScraped": true,
+        "id": "6994041",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6994041"
+      },
+      {
+        "date": "2026-03-12",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "3 - 4",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7073162",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7073162"
+      },
+      {
+        "date": "2026-03-14",
+        "home": "Haukar U14 Konur",
+        "away": "ÍA U14 Konur",
+        "score": "2 - 0",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6982189",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982189"
+      },
+      {
+        "date": "2026-03-14",
+        "home": "Haukar U14 Konur",
+        "away": "ÍA U14 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "6982416",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982416"
+      },
+      {
+        "date": "2026-03-14",
+        "home": "Haukar U16 Konur",
+        "away": "Breiðablik U16 Konur 2",
+        "score": "5 - 1",
+        "competition": "Faxaflóamót 3. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7009382",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7009382"
+      },
+      {
+        "date": "2026-03-15",
+        "home": "Haukar U20 Konur",
+        "away": "Breiðablik/Augnablik",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 2. flokkur kvenna 2026 - A riðill",
+        "statsScraped": true,
+        "id": "6981464",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6981464"
+      },
+      {
+        "date": "2026-03-18",
         "home": "Haukar",
         "away": "Grótta",
-        "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "score": "2 - 2",
+        "competition": "Lengjubikar kvenna 2026 - B deild",
+        "statsScraped": true,
+        "id": "6994042",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6994042"
       },
       {
-        "date": "2026-07-23",
+        "date": "2026-03-21",
+        "home": "Skallagrímur U12 Konur",
+        "away": "Haukar U12 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true,
+        "id": "6983200",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6983200"
+      },
+      {
+        "date": "2026-03-21",
+        "home": "Skallagrímur U12 Konur",
+        "away": "Haukar U12 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur kvenna 2026 - B lið C riðill",
+        "statsScraped": true,
+        "id": "6983789",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6983789"
+      },
+      {
+        "date": "2026-03-27",
+        "home": "Haukar U14 Konur",
+        "away": "RKVN U14 Konur 2",
+        "score": "3 - 4",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "6982417",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982417"
+      },
+      {
+        "date": "2026-03-29",
+        "home": "RKVN U20 Konur",
+        "away": "Haukar U20 Konur",
+        "score": "4 - 5",
+        "competition": "Faxaflóamót 2. flokkur kvenna 2026 - A riðill",
+        "statsScraped": true,
+        "id": "6981465",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6981465"
+      },
+      {
+        "date": "2026-03-31",
+        "home": "Haukar",
+        "away": "HK",
+        "score": "2 - 4",
+        "competition": "Lengjubikar kvenna 2026 - B deild",
+        "statsScraped": true,
+        "id": "6994049",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6994049"
+      },
+      {
+        "date": "2026-04-09",
+        "home": "Breiðablik/Augnablik 2",
+        "away": "Haukar",
+        "score": "3 - 1",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7073176",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7073176"
+      },
+      {
+        "date": "2026-04-11",
+        "home": "Haukar U12 Konur",
+        "away": "RKVN U12 Konur 2",
+        "score": "3 - 5",
+        "competition": "Faxaflóamót 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true,
+        "id": "6983201",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6983201"
+      },
+      {
+        "date": "2026-04-11",
+        "home": "Grótta U14 Konur",
+        "away": "Haukar U14 Konur",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "6982420",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982420"
+      },
+      {
+        "date": "2026-04-11",
+        "home": "Haukar U16 Konur",
+        "away": "HK U16 Konur 2",
+        "score": "2 - 2",
+        "competition": "Faxaflóamót 3. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7009387",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7009387"
+      },
+      {
+        "date": "2026-04-12",
+        "home": "Haukar U12 Konur",
+        "away": "Snæfellsnes",
+        "score": "Næsti leikur",
+        "competition": "Faxaflóamót 5. flokkur kvenna 2026 - B lið C riðill",
+        "statsScraped": true,
+        "id": "6983790",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6983790"
+      },
+      {
+        "date": "2026-04-12",
+        "home": "Haukar U20 Konur",
+        "away": "FH/ÍH U20 Konur",
+        "score": "3 - 3",
+        "competition": "Faxaflóamót 2. flokkur kvenna 2026 - A riðill",
+        "statsScraped": true,
+        "id": "6981469",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6981469"
+      },
+      {
+        "date": "2026-04-14",
+        "home": "Grótta U14 Konur",
+        "away": "Haukar U14 Konur",
+        "score": "7 - 0",
+        "competition": "Faxaflóamót 4. flokkur kvenna 2026 - A lið B riðill",
+        "statsScraped": true,
+        "id": "6982193",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=6982193"
+      },
+      {
+        "date": "2026-04-15",
+        "home": "Þróttur/KÞ",
+        "away": "Haukar",
+        "score": "8 - 2",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7073167",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7073167"
+      },
+      {
+        "date": "2026-04-17",
+        "home": "KFR U16 Konur",
+        "away": "Haukar U16 Konur",
+        "score": "11 - 0",
+        "competition": "Faxaflóamót 3. flokkur kvenna 2026 - B lið B riðill",
+        "statsScraped": true,
+        "id": "7009385",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7009385"
+      },
+      {
+        "date": "2026-04-18",
+        "home": "Haukar",
+        "away": "Smári",
+        "score": "8 - 0",
+        "competition": "Mjólkurbikar kvenna 2026",
+        "statsScraped": true,
+        "id": "7058932",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7058932"
+      },
+      {
+        "date": "2026-04-20",
+        "home": "Haukar",
+        "away": "Fylkir",
+        "score": "7 - 1",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7073184",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7073184"
+      },
+      {
+        "date": "2026-04-22",
+        "home": "Haukar",
+        "away": "Þróttur/KÞ",
+        "score": "1 - 7",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true,
+        "id": "7124897",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7124897"
+      },
+      {
+        "date": "2026-04-25",
+        "home": "RKVN 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true,
+        "id": "7162803",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7162803"
+      },
+      {
+        "date": "2026-04-26",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "2 - 1",
+        "competition": "Mjólkurbikar kvenna 2026",
+        "statsScraped": true,
+        "id": "7058950",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7058950"
+      },
+      {
+        "date": "2026-04-26",
+        "home": "Fylkir",
+        "away": "Haukar",
+        "score": "8 - 5",
+        "competition": "Íslandsmót KSÍ 4. flokkur kvenna 2026 - A lið - C deild lota 1",
+        "statsScraped": true,
+        "id": "7165499",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7165499"
+      },
+      {
+        "date": "2026-04-26",
         "home": "Víkingur R.",
         "away": "Haukar",
-        "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "score": "2 - 2",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7073185",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7073185"
       },
       {
-        "date": "2026-07-16",
-        "home": "Haukar",
-        "away": "Afturelding",
-        "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
-      },
-      {
-        "date": "2026-07-09",
-        "home": "FHL",
+        "date": "2026-04-28",
+        "home": "Hamar/Ægir",
         "away": "Haukar",
         "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true,
+        "id": "7150335",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7150335"
       },
       {
-        "date": "2026-07-02",
-        "home": "Haukar",
-        "away": "Víkingur R.",
+        "date": "2026-04-28",
+        "home": "Hamar/Ægir",
+        "away": "Haukar",
         "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true,
+        "id": "7162983",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7162983"
       },
       {
-        "date": "2026-06-25",
+        "date": "2026-04-28",
+        "home": "Breiðablik/Augnablik 2",
+        "away": "Haukar",
+        "score": "1 - 1",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true,
+        "id": "7157982",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7157982"
+      },
+      {
+        "date": "2026-04-29",
+        "home": "Haukar",
+        "away": "KR",
+        "score": "3 - 5",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - A lið - B deild lota 1",
+        "statsScraped": true,
+        "id": "7073169",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7073169"
+      },
+      {
+        "date": "2026-05-01",
+        "home": "Haukar",
+        "away": "Selfoss/Hamar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur kvenna 2026 - A lið - C deild lota 1",
+        "statsScraped": true,
+        "id": "7165090",
+        "statsLink": "https://www.ksi.is/leikir-og-urslit/felagslid/leikur?id=7165090"
+      },
+      {
+        "date": "2026-05-02",
         "home": "Grótta",
         "away": "Haukar",
         "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
       },
       {
-        "date": "2026-06-18",
+        "date": "2026-05-03",
         "home": "Haukar",
-        "away": "FHL",
+        "away": "RKVN",
         "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - A lið - B deild lota 1",
+        "statsScraped": true
       },
       {
-        "date": "2026-06-11",
-        "home": "Afturelding",
+        "date": "2026-05-05",
+        "home": "Haukar",
+        "away": "Víkingur R.",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-05",
+        "home": "Haukar",
+        "away": "Víkingur R.",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-05",
+        "home": "Haukar",
+        "away": "HK 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-05",
+        "home": "Haukar",
+        "away": "Víkingur R.",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-08",
+        "home": "Haukar",
+        "away": "Keflavík",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-05-09",
+        "home": "ÍR",
         "away": "Haukar",
         "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "competition": "Bikarkeppni KSÍ - 3. flokkur kvenna",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-10",
+        "home": "Skallagrímur",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-10",
+        "home": "Fjölnir/Smári",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-12",
+        "home": "Haukar",
+        "away": "Breiðablik/Augnablik",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-13",
+        "home": "Haukar",
+        "away": "ÍA/Víkingur Ó",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur kvenna 2026 - A lið - C deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-14",
+        "home": "ÍA",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-14",
+        "home": "ÍA",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-14",
+        "home": "ÍA",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-16",
+        "home": "FH",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-16",
+        "home": "Austurland",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur kvenna 2026 - A lið - C deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-17",
+        "home": "Fylkir",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-20",
+        "home": "HK",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-05-22",
+        "home": "Haukar",
+        "away": "Álftanes",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-22",
+        "home": "Haukar",
+        "away": "Álftanes",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-22",
+        "home": "Haukar",
+        "away": "Þróttur R.",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur kvenna 2026 - A lið - C deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-22",
+        "home": "Haukar",
+        "away": "Víkingur R. 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-25",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-05-27",
+        "home": "ÍR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-27",
+        "home": "ÍR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-27",
+        "home": "Haukar",
+        "away": "Stjarnan 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-27",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-29",
+        "home": "ÍR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 4. flokkur kvenna 2026 - A lið - C deild lota 1",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-30",
+        "home": "FHL",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-05-31",
+        "home": "Fram",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-31",
+        "home": "Fram",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-31",
+        "home": "Fram",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-05-31",
+        "home": "Austurland",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-02",
+        "home": "Haukar",
+        "away": "FH",
+        "score": "Næsti leikur",
+        "competition": "Bikarkeppni KSÍ - 2. flokkur kvenna",
+        "statsScraped": true
       },
       {
         "date": "2026-06-04",
         "home": "Haukar",
-        "away": "Grótta",
+        "away": "KR",
         "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "competition": "Bikarkeppni KSÍ - 4. flokkur kvenna 2026",
+        "statsScraped": true
       },
       {
-        "date": "2026-05-28",
+        "date": "2026-06-06",
+        "home": "Haukar",
+        "away": "Tindastóll/HFK",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-08",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-08",
+        "home": "Haukar",
+        "away": "Valur/KH",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-13",
+        "home": "Haukar",
+        "away": "Völsungur",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-06-16",
+        "home": "Haukar",
+        "away": "Skallagrímur",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-16",
+        "home": "Haukar",
+        "away": "Víkingur R.",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-18",
+        "home": "Þróttur/KÞ",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-20",
+        "home": "Álftanes",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-20",
+        "home": "Álftanes",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-20",
+        "home": "Víkingur R. 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-21",
+        "home": "KR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-06-22",
+        "home": "Haukar",
+        "away": "KR",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-24",
+        "home": "Haukar",
+        "away": "ÍA",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-24",
+        "home": "Haukar",
+        "away": "ÍA",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-24",
+        "home": "Haukar",
+        "away": "ÍA",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-26",
+        "home": "Haukar",
+        "away": "ÍA",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-06-27",
+        "home": "Haukar",
+        "away": "Þór/KA/Dalv/Völ",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-28",
+        "home": "Haukar",
+        "away": "ÍBV",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-28",
+        "home": "Haukar",
+        "away": "ÍBV",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-06-29",
+        "home": "Haukar",
+        "away": "Breiðablik/Augnablik 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-04",
+        "home": "Tindastóll",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-07-05",
+        "home": "Haukar",
+        "away": "Vestri",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-06",
+        "home": "HK 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-09",
+        "home": "Haukar",
+        "away": "Grótta",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-07-13",
+        "home": "Haukar",
+        "away": "Fjölnir/Smári",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-13",
+        "home": "Þróttur/KÞ",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-16",
+        "home": "Keflavík",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-07-18",
+        "home": "Haukar",
+        "away": "FH",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-07-24",
+        "home": "Haukar",
+        "away": "HK",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-10",
+        "home": "Tindastóll/HFK",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-10",
+        "home": "Haukar",
+        "away": "Fylkir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-10",
+        "home": "Breiðablik/Augnablik",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-10",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-14",
+        "home": "ÍBV",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-14",
+        "home": "ÍBV",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-15",
+        "home": "Vestri",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-15",
+        "home": "Haukar",
+        "away": "FHL",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-17",
+        "home": "Haukar",
+        "away": "Selfoss",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-18",
+        "home": "Haukar",
+        "away": "Hamar/Ægir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-18",
+        "home": "Haukar",
+        "away": "RKVN 2",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-18",
+        "home": "Haukar",
+        "away": "Hamar/Ægir",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-19",
+        "home": "Stjarnan 2",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-22",
+        "home": "Völsungur",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-24",
+        "home": "Valur/KH",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-28",
+        "home": "Haukar",
+        "away": "KR",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-08-29",
+        "home": "Haukar",
+        "away": "Austurland",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-08-30",
+        "home": "Þór/KA/Dalv/Völ",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-03",
+        "home": "Selfoss",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-04",
         "home": "Víkingur R.",
         "away": "Haukar",
         "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
       },
       {
-        "date": "2026-05-21",
-        "home": "Haukar",
-        "away": "Afturelding",
-        "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
-      },
-      {
-        "date": "2026-05-14",
-        "home": "FHL",
+        "date": "2026-09-04",
+        "home": "Víkingur R.",
         "away": "Haukar",
         "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
       },
       {
-        "date": "2026-05-09",
-        "home": "Haukar",
-        "away": "Víkingur R.",
-        "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
-      },
-      {
-        "date": "2026-05-02 14:00",
-        "home": "Grótta",
+        "date": "2026-09-04",
+        "home": "Víkingur R.",
         "away": "Haukar",
         "score": "Næsti leikur",
-        "competition": "Lengjudeild kvenna"
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
       },
       {
-        "date": "2026-04-19",
-        "home": "Haukar",
-        "away": "Víkingur R.",
-        "score": "1 - 1",
-        "competition": "Lengjubikar kvenna"
-      },
-      {
-        "date": "2026-04-12",
-        "home": "Afturelding",
+        "date": "2026-09-05",
+        "home": "ÍA",
         "away": "Haukar",
-        "score": "0 - 2",
-        "competition": "Lengjubikar kvenna"
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
       },
       {
-        "date": "2026-04-05",
+        "date": "2026-09-08",
+        "home": "Víkingur R.",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ - 2. flokkur kvenna A deild U20",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-09",
         "home": "Haukar",
-        "away": "FHL",
-        "score": "4 - 1",
-        "competition": "Lengjudeild kvenna"
+        "away": "Þróttur/KÞ",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-10",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-10",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - C lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-10",
+        "home": "Haukar",
+        "away": "Fram",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 5. flokkur kvenna 2026 - D lið C riðill",
+        "statsScraped": true
+      },
+      {
+        "date": "2026-09-12",
+        "home": "Haukar",
+        "away": "Tindastóll",
+        "score": "Næsti leikur",
+        "competition": "Lengjudeild kvenna",
+        "statsScraped": false
+      },
+      {
+        "date": "2026-09-17",
+        "home": "KR",
+        "away": "Haukar",
+        "score": "Næsti leikur",
+        "competition": "Íslandsmót KSÍ 3. flokkur kvenna 2026 - B lið - B deild",
+        "statsScraped": true
+      }
+    ],
+    "player_stats": [
+      {
+        "name": "Sif Hrannarsdóttir",
+        "ksiId": "84975",
+        "stats": {
+          "gamesPlayed": 5,
+          "starts": 5,
+          "goals": 4,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Natalía Nótt Pétursdóttir",
+        "ksiId": "60862",
+        "stats": {
+          "gamesPlayed": 4,
+          "starts": 4,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Telma Svava Andrésdóttir",
+        "ksiId": "65617",
+        "stats": {
+          "gamesPlayed": 4,
+          "starts": 4,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Emma Alexandra Eiríksdóttir",
+        "ksiId": "69267",
+        "stats": {
+          "gamesPlayed": 4,
+          "starts": 4,
+          "goals": 3,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Móheiður Lena Halldórsdóttir",
+        "ksiId": "69367",
+        "stats": {
+          "gamesPlayed": 4,
+          "starts": 3,
+          "goals": 2,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Karítas Ylfa Tómasdóttir",
+        "ksiId": "69923",
+        "stats": {
+          "gamesPlayed": 4,
+          "starts": 4,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Alexía N. P. Kanwischer",
+        "ksiId": "75549",
+        "stats": {
+          "gamesPlayed": 4,
+          "starts": 3,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Margrét Ýr Guðbjörnsdóttir",
+        "ksiId": "82049",
+        "stats": {
+          "gamesPlayed": 4,
+          "starts": 3,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Sigurbjörg Diljá Gunnarsdóttir",
+        "ksiId": "55335",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Viktoría Diljá Halldórsdóttir",
+        "ksiId": "56920",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Aníta Þrastardóttir",
+        "ksiId": "69360",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 3,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Hekla Heimisdóttir",
+        "ksiId": "69364",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Júlía Karlsdóttir",
+        "ksiId": "71576",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 3,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Dagbjört Fanney Torfadóttir",
+        "ksiId": "76032",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 3,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Guðbjörg Lísa Eggertsdóttir",
+        "ksiId": "83538",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Berglind Snæd. Sólveigardóttir",
+        "ksiId": "85876",
+        "stats": {
+          "gamesPlayed": 3,
+          "starts": 1,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Maggý Lárentsínusdóttir",
+        "ksiId": "4822",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Aldís Kara Lúðvíksdóttir",
+        "ksiId": "12715",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 4,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Kristín Fjóla Sigþórsdóttir",
+        "ksiId": "40875",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Valgerður Ósk Valsdóttir",
+        "ksiId": "43545",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Rakel Lilja Hjaltadóttir",
+        "ksiId": "54440",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Karólína Dröfn Jónsdóttir",
+        "ksiId": "54707",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Hekla Björk Sigþórsdóttir",
+        "ksiId": "58243",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Emilíana Guðrún Antonsdóttir",
+        "ksiId": "62106",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Anna Rut Ingadóttir",
+        "ksiId": "62700",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Elísabet Ósk L. Servo Ólafíud.",
+        "ksiId": "63991",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Eydís Ósk Heiðarsdóttir",
+        "ksiId": "64483",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Elma Dís Ólafsdóttir",
+        "ksiId": "64651",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Ísold Hallfríðar Þórisdóttir",
+        "ksiId": "66122",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "María Hrönn V. Snæfeld",
+        "ksiId": "68961",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Þórunn Tinna Hlynsdóttir",
+        "ksiId": "69371",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Eva Lára Róbertsdóttir",
+        "ksiId": "70929",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Anika Rut Stefánsdóttir",
+        "ksiId": "71548",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Ólína Björg Guðbergsdóttir",
+        "ksiId": "82963",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Vilborg Hekla Rafnsdóttir",
+        "ksiId": "82965",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Nadía Ósk Birgisdóttir",
+        "ksiId": "83542",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Viktoría Sólveig K. Óðinsdóttir",
+        "ksiId": "86243",
+        "stats": {
+          "gamesPlayed": 2,
+          "starts": 2,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Brynja Rut Hjartardóttir",
+        "ksiId": "45086",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Hera Róbertsdóttir",
+        "ksiId": "56610",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Viktoría Jóhannsdóttir",
+        "ksiId": "57397",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Perla Dís Kristjánsdóttir",
+        "ksiId": "58395",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Aníta Ösp Björnsdóttir",
+        "ksiId": "63074",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Sylvía Eik Sigtryggsdóttir",
+        "ksiId": "63304",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Sandra Dís Hlynsdóttir",
+        "ksiId": "67272",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Bríet Ýr Daðadóttir",
+        "ksiId": "69939",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Karen Jónsdóttir",
+        "ksiId": "70910",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Natalía Rós Davíðsdóttir",
+        "ksiId": "71564",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Margrét Finna Margrétardóttir",
+        "ksiId": "82155",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Ugla Rán Calmon Svansdóttir",
+        "ksiId": "82893",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 1,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Unnur Kristín Þrastardóttir",
+        "ksiId": "82964",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Friðrikka Líney Sigurðardóttir",
+        "ksiId": "83292",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Aníta Mjöll Magnúsdóttir",
+        "ksiId": "83535",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Elísabet I. L. Tinnudóttir",
+        "ksiId": "83537",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Ísafold B. Sigurvinsdóttir",
+        "ksiId": "83539",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Emma Ingibjörg Árnadóttir",
+        "ksiId": "83907",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Andrea Berglind Eggertsdóttir",
+        "ksiId": "84824",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Halla Þórdís Svansdóttir",
+        "ksiId": "84858",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 2,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Erika Björk Arnórsdóttir",
+        "ksiId": "85144",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Freyja Guðlaugsdóttir",
+        "ksiId": "85409",
+        "stats": {
+          "gamesPlayed": 1,
+          "starts": 1,
+          "goals": 3,
+          "yellowCards": 0,
+          "redCards": 0
+        }
+      },
+      {
+        "name": "Berglind Þrastardóttir",
+        "ksiId": "44255",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Þuríður Ásta Guðmundsdóttir",
+        "ksiId": "49809",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Kristín Björk Hjaltadóttir",
+        "ksiId": "58179",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
+      },
+      {
+        "name": "Ragnheiður Tinna Hjaltalín",
+        "ksiId": "81647",
+        "stats": {
+          "gamesPlayed": 0,
+          "starts": 0,
+          "goals": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "cleanSheets": 0
+        }
       }
     ]
   },

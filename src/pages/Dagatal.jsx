@@ -63,6 +63,9 @@ export default function Dagatal() {
       if (data && data.matches) {
         data.matches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -' || !m.score).forEach(m => {
           let sport = key.includes('fotbolti') ? 'Fótbolti' : key.includes('korfubolti') ? 'Körfubolti' : 'Handbolti';
+          
+          const isYouth = /\d\.\s*flokkur|U\d{2}/i.test(m.competition) || /\d\.\s*flokkur|U\d{2}/i.test(m.home) || /\d\.\s*flokkur|U\d{2}/i.test(m.away);
+          
           allEvents.push({
             id: `adult_${key}_${m.date}_${m.away}`,
             dateRaw: m.date,
@@ -71,10 +74,10 @@ export default function Dagatal() {
             home: m.home,
             away: m.away,
             category: sport,
-            ageGroup: 'Meistaraflokkur',
+            ageGroup: isYouth ? 'Yngri flokkar' : 'Meistaraflokkur',
             competition: m.competition,
             location: m.home === 'Haukar' ? 'Ásvellir' : getVenueForTeam(m.home, sport),
-            isTicketed: true
+            isTicketed: !isYouth
           });
         });
       }
@@ -148,21 +151,26 @@ export default function Dagatal() {
       </div>
 
       {/* Sticky Filter Bar */}
-      <div className="sticky top-[64px] z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 py-3 shadow-sm overflow-x-auto no-scrollbar">
-        <div className="max-w-5xl mx-auto px-6 flex items-center gap-2 min-w-max md:justify-center">
-            {sportFilters.map(filter => (
-              <button
-                key={filter}
-                onClick={() => setActiveSportFilter(filter)}
-                className={`px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all duration-300 ${
-                  activeSportFilter === filter 
-                    ? 'bg-[#1c2c6c] text-white shadow-lg shadow-[#1c2c6c]/20 scale-105' 
-                    : 'bg-gray-50 text-gray-400 border border-transparent hover:bg-gray-100'
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
+      <div className="sticky top-[64px] z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 py-3 shadow-sm">
+        <div 
+          className="overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+          style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent)', maskImage: 'linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent)' }}
+        >
+          <div className="max-w-5xl mx-auto px-6 flex items-center gap-2 min-w-max md:justify-center pb-1">
+              {sportFilters.map(filter => (
+                <button
+                  key={filter}
+                  onClick={() => setActiveSportFilter(filter)}
+                  className={`snap-center shrink-0 px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all duration-300 ${
+                    activeSportFilter === filter 
+                      ? 'bg-[#1c2c6c] text-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] scale-105' 
+                      : 'bg-gray-50 text-gray-400 border border-transparent hover:bg-gray-100 shadow-sm'
+                  }`}
+                >
+                  {filter}
+                </button>
+              ))}
+          </div>
         </div>
       </div>
 
@@ -170,23 +178,28 @@ export default function Dagatal() {
           
           {/* Secondary Age Filter */}
           {activeSportFilter !== 'Félagið' && (
-            <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto no-scrollbar pb-2">
-              {ageFilters.map(filter => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveAgeFilter(filter)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest whitespace-nowrap transition-all ${
-                    activeAgeFilter === filter 
-                      ? 'bg-white text-[#c8102e] shadow-md border border-gray-100' 
-                      : 'text-gray-400 hover:text-[#1c2c6c]'
-                  }`}
-                >
-                  <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                      activeAgeFilter === filter ? 'bg-[#c8102e] scale-125' : 'bg-gray-200'
-                  }`}></span>
-                  {filter}
-                </button>
-              ))}
+            <div 
+              className="mb-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+              style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent)', maskImage: 'linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent)' }}
+            >
+              <div className="flex items-center justify-center gap-2 min-w-max px-6 pb-2">
+                {ageFilters.map(filter => (
+                  <button
+                    key={filter}
+                    onClick={() => setActiveAgeFilter(filter)}
+                    className={`snap-center shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest whitespace-nowrap transition-all ${
+                      activeAgeFilter === filter 
+                        ? 'bg-white text-[#c8102e] shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] border border-gray-200 scale-105' 
+                        : 'text-gray-400 hover:text-[#1c2c6c] shadow-sm bg-white border border-gray-100'
+                    }`}
+                  >
+                    <span className={`w-1.5 h-1.5 rounded-full transition-all ${
+                        activeAgeFilter === filter ? 'bg-[#c8102e] scale-125 shadow-sm' : 'bg-gray-200'
+                    }`}></span>
+                    {filter}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
 
@@ -228,9 +241,23 @@ export default function Dagatal() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-[#1c2c6c] mb-3 group-hover:text-[#c8102e] transition-colors">
-                    {event.title}
-                  </h3>
+                  {event.away ? (
+                    <div className="mb-4 flex flex-col md:gap-0.5">
+                      <h3 className="text-2xl md:text-[2rem] font-black italic uppercase tracking-tighter text-[#1c2c6c] leading-[1] group-hover:text-[#c8102e] transition-colors break-words">
+                        {event.home}
+                      </h3>
+                      <div className="text-gray-300 text-[10px] font-black italic uppercase tracking-widest my-1 md:my-0.5">
+                        vs
+                      </div>
+                      <h3 className="text-2xl md:text-[2rem] font-black italic uppercase tracking-tighter text-[#1c2c6c] leading-[1] group-hover:text-[#c8102e] transition-colors break-words">
+                        {event.away}
+                      </h3>
+                    </div>
+                  ) : (
+                    <h3 className="text-2xl md:text-[2rem] font-black italic uppercase tracking-tighter text-[#1c2c6c] mb-4 group-hover:text-[#c8102e] transition-colors leading-[1] break-words">
+                      {event.title}
+                    </h3>
+                  )}
                   
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
                     <div className="flex items-center gap-2">

@@ -101,8 +101,11 @@ export default function Leikmannahopur() {
   const players = basePlayers.map(p => {
     let playerStats = p.stats || null; // For basketball it's already on p
     
-    if (activeSport === 'handbolti') {
-        const statsSource = p.team === 'karla' ? leagueData.karla?.player_stats : leagueData.kvenna?.player_stats;
+    if (activeSport === 'handbolti' || activeSport === 'fotbolti') {
+        const statsSource = activeSport === 'handbolti' 
+            ? (p.team === 'karla' ? leagueData.karla?.player_stats : leagueData.kvenna?.player_stats)
+            : (p.team === 'karla' ? leagueData.fotbolti_karla?.player_stats : leagueData.fotbolti_kvenna?.player_stats);
+
         if (statsSource) {
             const match = statsSource.find(stat => 
                 stat.name.toLowerCase().includes(p.name.toLowerCase()) || 
@@ -110,7 +113,8 @@ export default function Leikmannahopur() {
             );
             if (match && match.stats) {
                 playerStats = match.stats;
-                playerStats.gamesPlayed = match.gamesPlayed; // attach games played at top level too
+                // Handball stats has gamesPlayed at top level, KSÍ stats has it inside stats
+                playerStats.gamesPlayed = match.gamesPlayed !== undefined ? match.gamesPlayed : match.stats.gamesPlayed; 
             }
         }
         

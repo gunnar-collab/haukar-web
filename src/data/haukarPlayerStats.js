@@ -86,7 +86,13 @@ async function scrapePlayerStats() {
 
       if (team === 'Haukar') {
         const name = $gk(cols[1]).text().trim();
-        const gamesPlayed = parseInt($gk(cols[3]).text().trim()) || 0;
+        let gamesPlayed = parseInt($gk(cols[3]).text().trim()) || 0;
+        
+        // Fallback: If the GK table structure changes and we get 0, use the games played from their general player profile
+        if (gamesPlayed === 0 && players[name]) {
+          gamesPlayed = players[name].gamesPlayed || 0;
+        }
+
         const totalSaves = parseInt($gk(cols[4]).text().trim()) || 0;
         const savePercentage = $gk(cols[5]).text().trim() + '%';
         const goalsScored = parseInt($gk(cols[11]).text().trim()) || 0;

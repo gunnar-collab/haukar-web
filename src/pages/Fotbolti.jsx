@@ -28,7 +28,11 @@ export default function Fotbolti({ onOpenTickets }) {
   }, [gender]);
 
   const currentData = gender === 'karla' ? dataKarla : dataKvenna;
-  const { lastMatch, nextMatch } = getDynamicMatches('fotbolti', gender);
+  const { lastMatch: dynLastMatch, nextMatch: dynNextMatch } = getDynamicMatches('fotbolti', gender);
+
+  // Fallback to hardcoded data if automated data is missing (common for football currently)
+  const lastMatch = Object.keys(dynLastMatch || {}).length > 0 ? dynLastMatch : currentData.lastMatch;
+  const nextMatch = Object.keys(dynNextMatch || {}).length > 0 ? dynNextMatch : currentData.nextMatch;
 
   return (
     <div className="flex flex-col w-full bg-white selection:bg-[#1c2c6c] selection:text-white">
@@ -56,7 +60,7 @@ export default function Fotbolti({ onOpenTickets }) {
 
       {/* Roster Preview - Key Players */}
       <RosterPreview 
-        players={currentData.players}
+        players={currentData.players.map(p => ({ ...p, team: gender }))}
         loading={loading}
         title="Leikmannahópur"
         subtitle={`Lykilleikmenn í Meistaraflokki ${gender === 'karla' ? 'Karla' : 'Kvenna'}`}

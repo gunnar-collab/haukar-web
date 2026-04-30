@@ -49,12 +49,12 @@ export default function Vefverslun() {
             <p className="text-gray-500 font-medium">Skoðaðu úrvalið frá samstarfsaðilum okkar</p>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex justify-center gap-1 sm:gap-3">
             {['Allt', 'Boltamaðurinn', 'Errea'].map((shop) => (
               <button
                 key={shop}
                 onClick={() => setFilter(shop)}
-                className={`px-8 py-3 rounded-full font-black uppercase tracking-widest text-xs transition-all duration-300 border-2 shadow-sm ${
+                className={`px-3 sm:px-8 py-2 sm:py-3 whitespace-nowrap rounded-full font-black uppercase tracking-wider sm:tracking-widest text-[9px] sm:text-xs transition-all duration-300 border-2 shadow-sm ${
                   filter === shop 
                     ? 'bg-[#c8102e] border-[#c8102e] text-white shadow-[#c8102e]/20 shadow-xl scale-105' 
                     : 'bg-white border-gray-200 text-gray-500 hover:border-[#c8102e] hover:text-[#c8102e]'

@@ -8,10 +8,10 @@ import leagueData from '../data/haukar_league_data.json';
 import youthData from '../data/haukar_youth_data.json';
 import { getVenueForTeam } from '../data/venueMap';
 
-let cachedEvents = null;
+let cachedAllEvents = null;
 
-function getAllUpcomingEvents() {
-  if (cachedEvents) return cachedEvents;
+function getAllEvents() {
+  if (cachedAllEvents) return cachedAllEvents;
 
   const allEvents = [];
   const adultKeys = ['fotbolti_karla', 'fotbolti_kvenna', 'karla', 'kvenna', 'korfubolti_karla', 'korfubolti_kvenna'];
@@ -19,14 +19,22 @@ function getAllUpcomingEvents() {
   adultKeys.forEach(key => {
     const data = leagueData[key];
     if (data && data.matches) {
-      data.matches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -' || !m.score).forEach(m => {
+      data.matches.forEach(m => {
         let sport = key.includes('fotbolti') ? 'Fótbolti' : key.includes('korfubolti') ? 'Körfubolti' : 'Handbolti';
+        // Determine if it's an adult or youth category based on competition name or team names
+        const isYouth = /\\d\\.\\s*flokkur|U\\d{2}/i.test(m.competition) || /\\d\\.\\s*flokkur|U\\d{2}/i.test(m.home) || /\\d\\.\\s*flokkur|U\\d{2}/i.test(m.away);
+        const catName = isYouth ? 'Yngri flokkar' : (key.includes('kvenna') ? 'Kvenna' : 'Karla');
+        
         allEvents.push({
           dateRaw: m.date,
           title: `${m.home} vs ${m.away}`,
+          home: m.home,
+          away: m.away,
           sportId: sport.toLowerCase().replace('ó', 'o'),
-          category: `${sport} (${key.includes('kvenna') ? 'Kvenna' : 'Karla'})`,
-          location: m.home === 'Haukar' ? 'Ásvellir' : getVenueForTeam(m.home, sport)
+          category: `${sport} (${catName})`,
+          competition: m.competition || '',
+          location: m.home === 'Haukar' ? 'Ásvellir' : getVenueForTeam(m.home, sport),
+          score: (m.score && m.score !== 'Næsti leikur' && m.score !== '- - -') ? m.score : null
         });
       });
     }
@@ -36,14 +44,18 @@ function getAllUpcomingEvents() {
     youthData.matches.forEach(m => {
       const isCourse = m.ageGroup === 'Námskeið';
       const title = isCourse ? m.competition : `${m.home} vs ${m.away}`;
-      const extraInfo = m.ablerLink ? ` (Skráning á Abler: ${m.ablerLink})` : '';
+      const extraInfo = m.ablerLink ? ` (Skráning: ${m.ablerLink})` : '';
       
       allEvents.push({
         dateRaw: m.date,
         title: `${title}${extraInfo}`,
+        home: m.home,
+        away: m.away,
         sportId: m.sport.toLowerCase().replace('ó', 'o'),
         category: `${m.sport} (Yngri)`,
-        location: m.venue
+        competition: m.competition || '',
+        location: m.venue,
+        score: null
       });
     });
   }
@@ -51,22 +63,36 @@ function getAllUpcomingEvents() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const upcomingEvents = allEvents.filter(event => new Date(event.dateRaw) >= today);
+  const upcomingEvents = allEvents.filter(event => !event.score && new Date(event.dateRaw) >= today);
   upcomingEvents.sort((a, b) => new Date(a.dateRaw) - new Date(b.dateRaw));
 
-  cachedEvents = upcomingEvents;
-  return cachedEvents;
+  const pastEvents = allEvents.filter(event => event.score || new Date(event.dateRaw) < today);
+  pastEvents.sort((a, b) => new Date(b.dateRaw) - new Date(a.dateRaw));
+
+  cachedAllEvents = { upcoming: upcomingEvents, past: pastEvents };
+  return cachedAllEvents;
 }
 
-function formatEventsForAi(eventsArray, limit = 5) {
+function formatEventsForAi(eventsArray, limit = 500) {
   if (!eventsArray || eventsArray.length === 0) return 'Engir viðburðir skráðir.';
   const limited = eventsArray.slice(0, limit);
   return limited.map(e => {
     const d = new Date(e.dateRaw);
-    const dateStr = `${d.getDate()}.${d.getMonth() + 1}`;
-    const timeStr = d.getHours() > 0 ? `${d.getHours()}:${d.getMinutes().toString().padStart(2, '0')}` : '';
-    return `[${dateStr} ${timeStr}] ${e.category}: ${e.title} á ${e.location}`;
-  }).join(' | ');
+    const dateStr = `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getDate().toString().padStart(2, '0')}`;
+    const timeStr = d.getHours() > 0 ? `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}` : '';
+    return `[${dateStr} ${timeStr}] ${e.category} | ${e.competition}: ${e.title} á ${e.location}`;
+  }).join('\n');
+}
+
+function formatPastEventsForAi(eventsArray, limit = 100) {
+  if (!eventsArray || eventsArray.length === 0) return 'Engin nýleg úrslit skráð.';
+  const limited = eventsArray.slice(0, limit);
+  return limited.map(e => {
+    const d = new Date(e.dateRaw);
+    const dateStr = `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getDate().toString().padStart(2, '0')}`;
+    const resultStr = e.score ? `${e.home} ${e.score} ${e.away}` : `${e.home} vs ${e.away}`;
+    return `[${dateStr}] ${e.category} | ${e.competition}: ${resultStr}`;
+  }).join('\n');
 }
 
 function formatTopPerformers(statsArray, limit = 6) {
@@ -103,25 +129,7 @@ function formatBasketballPerformers(statsArray, limit = 5) {
   return result;
 }
 
-function getLatestResults() {
-  const latest = [];
-  const adultKeys = ['fotbolti_karla', 'fotbolti_kvenna', 'karla', 'kvenna', 'korfubolti_karla', 'korfubolti_kvenna'];
-  
-  adultKeys.forEach(key => {
-    const data = leagueData[key];
-    if (data && data.matches) {
-      const pastMatches = data.matches.filter(m => m.score && m.score !== 'Næsti leikur' && m.score !== '- - -' && new Date(m.date) <= new Date());
-      pastMatches.sort((a, b) => new Date(b.date) - new Date(a.date));
-      if (pastMatches.length > 0) {
-        const m = pastMatches[0];
-        let sport = key.includes('fotbolti') ? 'Fótbolti' : key.includes('korfubolti') ? 'Körfubolti' : 'Handbolti';
-        const category = `${sport} ${key.includes('kvenna') ? 'Kvenna' : 'Karla'}`;
-        latest.push(`[${category}]: ${m.home} ${m.score} ${m.away}`);
-      }
-    }
-  });
-  return latest.length > 0 ? latest.join(' | ') : 'Engin nýleg úrslit skráð.';
-}
+// getLatestResults removed since we now use formatPastEventsForAi
 
 export function useAiContext() {
   const location = useLocation();
@@ -164,19 +172,13 @@ export function useAiContext() {
           contextStr += `Næsti leikur (Leikur ${nextPlayoff.game}) er ${nextPlayoff.date} á ${nextPlayoff.venue}. `;
         }
       }
-    } else if (!sportId) {
-      contextStr += `Nýjustu úrslit allra meistaraflokka: ${getLatestResults()}. `;
     }
 
-    const allEvents = getAllUpcomingEvents();
-    contextStr += `\nNæstu 30 viðburðir á dagskrá hjá félaginu (Barna- og meistaraflokkar): ${formatEventsForAi(allEvents, 30)}. `;
+    const { upcoming, past } = getAllEvents();
     
-    if (sportId && sportId !== 'Haukar almennt') {
-      const sportEvents = allEvents.filter(e => e.sportId === sportId);
-      if (sportEvents.length > 0) {
-        contextStr += `Næstu 15 viðburðir sérstaklega í ${sportId}: ${formatEventsForAi(sportEvents, 15)}. `;
-      }
-    }
+    contextStr += `\n\n--- ALLIR KOMANDI LEIKIR (Barna- og meistaraflokkar) ---\n${formatEventsForAi(upcoming, 500)}\n`;
+    contextStr += `\n\n--- NÝLEG ÚRSLIT OG LEIKIR ---\n${formatPastEventsForAi(past, 150)}\n`;
+
 
     if (sportId === 'handbolti' || !sportId) {
       contextStr += `\nTölfræði Handbolta Karla (Helstu leikmenn): ${formatTopPerformers(menHbStats)} `;

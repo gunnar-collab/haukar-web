@@ -7,7 +7,9 @@ const formatMatchDate = (dateObj) => {
   const months = ['Janúar', 'Febrúar', 'Mars', 'Apríl', 'Maí', 'Júní', 'Júlí', 'Ágúst', 'September', 'Október', 'Nóvember', 'Desember'];
   
   const d = new Date(dateObj);
-  const time = d.toLocaleTimeString('is-IS', { hour: '2-digit', minute: '2-digit' });
+  const h = d.getHours().toString().padStart(2, '0');
+  const m = d.getMinutes().toString().padStart(2, '0');
+  const time = `${h}:${m}`;
   // If time is 00:00, KSÍ usually defaults it. We will just say 'Tími óstaðfestur' or fallback to 19:15.
   const timeStr = time === '00:00' ? '19:15' : time;
   
@@ -30,39 +32,47 @@ export default function NextHomeGameWidget() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-[1440px] mx-auto px-6 pt-4 z-10 relative"
+        className="w-full h-full"
       >
-        <div className="bg-haukar-red text-white rounded-2xl p-6 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 overflow-hidden relative">
+        <div className="bg-[#121c38] rounded-2xl p-5 md:p-6 shadow-[0_20px_50px_rgba(18,28,56,0.4)] flex flex-col relative h-full">
           
-          {/* Subtle background pattern/glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
-
-          {/* Match Info */}
-          <div className="flex flex-col flex-1 z-10 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-              <span className="material-symbols-outlined text-2xl opacity-80">event</span>
-              <span className="text-xs uppercase font-bold tracking-wider text-white/80">{nextGame.sportName} • {nextGame.competition}</span>
-            </div>
-            <h3 className="text-2xl font-black italic tracking-tight mb-1">Næsti Heimaleikur</h3>
-            <p className="text-base opacity-90">
-              <span className="font-bold">{nextGame.home}</span> vs <span className="font-bold">{nextGame.away}</span>
-            </p>
-            <p className="text-sm opacity-75 flex items-center justify-center md:justify-start gap-1 mt-1">
-              <span className="material-symbols-outlined text-lg">location_on</span>
-              {nextGame.venue} • {formatMatchDate(nextGame.parsedDate)}
+          {/* Top Info */}
+          <div className="shrink-0">
+            <p className="text-[11px] md:text-xs font-black uppercase tracking-[0.15em] text-[#D4AF37] leading-relaxed md:leading-normal">
+              {nextGame.sportName} <span className="mx-1 opacity-70">•</span> {nextGame.competition}
             </p>
           </div>
 
-          {/* Call to Action */}
-          <div className="z-10 w-full md:w-auto mt-4 md:mt-0">
+          {/* Middle: Teams */}
+          <div className="flex items-center justify-start my-auto py-6">
+            <span className="text-3xl md:text-5xl font-black italic text-white drop-shadow-sm truncate">{nextGame.home}</span>
+            <span className="text-xl md:text-2xl font-black italic text-[#D4AF37] mx-4 md:mx-6 shrink-0">vs</span>
+            <span className="text-3xl md:text-5xl font-black italic text-white/70 drop-shadow-sm truncate">{nextGame.away}</span>
+          </div>
+
+          {/* Bottom: Info Pill & Button */}
+          <div className="flex flex-col md:flex-row items-center justify-between mt-auto gap-5">
+            
+            {/* Info Pill */}
+            <div className="flex w-full md:w-auto items-center bg-[#232d4b] rounded-xl px-5 py-3">
+              <div className="flex flex-col pr-5 border-r border-white/10">
+                <span className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Hvenær</span>
+                <span className="text-[13px] font-bold text-white">{formatMatchDate(nextGame.parsedDate)}</span>
+              </div>
+              <div className="flex flex-col pl-5">
+                <span className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Hvar</span>
+                <span className="text-[13px] font-bold text-white">{nextGame.venue}</span>
+              </div>
+            </div>
+
+            {/* Button */}
             <a 
               href={nextGame.ticketLink || "https://stubb.is/haukar/tickets"} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex w-full md:w-auto items-center justify-center bg-white text-haukar-red hover:bg-gray-100 transition-colors rounded-full px-8 py-3 text-lg font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transform hover:scale-105 duration-200"
+              className="inline-flex w-full md:w-auto items-center justify-center bg-[#c8102e] text-white hover:bg-[#a00d25] transition-colors duration-200 rounded-xl px-8 py-4 text-[12px] font-black uppercase tracking-widest shadow-md shrink-0"
             >
-              <span className="material-symbols-outlined mr-2">local_activity</span>
-              Kaupa Miða
+              Kaupa Miða <span className="material-symbols-outlined ml-3 text-[18px]">local_activity</span>
             </a>
           </div>
 

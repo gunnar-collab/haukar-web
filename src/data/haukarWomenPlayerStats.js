@@ -83,7 +83,13 @@ async function scrapeWomenStats() {
 
       if (team === 'Haukar') {
         const name = $gk(cols[1]).text().trim();
-        const gamesPlayed = parseInt($gk(cols[9]).text().trim()) || 0; // Women's games played is at col 9
+        let gamesPlayed = parseInt($gk(cols[9]).text().trim()) || 0; // Women's games played is at col 9
+        
+        // Fallback: If the GK table structure changes and we get 0, use the games played from their general player profile
+        if (gamesPlayed === 0 && players[name]) {
+          gamesPlayed = players[name].gamesPlayed || 0;
+        }
+
         const totalSaves = parseInt($gk(cols[4]).text().trim()) || 0;
         const savePercentage = $gk(cols[5]).text().trim() + '%';
         const goalsScored = parseInt($gk(cols[13]).text().trim()) || 0;

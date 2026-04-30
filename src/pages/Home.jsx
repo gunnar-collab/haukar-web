@@ -8,6 +8,8 @@ import Veggurinn from '../components/Veggurinn';
 import FanZone from '../components/FanZone';
 import TrophyCabinet from '../components/TrophyCabinet';
 
+import UpcomingMatchesWidget from '../components/UpcomingMatchesWidget';
+
 export default function Home() {
   return (
     <div className="flex flex-col w-full bg-white">
@@ -16,7 +18,16 @@ export default function Home() {
       <HeroBanner />
       
       {/* 1.5 Smart Upselling Widget */}
-      <NextHomeGameWidget />
+      <div className="w-full max-w-7xl mx-auto px-6 pt-4 z-10 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <NextHomeGameWidget />
+          </div>
+          <div className="lg:col-span-1">
+            <UpcomingMatchesWidget />
+          </div>
+        </div>
+      </div>
       
       {/* 2. Latest Club News (Bento Grid) */}
       <div id="news">

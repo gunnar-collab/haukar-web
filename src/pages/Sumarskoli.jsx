@@ -35,9 +35,9 @@ export default function Sumarskoli() {
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg leading-tight">
-            Sumaríþróttaskóli <br className="hidden md:block"/>
-            <span className="text-[#c8102e]">Hauka 2025</span>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg leading-tight">
+            Sumar <br />
+            <span className="text-[#c8102e]">Íþróttaskóli</span>
           </h1>
           
           <p className="text-white/90 font-medium text-lg md:text-xl leading-relaxed max-w-2xl text-center mb-10">

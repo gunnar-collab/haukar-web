@@ -33,7 +33,7 @@ export default function Bakhjarlar() {
 
   return (
     // FIXED: Removed pt-10 md:pt-16 so the hero snaps directly against the navbar!
-    <main className="w-full bg-white flex-grow pb-20 font-sans">
+    <main className="w-full bg-white flex-grow font-sans">
       
       {/* Universal Hero Section - NOW IN HAUKAR RED WITH NAVY ACCENTS */}
       <div className="bg-[#c8102e] text-white py-24 px-6 text-center relative overflow-hidden shadow-md">
@@ -80,7 +80,7 @@ export default function Bakhjarlar() {
       {/* FLOW A: EINSTAKLINGAR (Haukar í Horni) */}
       {/* ========================================= */}
       {activeTab === 'einstaklingur' && (
-        <div className="max-w-6xl mx-auto px-6 py-24 animate-fade-in">
+        <div className="max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-4 md:pb-8 animate-fade-in">
           <div className="bg-white rounded-[3rem] shadow-2xl p-8 lg:p-12 border border-gray-100 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative overflow-hidden">
             
             <div className="absolute top-0 right-0 w-96 h-96 bg-red-50 rounded-full blur-3xl -z-0 transform translate-x-1/2 -translate-y-1/2 opacity-50"></div>
@@ -176,7 +176,7 @@ export default function Bakhjarlar() {
       {activeTab === 'fyrirtaeki' && (
         <div className="animate-fade-in">
           {/* Tiers Grid */}
-          <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-20 pb-8 animate-fade-in">
             <div className="text-center mb-16">
               <span className="text-[#c8102e] text-sm font-black uppercase tracking-widest mb-2 block">
                 Veldu þína leið

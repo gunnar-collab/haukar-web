@@ -16,18 +16,24 @@ export default function PlayerProfile() {
   // Sjálfgefin gögn ef engin gögn berast
   let player = location.state?.player || findPlayerBySlug(slug);
 
-  // If player doesn't have stats, try to auto-fetch from league data
-  if (player && !player.stats && player.sport === 'handbolti') {
-    const statsSource = player.gender === 'karla' || player.team === 'karla' ? leagueData.karla?.player_stats : leagueData.kvenna?.player_stats;
-    if (statsSource) {
-      const match = statsSource.find(stat => 
-          stat.name.toLowerCase().includes(player.name.toLowerCase()) || 
-          player.name.toLowerCase().includes(stat.name.toLowerCase())
-      );
-      if (match && match.stats) {
-          player = { ...player, stats: match.stats };
-          player.stats.gamesPlayed = match.gamesPlayed;
-      }
+  // Try to auto-fetch from league data to override mock data
+  if (player) {
+    if (player.sport === 'handbolti' || player.sport === 'fotbolti') {
+        const teamKey = player.team || player.gender || 'karla';
+        const statsSource = player.sport === 'handbolti'
+            ? (teamKey === 'karla' ? leagueData.karla?.player_stats : leagueData.kvenna?.player_stats)
+            : (teamKey === 'karla' ? leagueData.fotbolti_karla?.player_stats : leagueData.fotbolti_kvenna?.player_stats);
+
+        if (statsSource) {
+            const match = statsSource.find(stat => 
+                stat.name.toLowerCase().includes(player.name.toLowerCase()) || 
+                player.name.toLowerCase().includes(stat.name.toLowerCase())
+            );
+            if (match && match.stats) {
+                player.stats = match.stats;
+                player.stats.gamesPlayed = match.gamesPlayed !== undefined ? match.gamesPlayed : match.stats.gamesPlayed; 
+            }
+        }
     }
   }
 
@@ -167,37 +173,36 @@ export default function PlayerProfile() {
               /* --- FÓTBOLTI TÖLFRÆÐI --- */
               <>
                 {/* Spil & Sókn */}
-                {(!isGoalkeeper || (player.stats.goals > 0 || player.stats.assists > 0)) && (
-                  <div className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden">
+                {(!isGoalkeeper || (player.stats.goals > 0)) && (
+                  <div className="lg:col-span-1 bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full">
                     <div className="bg-[#1c2c6c] p-6 flex justify-between items-center">
                       <h2 className="text-xl font-black italic text-white uppercase tracking-tight flex items-center gap-2">
                         <span className="material-symbols-outlined text-white/80">sports_soccer</span>
-                        Spil & Sókn
+                        Tölfræði
                       </h2>
-                      <div className="bg-[#c8102e] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">2026</div>
+                      <div className="bg-[#c8102e] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">2026 Season</div>
                     </div>
                     
-                    <div className="p-8 grid grid-cols-3 gap-8">
-                      <div className="flex flex-col">
+                    <div className="flex-1 p-8 grid grid-cols-3 gap-4 items-center">
+                      <div className="flex flex-col items-center justify-center text-center">
                         <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Leikir</span>
-                        <span className="text-4xl font-black italic text-[#1c2c6c]">{player.stats.gamesPlayed || 0}</span>
+                        <span className="text-5xl font-black italic text-[#1c2c6c]">{player.stats.gamesPlayed || 0}</span>
                       </div>
-                      <div className="flex flex-col">
+                      <div className="flex flex-col items-center justify-center text-center border-x border-gray-100 h-full">
+                        <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Byrjunarlið</span>
+                        <span className="text-5xl font-black italic text-[#1c2c6c]">{player.stats.starts || 0}</span>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center">
                         <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Mörk</span>
-                        <span className="text-4xl font-black italic text-[#c8102e]">{player.stats.goals || 0}</span>
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Stoðsendingar</span>
-                        <span className="text-4xl font-black italic text-[#1c2c6c]">{player.stats.assists || 0}</span>
+                        <span className="text-5xl font-black italic text-[#c8102e]">{player.stats.goals || 0}</span>
                       </div>
                     </div>
                   </div>
                 )}
 
-
                 {/* Agabrot */}
                 {!isGoalkeeper && (
-                  <div className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden">
+                  <div className="lg:col-span-1 bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full">
                     <div className="bg-[#c8102e] p-6 flex justify-between items-center">
                       <h2 className="text-xl font-black italic text-white uppercase tracking-tight flex items-center gap-2">
                         <span className="material-symbols-outlined text-white/80">style</span>
@@ -205,21 +210,15 @@ export default function PlayerProfile() {
                       </h2>
                     </div>
                     
-                    <div className="p-8 grid grid-cols-2 gap-8">
-                      <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                        <div className="w-12 h-16 bg-[#FFD700] rounded-sm shadow-sm border border-yellow-500"></div>
-                        <div>
-                          <span className="text-gray-400 text-[9px] font-bold uppercase tracking-widest block">Gul spjöld</span>
-                          <span className="text-3xl font-black italic text-[#1c2c6c]">{player.stats.yellowCards || 0}</span>
-                        </div>
+                    <div className="flex-1 p-8 grid grid-cols-2 gap-4 items-center">
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Gul spjöld</span>
+                        <span className="text-5xl font-black italic text-[#FAC83C]">{player.stats.yellowCards || 0}</span>
                       </div>
 
-                      <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                        <div className="w-12 h-16 bg-[#c8102e] rounded-sm shadow-sm border border-red-700"></div>
-                        <div>
-                          <span className="text-gray-400 text-[9px] font-bold uppercase tracking-widest block">Rauð spjöld</span>
-                          <span className="text-3xl font-black italic text-[#1c2c6c]">{player.stats.redCards || 0}</span>
-                        </div>
+                      <div className="flex flex-col items-center justify-center text-center border-l border-gray-100 h-full">
+                        <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Rauð spjöld</span>
+                        <span className="text-5xl font-black italic text-[#D80707]">{player.stats.redCards || 0}</span>
                       </div>
                     </div>
                   </div>
