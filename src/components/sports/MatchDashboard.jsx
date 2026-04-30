@@ -117,7 +117,7 @@ export default function MatchDashboard({
             )}>
               {nextMatch.home}
             </span>
-            <span className={cn("text-[#D4AF37] text-sm sm:text-lg px-2 shrink-0 animate-pulse", isTournament ? "material-symbols-outlined" : "font-black italic")}>
+            <span className={cn("text-[#D4AF37] text-sm sm:text-lg px-2 shrink-0 opacity-70", isTournament ? "material-symbols-outlined" : "font-black italic")}>
               {isTournament ? 'arrow_forward' : 'VS'}
             </span>
             <span className={cn(

@@ -14,12 +14,16 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
   const activeKey = sport === 'handbolti' ? activeGender : `${sport}_${activeGender}`;
   const currentData = leagueData[activeKey];
 
+  const isMeistaraflokkur = (match) => {
+    return !(/\d\.\s*flokkur|U\d{2}/i.test(match.competition || '') || /\d\.\s*flokkur|U\d{2}/i.test(match.home || '') || /\d\.\s*flokkur|U\d{2}/i.test(match.away || ''));
+  };
+
+  const seniorMatches = currentData?.matches ? currentData.matches.filter(isMeistaraflokkur) : [];
+
   // Logic to separate played games from upcoming games
-  const playedMatches = currentData.matches.filter(m => m.score !== 'Næsti leikur' && m.score !== '- - -');
+  const playedMatches = seniorMatches.filter(m => m.score !== 'Næsti leikur' && m.score !== '- - -');
   // Reverse upcoming so the closest future game is at the top
-  const upcomingMatches = currentData.matches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -').reverse();
-  
-  
+  const upcomingMatches = seniorMatches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -').reverse();
 
   const leagueName = sport === 'handbolti' ? 'Olís deildinni' : sport === 'fotbolti' ? 'deildinni' : 'Bónusdeildinni';
   const providerName = sport === 'handbolti' ? 'HBStatz' : sport === 'fotbolti' ? 'KSÍ' : 'KKÍ';

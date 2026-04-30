@@ -11,6 +11,7 @@ const SPORTS_MAP = {
 
 export const getNextHomeGame = () => {
   const now = new Date();
+  now.setHours(0, 0, 0, 0);
 
   let upcomingHomeGames = [];
 
@@ -48,8 +49,48 @@ export const getNextHomeGame = () => {
   return upcomingHomeGames.length > 0 ? upcomingHomeGames[0] : null;
 };
 
+export const getUpcomingHomeMatches = (count = 3) => {
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+
+  let upcomingHomeGames = [];
+
+  // Iterate over all divisions in the league data
+  for (const [key, sportConfig] of Object.entries(SPORTS_MAP)) {
+    const divisionData = leagueData[key];
+    if (divisionData && divisionData.matches) {
+      divisionData.matches.forEach(match => {
+        const matchDate = new Date(match.date);
+        
+        // Ensure it's a future match and Haukar is the home team
+        if (
+          matchDate >= now &&
+          match.home && match.home.includes('Haukar')
+        ) {
+          const isYouth = /\d\.\s*flokkur|U\d{2}/i.test(match.competition) || /\d\.\s*flokkur|U\d{2}/i.test(match.home) || /\d\.\s*flokkur|U\d{2}/i.test(match.away);
+          
+          if (!isYouth) {
+            upcomingHomeGames.push({
+              ...match,
+              sportName: sportConfig.name,
+              venue: sportConfig.venue,
+              parsedDate: matchDate
+            });
+          }
+        }
+      });
+    }
+  }
+
+  // Sort by closest date
+  upcomingHomeGames.sort((a, b) => a.parsedDate - b.parsedDate);
+
+  return upcomingHomeGames.slice(0, count);
+};
+
 export const getUpcomingMatches = (count = 3) => {
   const now = new Date();
+  now.setHours(0, 0, 0, 0);
   let upcomingGames = [];
 
   for (const [key, sportConfig] of Object.entries(SPORTS_MAP)) {

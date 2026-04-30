@@ -1,30 +1,26 @@
-import leagueData from '../data/haukar_league_data.json';
+import fs from 'fs';
+const leagueData = JSON.parse(fs.readFileSync('src/data/haukar_league_data.json', 'utf8'));
 
 const formatDate = (dateStr) => {
   if (!dateStr) return '';
   const d = new Date(dateStr);
   const days = ['Sun', 'Mán', 'Þri', 'Mið', 'Fim', 'Fös', 'Lau'];
   const months = ['Janúar', 'Febrúar', 'Mars', 'Apríl', 'Maí', 'Júní', 'Júlí', 'Ágúst', 'September', 'Október', 'Nóvember', 'Desember'];
-  // We don't have exact times in the JSON, so default to 19:15 for now, or use what's there
   return `${days[d.getDay()]} ${d.getDate()}. ${months[d.getMonth()]} • 19:15`;
 };
 
-export const getDynamicMatches = (sport, gender) => {
+const getDynamicMatches = (sport, gender) => {
   const activeKey = sport === 'handbolti' ? gender : `${sport}_${gender}`;
   const currentData = leagueData[activeKey];
   
-  if (!currentData || !currentData.matches) {
-    return { lastMatch: {}, nextMatch: {} };
-  }
+  if (!currentData || !currentData.matches) return { lastMatch: {}, nextMatch: {} };
 
-  const now = new Date();
-  now.setHours(0, 0, 0, 0); // Normalize to start of today for date comparison
+  const now = new Date('2026-04-30T00:00:00Z');
 
   const isMeistaraflokkur = (match) => {
     return !(/\d\.\s*flokkur|U\d{2}/i.test(match.competition || '') || /\d\.\s*flokkur|U\d{2}/i.test(match.home || '') || /\d\.\s*flokkur|U\d{2}/i.test(match.away || ''));
   };
 
-  // Filter for senior matches and sort by date
   const sortedMatches = [...currentData.matches]
     .filter(isMeistaraflokkur)
     .sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -37,20 +33,12 @@ export const getDynamicMatches = (sport, gender) => {
 
   let homeScore = 0;
   let awayScore = 0;
-  let penaltyInfo = '';
   
   if (lastRaw.score) {
-    // Better regex to extract the main scores even with extra text (e.g. "28 (16) - 29 (13)")
     const scoreMatch = lastRaw.score.match(/^(\d+).*?-\s*(\d+)/);
     if (scoreMatch) {
       homeScore = parseInt(scoreMatch[1]);
       awayScore = parseInt(scoreMatch[2]);
-    }
-    
-    // Extract penalty info if present (e.g., "(2-4 vító)")
-    if (lastRaw.score.includes('vító')) {
-      const pMatch = lastRaw.score.match(/\((.*?)\)/);
-      if (pMatch) penaltyInfo = pMatch[1];
     }
   }
 
@@ -62,10 +50,7 @@ export const getDynamicMatches = (sport, gender) => {
       homeScore,
       awayScore,
       score: lastRaw.score,
-      penaltyInfo,
       id: lastRaw.id,
-      report: lastRaw.report,
-      statsLink: lastRaw.statsLink || (sport === 'fotbolti' ? 'https://ksi.is' : 'https://hbstatz.is'),
       sport
     },
     nextMatch: {
@@ -75,8 +60,10 @@ export const getDynamicMatches = (sport, gender) => {
       date: nextRaw.date ? formatDate(nextRaw.date) : 'Óákveðið',
       venue: nextRaw.home === 'Haukar' ? 'Ásvellir' : 'Útivöllur',
       id: nextRaw.id,
-      report: nextRaw.report,
       sport
     }
   };
 };
+
+const result = getDynamicMatches('korfubolti', 'kvenna');
+console.log(JSON.stringify(result, null, 2));

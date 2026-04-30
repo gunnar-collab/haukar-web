@@ -28,11 +28,7 @@ export default function Fotbolti({ onOpenTickets }) {
   }, [gender]);
 
   const currentData = gender === 'karla' ? dataKarla : dataKvenna;
-  const { lastMatch: dynLastMatch, nextMatch: dynNextMatch } = getDynamicMatches('fotbolti', gender);
-
-  // Fallback to hardcoded data if automated data is missing (common for football currently)
-  const lastMatch = Object.keys(dynLastMatch || {}).length > 0 ? dynLastMatch : currentData.lastMatch;
-  const nextMatch = Object.keys(dynNextMatch || {}).length > 0 ? dynNextMatch : currentData.nextMatch;
+  const { lastMatch, nextMatch } = getDynamicMatches('fotbolti', gender);
 
   return (
     <div className="flex flex-col w-full bg-white selection:bg-[#1c2c6c] selection:text-white">

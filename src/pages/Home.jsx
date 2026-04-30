@@ -1,5 +1,5 @@
 import HeroBanner from '../components/HeroBanner';
-import NextHomeGameWidget from '../components/NextHomeGameWidget';
+import NextGameWidget from '../components/NextGameWidget';
 import NewsGrid from '../components/NewsGrid';
 import PlayerOfTheWeek from '../components/PlayerSpotlight'; 
 import GrantBanner from '../components/GrantBanner';
@@ -8,7 +8,7 @@ import Veggurinn from '../components/Veggurinn';
 import FanZone from '../components/FanZone';
 import TrophyCabinet from '../components/TrophyCabinet';
 
-import UpcomingMatchesWidget from '../components/UpcomingMatchesWidget';
+import SecondNextGameWidget from '../components/SecondNextGameWidget';
 
 export default function Home() {
   return (
@@ -19,12 +19,12 @@ export default function Home() {
       
       {/* 1.5 Smart Upselling Widget */}
       <div className="w-full max-w-7xl mx-auto px-6 pt-4 z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
-            <NextHomeGameWidget />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="w-full">
+            <NextGameWidget />
           </div>
-          <div className="lg:col-span-1">
-            <UpcomingMatchesWidget />
+          <div className="w-full">
+            <SecondNextGameWidget />
           </div>
         </div>
       </div>

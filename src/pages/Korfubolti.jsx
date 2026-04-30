@@ -42,8 +42,8 @@ export default function Korfubolti({ onOpenTickets }) {
 
       <MatchDashboard 
         loading={loading}
-        lastMatch={[...currentData.playoffs.schedule].reverse().find(m => m.result) || currentData.playoffs.schedule[0]}
-        nextMatch={currentData.playoffs.schedule.find(m => !m.result) || currentData.playoffs.schedule[currentData.playoffs.schedule.length - 1]}
+        lastMatch={lastMatch}
+        nextMatch={nextMatch}
         onOpenTickets={onOpenTickets}
         provider="KKÍ"
         statsIcon="analytics"
