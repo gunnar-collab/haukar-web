@@ -187,9 +187,9 @@ export default function Veislusalur() {
             <div className="bg-black/20 p-6 rounded-2xl border border-white/10">
               <p className="font-bold uppercase tracking-widest text-[10px] text-white/70 mb-2">Verðskrá (Breytingum háð)</p>
               <ul className="space-y-3 font-medium">
-                <li className="flex justify-between border-b border-white/10 pb-2"><span>Föstudagar & Laugardagar</span> <strong>120.000 kr.</strong></li>
-                <li className="flex justify-between border-b border-white/10 pb-2"><span>Sunnudagar (Fermingar)</span> <strong>95.000 kr.</strong></li>
-                <li className="flex justify-between"><span>Virkir dagar</span> <strong>Eftir samkomulagi</strong></li>
+                <li className="flex justify-between gap-4 border-b border-white/10 pb-2"><span>Föstudagar & Laugardagar</span> <strong className="whitespace-nowrap text-right">120.000 kr.</strong></li>
+                <li className="flex justify-between gap-4 border-b border-white/10 pb-2"><span>Sunnudagar (Fermingar)</span> <strong className="whitespace-nowrap text-right">95.000 kr.</strong></li>
+                <li className="flex justify-between gap-4"><span>Virkir dagar</span> <strong className="whitespace-nowrap text-right">Eftir samkomulagi</strong></li>
               </ul>
             </div>
           </div>

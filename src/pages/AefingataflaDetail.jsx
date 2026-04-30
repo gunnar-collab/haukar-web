@@ -33,31 +33,34 @@ export default function AefingataflaDetail() {
         </span>
         
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-          <Link to="/aefingatoflur" className="flex items-center gap-2 text-white/70 hover:text-white mb-6 uppercase tracking-widest text-xs font-bold transition-colors">
-            <span className="material-symbols-outlined text-[16px]">arrow_back</span>
-            Allar töflur
-          </Link>
           
-          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 mb-8 shadow-sm">
             <span className="material-symbols-outlined text-white text-[18px]">{schedule.icon}</span>
             <span className="text-white text-xs font-black uppercase tracking-widest">
-              {schedule.sport} {schedule.gender ? `- ${schedule.gender}` : ''}
+              Æfingatafla
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase mb-2 drop-shadow-lg leading-tight">
-            {schedule.title}
+          <h1 className="text-6xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg leading-none">
+            {schedule.sport} 
+            {schedule.gender && (
+              <>
+                <br className="md:hidden" />
+                <span className="text-white/80 md:ml-4">{schedule.gender}</span>
+              </>
+            )}
           </h1>
-          <p className="text-white/80 font-bold text-xl uppercase tracking-widest">
+          
+          <p className="text-white/70 font-bold text-lg uppercase tracking-[0.2em] mb-4">
             {schedule.season}
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-16">
         
         {/* 2. Flokkar Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 md:mb-16">
           {schedule.flokkar.map((flokkur, idx) => (
             <div key={idx} className="bg-white rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden flex flex-col">
               

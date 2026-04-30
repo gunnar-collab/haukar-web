@@ -6,7 +6,7 @@ export default function Leikjaskoli() {
   }, []);
 
   return (
-    <main className="w-full bg-white min-h-screen pt-10 md:pt-16 pb-20 font-sans">
+    <main className="w-full bg-white min-h-screen pb-20 font-sans">
       
       {/* 1. Hero Section */}
       <div className="bg-gradient-to-br from-[#1c2c6c] to-[#2a4099] text-white py-20 px-6 text-center relative overflow-hidden shadow-md">

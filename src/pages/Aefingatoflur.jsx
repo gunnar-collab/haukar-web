@@ -19,7 +19,7 @@ export default function Aefingatoflur() {
   ];
 
   return (
-    <main className="w-full bg-white min-h-screen pt-10 md:pt-16 pb-20 font-sans">
+    <main className="w-full bg-white min-h-screen pb-20 font-sans">
       
       {/* 1. Hero Section */}
       <div className="bg-[#1c2c6c] text-white py-20 px-6 text-center relative overflow-hidden shadow-md">
@@ -28,7 +28,7 @@ export default function Aefingatoflur() {
         </span>
         
         <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-          <span className="text-[#c8102e] text-[10px] md:text-xs font-black uppercase tracking-widest mb-3 block">
+          <span className="text-[#c8102e] bg-white/90 px-3 py-1 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 shadow-sm inline-block">
             Barnastarf & Yngri Flokkar
           </span>
           <h1 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg">
@@ -40,7 +40,7 @@ export default function Aefingatoflur() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-16 space-y-16">
+      <div className="max-w-7xl mx-auto px-6 py-8 md:py-16 space-y-8 md:space-y-16">
         
         {/* 2. Information Cards (Side by Side) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

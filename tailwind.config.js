@@ -38,6 +38,10 @@ export default {
         'sparkle': {
           '0%, 100%': { opacity: '0', transform: 'scale(0) rotate(0deg)' },
           '50%': { opacity: '0.8', transform: 'scale(1) rotate(90deg)' },
+        },
+        'wave-grow': {
+          '0%, 100%': { transform: 'scale(1) translateY(0)', opacity: '1' },
+          '50%': { transform: 'scale(1.2) translateY(-8px)', opacity: '0.9' },
         }
       },
       animation: {
@@ -45,6 +49,7 @@ export default {
         'zoom-in': 'zoom-in 0.2s ease-out',
         'gradient-y': 'gradient-y 6s ease-in-out infinite',
         'sparkle': 'sparkle 3s ease-in-out infinite',
+        'wave-grow': 'wave-grow 3s ease-in-out infinite',
       }
     },
   },

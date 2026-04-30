@@ -56,94 +56,98 @@ export default function MobileBottomNav({ onOpenTickets }) {
       {/* Deildir Bottom Sheet */}
       <div 
         className={cn(
-          "lg:hidden fixed bottom-[64px] left-0 w-full bg-white rounded-t-[2rem] shadow-[0_-20px_50px_rgba(0,0,0,0.1)] z-[85] p-6 pb-10 transition-transform duration-300 ease-out transform",
+          "lg:hidden fixed bottom-[64px] left-0 w-full bg-white rounded-t-[2rem] shadow-[0_-20px_50px_rgba(0,0,0,0.1)] z-[85] transition-transform duration-300 ease-out transform flex flex-col max-h-[70vh]",
           activeSheet === 'deildir' ? "translate-y-0" : "translate-y-full"
         )}
       >
         <div 
-          className="w-full h-8 -mt-2 mb-4 flex items-start justify-center cursor-grab active:cursor-grabbing"
+          className="w-full pt-4 pb-2 flex-shrink-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          <div className="w-12 h-1.5 bg-gray-200 rounded-full mt-2"></div>
+          <div className="w-12 h-1.5 bg-gray-200 rounded-full"></div>
         </div>
-        <h3 className="text-center font-black uppercase tracking-widest text-[#1c2c6c] mb-6 text-sm">
-          Veldu Deild
-        </h3>
-        <div className="grid grid-cols-3 gap-3">
-          {NAV_LINKS.deildir.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path}
-              onClick={() => setActiveSheet(null)}
-              className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-gray-50 active:bg-gray-100 active:scale-95 transition-all text-[#1c2c6c] border border-gray-100"
-            >
-              <span className="material-symbols-outlined text-[32px] text-[#c8102e]">{link.icon}</span>
-              <span className="text-[9px] font-bold uppercase tracking-wider text-center">{link.name}</span>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {/* Meira (Félagið) Bottom Sheet */}
-      <div 
-        className={cn(
-          "lg:hidden fixed bottom-[64px] left-0 w-full bg-white rounded-t-[2rem] shadow-[0_-20px_50px_rgba(0,0,0,0.1)] z-[85] p-6 pb-10 transition-transform duration-300 ease-out transform max-h-[70vh] overflow-y-auto scrollbar-hide",
-          activeSheet === 'meira' ? "translate-y-0" : "translate-y-full"
-        )}
-      >
-        <div 
-          className="w-full h-8 -mt-2 mb-4 flex items-start justify-center cursor-grab active:cursor-grabbing sticky top-0 bg-white"
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          <div className="w-12 h-1.5 bg-gray-200 rounded-full mt-2"></div>
-        </div>
-        <h3 className="text-center font-black uppercase tracking-widest text-[#1c2c6c] mb-6 text-sm">
-          Félagið
-        </h3>
-        <div className="grid grid-cols-2 gap-3 mb-6">
-          {NAV_LINKS.felagid.map((link) => {
-            if (link.external) {
-              return (
-                <a 
-                  key={link.name} 
-                  href={link.path} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  onClick={() => setActiveSheet(null)}
-                  className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-gray-50 active:bg-gray-100 active:scale-95 transition-all text-[#1c2c6c] border border-gray-100"
-                >
-                  <span className="material-symbols-outlined text-[28px] text-[#1c2c6c]">{link.icon}</span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-center">{link.name}</span>
-                </a>
-              );
-            }
-            return (
+        <div className="flex-1 overflow-y-auto px-6 pb-10 scrollbar-hide">
+          <h3 className="text-center font-black uppercase tracking-widest text-[#1c2c6c] mb-6 mt-2 text-sm">
+            Veldu Deild
+          </h3>
+          <div className="grid grid-cols-3 gap-3">
+            {NAV_LINKS.deildir.map((link) => (
               <Link 
                 key={link.name} 
                 to={link.path}
                 onClick={() => setActiveSheet(null)}
                 className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-gray-50 active:bg-gray-100 active:scale-95 transition-all text-[#1c2c6c] border border-gray-100"
               >
-                <span className="material-symbols-outlined text-[28px] text-[#1c2c6c]">{link.icon}</span>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-center">{link.name}</span>
+                <span className="material-symbols-outlined text-[32px] text-[#c8102e]">{link.icon}</span>
+                <span className="text-[9px] font-bold uppercase tracking-wider text-center">{link.name}</span>
               </Link>
-            );
-          })}
+            ))}
+          </div>
         </div>
-        
-        <a 
-          href="https://www.abler.io/shop/haukar/" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="w-full py-4 bg-[#c8102e]/5 active:bg-[#c8102e]/10 text-[#c8102e] rounded-xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all border border-[#c8102e]/10"
+      </div>
+
+      {/* Meira (Félagið) Bottom Sheet */}
+      <div 
+        className={cn(
+          "lg:hidden fixed bottom-[64px] left-0 w-full bg-white rounded-t-[2rem] shadow-[0_-20px_50px_rgba(0,0,0,0.1)] z-[85] transition-transform duration-300 ease-out transform flex flex-col max-h-[70vh]",
+          activeSheet === 'meira' ? "translate-y-0" : "translate-y-full"
+        )}
+      >
+        <div 
+          className="w-full pt-4 pb-2 flex-shrink-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
-          <span>Skráning í Abler</span>
-          <span className="material-symbols-outlined text-[16px]">open_in_new</span>
-        </a>
+          <div className="w-12 h-1.5 bg-gray-200 rounded-full"></div>
+        </div>
+        <div className="flex-1 overflow-y-auto px-6 pb-10 scrollbar-hide">
+          <h3 className="text-center font-black uppercase tracking-widest text-[#1c2c6c] mb-6 mt-2 text-sm">
+            Félagið
+          </h3>
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            {NAV_LINKS.felagid.map((link) => {
+              if (link.external) {
+                return (
+                  <a 
+                    key={link.name} 
+                    href={link.path} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={() => setActiveSheet(null)}
+                    className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-gray-50 active:bg-gray-100 active:scale-95 transition-all text-[#1c2c6c] border border-gray-100"
+                  >
+                    <span className="material-symbols-outlined text-[28px] text-[#1c2c6c]">{link.icon}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-center">{link.name}</span>
+                  </a>
+                );
+              }
+              return (
+                <Link 
+                  key={link.name} 
+                  to={link.path}
+                  onClick={() => setActiveSheet(null)}
+                  className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-gray-50 active:bg-gray-100 active:scale-95 transition-all text-[#1c2c6c] border border-gray-100"
+                >
+                  <span className="material-symbols-outlined text-[28px] text-[#1c2c6c]">{link.icon}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-center">{link.name}</span>
+                </Link>
+              );
+            })}
+          </div>
+          
+          <a 
+            href="https://www.abler.io/shop/haukar/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="w-full py-4 bg-[#c8102e]/5 active:bg-[#c8102e]/10 text-[#c8102e] rounded-xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all border border-[#c8102e]/10"
+          >
+            <span>Skráning í Abler</span>
+            <span className="material-symbols-outlined text-[16px]">open_in_new</span>
+          </a>
+        </div>
       </div>
 
       {/* The Actual Bottom Tab Bar */}

@@ -217,3 +217,12 @@ html {
   0% { transform: translateX(0%); }
   100% { transform: translateX(calc(-100% / 3)); }
 }
+
+@keyframes wave-grow {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 1; }
+  50% { transform: scale(1.1) translateY(-4px); opacity: 0.95; }
+}
+
+.animate-wave-grow {
+  animation: wave-grow 4s ease-in-out infinite;
+}

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAiContext } from '../hooks/useAiContext';
+import { useLiveMatchSimulator } from '../hooks/useLiveMatchSimulator';
 import { HAUKAR_STATIC_KNOWLEDGE } from '../data/staticKnowledge';
 import { HAUKAR_PDF_KNOWLEDGE } from '../data/pdfKnowledge';
 import { newsArticles } from '../data/newsData';
@@ -10,6 +11,11 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
   const location = useLocation();
   const navigate = useNavigate();
   const { sportId: contextSportId, contextString } = useAiContext();
+  
+  // LIVE SIMULATOR HOOK (Disabled after experiment)
+  const { isLiveMode, currentEvent } = useLiveMatchSimulator(false);
+  const lastProcessedEventId = useRef(null);
+
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
     { 
@@ -57,8 +63,10 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
 
-  const triggerAiQuery = async (userText) => {
-    setMessages(prev => [...prev, { role: 'user', text: userText }]);
+  const triggerAiQuery = async (userText, isSilent = false) => {
+    if (!isSilent) {
+      setMessages(prev => [...prev, { role: 'user', text: userText }]);
+    }
     setIsTyping(true);
 
     try {
@@ -78,7 +86,17 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
       - Ef þú svarar á íslensku, notaðu alltaf eðlilegt íslenskt talmál: "í kvennakörfunni" og "í karlakörfunni", eða "körfuboltastelpurnar" og "körfuboltastrákarnir". 
       - Þetta gildir um allar íþróttir (t.d. "handboltastelpurnar", "fótboltastrákarnir").
       - ALDREI nota kynjuð kveðjuorð eða ávörp eins og "Sæll", "Sæl", "Sæl og blessuð", eða "Velkominn/Velkomin". Þar sem þú veist ekki kyn notandans, notaðu BARA algjörlega hlutlaus kveðjuorð: "Hæ!", "Hæ hæ!", eða "Góðan daginn!".
-      - Notaðu viðeigandi emojis 🔴⚪️ í svörunum þínum til að gera spjallið líflegra og skemmtilegra!
+      - Nema í tilfelli leikja sem eru í gangi, notaðu viðeigandi emojis 🔴⚪️ í svörunum þínum til að gera spjallið líflegra og skemmtilegra!
+      
+      ***MÁLFAR OG ORÐAFORÐI (STRICT RULES)***
+      1. ALDREI segja "korfa". Það heitir "karfa" (et.) eða "körfur" (ft.). "Að skora körfu".
+      2. ALDREI segja "Haugastolt". Það heitir "Haukastolt" með K.
+      3. Vertu hversdagslegur! Í stað þess að segja "Það er miður" eða vera formlegur þegar illa gengur, notaðu frekar "Æi", "Ahh", "Svei mér þá", eða "Súr biti".
+      
+      ***LIFANDI LÝSING - REGLA UM TÓN***
+      Ef þú ert að lýsa leik sem er í gangi gilda EFTIRFARANDI REGLUR um tón (Tone of Voice):
+      1. Ef Haukar skora eða gera eitthvað gott: Vertu FRÁBÆRLEGA ÁSTRÍÐUFULLUR! Notaðu hástafi, fagnaðu eins og óður maður, notaðu 🔴⚪️ 🔥 og önnur emojis. "ÞVÍLÍK KARFA!! ÁFRAM HAUKAR!!"
+      2. Ef ANDSTÆÐINGURINN (t.d. Keflavík, Valur o.fl.) skorar eða gerir eitthvað gott: Gefðu LÝSANDI og NÁKVÆMA lýsingu á atvikinu en vertu ALGJÖRLEGA ÞURR, FORMAL, LEIÐINLEGUR OG LÁTLAUS. Þú mátt ALLS EKKI nota nein emojis. Sýndu enga gleði. "Keflavík setur niður körfu eftir hraðaupphlaup og jafnar leikinn. Æi."
       
       MIKILVÆGAR STAÐREYNDIR UM HAUKA:
       - Núverandi ár er ${currentYear}. Haukar eru ${clubAge} ára gamlir.
@@ -186,60 +204,67 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
     }
   }, [initialSearchQuery, isOpen]);
 
+  // LIVE EVENT LISTENER
+  useEffect(() => {
+    if (currentEvent && isLiveMode && currentEvent.id !== lastProcessedEventId.current) {
+      lastProcessedEventId.current = currentEvent.id;
+      
+      const livePrompt = `Hér er nýr atburður úr leik sem er í gangi NÚNA. Mundu að fylgja "LIFANDI LÝSING - REGLA UM TÓN" reglunni í kerfisleiðbeiningunum! Atburður: ${currentEvent.text}`;
+      triggerAiQuery(livePrompt, true);
+      
+      // Auto open chat if it's the first event to show off the feature
+      if (!isOpen && messages.length <= 1) {
+        setIsOpen(true);
+      }
+    }
+  }, [currentEvent, isLiveMode]);
+
   return (
     <>
       {/* The Edge Panel Trigger (Closed State) */}
       <div 
         className={`fixed top-1/2 right-0 -translate-y-1/2 z-[95] transition-transform duration-500 ${isOpen ? 'translate-x-full' : 'translate-x-0'}`}
       >
-        {/* Invisible touch target wrapper for mobile */}
         <div 
-          className="pl-6 py-10 cursor-pointer flex items-center group"
+          className="pl-6 py-10 cursor-pointer flex items-center group relative"
           onClick={() => setIsOpen(true)}
         >
-          {/* Gemini Sparkle */}
-          <div className={`absolute top-1/2 -left-4 -translate-y-1/2 pointer-events-none transition-opacity duration-1000 ${isSparkling ? 'opacity-100 animate-pulse' : 'opacity-0'}`}>
-            <span className={`material-symbols-outlined text-[#D4AF37] text-[18px] ${isSparkling ? 'animate-[spin_6s_linear_infinite]' : ''}`}>auto_awesome</span>
-          </div>
-
-          <button 
-            className="relative bg-gradient-to-b from-[#D4AF37] via-yellow-200 to-[#D4AF37] text-[#1c2c6c] rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_15px_rgba(212,175,55,0.6)] flex items-center justify-center sm:group-hover:w-6 transition-all duration-300 focus:outline-none pointer-events-none"
-          >
-            {/* Subtle pulse effect on the sliver */}
-            <div className={`absolute inset-0 bg-white/20 rounded-l-xl transition-opacity duration-1000 ${isSparkling ? 'animate-pulse opacity-100' : 'opacity-0'}`}></div>
-            
-            <span className="material-symbols-outlined text-[16px] opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 delay-100">
-              smart_toy
-            </span>
-          </button>
+          {isLiveMode ? (
+            // LIVE MODE TRIGGER (Pulsating Heart)
+            <>
+              <div className="absolute top-1/2 -left-6 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+                <div className="absolute w-12 h-12 rounded-full border border-red-500 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <div className="absolute w-8 h-8 rounded-full border-2 border-red-500 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite_0.5s]"></div>
+                <span className="material-symbols-outlined text-[#c8102e] text-[24px] animate-pulse drop-shadow-[0_0_10px_rgba(200,16,46,0.8)] fill-current">favorite</span>
+              </div>
+              <button 
+                className="relative bg-gradient-to-b from-[#c8102e] via-red-500 to-[#9b0c23] text-white rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_20px_rgba(200,16,46,0.5)] flex items-center justify-center sm:group-hover:w-8 transition-all duration-300 focus:outline-none pointer-events-none"
+              >
+                <div className="absolute inset-0 bg-white/20 rounded-l-xl animate-pulse"></div>
+                <div className="flex flex-col items-center opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 delay-100 -ml-1">
+                  <span className="text-[8px] font-black tracking-widest uppercase mb-0.5 animate-pulse">Live</span>
+                  <span className="material-symbols-outlined text-[16px] animate-pulse">podcasts</span>
+                </div>
+              </button>
+            </>
+          ) : (
+            // NORMAL MODE TRIGGER (Golden Sparkle)
+            <>
+              <div className={`absolute top-1/2 -left-4 -translate-y-1/2 pointer-events-none transition-opacity duration-1000 ${isSparkling ? 'opacity-100 animate-pulse' : 'opacity-0'}`}>
+                <span className={`material-symbols-outlined text-[#D4AF37] text-[18px] ${isSparkling ? 'animate-[spin_6s_linear_infinite]' : ''}`}>auto_awesome</span>
+              </div>
+              <button 
+                className="relative bg-gradient-to-b from-[#D4AF37] via-yellow-200 to-[#D4AF37] text-[#1c2c6c] rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_15px_rgba(212,175,55,0.6)] flex items-center justify-center sm:group-hover:w-6 transition-all duration-300 focus:outline-none pointer-events-none"
+              >
+                <div className={`absolute inset-0 bg-white/20 rounded-l-xl transition-opacity duration-1000 ${isSparkling ? 'animate-pulse opacity-100' : 'opacity-0'}`}></div>
+                <span className="material-symbols-outlined text-[16px] opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                  smart_toy
+                </span>
+              </button>
+            </>
+          )}
         </div>
       </div>
-
-      {/* --- DEMO: LIVE BROADCAST TRIGGER (Sleeping Mode) --- */}
-      {/*
-      <div 
-        className={`fixed top-[65%] right-0 -translate-y-1/2 z-[95] transition-transform duration-500 ${isOpen ? 'translate-x-full' : 'translate-x-0'}`}
-      >
-        <div className="absolute top-1/2 -left-8 -translate-y-1/2 flex items-center justify-center pointer-events-none">
-          <div className="absolute w-12 h-12 rounded-full border border-red-500 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-          <div className="absolute w-8 h-8 rounded-full border-2 border-red-500 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite_0.5s]"></div>
-          <div className="w-2.5 h-2.5 bg-red-600 rounded-full animate-pulse shadow-[0_0_10px_rgba(220,38,38,0.8)]"></div>
-        </div>
-
-        <button 
-          onClick={() => setIsOpen(true)}
-          className="relative bg-gradient-to-b from-[#c8102e] via-red-500 to-[#9b0c23] text-white rounded-l-xl w-2 h-24 shadow-[-4px_0_20px_rgba(200,16,46,0.5)] flex items-center justify-center hover:w-10 transition-all duration-300 group focus:outline-none"
-        >
-          <div className="absolute inset-0 bg-white/20 rounded-l-xl animate-pulse"></div>
-          
-          <div className="flex flex-col items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 -ml-1">
-            <span className="text-[8px] font-black tracking-widest uppercase mb-0.5">Live</span>
-            <span className="material-symbols-outlined text-[16px] animate-pulse">podcasts</span>
-          </div>
-        </button>
-      </div>
-      */}
-      {/* --------------------------------------------------------- */}
 
       {/* Universal Background Overlay (Click to close instantly) */}
       <div 

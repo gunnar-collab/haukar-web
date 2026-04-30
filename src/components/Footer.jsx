@@ -1,8 +1,36 @@
+import React, { useState } from 'react';
 import Button from './Button.jsx';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS } from '../data/navConfig.js';
+import { db } from '../lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) return;
+    
+    setStatus('loading');
+    try {
+      await addDoc(collection(db, 'newsletter_subscribers'), {
+        email,
+        subscribedAt: serverTimestamp(),
+        source: 'footer'
+      });
+      setStatus('success');
+      setEmail('');
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Error adding newsletter subscriber: ', error);
+      setStatus('error');
+    }
+  };
+
   return (
     <footer className="bg-[#c8102e] text-white pt-12 border-t border-gray-200 w-full relative z-30">
       
@@ -18,22 +46,41 @@ export default function Footer() {
               Fáðu nýjustu fréttir, tilboð úr vefverslun og upplýsingar um miðasölu beint í æð.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row w-full lg:w-auto gap-3">
-            <input 
-              type="email" 
-              placeholder="Netfangið þitt" 
-              className="px-5 py-3 rounded-xl bg-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#1c2c6c] w-full sm:w-72 text-sm font-body transition-all border border-white/20"
-            />
-            {/* REFACTORED TO GLOBAL BUTTON */}
-            <Button 
-              variant="secondary" 
-              icon="send" 
-              iconPosition="right" 
-              className="whitespace-nowrap"
-            >
-              Skrá mig
-            </Button>
-          </div>
+          {status === 'success' ? (
+            <div className="bg-white/10 px-6 py-4 rounded-xl border border-green-400/50 flex items-center gap-3 w-full sm:w-auto animate-fade-in">
+              <span className="material-symbols-outlined text-green-400">check_circle</span>
+              <span className="text-white font-bold text-sm">Takk fyrir skráninguna! Við erum í sambandi.</span>
+            </div>
+          ) : (
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row w-full lg:w-auto gap-3">
+              <div className="relative w-full sm:w-auto">
+                <input 
+                  type="email" 
+                  placeholder="Netfangið þitt" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={status === 'loading'}
+                  required
+                  className="px-5 py-3 rounded-xl bg-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#1c2c6c] w-full sm:w-72 text-sm font-body transition-all border border-white/20 disabled:opacity-50"
+                />
+                {status === 'error' && (
+                  <p className="absolute -bottom-5 left-2 text-[10px] text-red-300 font-bold uppercase tracking-widest">
+                    Eitthvað fór úrskeiðis
+                  </p>
+                )}
+              </div>
+              <Button 
+                type="submit"
+                disabled={status === 'loading'}
+                variant="secondary" 
+                icon={status === 'loading' ? 'hourglass_empty' : 'send'} 
+                iconPosition="right" 
+                className={`whitespace-nowrap ${status === 'loading' ? 'opacity-80' : ''}`}
+              >
+                {status === 'loading' ? 'Skrái...' : 'Skrá mig'}
+              </Button>
+            </form>
+          )}
         </div>
 
         {/* Main Grid Layout */}

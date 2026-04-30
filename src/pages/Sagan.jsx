@@ -101,8 +101,8 @@ export default function Sagan() {
               <div key={milestone.year} className="relative flex flex-col md:flex-row items-start md:items-center w-full group">
                 
                 {/* The Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 w-14 h-14 bg-white border-4 border-[#1c2c6c] rounded-full flex items-center justify-center transform md:-translate-x-1/2 z-10 shadow-md group-hover:border-[#c8102e] group-hover:scale-110 transition-all duration-300 mt-2 md:mt-0">
-                  <span className="material-symbols-outlined text-[#1c2c6c] group-hover:text-[#c8102e] transition-colors">
+                <div className="absolute left-0 md:left-1/2 w-14 h-14 bg-white border-4 border-[#1c2c6c] rounded-full flex items-center justify-center transform md:-translate-x-1/2 z-10 shadow-md group-hover:border-[#D4AF37] group-hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] group-hover:scale-110 transition-all duration-500 mt-2 md:mt-0">
+                  <span className="material-symbols-outlined text-[#1c2c6c] group-hover:text-[#D4AF37] transition-colors duration-500">
                     {milestone.icon}
                   </span>
                 </div>
@@ -110,15 +110,15 @@ export default function Sagan() {
                 {/* Content Container */}
                 <div className={`w-full pl-20 md:pl-0 md:w-1/2 ${isEven ? 'md:pr-16 md:text-right md:flex md:justify-end' : 'md:pl-16 md:ml-auto md:text-left'}`}>
                   
-                  <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group-hover:-translate-y-1 w-full max-w-lg">
+                  <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-500 relative overflow-hidden group-hover:-translate-y-1 w-full max-w-lg">
                     
                     {/* Decorative Gradient Line */}
-                    <div className={`absolute top-0 w-full h-1 bg-gradient-to-r from-[#c8102e] to-[#1c2c6c] ${isEven ? 'right-0' : 'left-0'}`}></div>
+                    <div className={`absolute top-0 w-full h-1 bg-gradient-to-r from-[#D4AF37] via-[#c8102e] to-[#1c2c6c] ${isEven ? 'right-0' : 'left-0'}`}></div>
 
-                    <span className="inline-block text-4xl font-black text-gray-200 mb-2 italic tracking-tighter">
+                    <span className="inline-block text-4xl font-black text-gray-200 group-hover:text-[#D4AF37]/20 transition-colors duration-500 mb-2 italic tracking-tighter">
                       {milestone.year}
                     </span>
-                    <h3 className="text-2xl font-bold text-[#1c2c6c] mb-3 uppercase tracking-tight">
+                    <h3 className="text-2xl font-bold text-[#1c2c6c] mb-3 uppercase tracking-tight group-hover:text-[#D4AF37] transition-colors duration-500">
                       {milestone.title}
                     </h3>
                     <p className="text-gray-600 font-medium leading-relaxed">

@@ -122,7 +122,7 @@ export default function HafaSamband() {
         </span>
         
         <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-          <span className="text-[#1c2c6c] text-[10px] md:text-xs font-black uppercase tracking-widest mb-3 block">
+          <span className="text-[#D4AF37] text-[10px] md:text-xs font-black uppercase tracking-widest mb-3 block drop-shadow-sm">
             Skrifstofa & Stjórnir
           </span>
           <h1 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg">
@@ -207,12 +207,12 @@ export default function HafaSamband() {
             <h2 className="text-4xl md:text-5xl font-black italic text-[#1c2c6c] uppercase tracking-tighter mb-8">Lykilfólk Deilda</h2>
             
             {/* Tabs Navigation */}
-            <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+            <div className="flex overflow-x-auto md:flex-wrap justify-start md:justify-center gap-3 md:gap-4 mb-12 pb-4 px-2 w-full max-w-full scrollbar-hide snap-x snap-mandatory">
               {Object.keys(divisionsBoard).map((key) => (
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
-                  className={`px-6 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 ${
+                  className={`px-6 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 whitespace-nowrap shrink-0 snap-center ${
                     activeTab === key 
                       ? 'bg-[#c8102e] text-white shadow-lg scale-105' 
                       : 'bg-white text-gray-400 hover:text-[#1c2c6c] hover:bg-gray-100 border border-gray-100'
