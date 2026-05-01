@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAiContext } from '../hooks/useAiContext';
-import { useLiveMatchSimulator } from '../hooks/useLiveMatchSimulator';
+import { useLiveCommentaryStream } from '../hooks/useLiveCommentaryStream';
 import { HAUKAR_STATIC_KNOWLEDGE } from '../data/staticKnowledge';
 import { HAUKAR_PDF_KNOWLEDGE } from '../data/pdfKnowledge';
 import { newsArticles } from '../data/newsData';
@@ -11,9 +11,8 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
   const location = useLocation();
   const navigate = useNavigate();
   const { sportId: contextSportId, contextString } = useAiContext();
-  
-  // LIVE SIMULATOR HOOK (Disabled after experiment)
-  const { isLiveMode, currentEvent } = useLiveMatchSimulator(false);
+  // LIVE REALTIME HOOK (Connected to Backend Engine)
+  const { isLiveMode, currentCommentary } = useLiveCommentaryStream(true);
   const lastProcessedEventId = useRef(null);
 
   const [input, setInput] = useState('');
@@ -24,7 +23,7 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
-  const [isSparkling, setIsSparkling] = useState(true);
+  const [showTooltip, setShowTooltip] = useState(true);
   const messagesEndRef = useRef(null);
 
   // --- SWIPE GESTURE STATE ---
@@ -49,9 +48,9 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
   };
   // ---------------------------
 
-  // Stop the initial animation after 60 seconds and vanish
+  // Stop the initial onboarding tooltip after 15 seconds
   useEffect(() => {
-    const timer = setTimeout(() => setIsSparkling(false), 60000);
+    const timer = setTimeout(() => setShowTooltip(false), 15000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -90,13 +89,9 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
       
       ***MÁLFAR OG ORÐAFORÐI (STRICT RULES)***
       1. ALDREI segja "korfa". Það heitir "karfa" (et.) eða "körfur" (ft.). "Að skora körfu".
-      2. ALDREI segja "Haugastolt". Það heitir "Haukastolt" með K.
-      3. Vertu hversdagslegur! Í stað þess að segja "Það er miður" eða vera formlegur þegar illa gengur, notaðu frekar "Æi", "Ahh", "Svei mér þá", eða "Súr biti".
-      
-      ***LIFANDI LÝSING - REGLA UM TÓN***
-      Ef þú ert að lýsa leik sem er í gangi gilda EFTIRFARANDI REGLUR um tón (Tone of Voice):
-      1. Ef Haukar skora eða gera eitthvað gott: Vertu FRÁBÆRLEGA ÁSTRÍÐUFULLUR! Notaðu hástafi, fagnaðu eins og óður maður, notaðu 🔴⚪️ 🔥 og önnur emojis. "ÞVÍLÍK KARFA!! ÁFRAM HAUKAR!!"
-      2. Ef ANDSTÆÐINGURINN (t.d. Keflavík, Valur o.fl.) skorar eða gerir eitthvað gott: Gefðu LÝSANDI og NÁKVÆMA lýsingu á atvikinu en vertu ALGJÖRLEGA ÞURR, FORMAL, LEIÐINLEGUR OG LÁTLAUS. Þú mátt ALLS EKKI nota nein emojis. Sýndu enga gleði. "Keflavík setur niður körfu eftir hraðaupphlaup og jafnar leikinn. Æi."
+      2. Í körfubolta skorar maður STIG eða KÖRFU ("2 stiga karfa", "3 stiga karfa"). ALDREI nota orðið "mörk" eða "mark" í sambandi við körfubolta!
+      3. ALDREI segja "Haugastolt". Það heitir "Haukastolt" með K.
+      4. Vertu hversdagslegur! Í stað þess að segja "Það er miður" eða vera formlegur þegar illa gengur, notaðu frekar "Æi", "Ahh", "Svei mér þá", eða "Súr biti".
       
       ***LEIKJAPLAN OG FORGANGSRÖÐUN***
       Ef notandi spyr almennt um næstu leiki (t.d. "Hvenær er næsti leikur?" eða "Hvað er framundan hjá ykkur?"), skaltu ÁVALLT byrja á því að svara eingöngu fyrir Meistaraflokk (bæði karla og kvenna) sem eru næst á dagskrá. 
@@ -208,20 +203,20 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
     }
   }, [initialSearchQuery, isOpen]);
 
-  // LIVE EVENT LISTENER
+  // LIVE EVENT LISTENER (Listens to the Backend Engine)
   useEffect(() => {
-    if (currentEvent && isLiveMode && currentEvent.id !== lastProcessedEventId.current) {
-      lastProcessedEventId.current = currentEvent.id;
+    if (currentCommentary && isLiveMode && currentCommentary.id !== lastProcessedEventId.current) {
+      lastProcessedEventId.current = currentCommentary.id;
       
-      const livePrompt = `Hér er nýr atburður úr leik sem er í gangi NÚNA. Mundu að fylgja "LIFANDI LÝSING - REGLA UM TÓN" reglunni í kerfisleiðbeiningunum! Atburður: ${currentEvent.text}`;
-      triggerAiQuery(livePrompt, true);
+      // Directly append the backend-generated AI commentary!
+      setMessages(prev => [...prev, { role: 'gemini', text: currentCommentary.text }]);
       
       // Auto open chat if it's the first event to show off the feature
       if (!isOpen && messages.length <= 1) {
         setIsOpen(true);
       }
     }
-  }, [currentEvent, isLiveMode]);
+  }, [currentCommentary, isLiveMode]);
 
   return (
     <>
@@ -234,34 +229,44 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
           onClick={() => setIsOpen(true)}
         >
           {isLiveMode ? (
-            // LIVE MODE TRIGGER (Pulsating Heart)
+            // LIVE MODE TRIGGER (Pulsating Radio Waves)
             <>
-              <div className="absolute top-1/2 -left-6 -translate-y-1/2 flex items-center justify-center pointer-events-none">
-                <div className="absolute w-12 h-12 rounded-full border border-red-500 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-                <div className="absolute w-8 h-8 rounded-full border-2 border-red-500 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite_0.5s]"></div>
-                <span className="material-symbols-outlined text-[#c8102e] text-[24px] animate-pulse drop-shadow-[0_0_10px_rgba(200,16,46,0.8)] fill-current">favorite</span>
+              <div className="absolute top-1/2 -left-6 -translate-y-1/2 flex items-center justify-center cursor-pointer transition-transform hover:scale-110">
+                <div className="absolute w-14 h-14 rounded-full border border-red-500/60 animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <div className="absolute w-10 h-10 rounded-full border-2 border-red-500/80 animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite_0.5s]"></div>
+                <div className="absolute w-6 h-6 rounded-full border-2 border-red-600 animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite_1s]"></div>
+                <div className="relative bg-[#1c2c6c] w-8 h-8 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(200,16,46,0.6)] border border-[#c8102e]/50">
+                  <span className="material-symbols-outlined text-white text-[18px] animate-pulse">podcasts</span>
+                </div>
               </div>
               <button 
-                className="relative bg-gradient-to-b from-[#c8102e] via-red-500 to-[#9b0c23] text-white rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_20px_rgba(200,16,46,0.5)] flex items-center justify-center sm:group-hover:w-8 transition-all duration-300 focus:outline-none pointer-events-none"
+                className="relative bg-gradient-to-b from-[#1c2c6c] via-[#2a4199] to-[#1c2c6c] text-white rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_20px_rgba(28,44,108,0.5)] flex items-center justify-center sm:group-hover:w-8 transition-all duration-300 focus:outline-none pointer-events-none border-l border-t border-b border-[#c8102e]/30"
               >
-                <div className="absolute inset-0 bg-white/20 rounded-l-xl animate-pulse"></div>
+                <div className="absolute inset-0 bg-red-500/10 rounded-l-xl animate-pulse"></div>
                 <div className="flex flex-col items-center opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 delay-100 -ml-1">
-                  <span className="text-[8px] font-black tracking-widest uppercase mb-0.5 animate-pulse">Live</span>
-                  <span className="material-symbols-outlined text-[16px] animate-pulse">podcasts</span>
+                  <span className="text-[8px] font-black tracking-widest uppercase mb-0.5 text-red-400 animate-pulse">Live</span>
+                  <span className="material-symbols-outlined text-[16px] animate-pulse text-white">sensors</span>
                 </div>
               </button>
             </>
           ) : (
-            // NORMAL MODE TRIGGER (Golden Sparkle)
+            // NORMAL MODE TRIGGER (Minimalist Golden Sliver + Tooltip)
             <>
-              <div className={`absolute top-1/2 -left-4 -translate-y-1/2 pointer-events-none transition-opacity duration-1000 ${isSparkling ? 'opacity-100 animate-pulse' : 'opacity-0'}`}>
-                <span className={`material-symbols-outlined text-[#D4AF37] text-[18px] ${isSparkling ? 'animate-[spin_6s_linear_infinite]' : ''}`}>auto_awesome</span>
-              </div>
-              <button 
-                className="relative bg-gradient-to-b from-[#D4AF37] via-yellow-200 to-[#D4AF37] text-[#1c2c6c] rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_15px_rgba(212,175,55,0.6)] flex items-center justify-center sm:group-hover:w-6 transition-all duration-300 focus:outline-none pointer-events-none"
+              {/* Onboarding Tooltip that slides out on page load */}
+              <div 
+                className={`absolute top-1/2 right-4 -translate-y-1/2 flex items-center gap-1.5 bg-gradient-to-r from-[#D4AF37] to-[#B5952F] text-[#1c2c6c] px-3 py-1.5 rounded-l-full shadow-lg pointer-events-none transition-all duration-1000 ease-out ${
+                  showTooltip ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+                }`}
               >
-                <div className={`absolute inset-0 bg-white/20 rounded-l-xl transition-opacity duration-1000 ${isSparkling ? 'animate-pulse opacity-100' : 'opacity-0'}`}></div>
-                <span className="material-symbols-outlined text-[16px] opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                <span className="material-symbols-outlined text-[16px]">chat</span>
+                <span className="text-xs font-bold whitespace-nowrap tracking-wide">Spyrðu Hauk</span>
+              </div>
+
+              {/* The clean golden sliver */}
+              <button 
+                className="relative bg-gradient-to-b from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] text-[#1c2c6c] rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_15px_rgba(212,175,55,0.4)] flex items-center justify-center sm:group-hover:w-8 transition-all duration-300 focus:outline-none pointer-events-none border-l border-t border-b border-white/40"
+              >
+                <span className="material-symbols-outlined text-[18px] opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 delay-75">
                   smart_toy
                 </span>
               </button>

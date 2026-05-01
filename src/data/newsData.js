@@ -42,9 +42,9 @@ export const newsArticles = [
     "sport": "fotbolti",
     "category": "Félagið",
     "date": "11. apríl 2026",
-    "title": "Knattspyrnufélagið Haukar  95 ára, 12. apríl 2026.",
+    "title": "Knattspyrnufélagið Haukar 95 ára",
     "lead": "Knattspyrnufélagið Haukar fagnar glæsilegum 95 ára afmæli þann 12. apríl. Verið velkomin í léttar veitingar og fögnum saman þessum merku tímamótum.",
-    "image": "/images/news/knattspyrnufelagid-haukar-95-ara-12-april-2026.webp",
+    "image": "/images/news/knattspyrnufelagid-haukar-95-ara-12-april-2026_gallery_10.webp",
     "images": [
       "/images/news/knattspyrnufelagid-haukar-95-ara-12-april-2026_gallery_1.webp",
       "/images/news/knattspyrnufelagid-haukar-95-ara-12-april-2026_gallery_2.webp",

@@ -10,10 +10,10 @@ const formatMatchDateShort = (dateObj) => {
   const time = `${h}:${m}`;
   const timeStr = time === '00:00' ? '19:15' : time;
   
-  const dNum = d.getDate().toString().padStart(2, '0');
-  const mNum = (d.getMonth() + 1).toString().padStart(2, '0');
+  const days = ['Sun', 'Mán', 'Þri', 'Mið', 'Fim', 'Fös', 'Lau'];
+  const months = ['Janúar', 'Febrúar', 'Mars', 'Apríl', 'Maí', 'Júní', 'Júlí', 'Ágúst', 'September', 'Október', 'Nóvember', 'Desember'];
   
-  return `${dNum}.${mNum} - ${timeStr}`; // e.g., 01.05 - 19:15
+  return `${days[d.getDay()]} ${d.getDate()}. ${months[d.getMonth()]} • ${timeStr}`;
 };
 
 export default function SecondNextGameWidget() {

@@ -54,7 +54,7 @@ jobs:
           playwright install chromium
           
       - name: Run KKÍ Scraper (Basketball)
-        run: python scripts/scrape_kki.py
+        run: node scripts/scrape_kki.js
         
       - name: Run Stubbur Ticket Scraper
         run: python scripts/scrape_stubbur.py

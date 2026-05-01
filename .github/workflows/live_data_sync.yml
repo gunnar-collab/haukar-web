@@ -1,0 +1,50 @@
+name: Live Match Sync (Targeted Polling)
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs at the top of every hour
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  scrape-recent-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install Node Dependencies
+        run: npm install axios cheerio puppeteer
+          
+      - name: Cache KSÍ HTML Files
+        uses: actions/cache@v3
+        with:
+          path: scripts/.ksi_cache
+          key: ksi-cache-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            ksi-cache-${{ runner.os }}-
+
+      - name: Run Targeted KSÍ Scraper (Football)
+        run: node scripts/scrape_ksi.js --recent-only
+        
+      - name: Run Targeted HBStatz Scraper (Handball)
+        run: node scripts/scrape_hsi.js --recent-only
+        
+      - name: Run Targeted KKÍ Scraper (Basketball)
+        run: node scripts/scrape_kki.js --recent-only
+        
+      - name: Commit and Push Data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/haukar_league_data.json
+          git commit -m "chore: automated live match data sync" || exit 0
+          git push

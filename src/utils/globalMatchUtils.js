@@ -22,9 +22,10 @@ export const getNextHomeGame = () => {
       divisionData.matches.forEach(match => {
         const matchDate = new Date(match.date);
         
-        // Ensure it's a future match and Haukar is the home team
+        const isUpcomingMatch = match.score === 'Næsti leikur' || match.score === '- - -' || match.score === '-' || !match.score;
+        // Ensure it's an upcoming match and Haukar is the home team
         if (
-          matchDate >= now &&
+          isUpcomingMatch &&
           match.home && match.home.includes('Haukar')
         ) {
           const isYouth = /\d\.\s*flokkur|U\d{2}/i.test(match.competition) || /\d\.\s*flokkur|U\d{2}/i.test(match.home) || /\d\.\s*flokkur|U\d{2}/i.test(match.away);
@@ -62,9 +63,10 @@ export const getUpcomingHomeMatches = (count = 3) => {
       divisionData.matches.forEach(match => {
         const matchDate = new Date(match.date);
         
-        // Ensure it's a future match and Haukar is the home team
+        const isUpcomingMatch = match.score === 'Næsti leikur' || match.score === '- - -' || match.score === '-' || !match.score;
+        // Ensure it's an upcoming match and Haukar is the home team
         if (
-          matchDate >= now &&
+          isUpcomingMatch &&
           match.home && match.home.includes('Haukar')
         ) {
           const isYouth = /\d\.\s*flokkur|U\d{2}/i.test(match.competition) || /\d\.\s*flokkur|U\d{2}/i.test(match.home) || /\d\.\s*flokkur|U\d{2}/i.test(match.away);
@@ -99,8 +101,9 @@ export const getUpcomingMatches = (count = 3) => {
       divisionData.matches.forEach(match => {
         const matchDate = new Date(match.date);
         
-        // Ensure it's a future match
-        if (matchDate >= now) {
+        const isUpcomingMatch = match.score === 'Næsti leikur' || match.score === '- - -' || match.score === '-' || !match.score;
+        // Ensure it's an upcoming match
+        if (isUpcomingMatch) {
           const isYouth = /\d\.\s*flokkur|U\d{2}/i.test(match.competition) || /\d\.\s*flokkur|U\d{2}/i.test(match.home) || /\d\.\s*flokkur|U\d{2}/i.test(match.away);
           
           if (!isYouth) {

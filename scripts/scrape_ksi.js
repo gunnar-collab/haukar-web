@@ -43,12 +43,16 @@ const icelandicMonths = {
 };
 
 function parseKSIDate(dateText, year) {
-  const match = dateText.match(/(\d{1,2})\.\s+([a-záéíóúýðþæö]+)/i);
+  const match = dateText.match(/(\d{1,2})\.\s+([a-záéíóúýðþæö]+)(?:\s+(\d{2}:\d{2}))?/i);
   if (match) {
     const day = match[1].padStart(2, '0');
     const monthName = match[2].toLowerCase();
+    const time = match[3];
     const month = icelandicMonths[monthName];
-    if (month) return `${year}-${month}-${day}`;
+    if (month) {
+      if (time) return `${year}-${month}-${day}T${time}:00`;
+      return `${year}-${month}-${day}`;
+    }
   }
   return null;
 }
@@ -62,6 +66,12 @@ async function fetchMatchStats(matchObj, playerStatsDict) {
     // Fetch Main Page (for goals) using Smart Cache
     const { data: mainData } = await axiosCachedGet(matchObj.statsLink, matchObj, 'main');
     const $m = cheerio.load(mainData);
+    
+    // Attempt to extract the score dynamically
+    const headerScore = $m('h1').first().text().replace(/\s+/g, ' ').trim();
+    if (headerScore && headerScore.match(/\d\s*-\s*\d/)) {
+        matchObj.score = headerScore;
+    }
     
     // Fetch Report Page (for lineups) using Smart Cache
     const { data: reportData } = await axiosCachedGet(`${matchObj.statsLink}&banner-tab=report`, matchObj, 'report');
@@ -287,6 +297,70 @@ async function scrapeKSI() {
   try {
     const rawData = fs.readFileSync(DATA_FILE_PATH, 'utf-8');
     const leagueData = JSON.parse(rawData);
+    
+    const isRecentOnly = process.argv.includes('--recent-only');
+    
+    if (isRecentOnly) {
+      console.log("Running in --recent-only targeted polling mode");
+      const now = new Date();
+      let hasRecentMatches = false;
+      
+      const checkRecent = async (matches, playerStatsDict) => {
+         if (!matches) return;
+         for (let i = 0; i < matches.length; i++) {
+             const m = matches[i];
+             // Only process if it's an adult game and still missing a score
+             if (m.isYouth || (m.score !== 'Næsti leikur' && m.score !== '-' && m.score !== '- - -' && m.score)) continue;
+             
+             const matchDate = new Date(m.date);
+             const hoursSince = (now - matchDate) / (1000 * 60 * 60);
+             
+             // Check if game started between 2 and 24 hours ago
+             if (hoursSince >= 2 && hoursSince <= 24) {
+                 console.log(`Found recent match: ${m.home} vs ${m.away} (${hoursSince.toFixed(1)} hours ago)`);
+                 if (m.statsLink) {
+                    await fetchMatchStats(m, playerStatsDict);
+                    // If we successfully pulled a score, mark that we have updates
+                    if (m.score !== 'Næsti leikur' && m.score !== '-' && m.score !== '- - -') {
+                        hasRecentMatches = true;
+                    }
+                 }
+             }
+         }
+      };
+      
+      const menPlayerStats = {};
+      if (leagueData.fotbolti_karla && leagueData.fotbolti_karla.player_stats) {
+         leagueData.fotbolti_karla.player_stats.forEach(p => menPlayerStats[p.ksiId] = p);
+      }
+      
+      const womenPlayerStats = {};
+      if (leagueData.fotbolti_kvenna && leagueData.fotbolti_kvenna.player_stats) {
+         leagueData.fotbolti_kvenna.player_stats.forEach(p => womenPlayerStats[p.ksiId] = p);
+      }
+      
+      await checkRecent(leagueData.fotbolti_karla?.matches, menPlayerStats);
+      await checkRecent(leagueData.fotbolti_kvenna?.matches, womenPlayerStats);
+      
+      if (!hasRecentMatches) {
+         console.log("No recent matches finished or no scores available yet. Exiting.");
+         process.exit(0);
+      }
+      
+      console.log("Recent matches updated. Fetching KSÍ standings to reflect new scores...");
+      const womenStandings = await fetchStandings(KSI_WOMEN_URL);
+      const menStandings = await fetchStandings(KSI_MEN_URL);
+      
+      if (womenStandings.length > 0) leagueData.fotbolti_kvenna.standings = womenStandings;
+      leagueData.fotbolti_kvenna.player_stats = dictToArray(womenPlayerStats);
+      
+      if (menStandings.length > 0) leagueData.fotbolti_karla.standings = menStandings;
+      leagueData.fotbolti_karla.player_stats = dictToArray(menPlayerStats);
+      
+      fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(leagueData, null, 2), 'utf-8');
+      console.log("Updated haukar_league_data.json with live recent scores!");
+      return;
+    }
 
     console.log("Fetching KSÍ Women's standings...");
     const womenStandings = await fetchStandings(KSI_WOMEN_URL);

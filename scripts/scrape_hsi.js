@@ -25,15 +25,99 @@ const URLS = {
 
 const DATA_FILE_PATH = path.join(process.cwd(), 'src', 'data', 'haukar_league_data.json');
 
+const args = process.argv.slice(2);
+const isRecentOnly = args.includes('--recent-only');
+
+function needsRecentUpdate(divisionMatches) {
+  if (!divisionMatches || divisionMatches.length === 0) return true;
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  
+  for (const match of divisionMatches) {
+    if (!match.date) continue;
+    const matchDate = new Date(match.date).getTime();
+    const diffDays = (today - matchDate) / (1000 * 60 * 60 * 24);
+    
+    // If the match is today, yesterday, or tomorrow
+    if (diffDays >= -1 && diffDays <= 1) {
+      return true;
+    }
+  }
+  return false;
+}
+
 async function fetchHBStatz() {
   try {
     const rawData = fs.readFileSync(DATA_FILE_PATH, 'utf-8');
     const leagueData = JSON.parse(rawData);
+    
+    if (isRecentOnly) {
+        console.log("Running in --recent-only targeted polling mode for HBStatz");
+    }
+
+    let anyUpdates = false;
 
     for (const gender of ['karla', 'kvenna']) {
       const division = gender;
       if (!leagueData[division]) continue;
 
+      if (isRecentOnly && !needsRecentUpdate(leagueData[division].matches)) {
+          console.log(`No recent matches found for ${division}. Skipping targeted polling.`);
+          continue;
+      }
+      
+      anyUpdates = true;
+
+      // 1. Fetch Matches
+      console.log(`Fetching Matches for ${division}...`);
+      try {
+        const leikirRes = await axios.get(URLS[`${gender}_leikir`], { headers: HEADERS });
+        const $m = cheerio.load(leikirRes.data);
+        const matches = [];
+
+        $m('#example tbody tr').each((i, el) => {
+          const cols = $m(el).find('td');
+          if (cols.length >= 7) {
+            const dateStr = $m(cols[0]).text().trim();
+            const home = $m(cols[1]).text().trim();
+            const away = $m(cols[2]).text().trim();
+            
+            if (home === 'Haukar' || away === 'Haukar') {
+              let scoreText = $m(cols[3]).text().trim();
+              let score = null;
+              
+              if (scoreText && scoreText !== '-' && !scoreText.match(/^[ \-]+$/)) {
+                  // Format: "35 (14) - 36 (19)" -> "35 - 36"
+                  const match = scoreText.match(/(\d+)\s*(?:\(\d+\))?\s*-\s*(\d+)\s*(?:\(\d+\))?/);
+                  if (match) {
+                      score = `${match[1]} - ${match[2]}`;
+                  } else {
+                      score = scoreText;
+                  }
+              }
+
+              const comp = $m(cols[5]).text().trim();
+              
+              matches.push({
+                date: dateStr,
+                home,
+                away,
+                score,
+                competition: comp
+              });
+            }
+          }
+        });
+        
+        matches.sort((a, b) => new Date(a.date) - new Date(b.date));
+        if (matches.length > 0) {
+          leagueData[division].matches = matches;
+        }
+      } catch (err) {
+        console.log(`Failed to fetch matches for ${division}:`, err.message);
+      }
+
+      // 2. Fetch Standings
       console.log(`Fetching Standings for ${division}...`);
       const stadaRes = await axios.get(URLS[`${gender}_stada`], { headers: HEADERS });
       const $s = cheerio.load(stadaRes.data);
@@ -48,7 +132,7 @@ async function fetchHBStatz() {
               rank: parseInt(rank),
               team: teamName,
               played: parseInt($s(cols[3]).text().trim()) || 0,
-              wins: 0, 
+              wins: parseInt($s(cols[4]).text().trim()) || 0, 
               points: parseInt($s(cols[cols.length - 1]).text().trim()) || 0
             });
           }
@@ -56,6 +140,7 @@ async function fetchHBStatz() {
       });
       if (standings.length > 0) leagueData[division].standings = standings;
 
+      // 3. Fetch Player Stats
       console.log(`Fetching Player Stats for ${division}...`);
       const playersRes = await axios.get(URLS[`${gender}_players`], { headers: HEADERS });
       const $p = cheerio.load(playersRes.data);
@@ -81,6 +166,7 @@ async function fetchHBStatz() {
         }
       });
 
+      // 4. Fetch Goalkeeper Stats
       console.log(`Fetching Goalkeeper Stats for ${division}...`);
       const gkRes = await axios.get(URLS[`${gender}_gk`], { headers: HEADERS });
       const $gk = cheerio.load(gkRes.data);
@@ -113,8 +199,12 @@ async function fetchHBStatz() {
       }
     }
 
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(leagueData, null, 2), 'utf-8');
-    console.log("Updated haukar_league_data.json with HBStatz standings and players!");
+    if (anyUpdates) {
+        fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(leagueData, null, 2), 'utf-8');
+        console.log("Updated haukar_league_data.json with HBStatz matches, standings and players!");
+    } else {
+        console.log("HBStatz check complete. No updates needed.");
+    }
 
   } catch (error) {
     console.error("Error scraping HBStatz:", error);

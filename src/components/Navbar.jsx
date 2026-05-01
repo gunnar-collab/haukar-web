@@ -151,7 +151,6 @@ export default function Navbar({ onOpenTickets, onOpenLogin, onSearchSubmit }) {
               className="relative w-10 h-10 flex items-center justify-center group active:scale-95 transition-transform"
               aria-label="Miðar"
             >
-              <div className="absolute inset-0 bg-[#c8102e] rounded-full animate-ping opacity-25"></div>
               <div className="relative w-full h-full rounded-full bg-[#c8102e] text-white hover:bg-red-800 shadow-md flex items-center justify-center transition-all z-10">
                 <span className="material-symbols-outlined text-[20px]">local_activity</span>
               </div>

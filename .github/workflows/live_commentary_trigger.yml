@@ -1,0 +1,40 @@
+name: Live AI Commentator Engine
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Runs every 5 minutes
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  run-ai-commentator:
+    runs-on: ubuntu-latest
+    
+    # We use a long timeout because the orchestrator runs for 2.5 hours if a match is active.
+    timeout-minutes: 180 
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install Node Dependencies
+        run: npm install axios cheerio puppeteer firebase firebase-admin @google/genai dotenv
+          
+      - name: Create Env File
+        run: |
+          touch .env.local
+          echo "VITE_FIREBASE_API_KEY=${{ secrets.VITE_FIREBASE_API_KEY }}" >> .env.local
+          echo "VITE_FIREBASE_AUTH_DOMAIN=${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}" >> .env.local
+          echo "VITE_FIREBASE_PROJECT_ID=${{ secrets.VITE_FIREBASE_PROJECT_ID }}" >> .env.local
+          echo "VITE_FIREBASE_STORAGE_BUCKET=${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}" >> .env.local
+          echo "VITE_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}" >> .env.local
+          echo "VITE_FIREBASE_APP_ID=${{ secrets.VITE_FIREBASE_APP_ID }}" >> .env.local
+          echo "VITE_GEMINI_API_KEY=${{ secrets.VITE_GEMINI_API_KEY }}" >> .env.local
+
+      - name: Run Live Orchestrator
+        run: node scripts/orchestrate_live_commentary.js

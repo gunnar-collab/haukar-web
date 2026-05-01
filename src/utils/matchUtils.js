@@ -5,8 +5,13 @@ const formatDate = (dateStr) => {
   const d = new Date(dateStr);
   const days = ['Sun', 'Mán', 'Þri', 'Mið', 'Fim', 'Fös', 'Lau'];
   const months = ['Janúar', 'Febrúar', 'Mars', 'Apríl', 'Maí', 'Júní', 'Júlí', 'Ágúst', 'September', 'Október', 'Nóvember', 'Desember'];
-  // We don't have exact times in the JSON, so default to 19:15 for now, or use what's there
-  return `${days[d.getDay()]} ${d.getDate()}. ${months[d.getMonth()]} • 19:15`;
+  
+  const h = d.getHours().toString().padStart(2, '0');
+  const m = d.getMinutes().toString().padStart(2, '0');
+  const time = `${h}:${m}`;
+  const timeStr = time === '00:00' ? '19:15' : time;
+  
+  return `${days[d.getDay()]} ${d.getDate()}. ${months[d.getMonth()]} • ${timeStr}`;
 };
 
 export const getDynamicMatches = (sport, gender) => {
@@ -29,8 +34,10 @@ export const getDynamicMatches = (sport, gender) => {
     .filter(isMeistaraflokkur)
     .sort((a, b) => new Date(a.date) - new Date(b.date));
 
-  const playedMatches = sortedMatches.filter(m => new Date(m.date) < now).reverse();
-  const upcomingMatches = sortedMatches.filter(m => new Date(m.date) >= now);
+  const isUpcomingMatch = (m) => m.score === 'Næsti leikur' || m.score === '- - -' || m.score === '-' || !m.score;
+
+  const playedMatches = sortedMatches.filter(m => !isUpcomingMatch(m)).reverse();
+  const upcomingMatches = sortedMatches.filter(m => isUpcomingMatch(m));
 
   const lastRaw = playedMatches[0] || {};
   const nextRaw = upcomingMatches[0] || {};

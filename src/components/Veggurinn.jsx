@@ -77,65 +77,41 @@ export default function Veggurinn() {
           {posts.map((post) => (
             <div 
               key={post.id} 
-              className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center group bg-white rounded-2xl overflow-hidden hover:-translate-y-3 transition-all duration-500 shadow-2xl flex flex-col"
+              className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center group bg-white rounded-2xl overflow-hidden hover:-translate-y-2 transition-all duration-500 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col"
             >
               {/* Header */}
-              <div className="p-5 flex items-center justify-between border-b border-gray-50">
-                <div className="flex items-center gap-3">
-                  <div className={cn(
-                    "w-12 h-12 rounded-full p-[2px] flex items-center justify-center shadow-inner",
-                    post.platform === 'Instagram' ? "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]" : "bg-[#1877F2]"
-                  )}>
-                    <div className="w-full h-full rounded-full bg-white p-[2px]">
-                      <div className="w-full h-full rounded-full bg-[#1c2c6c] flex items-center justify-center text-white font-black text-xs italic">
-                        {post.user.charAt(0)}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[12px] font-black uppercase tracking-tight text-gray-900 leading-none mb-1">{post.user}</span>
-                    <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">{post.handle}</span>
-                  </div>
+              <div className="p-4 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-[#1c2c6c] font-black text-xs italic">
+                  {post.user.charAt(0)}
                 </div>
-                <span className="material-symbols-outlined text-gray-200">verified</span>
+                <div className="flex flex-col">
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-gray-900 leading-none mb-1">{post.user}</span>
+                  <span className="text-[9px] font-medium text-gray-400 tracking-widest">{post.handle}</span>
+                </div>
               </div>
 
               {/* Media */}
-              <div className="relative aspect-square overflow-hidden">
+              <div className="relative aspect-square overflow-hidden bg-gray-50">
                 <img 
                   src={post.image} 
                   alt="Social post" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-in-out" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" 
                 />
-                <div className={cn(
-                  "absolute top-5 right-5 w-10 h-10 rounded-sm flex items-center justify-center text-white shadow-2xl backdrop-blur-md border border-white/20",
-                  post.platform === 'Instagram' ? 'bg-gradient-to-tr from-yellow-400/80 via-pink-500/80 to-purple-600/80' : 'bg-[#1877F2]/80'
-                )}>
-                  <span className="material-symbols-outlined text-[20px]">
-                    {post.platform === 'Instagram' ? 'photo_camera' : 'thumb_up'}
-                  </span>
-                </div>
               </div>
 
               {/* Content */}
-              <div className="p-8 flex flex-col bg-white">
-                <div className="flex items-center gap-5 mb-5">
-                  <span className="material-symbols-outlined text-gray-900 text-[28px] hover:text-[#c8102e] cursor-pointer transition-colors">favorite</span>
-                  <span className="material-symbols-outlined text-gray-900 text-[28px] hover:text-[#1c2c6c] cursor-pointer transition-colors">chat_bubble</span>
-                  <span className="material-symbols-outlined text-gray-900 text-[28px] hover:text-[#1c2c6c] cursor-pointer transition-colors">send</span>
-                  <div className="ml-auto flex items-center gap-1.5 px-3 py-1 bg-gray-50 rounded-full">
-                     <span className="text-[11px] font-black text-gray-900 italic">{post.likes} likes</span>
-                  </div>
-                </div>
-                
-                <p className="text-gray-700 text-[13px] font-medium leading-relaxed line-clamp-3">
-                  <span className="font-black mr-2 uppercase italic text-[#1c2c6c]">{post.user}</span>
+              <div className="p-5 flex flex-col bg-white">
+                <p className="text-gray-600 text-xs font-medium leading-relaxed line-clamp-3 mb-4">
+                  <span className="font-bold mr-2 text-[#1c2c6c]">{post.user}</span>
                   {post.content}
                 </p>
                 
-                <div className="mt-6 pt-6 border-t border-gray-50 flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-gray-300 uppercase tracking-widest">{post.time}</span>
-                  <span className="text-[11px] font-black text-[#c8102e] uppercase italic tracking-tighter border-b-2 border-[#c8102e]">Sjá færslu</span>
+                <div className="flex items-center justify-between mt-auto">
+                  <div className="flex items-center gap-1.5 text-gray-400">
+                    <span className="material-symbols-outlined text-[16px]">favorite</span>
+                    <span className="text-[11px] font-bold">{post.likes}</span>
+                  </div>
+                  <span className="text-[10px] font-medium text-gray-400 uppercase tracking-widest">{post.time}</span>
                 </div>
               </div>
             </div>
