@@ -4,75 +4,92 @@ import leagueData from '../data/haukar_league_data.json';
 import { dataKarla as footballKarla, dataKvenna as footballKvenna } from '../data/fotboltiData.js';
 import { dataKarla as basketballKarla, dataKvenna as basketballKvenna } from '../data/korfuboltiData.js';
 
+import { matchPlayerName } from '../lib/playerUtils';
+
 export default function Leikmannahopur() {
   const location = useLocation();
-  const initialSport = location.state?.sport || 'handbolti';
-  const [activeTeam, setActiveTeam] = useState('karla');
+  
+  // Read initial state from URL, fallback to location.state, fallback to defaults
+  const searchParams = new URLSearchParams(location.search);
+  const initialSport = searchParams.get('sport') || location.state?.sport || 'handbolti';
+  const initialGender = searchParams.get('gender') || location.state?.gender || 'karla';
+  
+  const [activeTeam, setActiveTeam] = useState(initialGender);
   const [activeSport, setActiveSport] = useState(initialSport);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Silently sync state changes to the URL for shareability,
+  // completely bypassing React Router's navigation lifecycle to prevent blinking/re-mounting.
+  useEffect(() => {
+    const url = new URL(window.location);
+    url.searchParams.set('sport', activeSport);
+    url.searchParams.set('gender', activeTeam);
+    window.history.replaceState(window.history.state, '', url);
+  }, [activeSport, activeTeam]);
+
+
   // Grunnlisti leikmanna fyrir HANDBOLTA
   const handballPlayers = [
     // ... (rest of the handball list)
     // --- MEISTARAFLOKKUR KARLA ---
-    { id: 1, slug: 'gretar-ari', name: 'Grétar Ari', number: '1', position: 'Markvörður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/gretar-fb.png' },
-    { id: 2, slug: 'hergeir-grimsson', name: 'Hergeir', number: '3', position: 'Skytta', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5461.jpg' },
-    { id: 3, slug: 'adam-haukur', name: 'Adam Haukur', number: '4', position: 'Skytta', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5260.jpg' },
-    { id: 4, slug: 'brynjolfur-snaer', name: 'Brynjólfur Snær', number: '6', position: 'Útileikmaður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5247.jpg' },
-    { id: 5, slug: 'freyr-aronsson', name: 'Freyr', number: '8', position: 'Skytta', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5308.jpg' },
-    { id: 6, slug: 'sigurdur-snaer', name: 'Sigurður Snær', number: '9', position: 'Lína', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5278.jpg' },
-    { id: 7, slug: 'birkir-snaer', name: 'Birkir Snær', number: '11', position: 'Hornamaður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5368.jpg' },
-    { id: 8, slug: 'darri', name: 'Darri', number: '13', position: 'Lína', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5321.jpg' },
-    { id: 9, slug: 'ossur-haraldsson', name: 'Össur', number: '14', position: 'Útileikmaður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5201.jpg' },
-    { id: 10, slug: 'magnus-gunnar', name: 'Magnús Gunnar', number: '16', position: 'Markvörður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5426.jpg' },
-    { id: 11, slug: 'skarphedinn-ivar', name: 'Skarphéðinn', number: '17', position: 'Skytta', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5273.jpg' },
-    { id: 12, slug: 'ari-dignus', name: 'Ari Dignus', number: '19', position: 'Útileikmaður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5448.jpg' },
-    { id: 13, slug: 'asgeir-bragi', name: 'Ásgeir Bragi', number: '20', position: 'Útileikmaður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5345.jpg' },
-    { id: 14, slug: 'olafur-aegir', name: 'Ólafur Ægir', number: '24', position: 'Skytta', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5229.jpg' },
-    { id: 15, slug: 'egill-jonsson', name: 'Egill', number: '25', position: 'Útileikmaður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5373.jpg' },
-    { id: 16, slug: 'aron-rafn', name: 'Aron Rafn', number: '27', position: 'Markvörður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5515.jpg' },
-    { id: 17, slug: 'jon-omar', name: 'Jón Ómar', number: '47', position: 'Hornamaður', team: 'karla', img: '/images/players/jon_omar.jpg' },
-    { id: 18, slug: 'thrainn-orri', name: 'Þráinn Orri', number: '55', position: 'Lína', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5213.jpg' },
-    { id: 19, slug: 'jon-karl', name: 'Jón Karl', number: '77', position: 'Útileikmaður', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5404.jpg' },
+    { id: 1, slug: 'gretar-ari', name: 'Grétar Ari', number: '1', position: 'Markvörður', team: 'karla', img: '/images/players/gretar-fb.webp' },
+    { id: 2, slug: 'hergeir-grimsson', name: 'Hergeir', number: '3', position: 'Skytta', team: 'karla', img: '/images/players/Ernir20250922_DSF5461.webp' },
+    { id: 3, slug: 'adam-haukur', name: 'Adam Haukur', number: '4', position: 'Skytta', team: 'karla', img: '/images/players/Ernir20250922_DSF5260.webp' },
+    { id: 4, slug: 'brynjolfur-snaer', name: 'Brynjólfur Snær', number: '6', position: 'Útileikmaður', team: 'karla', img: '/images/players/Ernir20250922_DSF5247.webp' },
+    { id: 5, slug: 'freyr-aronsson', name: 'Freyr', number: '8', position: 'Skytta', team: 'karla', img: '/images/players/Ernir20250922_DSF5308.webp' },
+    { id: 6, slug: 'sigurdur-snaer', name: 'Sigurður Snær', number: '9', position: 'Lína', team: 'karla', img: '/images/players/Ernir20250922_DSF5278.webp' },
+    { id: 7, slug: 'birkir-snaer', name: 'Birkir Snær', number: '11', position: 'Hornamaður', team: 'karla', img: '/images/players/Ernir20250922_DSF5368.webp' },
+    { id: 8, slug: 'darri', name: 'Darri', number: '13', position: 'Lína', team: 'karla', img: '/images/players/Ernir20250922_DSF5321.webp' },
+    { id: 9, slug: 'ossur-haraldsson', name: 'Össur', number: '14', position: 'Útileikmaður', team: 'karla', img: '/images/players/Ernir20250922_DSF5201.webp' },
+    { id: 10, slug: 'magnus-gunnar', name: 'Magnús Gunnar', number: '16', position: 'Markvörður', team: 'karla', img: '/images/players/Ernir20250922_DSF5426.webp' },
+    { id: 11, slug: 'skarphedinn-ivar', name: 'Skarphéðinn', number: '17', position: 'Skytta', team: 'karla', img: '/images/players/Ernir20250922_DSF5273.webp' },
+    { id: 12, slug: 'ari-dignus', name: 'Ari Dignus', number: '19', position: 'Útileikmaður', team: 'karla', img: '/images/players/Ernir20250922_DSF5448.webp' },
+    { id: 13, slug: 'asgeir-bragi', name: 'Ásgeir Bragi', number: '20', position: 'Útileikmaður', team: 'karla', img: '/images/players/Ernir20250922_DSF5345.webp' },
+    { id: 14, slug: 'olafur-aegir', name: 'Ólafur Ægir', number: '24', position: 'Skytta', team: 'karla', img: '/images/players/Ernir20250922_DSF5229.webp' },
+    { id: 15, slug: 'egill-jonsson', name: 'Egill', number: '25', position: 'Útileikmaður', team: 'karla', img: '/images/players/Ernir20250922_DSF5373.webp' },
+    { id: 16, slug: 'aron-rafn', name: 'Aron Rafn', number: '27', position: 'Markvörður', team: 'karla', img: '/images/players/Ernir20250922_DSF5515.webp' },
+    { id: 17, slug: 'jon-omar', name: 'Jón Ómar', number: '47', position: 'Hornamaður', team: 'karla', img: '/images/players/jon_omar.webp' },
+    { id: 18, slug: 'thrainn-orri', name: 'Þráinn Orri', number: '55', position: 'Lína', team: 'karla', img: '/images/players/Ernir20250922_DSF5213.webp' },
+    { id: 19, slug: 'jon-karl', name: 'Jón Karl', number: '77', position: 'Útileikmaður', team: 'karla', img: '/images/players/Ernir20250922_DSF5404.webp' },
     
     // STAFF KARLA
-    { id: 20, slug: 'gunnar-thjalfari', name: 'Gunnar Magnússon', number: '', position: 'Þjálfari', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5499.jpg' },
-    { id: 21, slug: 'bjarni-gunnar', name: 'Bjarni Gunnar', number: '', position: 'Þjálfari', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5486.jpg' },
-    { id: 22, slug: 'hordur-david', name: 'Hörður Davíð', number: '', position: 'Liðstjóri', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5551.jpg' },
-    { id: 23, slug: 'ellert-ingi', name: 'Ellert Ingi', number: '', position: 'Sjúkraþjálfari', team: 'karla', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5539.jpg' },
+    { id: 20, slug: 'gunnar-thjalfari', name: 'Gunnar Magnússon', number: '', position: 'Þjálfari', team: 'karla', img: '/images/players/Ernir20250922_DSF5499.webp' },
+    { id: 21, slug: 'bjarni-gunnar', name: 'Bjarni Gunnar', number: '', position: 'Þjálfari', team: 'karla', img: '/images/players/Ernir20250922_DSF5486.webp' },
+    { id: 22, slug: 'hordur-david', name: 'Hörður Davíð', number: '', position: 'Liðstjóri', team: 'karla', img: '/images/players/Ernir20250922_DSF5551.webp' },
+    { id: 23, slug: 'ellert-ingi', name: 'Ellert Ingi', number: '', position: 'Sjúkraþjálfari', team: 'karla', img: '/images/players/Ernir20250922_DSF5539.webp' },
 
     // --- MEISTARAFLOKKUR KVENNA ---
-    { id: 24, slug: 'elisa-helga', name: 'Elísa Helga', number: '1', position: 'Markvörður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5999.jpg' },
-    { id: 25, slug: 'sara-sif', name: 'Sara Sif', number: '4', position: 'Skytta', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6121.jpg' },
-    { id: 26, slug: 'ragnheidur-5', name: 'Ragnheiður', number: '5', position: 'Hornamaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5800.jpg' },
-    { id: 27, slug: 'sonja-lind', name: 'Sonja Lind', number: '6', position: 'Útileikmaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5754.jpg' },
-    { id: 28, slug: 'rakel-oddny', name: 'Rakel Oddný', number: '7', position: 'Skytta', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5780.jpg' },
-    { id: 29, slug: 'roksana', name: 'Roksana', number: '8', position: 'Útileikmaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6013.jpg' },
-    { id: 30, slug: 'inga-dis', name: 'Inga Dís', number: '9', position: 'Hornamaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5908.jpg' },
-    { id: 31, slug: 'thelma-melsted', name: 'Thelma Melsted', number: '10', position: 'Lína', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5837.jpg' },
-    { id: 32, slug: 'erla', name: 'Erla', number: '12', position: 'Markvörður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6033.jpg' },
-    { id: 33, slug: 'ebba-gudridur', name: 'Ebba Guðríður', number: '15', position: 'Lína', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5916.jpg' },
-    { id: 34, slug: 'anita-eik', name: 'Aníta Eik', number: '16', position: 'Markvörður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5859.jpg' },
-    { id: 35, slug: 'thora', name: 'Þóra', number: '18', position: 'Útileikmaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5960.jpg' },
-    { id: 36, slug: 'birta-lind', name: 'Birta Lind', number: '19', position: 'Lína', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5888.jpg' },
-    { id: 37, slug: 'alexandra-lif', name: 'Alexandra Líf', number: '22', position: 'Útileikmaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6158.jpg' },
-    { id: 38, slug: 'rut-arnfjord', name: 'Rut Arnfjörð', number: '25', position: 'Útileikmaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5927.jpg' },
-    { id: 39, slug: 'ragnheidur-s', name: 'Ragnheiður S', number: '32', position: 'Skytta', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5827.jpg' },
-    { id: 40, slug: 'embla', name: 'Embla', number: '35', position: 'Útileikmaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5873.jpg' },
-    { id: 41, slug: 'sara-odden', name: 'Sara Odden', number: '60', position: 'Útileikmaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5948.jpg' },
-    { id: 42, slug: 'ester-amira', name: 'Ester Amíra', number: '66', position: 'Hornamaður', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5989.jpg' },
-    { id: 43, slug: 'johanna-margret', name: 'Jóhanna Margrét', number: '91', position: 'Skytta', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5741.jpg' },
+    { id: 24, slug: 'elisa-helga', name: 'Elísa Helga', number: '1', position: 'Markvörður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5999.webp' },
+    { id: 25, slug: 'sara-sif', name: 'Sara Sif', number: '4', position: 'Skytta', team: 'kvenna', img: '/images/players/Ernir20250922_DSF6121.webp' },
+    { id: 26, slug: 'ragnheidur-5', name: 'Ragnheiður', number: '5', position: 'Hornamaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5800.webp' },
+    { id: 27, slug: 'sonja-lind', name: 'Sonja Lind', number: '6', position: 'Útileikmaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5754.webp' },
+    { id: 28, slug: 'rakel-oddny', name: 'Rakel Oddný', number: '7', position: 'Skytta', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5780.webp' },
+    { id: 29, slug: 'roksana', name: 'Roksana', number: '8', position: 'Útileikmaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF6013.webp' },
+    { id: 30, slug: 'inga-dis', name: 'Inga Dís', number: '9', position: 'Hornamaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5908.webp' },
+    { id: 31, slug: 'thelma-melsted', name: 'Thelma Melsted', number: '10', position: 'Lína', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5837.webp' },
+    { id: 32, slug: 'erla', name: 'Erla', number: '12', position: 'Markvörður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF6033.webp' },
+    { id: 33, slug: 'ebba-gudridur', name: 'Ebba Guðríður', number: '15', position: 'Lína', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5916.webp' },
+    { id: 34, slug: 'anita-eik', name: 'Aníta Eik', number: '16', position: 'Markvörður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5859.webp' },
+    { id: 35, slug: 'thora', name: 'Þóra', number: '18', position: 'Útileikmaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5960.webp' },
+    { id: 36, slug: 'birta-lind', name: 'Birta Lind', number: '19', position: 'Lína', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5888.webp' },
+    { id: 37, slug: 'alexandra-lif', name: 'Alexandra Líf', number: '22', position: 'Útileikmaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF6158.webp' },
+    { id: 38, slug: 'rut-arnfjord', name: 'Rut Arnfjörð', number: '25', position: 'Útileikmaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5927.webp' },
+    { id: 39, slug: 'ragnheidur-s', name: 'Ragnheiður S', number: '32', position: 'Skytta', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5827.webp' },
+    { id: 40, slug: 'embla', name: 'Embla', number: '35', position: 'Útileikmaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5873.webp' },
+    { id: 41, slug: 'sara-odden', name: 'Sara Odden', number: '60', position: 'Útileikmaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5948.webp' },
+    { id: 42, slug: 'ester-amira', name: 'Ester Amíra', number: '66', position: 'Hornamaður', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5989.webp' },
+    { id: 43, slug: 'johanna-margret', name: 'Jóhanna Margrét', number: '91', position: 'Skytta', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5741.webp' },
     
     // STAFF KVENNA
-    { id: 44, slug: 'stefan-thjalfari', name: 'Stefán Arnarson', number: '', position: 'Þjálfari', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6143.jpg' },
-    { id: 45, slug: 'diana-thjalfari', name: 'Díana Guðjónsdóttir', number: '', position: 'Þjálfari', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6138.jpg' },
-    { id: 46, slug: 'alexandra-hodd', name: 'Alexandra Hödd', number: '', position: 'Liðstjóri', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5721.jpg' },
-    { id: 47, slug: 'harpa-melsted', name: 'Harpa Melsted', number: '', position: 'Sjúkraþjálfari', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5974.jpg' },
-    { id: 48, slug: 'magnus-ingi', name: 'Magnús Ingi', number: '', position: 'Markmannsþjálfari', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5732.jpg' },
-    { id: 49, slug: 'fridrik-benony', name: 'Friðrik Benóný', number: '', position: 'Styrktarþjálfari', team: 'kvenna', img: 'https://www.haukar.is/wp-content/uploads/2014/12/haukar_mfl_kvk-25.jpg' },
+    { id: 44, slug: 'stefan-thjalfari', name: 'Stefán Arnarson', number: '', position: 'Þjálfari', team: 'kvenna', img: '/images/players/Ernir20250922_DSF6143.webp' },
+    { id: 45, slug: 'diana-thjalfari', name: 'Díana Guðjónsdóttir', number: '', position: 'Þjálfari', team: 'kvenna', img: '/images/players/Ernir20250922_DSF6138.webp' },
+    { id: 46, slug: 'alexandra-hodd', name: 'Alexandra Hödd', number: '', position: 'Liðstjóri', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5721.webp' },
+    { id: 47, slug: 'harpa-melsted', name: 'Harpa Melsted', number: '', position: 'Sjúkraþjálfari', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5974.webp' },
+    { id: 48, slug: 'magnus-ingi', name: 'Magnús Ingi', number: '', position: 'Markmannsþjálfari', team: 'kvenna', img: '/images/players/Ernir20250922_DSF5732.webp' },
+    { id: 49, slug: 'fridrik-benony', name: 'Friðrik Benóný', number: '', position: 'Styrktarþjálfari', team: 'kvenna', img: '/images/players/haukar_mfl_kvk-25.webp' },
   ];
 
   // Grunnlisti leikmanna fyrir FÓTBOLTA
@@ -107,12 +124,9 @@ export default function Leikmannahopur() {
             : (p.team === 'karla' ? leagueData.fotbolti_karla?.player_stats : leagueData.fotbolti_kvenna?.player_stats);
 
         if (statsSource) {
-            const match = statsSource.find(stat => 
-                stat.name.toLowerCase().includes(p.name.toLowerCase()) || 
-                p.name.toLowerCase().includes(stat.name.toLowerCase())
-            );
+            const match = statsSource.find(stat => matchPlayerName(stat.name, p.name));
             if (match && match.stats) {
-                playerStats = match.stats;
+                playerStats = { ...match.stats };
                 // Handball stats has gamesPlayed at top level, KSÍ stats has it inside stats
                 playerStats.gamesPlayed = match.gamesPlayed !== undefined ? match.gamesPlayed : match.stats.gamesPlayed; 
             }
@@ -170,20 +184,25 @@ export default function Leikmannahopur() {
             </h1>
           </div>
 
-          {/* Clean Toggle Switch */}
-          <div className="flex bg-black/20 backdrop-blur-sm p-1 rounded-2xl shadow-inner w-full md:w-auto">
+          {/* Clean Toggle Switch (Matching DivisionHero slider) */}
+          <div className="w-full md:w-auto bg-black/20 backdrop-blur-2xl p-1.5 rounded-[2rem] flex gap-1 border border-white/10 shadow-2xl relative">
+             {/* Slider Background */}
+             <div className="absolute inset-1 w-[calc(50%-4px)] bg-[#1c2c6c] rounded-[1.5rem] transition-transform duration-500 ease-out shadow-xl"
+                  style={{ transform: activeTeam === 'kvenna' ? 'translateX(100%)' : 'translateX(0)' }}>
+             </div>
+
             <button 
               onClick={() => setActiveTeam('karla')}
-              className={`flex-1 md:flex-none md:px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${
-                activeTeam === 'karla' ? 'bg-[#1c2c6c] text-white shadow-lg' : 'text-white/60 hover:text-white'
+              className={`flex-1 md:flex-none md:px-10 py-4 md:py-3 rounded-[1.5rem] font-black text-[11px] uppercase tracking-[0.2em] transition-all duration-500 relative z-10 ${
+                activeTeam === 'karla' ? 'text-white' : 'text-white/60 hover:text-white'
               }`}
             >
               Karlar
             </button>
             <button 
               onClick={() => setActiveTeam('kvenna')}
-              className={`flex-1 md:flex-none md:px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${
-                activeTeam === 'kvenna' ? 'bg-[#1c2c6c] text-white shadow-lg' : 'text-white/60 hover:text-white'
+              className={`flex-1 md:flex-none md:px-10 py-4 md:py-3 rounded-[1.5rem] font-black text-[11px] uppercase tracking-[0.2em] transition-all duration-500 relative z-10 ${
+                activeTeam === 'kvenna' ? 'text-white' : 'text-white/60 hover:text-white'
               }`}
             >
               Konur

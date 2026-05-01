@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, Link, useNavigate, useParams } from 'react-router-dom';
-import { findPlayerBySlug } from '../lib/playerUtils';
+import { findPlayerBySlug, matchPlayerName } from '../lib/playerUtils';
 import PlayerSpiderChart from '../components/sports/PlayerSpiderChart';
 import leagueData from '../data/haukar_league_data.json';
 
@@ -25,12 +25,9 @@ export default function PlayerProfile() {
             : (teamKey === 'karla' ? leagueData.fotbolti_karla?.player_stats : leagueData.fotbolti_kvenna?.player_stats);
 
         if (statsSource) {
-            const match = statsSource.find(stat => 
-                stat.name.toLowerCase().includes(player.name.toLowerCase()) || 
-                player.name.toLowerCase().includes(stat.name.toLowerCase())
-            );
+            const match = statsSource.find(stat => matchPlayerName(stat.name, player.name));
             if (match && match.stats) {
-                player.stats = match.stats;
+                player = { ...player, stats: { ...match.stats } };
                 player.stats.gamesPlayed = match.gamesPlayed !== undefined ? match.gamesPlayed : match.stats.gamesPlayed; 
             }
         }
@@ -91,6 +88,8 @@ export default function PlayerProfile() {
                 <Link to="/" className="hover:text-white transition-colors">Heim</Link>
                 <span className="material-symbols-outlined text-[12px]">chevron_right</span>
                 <Link to={`/${player.sport || 'handbolti'}`} className="hover:text-white transition-colors">{player.sport || 'Handbolti'}</Link>
+                <span className="material-symbols-outlined text-[12px]">chevron_right</span>
+                <Link to={`/leikmannahopur?sport=${player.sport || 'handbolti'}&gender=${player.team || player.gender || 'karla'}`} className="hover:text-white transition-colors">Hópurinn</Link>
                 <span className="material-symbols-outlined text-[12px]">chevron_right</span>
                 <span className="text-white">{player.name}</span>
               </div>

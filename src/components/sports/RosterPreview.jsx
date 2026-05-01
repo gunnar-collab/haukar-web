@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function RosterPreview({ players, loading, title, subtitle, sport = "handbolti", isKarate = false, noContainer = false }) {
+export default function RosterPreview({ players, loading, title, subtitle, sport = "handbolti", gender = "karla", isKarate = false, noContainer = false }) {
   const content = (
     <div className="flex flex-col h-full">
       <div className="flex justify-between items-end mb-8 border-b border-gray-200 pb-4">
@@ -10,8 +10,8 @@ export default function RosterPreview({ players, loading, title, subtitle, sport
         </div>
         {!isKarate && (
           <Link 
-            to="/leikmannahopur" 
-            state={{ sport }}
+            to={`/leikmannahopur?sport=${sport}&gender=${gender}`}
+            state={{ sport, gender }}
             className="text-[#1c2c6c] text-sm font-bold uppercase tracking-widest hover:text-[#c8102e] transition-colors flex items-center gap-1" 
             aria-label={`Sjá allan ${title.toLowerCase()}`}
           >
@@ -26,7 +26,7 @@ export default function RosterPreview({ players, loading, title, subtitle, sport
         )}
         {players.slice(0, 5).map((player) => {
           const Wrapper = isKarate ? 'div' : Link;
-          const wrapperProps = isKarate ? { key: player.slug } : { to: `/leikmenn/${player.slug}`, state: { player: { ...player, sport } }, key: player.number };
+          const wrapperProps = isKarate ? { key: player.slug } : { to: `/leikmenn/${player.slug}`, state: { player: { ...player, sport, team: gender } }, key: player.number };
 
           return (
             <Wrapper 

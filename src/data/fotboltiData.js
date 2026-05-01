@@ -34,223 +34,223 @@ export const dataKarla = {
       number: "1", slug: "sveinn-oli", name: "Sveinn Óli", position: "Markvörður", 
       bio: "Sveinn Óli er öruggur markvörður sem veitir vörninni mikið öryggi. Hann er þekktur fyrir góð viðbrögð og forystuhæfileika á vellinum.",
       stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, cleanSheets: 1, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/sveinn_oli.png" 
+      img: "/images/players/sveinn_oli.webp" 
     },
     { 
       number: "6", slug: "mani-mar", name: "Máni Mar", position: "Varnarmaður", 
       bio: "Öflugur og traustur varnarmaður sem stýrir afturlínunni af mikilli yfirvegun. Máni er lykilmaður í varnarleik Hauka.",
       stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 1, redCards: 0 }, 
-      img: "/images/players/mani_mar.png" 
+      img: "/images/players/mani_mar.webp" 
     },
     { 
       number: "18", slug: "oliver-steinar", name: "Óliver Steinar", position: "Miðjumaður", 
       bio: "Vinnusamur miðjumaður sem tengir vel vörn og sókn. Óliver er þekktur fyrir mikinn hlaupakraft og fína tækni.",
       stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/oliver_steinar.png" 
+      img: "/images/players/oliver_steinar.webp" 
     },
     { 
       number: "9", slug: "sigurdur-hrannar", name: "Sigurður Hrannar", position: "Sóknarmaður", 
       bio: "Sigurður Hrannar er hjartað í miðjuspili Hauka. Hann stýrir spilinu af mikilli yfirvegun og er með frábæra sendingargetu og yfirsýn.",
       stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/sigurdur_hrannar.png" 
+      img: "/images/players/sigurdur_hrannar.webp" 
     },
     { 
       number: "10", slug: "dadi-snaer", name: "Daði Snær", position: "Sóknarmaður", 
       bio: "Daði Snær er skapandi sóknarmaður sem getur spilað bæði á kanti og sem framherji. Hann er síógnandi með boltann.",
       stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/dadi_snaer.png" 
+      img: "/images/players/dadi_snaer.webp" 
     },
     { 
       number: "23", slug: "pablo-punyed", name: "Pablo Punyed", position: "Miðjumaður", 
       bio: "Pablo Punyed er einn reynslumesti leikmaður deildarinnar. Hann kemur með mikil gæði og leiðtogahæfileika inn í lið Hauka.",
       stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 1, redCards: 0 }, 
-      img: "/images/players/pablo_punyed.png" 
+      img: "/images/players/pablo_punyed.webp" 
     },
     { 
       number: "25", slug: "hallur-huni", name: "Hallur Húni", position: "Varnarmaður", 
       bio: "Snöggur og öflugur bakvörður sem tekur virkan þátt í sóknarleiknum. Hallur er erfiður viðureignar á kantinum.",
       stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 1, redCards: 0 }, 
-      img: "/images/players/hallur_huni.png" 
+      img: "/images/players/hallur_huni.webp" 
     },
     { 
       number: "12", slug: "markus-breki", name: "Markús Breki", position: "Varnarmaður", 
       bio: "Traustur varnarmaður sem gefur aldrei tommu eftir í návígjum. Markús er mikilvægur hlekkur í vörninni.",
       stats: { sport: "fotbolti", gamesPlayed: 1, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/markus_breki.png" 
+      img: "/images/players/markus_breki.webp" 
     },
     { 
       number: "-", slug: "sigurdur-hrannar-thorsteinsson", name: "Sigurður Hrannar Þorsteinsson", position: "Leikmaður", 
       bio: "Sigurður Hrannar Þorsteinsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "einar-karl-ingvarsson", name: "Einar Karl Ingvarsson", position: "Leikmaður", 
       bio: "Einar Karl Ingvarsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "dadi-snar-ingason", name: "Daði Snær Ingason", position: "Leikmaður", 
       bio: "Daði Snær Ingason er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "oliver-steinar-gudmundsson", name: "Óliver Steinar Guðmundsson", position: "Leikmaður", 
       bio: "Óliver Steinar Guðmundsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "pablo-oshan-punyed-dubon", name: "Pablo Oshan Punyed Dubon", position: "Leikmaður", 
       bio: "Pablo Oshan Punyed Dubon er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "sveinn-oli-gudnason", name: "Sveinn Óli Guðnason", position: "Leikmaður", 
       bio: "Sveinn Óli Guðnason er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "jon-gisli-stefansson", name: "Jón Gísli Stefánsson", position: "Leikmaður", 
       bio: "Jón Gísli Stefánsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "olafur-darri-sigurjonsson", name: "Ólafur Darri Sigurjónsson", position: "Leikmaður", 
       bio: "Ólafur Darri Sigurjónsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "15", slug: "andri-steinn-ingvarsson", name: "Andri Steinn Ingvarsson", position: "Leikmaður", 
       bio: "Andri Steinn Ingvarsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "99", slug: "oliver-thorkelsson", name: "Óliver Þorkelsson", position: "Leikmaður", 
       bio: "Óliver Þorkelsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "7", slug: "haukur-darri-palsson", name: "Haukur Darri Pálsson", position: "Leikmaður", 
       bio: "Haukur Darri Pálsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "kari-vilberg-atlason", name: "Kári Vilberg Atlason", position: "Leikmaður", 
       bio: "Kári Vilberg Atlason er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "hallur-huni-thorsteinsson", name: "Hallur Húni Þorsteinsson", position: "Leikmaður", 
       bio: "Hallur Húni Þorsteinsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "17", slug: "tomas-atli-bjorgvinsson", name: "Tómas Atli Björgvinsson", position: "Leikmaður", 
       bio: "Tómas Atli Björgvinsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "markus-breki-steinsson", name: "Markús Breki Steinsson", position: "Leikmaður", 
       bio: "Markús Breki Steinsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "gabriel-aron-savarsson", name: "Gabríel Aron Sævarsson", position: "Leikmaður", 
       bio: "Gabríel Aron Sævarsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "8", slug: "isak-jonsson", name: "Ísak Jónsson", position: "Leikmaður", 
       bio: "Ísak Jónsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "5", slug: "avar-dadi-segatta", name: "Ævar Daði Segatta", position: "Leikmaður", 
       bio: "Ævar Daði Segatta er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "jon-arnar-barddal", name: "Jón Arnar Barðdal", position: "Leikmaður", 
       bio: "Jón Arnar Barðdal er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "mani-mar-steinbjornsson", name: "Máni Mar Steinbjörnsson", position: "Leikmaður", 
       bio: "Máni Mar Steinbjörnsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "gunnlaugur-fannar-gudmundsson", name: "Gunnlaugur Fannar Guðmundsson", position: "Leikmaður", 
       bio: "Gunnlaugur Fannar Guðmundsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "gudjon-petur-lydsson", name: "Guðjón Pétur Lýðsson", position: "Leikmaður", 
       bio: "Guðjón Pétur Lýðsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "21", slug: "daniel-smari-sigurdsson", name: "Daníel Smári Sigurðsson", position: "Leikmaður", 
       bio: "Daníel Smári Sigurðsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "isak-freyr-johannsson", name: "Ísak Freyr Jóhannsson", position: "Leikmaður", 
       bio: "Ísak Freyr Jóhannsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "franz-sigurjonsson", name: "Franz Sigurjónsson", position: "Leikmaður", 
       bio: "Franz Sigurjónsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "reynir-leo-egilsson", name: "Reynir Leó Egilsson", position: "Leikmaður", 
       bio: "Reynir Leó Egilsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "20", slug: "alexander-aron-tomasson", name: "Alexander Aron Tómasson", position: "Leikmaður", 
       bio: "Alexander Aron Tómasson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "kristofer-thrastarson", name: "Kristófer Þrastarson", position: "Leikmaður", 
       bio: "Kristófer Þrastarson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "80", slug: "baltasar-trausti-ingvarsson", name: "Baltasar Trausti Ingvarsson", position: "Leikmaður", 
       bio: "Baltasar Trausti Ingvarsson er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     }
   ]
 };
@@ -283,175 +283,175 @@ export const dataKvenna = {
       number: "1", slug: "saeunn-bjork", name: "Sæunn Björk", position: "Markvörður", 
       bio: "Sæunn er öryggið uppmálað á línunni. Með mikla reynslu stýrir hún varnarleiknum og grípur inní þegar á þarf að halda. Hennar öryggi smitar út í allt liðið.",
       stats: { sport: "fotbolti", gamesPlayed: 18, goals: 0, assists: 1, yellowCards: 0, redCards: 0, cleanSheets: 7 }, 
-      img: "/images/players/saeunn_bjork.png" 
+      img: "/images/players/saeunn_bjork.webp" 
     },
     { 
       number: "5", slug: "malfridur", name: "Málfríður", position: "Varnarmaður", 
       bio: "Hjartað í vörninni. Málfríður hefur mikla leiðtogahæfileika og stjórnar spilinu aftan frá. Frábær í návígjum og á alltaf góðar tæklingar til að vernda markið.",
       stats: { sport: "fotbolti", gamesPlayed: 18, goals: 1, assists: 2, yellowCards: 2, redCards: 0 }, 
-      img: "/images/players/malfridur.png" 
+      img: "/images/players/malfridur.webp" 
     },
     { 
       number: "8", slug: "birta-ros", name: "Birta Rós", position: "Miðjumaður", 
       bio: "Vél liðsins. Birta hleypur endalaust, vinnur boltann og snýr fljótt í sókn. Skotin hennar af löngu færi hafa oft bjargað stigum fyrir liðið.",
       stats: { sport: "fotbolti", gamesPlayed: 18, goals: 4, assists: 7, yellowCards: 1, redCards: 0 }, 
-      img: "/images/players/birta_ros.png" 
+      img: "/images/players/birta_ros.webp" 
     },
     { 
       number: "10", slug: "kristin-lind", name: "Kristín Lind", position: "Sóknarmaður", 
       bio: "Skæðasti sóknarmaður deildarinnar. Kristín Lind er síógnandi, fljót og klárar færin sín oftar en ekki í netið. Markahæsti leikmaður Hauka og uppalin í klúbbnum.",
       stats: { sport: "fotbolti", gamesPlayed: 17, goals: 11, assists: 3, yellowCards: 2, redCards: 0 }, 
-      img: "/images/players/kristin_lind.png" 
+      img: "/images/players/kristin_lind.webp" 
     },
     { 
       number: "14", slug: "katrin-maria", name: "Katrín María", position: "Kantmaður", 
       bio: "Með magnaða tækni og yfirsýn er Katrín stöðug ógn. Hún á auðvelt með að komast framhjá leikmönnum og skila boltanum inn í teig fyrir framherjana.",
       stats: { sport: "fotbolti", gamesPlayed: 16, goals: 3, assists: 8, yellowCards: 1, redCards: 0 }, 
-      img: "/images/players/katrin_maria.png" 
+      img: "/images/players/katrin_maria.webp" 
     },
     { 
       number: "-", slug: "valgerdur-osk-valsdottir", name: "Valgerður Ósk Valsdóttir", position: "Leikmaður", 
       bio: "Valgerður Ósk Valsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "elma-dis-olafsdottir", name: "Elma Dís Ólafsdóttir", position: "Leikmaður", 
       bio: "Elma Dís Ólafsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "aldis-kara-ludviksdottir", name: "Aldís Kara Lúðvíksdóttir", position: "Leikmaður", 
       bio: "Aldís Kara Lúðvíksdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "kristin-fjola-sigthorsdottir", name: "Kristín Fjóla Sigþórsdóttir", position: "Leikmaður", 
       bio: "Kristín Fjóla Sigþórsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "rakel-lilja-hjaltadottir", name: "Rakel Lilja Hjaltadóttir", position: "Leikmaður", 
       bio: "Rakel Lilja Hjaltadóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "karolina-drofn-jonsdottir", name: "Karólína Dröfn Jónsdóttir", position: "Leikmaður", 
       bio: "Karólína Dröfn Jónsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "sigurbjorg-dilja-gunnarsdottir", name: "Sigurbjörg Diljá Gunnarsdóttir", position: "Leikmaður", 
       bio: "Sigurbjörg Diljá Gunnarsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "hekla-bjork-sigthorsdottir", name: "Hekla Björk Sigþórsdóttir", position: "Leikmaður", 
       bio: "Hekla Björk Sigþórsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "elisabet-osk-l-servo-olafiud", name: "Elísabet Ósk L. Servo Ólafíud.", position: "Leikmaður", 
       bio: "Elísabet Ósk L. Servo Ólafíud. er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "sandra-dis-hlynsdottir", name: "Sandra Dís Hlynsdóttir", position: "Leikmaður", 
       bio: "Sandra Dís Hlynsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "halla-thordis-svansdottir", name: "Halla Þórdís Svansdóttir", position: "Leikmaður", 
       bio: "Halla Þórdís Svansdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "viktoria-solveig-k-odinsdottir", name: "Viktoría Sólveig K. Óðinsdóttir", position: "Leikmaður", 
       bio: "Viktoría Sólveig K. Óðinsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "emiliana-gudrun-antonsdottir", name: "Emilíana Guðrún Antonsdóttir", position: "Leikmaður", 
       bio: "Emilíana Guðrún Antonsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "isold-hallfridar-thorisdottir", name: "Ísold Hallfríðar Þórisdóttir", position: "Leikmaður", 
       bio: "Ísold Hallfríðar Þórisdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "ragnheidur-tinna-hjaltalin", name: "Ragnheiður Tinna Hjaltalín", position: "Leikmaður", 
       bio: "Ragnheiður Tinna Hjaltalín er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "brynja-rut-hjartardottir", name: "Brynja Rut Hjartardóttir", position: "Leikmaður", 
       bio: "Brynja Rut Hjartardóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "viktoria-dilja-halldorsdottir", name: "Viktoría Diljá Halldórsdóttir", position: "Leikmaður", 
       bio: "Viktoría Diljá Halldórsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "maggy-larentsinusdottir", name: "Maggý Lárentsínusdóttir", position: "Leikmaður", 
       bio: "Maggý Lárentsínusdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "kristin-bjork-hjaltadottir", name: "Kristín Björk Hjaltadóttir", position: "Leikmaður", 
       bio: "Kristín Björk Hjaltadóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "anna-rut-ingadottir", name: "Anna Rut Ingadóttir", position: "Leikmaður", 
       bio: "Anna Rut Ingadóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "anita-osp-bjornsdottir", name: "Aníta Ösp Björnsdóttir", position: "Leikmaður", 
       bio: "Aníta Ösp Björnsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "berglind-thrastardottir", name: "Berglind Þrastardóttir", position: "Leikmaður", 
       bio: "Berglind Þrastardóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "thuridur-asta-gudmundsdottir", name: "Þuríður Ásta Guðmundsdóttir", position: "Leikmaður", 
       bio: "Þuríður Ásta Guðmundsdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     },
     { 
       number: "-", slug: "emma-alexandra-eiriksdottir", name: "Emma Alexandra Eiríksdóttir", position: "Leikmaður", 
       bio: "Emma Alexandra Eiríksdóttir er mikilvægur hluti af leikmannahópi Hauka. Með mikla vinnusemi og liðsanda leggur leikmaðurinn mikið af mörkum til liðsins bæði á æfingum og í leikjum.",
       stats: { sport: "fotbolti", gamesPlayed: 0, goals: 0, assists: 0, yellowCards: 0, redCards: 0 }, 
-      img: "/images/players/placeholder_football.png" 
+      img: "/images/players/placeholder_football.webp" 
     }
   ]
 };

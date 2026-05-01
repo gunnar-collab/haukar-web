@@ -61,6 +61,7 @@ export default function Fotbolti({ onOpenTickets }) {
         title="Leikmannahópur"
         subtitle={`Lykilleikmenn í Meistaraflokki ${gender === 'karla' ? 'Karla' : 'Kvenna'}`}
         sport="fotbolti"
+        gender={gender}
       />
 
       {/* Real-time League Data Dashboard */}

@@ -60,6 +60,7 @@ export default function Korfubolti({ onOpenTickets }) {
         title="Leikmannahópur"
         subtitle={`Lykilleikmenn í Meistaraflokki ${gender === 'karla' ? 'Karla' : 'Kvenna'}`}
         sport="korfubolti"
+        gender={gender}
       />
 
       <LeagueDashboard gender={gender} onOpenTickets={onOpenTickets} sport="korfubolti" />

@@ -6,7 +6,7 @@ export default function PlayerOfTheWeek() {
     name: "Freyr Aronsson",
     number: "8",
     position: "Skytta",
-    img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5308.jpg",
+    img: "/images/players/Ernir20250922_DSF5308.webp",
     sport: "handbolti",
     stats: {
       offensive: {

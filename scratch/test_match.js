@@ -1,22 +1,44 @@
 import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-const rawData = fs.readFileSync('src/data/haukar_league_data.json', 'utf-8');
-const leagueData = JSON.parse(rawData);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-const statsSource = leagueData.fotbolti_karla?.player_stats || [];
+// Read the data directly
+const fotboltiDataStr = fs.readFileSync(join(__dirname, '../src/data/fotboltiData.js'), 'utf-8');
+const leagueData = JSON.parse(fs.readFileSync(join(__dirname, '../src/data/haukar_league_data.json'), 'utf-8'));
 
-const playerName = "Daði Snær";
+const matchPlayerName = (name1, name2) => {
+  if (!name1 || !name2) return false;
+  const n1 = name1.toLowerCase().trim();
+  const n2 = name2.toLowerCase().trim();
+  if (n1 === n2 || n1.includes(n2) || n2.includes(n1)) return true;
+  
+  const p1 = n1.split(' ').filter(p => p.length > 2);
+  const p2 = n2.split(' ').filter(p => p.length > 2);
+  
+  let matchCount = 0;
+  for (const p of p1) {
+    if (p2.includes(p)) matchCount++;
+  }
+  return matchCount >= 2;
+};
 
-const match = statsSource.find(stat => 
-    stat.name.toLowerCase().includes(playerName.toLowerCase()) || 
-    playerName.toLowerCase().includes(stat.name.toLowerCase())
-);
+const dadiSnaer = { name: "Daði Snær", slug: "dadi-snaer", sport: "fotbolti", gender: "karla", team: "karla" };
 
-console.log("Match found for Daði Snær:", match);
+const statsSource = leagueData.fotbolti_karla?.player_stats;
+const match = statsSource.find(stat => matchPlayerName(stat.name, dadiSnaer.name));
 
-const playerName2 = "Sigurður Hrannar";
-const match2 = statsSource.find(stat => 
-    stat.name.toLowerCase().includes(playerName2.toLowerCase()) || 
-    playerName2.toLowerCase().includes(stat.name.toLowerCase())
-);
-console.log("Match found for Sigurður Hrannar:", match2);
+console.log("Matched stat:", match);
+if (match && match.stats) {
+    dadiSnaer.stats = match.stats;
+}
+
+const isFootball = dadiSnaer.stats?.sport === 'fotbolti' || dadiSnaer.sport === 'fotbolti';
+const isGoalkeeper = dadiSnaer.position?.toLowerCase().includes('markmaður') || dadiSnaer.position?.toLowerCase().includes('markvörður');
+
+console.log("isFootball:", isFootball);
+console.log("!isGoalkeeper:", !isGoalkeeper);
+console.log("goals:", dadiSnaer.stats?.goals);
+

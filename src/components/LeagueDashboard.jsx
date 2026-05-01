@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import leagueData from '../data/haukar_league_data.json';
 import MatchReportModal from './sports/MatchReportModal';
+import { getAllPlayers, matchPlayerName } from '../lib/playerUtils';
 
 export default function LeagueDashboard({ gender: propGender, onOpenTickets, sport = "handbolti" }) {
   const [internalGender, setInternalGender] = useState('karla');
@@ -57,8 +58,39 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
     { name: "Lore Devos", goals: 15.4, rank: 5, slug: "lore-devos", position: "Framherji" }
   ];
 
-  const scorers = sport === 'handbolti' ? handballScorers : sport === 'fotbolti' ? footballScorers : basketballScorers;
+  let scorers = sport === 'handbolti' ? handballScorers : sport === 'fotbolti' ? footballScorers : basketballScorers;
   const pointType = sport === 'korfubolti' ? 'Stig' : 'Mörk';
+
+  if (currentData && currentData.player_stats && currentData.player_stats.length > 0) {
+      const sortedStats = [...currentData.player_stats].sort((a, b) => {
+          const goalsA = sport === 'handbolti' ? (a.stats?.offensive?.totalGoals || 0) : (sport === 'korfubolti' ? (a.stats?.pts || 0) : (a.stats?.goals || 0));
+          const goalsB = sport === 'handbolti' ? (b.stats?.offensive?.totalGoals || 0) : (sport === 'korfubolti' ? (b.stats?.pts || 0) : (b.stats?.goals || 0));
+          return goalsB - goalsA;
+      });
+      
+      const topScorers = [];
+      let rank = 1;
+      const allPlayers = getAllPlayers();
+      
+      for (const stat of sortedStats) {
+          if (topScorers.length >= 5) break;
+          const goals = sport === 'handbolti' ? (stat.stats?.offensive?.totalGoals || 0) : (sport === 'korfubolti' ? (stat.stats?.pts || 0) : (stat.stats?.goals || 0));
+          if (goals === 0) continue; 
+          const matchedPlayer = allPlayers.find(p => p.sport === sport && p.gender === activeGender && matchPlayerName(p.name, stat.name));
+          topScorers.push({
+              name: matchedPlayer ? matchedPlayer.name : stat.name,
+              goals: goals,
+              rank: rank++,
+              slug: matchedPlayer ? matchedPlayer.slug : stat.name.toLowerCase().replace(/ /g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+              position: matchedPlayer ? matchedPlayer.position : (sport === 'korfubolti' ? "Leikmaður" : "Útileikmaður"),
+              fullPlayer: matchedPlayer ? { ...matchedPlayer, sport } : null
+          });
+      }
+      
+      if (topScorers.length > 0) {
+          scorers = topScorers;
+      }
+  }
 
   const getVenue = (homeTeam) => {
     if (homeTeam.includes('Haukar')) return 'Ásvellir';
@@ -335,6 +367,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                   {scorers.map((player, pIdx) => (
                     <Link 
                       to={`/leikmenn/${player.slug}`} 
+                      state={player.fullPlayer ? { player: player.fullPlayer } : undefined}
                       key={pIdx} 
                       className={`flex items-center justify-between p-4 rounded-2xl border transition-all group/player ${
                         pIdx === 0 ? 'bg-white/10 border-white/20 hover:bg-white/20 hover:translate-x-1 shadow-lg' : 'bg-white/5 border-white/5 hover:translate-x-1 hover:bg-white/10'

@@ -22,13 +22,13 @@ export const dataKarla = {
     statsLink: 'https://hbstatz.is/OlisDeildKarlaLeikur.php?ID=12905'
   },
   players: [
-    { number: "27", slug: "aron-rafn", name: "Aron Rafn", position: "Markvörður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5515.jpg" },
-    { number: "3", slug: "hergeir-grimsson", name: "Hergeir", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5461.jpg" },
-    { number: "4", slug: "adam-haukur", name: "Adam Haukur", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5260.jpg" },
-    { number: "11", slug: "birkir-snaer", name: "Birkir Snær", position: "Hornamaður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5368.jpg" },
-    { number: "9", slug: "sigurdur-snaer", name: "Sigurður Snær", position: "Lína", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5278.jpg" },
-    { number: "24", slug: "olafur-aegir", name: "Ólafur Ægir", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5229.jpg" },
-    { number: "47", slug: "jon-omar", name: "Jón Ómar", position: "Hornamaður", img: "/images/players/jon_omar.jpg" }
+    { number: "27", slug: "aron-rafn", name: "Aron Rafn", position: "Markvörður", img: "/images/players/Ernir20250922_DSF5515.webp" },
+    { number: "3", slug: "hergeir-grimsson", name: "Hergeir", position: "Skytta", img: "/images/players/Ernir20250922_DSF5461.webp" },
+    { number: "4", slug: "adam-haukur", name: "Adam Haukur", position: "Skytta", img: "/images/players/Ernir20250922_DSF5260.webp" },
+    { number: "11", slug: "birkir-snaer", name: "Birkir Snær", position: "Hornamaður", img: "/images/players/Ernir20250922_DSF5368.webp" },
+    { number: "9", slug: "sigurdur-snaer", name: "Sigurður Snær", position: "Lína", img: "/images/players/Ernir20250922_DSF5278.webp" },
+    { number: "24", slug: "olafur-aegir", name: "Ólafur Ægir", position: "Skytta", img: "/images/players/Ernir20250922_DSF5229.webp" },
+    { number: "47", slug: "jon-omar", name: "Jón Ómar", position: "Hornamaður", img: "/images/players/jon_omar.webp" }
   ]
 };
 
@@ -56,12 +56,12 @@ export const dataKvenna = {
     statsLink: 'https://hbstatz.is/OlisDeildKvennaTolfraedi.php'
   },
   players: [
-    { number: "1", slug: "elisa-helga", name: "Elísa Helga", position: "Markvörður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5999.jpg" },
-    { number: "4", slug: "sara-sif", name: "Sara Sif", position: "Markvörður", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF6121.jpg" },
-    { number: "91", slug: "johanna-margret", name: "Jóhanna Margrét", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5741.jpg" },
-    { number: "7", slug: "rakel-oddny", name: "Rakel Oddný", position: "Skytta", img: "https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5780.jpg" },
-    { id: 33, slug: 'ebba-gudridur', name: 'Ebba Guðríður', number: '15', position: 'Lína', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5916.jpg' },
-    { id: 26, slug: 'ragnheidur-5', name: 'Ragnheiður', number: '5', position: 'Hornamaður', img: 'https://www.haukar.is/wp-content/uploads/2014/12/Ernir20250922_DSF5800.jpg' }
+    { number: "1", slug: "elisa-helga", name: "Elísa Helga", position: "Markvörður", img: "/images/players/Ernir20250922_DSF5999.webp" },
+    { number: "4", slug: "sara-sif", name: "Sara Sif", position: "Markvörður", img: "/images/players/Ernir20250922_DSF6121.webp" },
+    { number: "91", slug: "johanna-margret", name: "Jóhanna Margrét", position: "Skytta", img: "/images/players/Ernir20250922_DSF5741.webp" },
+    { number: "7", slug: "rakel-oddny", name: "Rakel Oddný", position: "Skytta", img: "/images/players/Ernir20250922_DSF5780.webp" },
+    { id: 33, slug: 'ebba-gudridur', name: 'Ebba Guðríður', number: '15', position: 'Lína', img: '/images/players/Ernir20250922_DSF5916.webp' },
+    { id: 26, slug: 'ragnheidur-5', name: 'Ragnheiður', number: '5', position: 'Hornamaður', img: '/images/players/Ernir20250922_DSF5800.webp' }
   ]
 };
 
