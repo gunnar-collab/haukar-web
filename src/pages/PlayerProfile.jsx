@@ -14,7 +14,13 @@ export default function PlayerProfile() {
   const { slug } = useParams();
 
   // Sjálfgefin gögn ef engin gögn berast
-  let player = location.state?.player || findPlayerBySlug(slug);
+  let player = location.state?.player;
+  if (!player || !player.sport || !player.gender) {
+    const fullPlayer = findPlayerBySlug(slug);
+    if (fullPlayer) {
+        player = player ? { ...fullPlayer, ...player } : fullPlayer;
+    }
+  }
 
   // Try to auto-fetch from league data to override mock data
   if (player) {

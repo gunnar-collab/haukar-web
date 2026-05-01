@@ -65,11 +65,11 @@ export const dataKvenna = {
   }
 };
 
-export const basketballNews = [
-  { id: 1, slug: 'korfubolti-petur-strid', category: "Meistaraflokkur Karla", title: "Pétur Ingvarsson: 'Við erum tilbúnir í stríð gegn Selfossi'", date: "25. Mars", image: "/images/basketball/nanobanana_post.png" },
-  { id: 2, slug: 'korfubolti-kvenna-heimaleikur', category: "Meistaraflokkur Kvenna", title: "Stelpurnar tryggðu sér heimaleikjarétt í úrslitakeppninni", date: "22. Mars", image: "/images/basketball/celebration.png" },
-  { id: 3, slug: 'korfubolti-haukurinn-blad', category: "Félagið", title: "Haukurinn blaðið komið út - Allt um körfuboltann", date: "20. Mars", image: "https://online.fliphtml5.com/haukurinn/haukurinn_blad_WEB_final/files/shot.jpg" },
-];
+import { newsArticles } from './newsData';
+
+export const basketballNews = newsArticles
+  .filter(n => n.sport === 'korfubolti')
+  .slice(0, 3);
 
 export const socialPosts = [
   { id: 1, platform: 'Instagram', handle: '@haukar_karfa', image: "/images/basketball/nanobanana_post.png", text: 'Stórleikur framundan á Ásvöllum! Mætum og styðjum okkar menn. 🔴⚪️ #haukarkarfa', likes: '523' },

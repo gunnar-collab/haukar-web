@@ -1,0 +1,514 @@
+{
+  "id": 32888,
+  "date": "2026-04-28T09:19:39",
+  "date_gmt": "2026-04-28T09:19:39",
+  "guid": {
+    "rendered": "https://www.haukar.is/?p=32888"
+  },
+  "modified": "2026-04-28T09:19:39",
+  "modified_gmt": "2026-04-28T09:19:39",
+  "slug": "adalfundur-knattspyrnufelagsins-hauka-5",
+  "status": "publish",
+  "type": "post",
+  "link": "https://www.haukar.is/adalfundur-knattspyrnufelagsins-hauka-5/",
+  "title": {
+    "rendered": "Aðalfundur Knattspyrnufélagsins Hauka"
+  },
+  "content": {
+    "rendered": "<p><img class=\"alignnone size-medium wp-image-32380 alignleft\" src=\"https://www.haukar.is/wp-content/plugins/dms-plugin-pro/libs/images/1x1.trans.gif\" data-lazy-src=\"https://www.haukar.is/wp-content/uploads/2025/05/Merki-Hauka-góð-upplausn-162x200.jpg\" alt=\"\" width=\"162\" height=\"200\" srcset=\"https://www.haukar.is/wp-content/uploads/2025/05/Merki-Hauka-góð-upplausn-162x200.jpg 162w, https://www.haukar.is/wp-content/uploads/2025/05/Merki-Hauka-góð-upplausn.jpg 600w\" sizes=\"(max-width: 162px) 100vw, 162px\" />Aðalfundur Knattspyrnufélagsins Hauka verður haldinn mánudaginn 11. maí kl. 17:00 í Samkomusal félagsins að Ásvöllum.<br />\nDagskrá fundar samkvæmt lögum félagsins.<br />\nFélagar hvattir til að mæta!<br />\nStjórnin</p>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Aðalfundur Knattspyrnufélagsins Hauka verður haldinn mánudaginn 11. maí kl. 17:00 í Samkomusal félagsins að Ásvöllum. Dagskrá fundar samkvæmt lögum félagsins. Félagar hvattir til að mæta! Stjórnin</p>\n",
+    "protected": false
+  },
+  "author": 5,
+  "featured_media": 0,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": [],
+  "categories": [
+    30,
+    10,
+    86,
+    3,
+    9,
+    39,
+    11,
+    13,
+    8,
+    12,
+    91,
+    76,
+    33,
+    1
+  ],
+  "tags": [],
+  "_links": {
+    "self": [
+      {
+        "href": "https://www.haukar.is/wp-json/wp/v2/posts/32888"
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://www.haukar.is/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://www.haukar.is/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://www.haukar.is/wp-json/wp/v2/users/5"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://www.haukar.is/wp-json/wp/v2/comments?post=32888"
+      }
+    ],
+    "version-history": [
+      {
+        "href": "https://www.haukar.is/wp-json/wp/v2/posts/32888/revisions"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://www.haukar.is/wp-json/wp/v2/media?parent=32888"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://www.haukar.is/wp-json/wp/v2/categories?post=32888"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://www.haukar.is/wp-json/wp/v2/tags?post=32888"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  },
+  "_embedded": {
+    "author": [
+      {
+        "code": "rest_user_invalid_id",
+        "message": "Invalid user ID.",
+        "data": {
+          "status": 404
+        }
+      }
+    ],
+    "wp:term": [
+      [
+        {
+          "id": 30,
+          "link": "https://www.haukar.is/category/almenningsithrottir/",
+          "name": "Almennings",
+          "slug": "almenningsithrottir",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/30"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=30"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=30"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "link": "https://www.haukar.is/category/almenningsithrottir-frettir/",
+          "name": "Almenningsíþróttadeild fréttir",
+          "slug": "almenningsithrottir-frettir",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/10"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=10"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=10"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 86,
+          "link": "https://www.haukar.is/category/barnastarf/",
+          "name": "Barnastarf",
+          "slug": "barnastarf",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/86"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=86"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=86"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "link": "https://www.haukar.is/category/frettir/",
+          "name": "Fréttir",
+          "slug": "frettir",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/3"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=3"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=3"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "link": "https://www.haukar.is/category/frettir-fotbolti/",
+          "name": "Fréttir fótbolti",
+          "slug": "frettir-fotbolti",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/9"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=9"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=9"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 39,
+          "link": "https://www.haukar.is/category/frettir-getraunir/",
+          "name": "Fréttir getraunir",
+          "slug": "frettir-getraunir",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/39"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=39"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=39"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "link": "https://www.haukar.is/category/frettir-handbolti/",
+          "name": "Fréttir handbolti",
+          "slug": "frettir-handbolti",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/11"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=11"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=11"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 13,
+          "link": "https://www.haukar.is/category/frettir-karate/",
+          "name": "Fréttir karate",
+          "slug": "frettir-karate",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/13"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=13"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=13"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "link": "https://www.haukar.is/category/frettir-korfubolti/",
+          "name": "Fréttir körfubolti",
+          "slug": "frettir-korfubolti",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/8"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=8"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=8"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "link": "https://www.haukar.is/category/frettir-skak/",
+          "name": "Fréttir skák",
+          "slug": "frettir-skak",
+          "taxonomy": "category",
+          "_links": {
+            "self": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories/12"
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/posts?categories=12"
+              },
+              {
+                "href": "https://www.haukar.is/wp-json/wp/v2/pages?categories=12"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      []
+    ]
+  }
+}

@@ -65,12 +65,11 @@ export const dataKvenna = {
   ]
 };
 
-export const handballNews = [
-  { id: 4, slug: 'hjortur-ingi-snyr-heim', category: "Meistaraflokkur Karla", title: "Hjörtur Ingi snýr heim á Ásvelli", date: "24. Apríl", image: "/images/handball/hjortur-ingi-1.jpg" },
-  { id: 1, slug: 'handbolti-sigur-fh', category: "Meistaraflokkur Karla", title: "Haukar tryggja sér sigur á lokasekúndunum gegn FH", date: "18. Apríl", image: "/assets/sports/handball/news-men-victory.png" },
-  { id: 2, slug: 'handbolti-vörn-sigur', category: "Meistaraflokkur Kvenna", title: "Frábær varnarleikur skóp sigurinn á Ásvöllum", date: "16. Apríl", image: "/assets/sports/handball/news-women-defense.png" },
-  { id: 3, slug: 'handbolti-sumarnamskeid', category: "Unglingaráð", title: "Skráning hafin á sumarnámskeið handboltans", date: "14. Apríl", image: "/assets/sports/handball/news-youth-camp.png" },
-];
+import { newsArticles } from './newsData';
+
+export const handballNews = newsArticles
+  .filter(n => n.sport === 'handbolti')
+  .slice(0, 3);
 
 export const socialPosts = [
   { id: 1, platform: 'Instagram', handle: '@haukar_topphandbolti', image: '/handball_social_1.png', text: 'Enginn stöðvar okkar menn þegar þeir komast í loftið! 🚀 Hlökkum til að sjá ykkur á Ásvöllum. #haukar #handbolti #hndbl', likes: '1.2k' },

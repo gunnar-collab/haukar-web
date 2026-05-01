@@ -6,7 +6,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const publicImagesDir = path.join(__dirname, '../public/images/players');
+const targetDirectories = [
+    { dir: path.join(__dirname, '../public/images/players'), urlPrefix: '/images/players/' },
+    { dir: path.join(__dirname, '../public/images/news'), urlPrefix: '/images/news/' },
+];
 const srcDir = path.join(__dirname, '../src');
 
 // Find all JS/JSX files
@@ -32,53 +35,57 @@ const jsFiles = getAllFiles(srcDir);
 async function optimizeImages() {
     console.log('Scanning for new, unoptimized images...\n');
     
-    if (!fs.existsSync(publicImagesDir)) {
-        console.log(`Directory ${publicImagesDir} does not exist.`);
-        return;
-    }
-
-    const files = fs.readdirSync(publicImagesDir);
     let totalOriginalSize = 0;
     let totalNewSize = 0;
     let optimizedCount = 0;
     
-    for (const file of files) {
-        // Only target raw formats, ignore already optimized webp/svg
-        if (!file.match(/\.(jpg|jpeg|png)$/i)) continue;
+    for (const target of targetDirectories) {
+        if (!fs.existsSync(target.dir)) {
+            console.log(`Directory ${target.dir} does not exist. Skipping...`);
+            continue;
+        }
+
+        console.log(`\nScanning directory: ${target.dir}`);
+        const files = fs.readdirSync(target.dir);
         
-        const originalPath = path.join(publicImagesDir, file);
-        const originalExt = path.extname(file);
-        const baseName = path.basename(file, originalExt);
-        const webpPath = path.join(publicImagesDir, `${baseName}.webp`);
-        
-        const stat = fs.statSync(originalPath);
-        totalOriginalSize += stat.size;
-        
-        console.log(`Optimizing: ${file}...`);
-        
-        // Convert to highly optimized WebP format with a max width of 800px
-        await sharp(originalPath)
-            .resize(800)
-            .webp({ quality: 80 })
-            .toFile(webpPath);
+        for (const file of files) {
+            // Only target raw formats, ignore already optimized webp/svg
+            if (!file.match(/\.(jpg|jpeg|png)$/i)) continue;
             
-        const newStat = fs.statSync(webpPath);
-        totalNewSize += newStat.size;
-        
-        // Remove the heavy original file
-        fs.unlinkSync(originalPath);
-        optimizedCount++;
-        
-        // Auto-update all references in JS/JSX source code
-        const oldUrl = `/images/players/${file}`;
-        const newUrl = `/images/players/${baseName}.webp`;
-        
-        for (const jsFile of jsFiles) {
-            let content = fs.readFileSync(jsFile, 'utf8');
-            if (content.includes(oldUrl)) {
-                content = content.split(oldUrl).join(newUrl);
-                fs.writeFileSync(jsFile, content, 'utf8');
-                console.log(`  └─ Updated code reference in ${path.basename(jsFile)}`);
+            const originalPath = path.join(target.dir, file);
+            const originalExt = path.extname(file);
+            const baseName = path.basename(file, originalExt);
+            const webpPath = path.join(target.dir, `${baseName}.webp`);
+            
+            const stat = fs.statSync(originalPath);
+            totalOriginalSize += stat.size;
+            
+            console.log(`Optimizing: ${file}...`);
+            
+            // Convert to highly optimized WebP format with a max width of 1280px
+            await sharp(originalPath)
+                .resize({ width: 1280, withoutEnlargement: true })
+                .webp({ quality: 85 })
+                .toFile(webpPath);
+                
+            const newStat = fs.statSync(webpPath);
+            totalNewSize += newStat.size;
+            
+            // Remove the heavy original file
+            fs.unlinkSync(originalPath);
+            optimizedCount++;
+            
+            // Auto-update all references in JS/JSX source code
+            const oldUrl = `${target.urlPrefix}${file}`;
+            const newUrl = `${target.urlPrefix}${baseName}.webp`;
+            
+            for (const jsFile of jsFiles) {
+                let content = fs.readFileSync(jsFile, 'utf8');
+                if (content.includes(oldUrl)) {
+                    content = content.split(oldUrl).join(newUrl);
+                    fs.writeFileSync(jsFile, content, 'utf8');
+                    console.log(`  └─ Updated code reference in ${path.basename(jsFile)}`);
+                }
             }
         }
     }

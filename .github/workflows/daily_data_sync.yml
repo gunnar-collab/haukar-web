@@ -25,7 +25,16 @@ jobs:
       - name: Install Node Dependencies
         run: npm install axios cheerio
         
-      # 2. Run Node.js Scrapers
+      # 2. Setup Persistent Smart Cache for KSÍ to prevent IP Bans from GitHub Actions
+      - name: Cache KSÍ HTML Files
+        uses: actions/cache@v3
+        with:
+          path: scripts/.ksi_cache
+          key: ksi-cache-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            ksi-cache-${{ runner.os }}-
+
+      # 3. Run Node.js Scrapers
       - name: Run KSÍ Scraper (Football)
         run: node scripts/scrape_ksi.js
 

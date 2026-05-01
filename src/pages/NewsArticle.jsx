@@ -10,56 +10,75 @@ function NewsSlider({ images, title }) {
     if (!images || images.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(timer);
   }, [images]);
 
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 w-full h-full">
-      {images.map((img, idx) => (
-        <img 
-          key={typeof img === 'string' ? img : img.src}
-          src={typeof img === 'string' ? img : img.src} 
-          alt={`${title} - ${idx + 1}`} 
-          className={cn(
-            "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
-            idx === currentIndex ? "opacity-100 scale-105" : "opacity-0"
-          )}
-          style={{ objectPosition: typeof img === 'string' ? 'center' : (img.position || 'center') }}
-        />
-      ))}
-      
-      {/* Manual Controls */}
-      {images.length > 1 && (
-        <>
-          <button 
-            onClick={(e) => { e.preventDefault(); setCurrentIndex((prev) => (prev - 1 + images.length) % images.length); }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white rounded-full flex items-center justify-center transition-all z-30"
+    <div className="absolute inset-0 w-full h-full overflow-hidden group/slider">
+      {images.map((img, idx) => {
+        const imgSrc = typeof img === 'string' ? img : img.src;
+        return (
+          <div
+            key={imgSrc}
+            className={cn(
+              "absolute inset-0 w-full h-full transition-opacity duration-1000",
+              idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+            )}
           >
-            <span className="material-symbols-outlined">chevron_left</span>
-          </button>
-          <button 
-            onClick={(e) => { e.preventDefault(); setCurrentIndex((prev) => (prev + 1) % images.length); }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white rounded-full flex items-center justify-center transition-all z-30"
-          >
-            <span className="material-symbols-outlined">chevron_right</span>
-          </button>
-          
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
-            {images.map((_, idx) => (
-              <button 
-                key={idx}
-                onClick={(e) => { e.preventDefault(); setCurrentIndex(idx); }}
-                className={cn(
-                  "h-1.5 rounded-full transition-all duration-300",
-                  idx === currentIndex ? "w-8 bg-white" : "w-2 bg-white/40 hover:bg-white/60"
-                )}
-              />
-            ))}
+            {/* Blurred Background */}
+            <img 
+              src={imgSrc} 
+              alt="" 
+              className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-70" 
+              aria-hidden="true"
+            />
+            {/* Subtle Dark Glass Overlay */}
+            <div className="absolute inset-0 bg-[#1c2c6c]/20 mix-blend-overlay"></div>
+            
+            {/* Foreground Uncropped Image */}
+            <img 
+              src={imgSrc} 
+              alt={`${title} - ${idx + 1}`} 
+              className={cn(
+                "absolute inset-0 w-full h-full object-contain transition-transform duration-1000",
+                idx === currentIndex ? "scale-100" : "scale-95"
+              )}
+            />
           </div>
-        </>
+        );
+      })}
+
+      {/* Manual Controls - Appear on Hover */}
+      <button 
+        onClick={(e) => { e.preventDefault(); setCurrentIndex((prev) => (prev - 1 + images.length) % images.length); }}
+        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/30 border border-white/20 backdrop-blur-md text-white rounded-full flex items-center justify-center transition-all duration-300 opacity-0 group-hover/slider:opacity-100 z-30 shadow-lg"
+      >
+        <span className="material-symbols-outlined text-2xl">chevron_left</span>
+      </button>
+      <button 
+        onClick={(e) => { e.preventDefault(); setCurrentIndex((prev) => (prev + 1) % images.length); }}
+        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/30 border border-white/20 backdrop-blur-md text-white rounded-full flex items-center justify-center transition-all duration-300 opacity-0 group-hover/slider:opacity-100 z-30 shadow-lg"
+      >
+        <span className="material-symbols-outlined text-2xl">chevron_right</span>
+      </button>
+
+      {/* Indicator Pill */}
+      {images.length > 1 && (
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2 px-4 py-2.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 shadow-lg">
+          {images.map((_, idx) => (
+            <button 
+              key={idx}
+              onClick={(e) => { e.preventDefault(); setCurrentIndex(idx); }}
+              className={cn(
+                "h-2 rounded-full transition-all duration-300",
+                idx === currentIndex ? "w-8 bg-white" : "w-2 bg-white/40 hover:bg-white/70"
+              )}
+            />
+          ))}
+        </div>
       )}
     </div>
   );
@@ -118,10 +137,9 @@ export default function NewsArticle() {
             </div>
           ) : (
             <img 
-              src={article.image} 
+              src={article.image || (article.images && article.images[0])} 
               alt={article.title} 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              style={{ objectPosition: article.position || 'center' }}
+              className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out"
             />
           )}
           {/* Image Credit */}

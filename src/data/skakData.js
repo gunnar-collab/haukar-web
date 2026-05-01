@@ -1,3 +1,5 @@
+import { newsArticles } from './newsData';
+
 export const skakData = {
   topPlayers: [
     { name: "Hjörvar Steinn Grétarsson", rating: 2580, title: "Grandmaster (GM)", bio: "Hjörvar er einn fremsti skákmaður landsins og hefur verið burðarás í liði Hauka í mörg ár.", img: "/images/chess/hjovar.png" },
@@ -25,11 +27,7 @@ export const skakData = {
     fen: "r1bqk2r/pp2bppp/2nppn2/8/3NP3/2N5/PPP1BPPP/R1BQ1RK1 w kq - 0 1",
     solution: "1. Nxc6 bxc6 2. e5!"
   },
-  news: [
-    { id: 1, slug: 'skak-islandsmeistari-vignir', category: "Meistaraflokkur", title: "Vignir Vatnar er Íslandsmeistari í skák 2026", date: "20. Apríl", image: "/images/chess/vignir.png" },
-    { id: 2, slug: 'skak-haukar-a-toppnum', category: "Íslandsmót", title: "Haukar leiða Íslandsmótið eftir fyrri hlutann", date: "15. Apríl", image: "/images/chess/team_chess.png" },
-    { id: 3, slug: 'skak-skoli-sumar', category: "Barna- og unglingastarf", title: "Skákskóli Hauka hefst í júní - Skráning í fullum gangi", date: "10. Apríl", image: "/images/chess/hero_bg.png" },
-  ],
+  news: newsArticles.filter(n => n.sport === 'skak').slice(0, 3),
   social: [
     { id: 1, platform: 'Instagram', handle: '@haukarskak', image: '/images/chess/vignir.png', text: 'Vignir Vatnar gerir það aftur! Íslandsmeistari 2026. Til hamingju Vignir! 🏆🇮🇸 #skak #haukar', likes: '842' },
     { id: 2, platform: 'Facebook', handle: 'Haukar Skák', image: '/images/chess/team_chess.png', text: 'Frábær frammistaða hjá A-liðinu um helgina. Við stefnum á titilinn í ár!', likes: '315' },

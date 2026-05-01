@@ -6,6 +6,35 @@ import path from 'path';
 const KSI_WOMEN_URL = 'https://www.ksi.is/oll-mot/mot?id=7025676';
 const KSI_MEN_URL = 'https://www.ksi.is/oll-mot/mot?id=7025548';
 const DATA_FILE_PATH = path.join(process.cwd(), 'src', 'data', 'haukar_league_data.json');
+const CACHE_DIR = path.join(process.cwd(), 'scripts', '.ksi_cache');
+
+if (!fs.existsSync(CACHE_DIR)) {
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+}
+
+// Smart Caching Engine
+async function axiosCachedGet(url, matchObj, type) {
+    const cacheFile = path.join(CACHE_DIR, `${matchObj.id}_${type}.html`);
+    
+    // If the match was played more than 3 days ago, KSÍ stats are final and safe to cache permanently.
+    const matchDate = new Date(matchObj.date);
+    const threeDaysAgo = new Date();
+    threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
+    const isSafeToCachePermanently = matchDate < threeDaysAgo;
+    
+    if (isSafeToCachePermanently && fs.existsSync(cacheFile)) {
+        return { data: fs.readFileSync(cacheFile, 'utf8') };
+    }
+    
+    // Polite delay before real HTTP request to prevent IP bans
+    await delay(1000);
+    const response = await axios.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    
+    if (isSafeToCachePermanently && response.data) {
+        fs.writeFileSync(cacheFile, response.data, 'utf8');
+    }
+    return response;
+}
 
 const icelandicMonths = {
   "janúar": "01", "febrúar": "02", "mars": "03", "apríl": "04",
@@ -30,12 +59,12 @@ async function fetchMatchStats(matchObj, playerStatsDict) {
   console.log(`  -> Deep scraping match: ${matchObj.home} vs ${matchObj.away} (${matchObj.date})`);
   
   try {
-    // Fetch Main Page (for goals)
-    const { data: mainData } = await axios.get(matchObj.statsLink, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    // Fetch Main Page (for goals) using Smart Cache
+    const { data: mainData } = await axiosCachedGet(matchObj.statsLink, matchObj, 'main');
     const $m = cheerio.load(mainData);
     
-    // Fetch Report Page (for lineups)
-    const { data: reportData } = await axios.get(`${matchObj.statsLink}&banner-tab=report`, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    // Fetch Report Page (for lineups) using Smart Cache
+    const { data: reportData } = await axiosCachedGet(`${matchObj.statsLink}&banner-tab=report`, matchObj, 'report');
     const $r = cheerio.load(reportData);
 
     const isHome = matchObj.home === 'Haukar';
@@ -191,7 +220,7 @@ async function fetchMatches(existingLeagueData) {
         away,
         score,
         competition: comp,
-        statsScraped: isYouth // Skip deep scraping for youth matches to save time
+        isYouth // Flag to identify youth matches
       };
       if (matchId) {
          matchObj.id = matchId;
@@ -210,12 +239,13 @@ async function fetchMatches(existingLeagueData) {
     page++;
   }
   
-  // Cross reference with existing data to keep statsScraped flag
+  // We don't merge statsScraped anymore because we want to re-calculate from scratch
+  // to ensure player aggregates are always perfectly accurate for the whole year.
   const mergeMatches = (scrapedMatches, existingMatches) => {
      return scrapedMatches.map(sm => {
         const ex = existingMatches?.find(e => e.id === sm.id);
-        if (ex && ex.statsScraped) {
-           sm.statsScraped = true;
+        if (ex && ex.isYouth !== undefined) {
+           sm.isYouth = ex.isYouth;
         }
         return sm;
      });
@@ -281,13 +311,9 @@ async function scrapeKSI() {
     fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
 
     for (const match of menMatches) {
-        if (match.score !== 'Næsti leikur' && match.score !== '-') {
-            const matchDate = new Date(match.date);
-            if (!match.statsScraped || matchDate >= fourteenDaysAgo) {
-                // Fetch deep stats
-                await fetchMatchStats(match, menPlayerStats);
-                await delay(1000); // polite delay
-            }
+        if (match.score !== 'Næsti leikur' && match.score !== '-' && !match.isYouth) {
+            // Fetch deep stats for all adult matches this year (will instantly load from cache if > 3 days old)
+            await fetchMatchStats(match, menPlayerStats);
         }
     }
 
@@ -301,12 +327,9 @@ async function scrapeKSI() {
     }
 
     for (const match of womenMatches) {
-        if (match.score !== 'Næsti leikur' && match.score !== '-') {
-            const matchDate = new Date(match.date);
-            if (!match.statsScraped || matchDate >= fourteenDaysAgo) {
-                await fetchMatchStats(match, womenPlayerStats);
-                await delay(1000);
-            }
+        if (match.score !== 'Næsti leikur' && match.score !== '-' && !match.isYouth) {
+            // Fetch deep stats for all adult matches this year (will instantly load from cache if > 3 days old)
+            await fetchMatchStats(match, womenPlayerStats);
         }
     }
 

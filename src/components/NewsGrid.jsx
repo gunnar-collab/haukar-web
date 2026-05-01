@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { newsArticles } from '../data/newsData';
 import { cn } from '../lib/utils';
 
-function NewsCardSlider({ images, title }) {
+function GlassNewsSlider({ images, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -17,28 +17,70 @@ function NewsCardSlider({ images, title }) {
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 w-full h-full">
-      {images.map((img, idx) => (
-        <img 
-          key={typeof img === 'string' ? img : img.src}
-          src={typeof img === 'string' ? img : img.src} 
-          alt={`${title} - ${idx + 1}`} 
-          className={cn(
-            "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
-            idx === currentIndex ? "opacity-100 scale-105" : "opacity-0"
-          )}
-          style={{ objectPosition: typeof img === 'string' ? 'center' : (img.position || 'center') }}
-        />
-      ))}
-      {/* Indicator Dots */}
-      {images.length > 1 && (
-        <div className="absolute bottom-4 left-6 z-30 flex gap-1.5">
-          {images.map((_, idx) => (
-            <div 
-              key={idx}
+    <div className="absolute inset-0 w-full h-full overflow-hidden group/slider">
+      {images.map((img, idx) => {
+        const imgSrc = typeof img === 'string' ? img : img.src;
+        return (
+          <div
+            key={imgSrc}
+            className={cn(
+              "absolute inset-0 w-full h-full transition-opacity duration-1000",
+              idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+            )}
+          >
+            {/* Blurred Background */}
+            <img 
+              src={imgSrc} 
+              alt="" 
+              className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-70" 
+              aria-hidden="true"
+            />
+            {/* Subtle Dark Glass Overlay */}
+            <div className="absolute inset-0 bg-[#1c2c6c]/20 mix-blend-overlay"></div>
+            
+            {/* Foreground Uncropped Image */}
+            <img 
+              src={imgSrc} 
+              alt={`${title} - ${idx + 1}`} 
               className={cn(
-                "h-1 rounded-full transition-all duration-300",
-                idx === currentIndex ? "w-4 bg-white" : "w-1.5 bg-white/40"
+                "absolute inset-0 w-full h-full object-contain transition-transform duration-1000",
+                idx === currentIndex ? "scale-100" : "scale-95"
+              )}
+            />
+          </div>
+        );
+      })}
+
+      {/* Glass Gallery Badge */}
+      <div className="absolute top-6 left-6 z-30 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center gap-1.5 shadow-lg">
+        <span className="material-symbols-outlined text-white text-[14px]">photo_library</span>
+        <span className="text-white text-[10px] font-bold uppercase tracking-widest">Myndasyrpa</span>
+      </div>
+
+      {/* Manual Controls - Appear on Hover */}
+      <button 
+        onClick={(e) => { e.preventDefault(); setCurrentIndex((prev) => (prev - 1 + images.length) % images.length); }}
+        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/30 border border-white/20 backdrop-blur-md text-white rounded-full flex items-center justify-center transition-all duration-300 opacity-0 group-hover/slider:opacity-100 z-30"
+      >
+        <span className="material-symbols-outlined">chevron_left</span>
+      </button>
+      <button 
+        onClick={(e) => { e.preventDefault(); setCurrentIndex((prev) => (prev + 1) % images.length); }}
+        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/30 border border-white/20 backdrop-blur-md text-white rounded-full flex items-center justify-center transition-all duration-300 opacity-0 group-hover/slider:opacity-100 z-30"
+      >
+        <span className="material-symbols-outlined">chevron_right</span>
+      </button>
+
+      {/* Indicator Pill */}
+      {images.length > 1 && (
+        <div className="absolute bottom-[30%] left-1/2 -translate-x-1/2 z-30 flex gap-1.5 px-3 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/10">
+          {images.map((_, idx) => (
+            <button 
+              key={idx}
+              onClick={(e) => { e.preventDefault(); setCurrentIndex(idx); }}
+              className={cn(
+                "h-1.5 rounded-full transition-all duration-300",
+                idx === currentIndex ? "w-6 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70"
               )}
             />
           ))}
@@ -79,11 +121,11 @@ export default function NewsGrid() {
           
           {/* Large Left Card: Featured Slider / Image */}
           <Link to={`/frett/${featured.slug}`} className="lg:col-span-1 lg:row-span-2 rounded-[2.5rem] overflow-hidden relative group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(28,44,108,0.08)] hover:-translate-y-1 active:scale-[0.98] transition-all duration-500 min-h-[450px] lg:min-h-full flex flex-col justify-end p-6 bg-black">
-             {featured.images ? (
-               <NewsCardSlider images={featured.images} title={featured.title} />
+             {(featured.images && featured.images.length > 1) ? (
+               <GlassNewsSlider images={featured.images} title={featured.title} />
              ) : (
                <img 
-                 src={featured.image} 
+                 src={(featured.images && featured.images.length > 0) ? featured.images[0] : featured.image} 
                  alt={featured.title} 
                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                />

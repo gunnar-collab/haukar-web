@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "optimize": "node scripts/optimize_assets.js"
+    "optimize": "node scripts/optimize_assets.js",
+    "scrape-news": "node scripts/scrape_haukar_news.js"
   },
   "dependencies": {
     "@google/genai": "^1.50.1",

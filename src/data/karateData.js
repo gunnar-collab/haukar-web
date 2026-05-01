@@ -58,11 +58,11 @@ export const dataKvenna = {
   ]
 };
 
-export const karateNews = [
-  { id: 1, slug: 'karate-islandsmeistarar', category: "Afreksstarf", title: "Haukar tryggja sér þrjá Íslandsmeistaratitla í kumite", date: "20. Apríl", image: "/assets/sports/karate/news-landslið.png" },
-  { id: 2, slug: 'bikarmot-kai-verðlaun', category: "Mótamál", title: "Bikarmót KAÍ: Haukarnir unnu til fimm verðlauna", date: "15. Apríl", image: "/assets/sports/karate/news-bikarmot.png" },
-  { id: 3, slug: 'beltaprof-hátíð', category: "Beltapróf", title: "Beltapróf og uppskeruhátíð Karatedeildar á laugardaginn", date: "10. Apríl", image: "/assets/sports/karate/news-beltaprof.png" },
-];
+import { newsArticles } from './newsData';
+
+export const karateNews = newsArticles
+  .filter(n => n.sport === 'karate')
+  .slice(0, 3);
 
 export const socialPosts = [
   { id: 1, platform: 'Instagram', handle: '@haukar_karate', image: '/assets/sports/karate/social-kumite.png', text: 'Gull, silfur og brons! Stórkostleg helgi að baki á Bikarmótinu. 🥇🥈🥉 #haukar #karate', likes: '215' },
