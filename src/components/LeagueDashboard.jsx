@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import leagueData from '../data/haukar_league_data.json';
 import MatchReportModal from './sports/MatchReportModal';
 import { getAllPlayers, matchPlayerName } from '../lib/playerUtils';
+import { parseMatchDate } from '../utils/globalMatchUtils';
 
 export default function LeagueDashboard({ gender: propGender, onOpenTickets, sport = "handbolti" }) {
   const [internalGender, setInternalGender] = useState('karla');
@@ -21,10 +22,19 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
 
   const seniorMatches = currentData?.matches ? currentData.matches.filter(isMeistaraflokkur) : [];
 
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+
   // Logic to separate played games from upcoming games
-  const playedMatches = seniorMatches.filter(m => m.score !== 'Næsti leikur' && m.score !== '- - -');
-  // Reverse upcoming so the closest future game is at the top
-  const upcomingMatches = seniorMatches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -').reverse();
+  const playedMatches = seniorMatches.filter(m => m.score && m.score !== 'Næsti leikur' && m.score !== '- - -' && m.score !== '-');
+  
+  const upcomingMatches = seniorMatches.filter(m => {
+    const matchDate = parseMatchDate(m.date);
+    return (m.score === 'Næsti leikur' || m.score === '- - -' || m.score === '-' || !m.score) && matchDate >= now;
+  }).sort((a, b) => parseMatchDate(a.date) - parseMatchDate(b.date));
+
+  const nextHomeMatch = upcomingMatches.find(m => m.home.includes('Haukar')) || upcomingMatches[0];
+  console.log('LeagueDashboard DEBUG: ' + JSON.stringify({ activeKey, sport, activeGender, seniorMatchesCount: seniorMatches.length, upcomingMatchesCount: upcomingMatches.length, nextHomeMatch }));
 
   const leagueName = sport === 'handbolti' ? 'Olís deildinni' : sport === 'fotbolti' ? 'deildinni' : 'Bónusdeildinni';
   const providerName = sport === 'handbolti' ? 'HBStatz' : sport === 'fotbolti' ? 'KSÍ' : 'KKÍ';
@@ -120,6 +130,28 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
       'ÍBV': 'Hásteinsvöllur'
     };
     return venues[homeTeam] || 'Útivöllur';
+  };
+
+  const formatFullDate = (dateObj) => {
+    if (!dateObj) return '';
+    const days = ['Sunnudagur', 'Mánudagur', 'Þriðjudagur', 'Miðvikudagur', 'Fimmtudagur', 'Föstudagur', 'Laugardagur'];
+    const months = ['Janúar', 'Febrúar', 'Mars', 'Apríl', 'Maí', 'Júní', 'Júlí', 'Ágúst', 'September', 'Október', 'Nóvember', 'Desember'];
+    return `${days[dateObj.getDay()]} ${dateObj.getDate()}. ${months[dateObj.getMonth()]}`;
+  };
+
+  const formatTime = (dateObj) => {
+    if (!dateObj) return '';
+    const h = dateObj.getHours().toString().padStart(2, '0');
+    const m = dateObj.getMinutes().toString().padStart(2, '0');
+    return h === '00' && m === '00' ? '19:15' : `${h}:${m}`;
+  };
+
+  const formatShortDate = (dateObj) => {
+    if (!dateObj) return '';
+    const days = ['Sun', 'Mán', 'Þri', 'Mið', 'Fim', 'Fös', 'Lau'];
+    const months = ['Janúar', 'Febrúar', 'Mars', 'Apríl', 'Maí', 'Júní', 'Júlí', 'Ágúst', 'September', 'Október', 'Nóvember', 'Desember'];
+    const time = formatTime(dateObj);
+    return `${days[dateObj.getDay()]} ${dateObj.getDate()}. ${months[dateObj.getMonth()]} • ${time}`;
   };
 
   return (
@@ -288,7 +320,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                           >
                             <div className="flex justify-between items-center mb-1">
                               <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{match.date}</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{formatShortDate(parseMatchDate(match.date))}</span>
                                 <span className="w-1 h-1 rounded-full bg-white/20"></span>
                                 <span className="text-[9px] font-black text-white/40 uppercase">Leikvöllur</span>
                               </div>
@@ -329,7 +361,7 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                           >
                             <div className="flex justify-between items-center mb-1">
                               <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{match.date}</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{formatShortDate(parseMatchDate(match.date))}</span>
                                 <span className="w-1 h-1 rounded-full bg-white/20"></span>
                                 <span className="text-[9px] font-black text-white/40 uppercase">Sjá skýrslu</span>
                               </div>
@@ -405,18 +437,18 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                
                <div className="relative z-10 flex flex-col items-center text-center">
                   <div className="bg-[#D4AF37] text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-10 shadow-lg">
-                    Næsti Heimaleikur
+                    {nextHomeMatch?.home?.includes('Haukar') ? 'Næsti Heimaleikur' : 'Næsti Leikur'}
                   </div>
                   
                   <div className="flex items-center justify-center gap-3 lg:gap-4 mb-10 w-full px-2">
                     <div className="text-right shrink-0">
-                      <p className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black italic uppercase tracking-tighter pr-1" title="Haukar">Haukar</p>
+                      <p className={`text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black italic uppercase tracking-tighter pr-1 ${nextHomeMatch?.home?.includes('Haukar') ? '' : 'text-white/70'}`} title={nextHomeMatch?.home || "Haukar"}>{nextHomeMatch?.home || "Haukar"}</p>
                       <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest pr-1">Heimalið</p>
                     </div>
                     <div className="text-[#D4AF37] font-black italic text-xl md:text-2xl animate-pulse shrink-0 px-1">VS</div>
                     <div className="text-left min-w-0 shrink">
-                      <p className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black italic uppercase tracking-tighter text-white/70 truncate pr-2" title={sport === 'handbolti' ? 'Valur' : 'Grindavík'}>
-                        {sport === 'handbolti' ? 'Valur' : 'Grindavík'}
+                      <p className={`text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black italic uppercase tracking-tighter truncate pr-2 ${nextHomeMatch?.away?.includes('Haukar') ? 'text-white' : 'text-white/70'}`} title={nextHomeMatch?.away || "Óstaðfestur"}>
+                        {nextHomeMatch?.away || "Óstaðfestur"}
                       </p>
                       <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Gestir</p>
                     </div>
@@ -426,12 +458,12 @@ export default function LeagueDashboard({ gender: propGender, onOpenTickets, spo
                     <div className="flex items-center justify-center gap-3 mb-2">
                       <span className="material-symbols-outlined text-[#D4AF37] text-sm">event</span>
                       <p className="text-xs font-black uppercase tracking-[0.2em]">
-                        {sport === 'handbolti' ? 'Mánudagur 27. Apríl' : 'Laugardagur 2. Maí'}
+                        {nextHomeMatch && nextHomeMatch.date ? formatFullDate(parseMatchDate(nextHomeMatch.date)) : 'Dagsetning óstaðfest'}
                       </p>
                     </div>
                     <div className="flex items-center justify-center gap-3">
                       <span className="material-symbols-outlined text-[#D4AF37] text-sm">schedule</span>
-                      <p className="text-xl font-black italic uppercase tracking-tighter">Kl. 19:15 • Ásvellir</p>
+                      <p className="text-xl font-black italic uppercase tracking-tighter">{nextHomeMatch && nextHomeMatch.date ? `Kl. ${formatTime(parseMatchDate(nextHomeMatch.date))}` : 'Tími óstaðfestur'} • {nextHomeMatch ? getVenue(nextHomeMatch.home) : 'Ásvellir'}</p>
                     </div>
                   </div>
 

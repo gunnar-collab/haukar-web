@@ -30,11 +30,17 @@ function getActiveMatch(leagueData) {
         if (!leagueData[division] || !leagueData[division].matches) continue;
         
         for (const match of leagueData[division].matches) {
-            if (!match.date || !match.time) continue;
+            if (!match.date) continue;
             
-            // Format time assuming HH:MM
-            const matchDateStr = `${match.date}T${match.time.length === 4 ? '0'+match.time : match.time}:00`;
-            const matchDate = new Date(matchDateStr);
+            let matchDate;
+            if (match.date.includes('T')) {
+                matchDate = new Date(match.date);
+            } else if (match.time) {
+                const matchDateStr = `${match.date}T${match.time.length === 4 ? '0'+match.time : match.time}:00`;
+                matchDate = new Date(matchDateStr);
+            } else {
+                matchDate = new Date(`${match.date}T19:15:00`);
+            }
             
             // Check if the match is currently happening (started less than 2.5 hours ago, or starts in the next 10 mins)
             const diffMs = now - matchDate;
