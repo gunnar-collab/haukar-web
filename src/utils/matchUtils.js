@@ -1,17 +1,17 @@
+import { parseMatchDate } from './globalMatchUtils';
 import leagueData from '../data/haukar_league_data.json';
 
 const formatDate = (dateStr) => {
   if (!dateStr) return '';
-  const d = new Date(dateStr);
+  const d = parseMatchDate(dateStr);
   const days = ['Sun', 'Mán', 'Þri', 'Mið', 'Fim', 'Fös', 'Lau'];
   const months = ['Janúar', 'Febrúar', 'Mars', 'Apríl', 'Maí', 'Júní', 'Júlí', 'Ágúst', 'September', 'Október', 'Nóvember', 'Desember'];
   
   const h = d.getHours().toString().padStart(2, '0');
   const m = d.getMinutes().toString().padStart(2, '0');
   const time = `${h}:${m}`;
-  const timeStr = time === '00:00' ? '19:15' : time;
   
-  return `${days[d.getDay()]} ${d.getDate()}. ${months[d.getMonth()]} • ${timeStr}`;
+  return `${days[d.getDay()]} ${d.getDate()}. ${months[d.getMonth()]} • ${time}`;
 };
 
 export const getDynamicMatches = (sport, gender) => {
@@ -32,12 +32,19 @@ export const getDynamicMatches = (sport, gender) => {
   // Filter for senior matches and sort by date
   const sortedMatches = [...currentData.matches]
     .filter(isMeistaraflokkur)
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    .sort((a, b) => parseMatchDate(a.date) - parseMatchDate(b.date));
 
-  const isUpcomingMatch = (m) => m.score === 'Næsti leikur' || m.score === '- - -' || m.score === '-' || !m.score;
+  const isUpcomingMatch = (m) => {
+    const matchDate = parseMatchDate(m.date);
+    return (m.score === 'Næsti leikur' || m.score === '- - -' || m.score === '-' || !m.score) && matchDate >= now;
+  };
 
-  const playedMatches = sortedMatches.filter(m => !isUpcomingMatch(m)).reverse();
-  const upcomingMatches = sortedMatches.filter(m => isUpcomingMatch(m));
+  const isPlayedMatch = (m) => {
+    return m.score && m.score !== 'Næsti leikur' && m.score !== '- - -' && m.score !== '-';
+  };
+
+  const playedMatches = sortedMatches.filter(isPlayedMatch).reverse();
+  const upcomingMatches = sortedMatches.filter(isUpcomingMatch);
 
   const lastRaw = playedMatches[0] || {};
   const nextRaw = upcomingMatches[0] || {};

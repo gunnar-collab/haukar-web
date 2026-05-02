@@ -156,11 +156,16 @@ async function fetchHBStatz() {
           const shootingPct = parseFloat($p(cols[5]).text().trim()) || 0;
           let totalShots = shootingPct > 0 ? Math.round(totalGoals / (shootingPct / 100)) : 0;
           
+          const steals = parseInt($p(cols[20]).text().trim()) || 0;
+          const blockedShots = parseInt($p(cols[21]).text().trim()) || 0;
+          const legalStops = parseInt($p(cols[22]).text().trim()) || 0;
+          
           players[name] = {
             name,
             gamesPlayed,
             stats: {
-              offensive: { gamesPlayed, totalGoals, totalShots, shootingPercentage: `${shootingPct}%` }
+              offensive: { gamesPlayed, totalGoals, totalShots, shootingPercentage: `${shootingPct}%` },
+              defensive: { steals, blockedShots, legalStops }
             }
           };
         }

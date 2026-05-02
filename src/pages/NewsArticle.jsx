@@ -87,11 +87,35 @@ function NewsSlider({ images, title }) {
 export default function NewsArticle() {
   const { slug } = useParams();
   const article = newsArticles.find(a => a.slug === slug) || newsArticles[0];
+  const [copied, setCopied] = useState(false);
 
   // Always snap to the top when loading a new article
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: article.title,
+          text: article.lead,
+          url: window.location.href,
+        });
+      } catch (err) {
+        console.log('User cancelled share or share failed');
+      }
+    } else {
+      // Fallback to copy link if native share isn't supported
+      handleCopy();
+    }
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   if (!article) return null;
 
@@ -119,7 +143,17 @@ export default function NewsArticle() {
 
         {/* Massive Editorial Headline */}
         <h1 className="text-4xl md:text-7xl font-black tracking-tight text-[#1c2c6c] leading-[1.1] mb-8">
-          {article.title}
+          {article.title.split('\n').map((part, i, arr) => (
+            <span key={i}>
+              {part.trim()}
+              {i < arr.length - 1 && (
+                <>
+                  <br className="md:hidden" />
+                  <span className="hidden md:inline"> </span>
+                </>
+              )}
+            </span>
+          ))}
         </h1>
         
         {/* Subheadline / Lead Paragraph */}
@@ -160,11 +194,21 @@ export default function NewsArticle() {
         
         <div className="flex items-center gap-4">
           <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Deila grein:</span>
-          <button className="w-10 h-10 rounded-full bg-gray-100 text-[#1c2c6c] hover:bg-[#c8102e] hover:text-white transition-colors flex items-center justify-center">
+          <button 
+            onClick={handleShare}
+            className="w-10 h-10 rounded-full bg-gray-100 text-[#1c2c6c] hover:bg-[#c8102e] hover:text-white transition-colors flex items-center justify-center shadow-sm hover:shadow-md"
+            aria-label="Deila grein"
+            title="Deila"
+          >
             <span className="material-symbols-outlined text-[18px]">share</span>
           </button>
-          <button className="w-10 h-10 rounded-full bg-gray-100 text-[#1c2c6c] hover:bg-[#c8102e] hover:text-white transition-colors flex items-center justify-center">
-            <span className="material-symbols-outlined text-[18px]">link</span>
+          <button 
+            onClick={handleCopy}
+            className={`w-10 h-10 rounded-full transition-all flex items-center justify-center shadow-sm hover:shadow-md ${copied ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-[#1c2c6c] hover:bg-[#c8102e] hover:text-white'}`}
+            aria-label="Afrita hlekk"
+            title="Afrita hlekk"
+          >
+            <span className="material-symbols-outlined text-[18px]">{copied ? 'check' : 'link'}</span>
           </button>
         </div>
 

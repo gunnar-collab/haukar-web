@@ -1,4 +1,4 @@
-import leagueData from '../data/haukar_league_data.json';
+import fs from 'fs';
 
 const SPORTS_MAP = {
   fotbolti_karla: { name: 'Fótbolti (K)', venue: 'Ásvellir' },
@@ -10,25 +10,22 @@ const SPORTS_MAP = {
   korfubolti_kvenna: { name: 'Körfubolti (Kv)', venue: 'Ólafssalur' }
 };
 
-export const parseMatchDate = (dateStr) => {
+const parseMatchDate = (dateStr) => {
   if (!dateStr) return new Date();
-  
-  // If it's a pure date string (e.g. "2026-05-02"), it parses to UTC midnight.
-  // We want to force it to 19:15 so sorting works correctly against games that have times.
   const isDateOnly = /^\d{4}-\d{2}-\d{2}$/.test(dateStr.trim());
   if (isDateOnly) {
     return new Date(`${dateStr.trim()}T19:15:00`);
   }
-  
   const d = new Date(dateStr);
   if (d.getUTCHours() === 0 && d.getUTCMinutes() === 0) {
     d.setHours(19, 15, 0, 0);
   }
-  
   return d;
 };
 
-export const getAllMatches = () => {
+const leagueData = JSON.parse(fs.readFileSync('./src/data/haukar_league_data.json', 'utf8'));
+
+const getAllMatches = () => {
   const now = new Date();
   now.setHours(0, 0, 0, 0);
   let allMatches = [];
@@ -38,11 +35,8 @@ export const getAllMatches = () => {
     if (divisionData && divisionData.matches) {
       divisionData.matches.forEach(match => {
         const matchDate = parseMatchDate(match.date);
-        
         const isYouth = /\d\.\s*flokkur|U\d{2}/i.test(match.competition) || /\d\.\s*flokkur|U\d{2}/i.test(match.home) || /\d\.\s*flokkur|U\d{2}/i.test(match.away);
-        const isHome = match.home && match.home.includes('Haukar');
         
-        // Map to standard category name
         let category = 'Félagið';
         if (key.includes('fotbolti')) category = 'Fótbolti';
         else if (key.includes('korfubolti')) category = 'Körfubolti';
@@ -52,40 +46,37 @@ export const getAllMatches = () => {
 
         allMatches.push({
           ...match,
-          id: `adult_${key}_${match.date}_${match.away}_${match.competition ? match.competition.replace(/\s+/g, '_') : Math.random()}`,
           sportKey: key,
-          sportName: sportConfig.name,
           category,
           ageGroup: isYouth ? 'Yngri flokkar' : 'Meistaraflokkur',
-          venue: isHome ? sportConfig.venue : 'Útivöllur', // baseline venue
           parsedDate: matchDate,
-          isHome,
           isYouth,
           isUpcoming
         });
       });
     }
   }
-
-  // Sort chronologically
-  allMatches.sort((a, b) => a.parsedDate - b.parsedDate);
   return allMatches;
 };
 
-export const getNextHomeGame = () => {
-  const allMatches = getAllMatches();
-  const upcomingHome = allMatches.filter(m => m.isUpcoming && m.isHome && !m.isYouth);
-  return upcomingHome.length > 0 ? upcomingHome[0] : null;
-};
+const allMatches = getAllMatches();
+const youthMatch = allMatches.find(m => m.competition === 'Íslandsmót KSÍ 5. flokkur kvenna 2026 - A lið C riðill');
 
-export const getUpcomingHomeMatches = (count = 3) => {
-  const allMatches = getAllMatches();
-  const upcomingHome = allMatches.filter(m => m.isUpcoming && m.isHome && !m.isYouth);
-  return upcomingHome.slice(0, count);
-};
-
-export const getUpcomingMatches = (count = 3) => {
-  const allMatches = getAllMatches();
-  const upcoming = allMatches.filter(m => m.isUpcoming && !m.isYouth);
-  return upcoming.slice(0, count);
-};
+if (youthMatch) {
+  console.log("FOUND MATCH:", youthMatch.competition);
+  console.log("sportKey:", youthMatch.sportKey);
+  console.log("ageGroup:", youthMatch.ageGroup);
+  console.log("category:", youthMatch.category);
+  
+  const activeSportFilter = 'Allt';
+  const activeAgeFilter = 'Meistaraflokkur';
+  
+  const sportMatch = activeSportFilter === 'Allt' || youthMatch.category === activeSportFilter;
+  const ageMatch = activeAgeFilter === 'Allir Flokkar' || youthMatch.ageGroup === activeAgeFilter || youthMatch.category === 'Félagið';
+  
+  console.log("sportMatch:", sportMatch);
+  console.log("ageMatch:", ageMatch);
+  console.log("included in filter?", sportMatch && ageMatch);
+} else {
+  console.log("MATCH NOT FOUND!");
+}

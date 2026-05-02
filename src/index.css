@@ -228,3 +228,16 @@ html {
 .animate-wave-grow {
   animation: wave-grow 4s ease-in-out infinite;
 }
+
+@keyframes border-glow-pan {
+  0% { background-position: 0% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
+}
+.animate-shimmer {
+  animation: shimmer 4s infinite linear;
+}

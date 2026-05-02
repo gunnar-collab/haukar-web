@@ -79,7 +79,7 @@ function formatEventsForAi(eventsArray, limit = 500) {
   return limited.map(e => {
     const d = new Date(e.dateRaw);
     const dateStr = `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getDate().toString().padStart(2, '0')}`;
-    const timeStr = d.getHours() > 0 ? `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}` : '';
+    const timeStr = d.getHours() > 0 ? `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}` : '19:15';
     return `[${dateStr} ${timeStr}] ${e.category} | ${e.competition}: ${e.title} á ${e.location}`;
   }).join('\n');
 }

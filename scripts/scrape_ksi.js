@@ -105,8 +105,11 @@ async function fetchMatchStats(matchObj, playerStatsDict) {
         // Find the name, it's usually the second span (first is number)
         const spans = $r(a).find('span.group-hover\\:underline');
         let name = "Unknown";
+        let isGoalie = false;
         if (spans.length > 0) {
-           name = $r(spans[0]).text().replace(/\s+/g, ' ').replace('(M)', '').replace('(F)', '').trim();
+           const originalText = $r(spans[0]).text();
+           isGoalie = originalText.includes('(M)');
+           name = originalText.replace(/\s+/g, ' ').replace('(M)', '').replace('(F)', '').trim();
         }
         
         // Check if subbed on (bench players only get a game if they have minute marks like 79´)
@@ -124,11 +127,22 @@ async function fetchMatchStats(matchObj, playerStatsDict) {
             playerStatsDict[id] = {
               name,
               ksiId: id,
-              stats: { gamesPlayed: 0, starts: 0, goals: 0, yellowCards: 0, redCards: 0 }
+              stats: { gamesPlayed: 0, starts: 0, goals: 0, yellowCards: 0, redCards: 0, cleanSheets: 0 }
             };
           }
           playerStatsDict[id].stats.gamesPlayed += 1;
           if (isStarter) playerStatsDict[id].stats.starts += 1;
+          
+          // Calculate Clean Sheets
+          if (isGoalie && matchObj.score && matchObj.score.includes('-')) {
+            const scoreParts = matchObj.score.split('-').map(s => parseInt(s.trim(), 10));
+            if (!isNaN(scoreParts[0]) && !isNaN(scoreParts[1])) {
+                const opponentGoals = isHome ? scoreParts[1] : scoreParts[0];
+                if (opponentGoals === 0) {
+                    playerStatsDict[id].stats.cleanSheets += 1;
+                }
+            }
+          }
           
           // Match goals by name (best effort since KSÍ main page uses full name and report uses full name)
           // We apply goals when we see them in the report so we don't double count
@@ -181,6 +195,7 @@ async function fetchMatches(existingLeagueData) {
   
   const menMatches = [];
   const womenMatches = [];
+  const youthMatches = [];
   let page = 1;
 
   while(true) {
@@ -238,10 +253,14 @@ async function fetchMatches(existingLeagueData) {
       }
 
       const compLower = comp.toLowerCase();
-      if (compLower.includes('kvenna') || compLower.includes('kvenn') || compLower.includes('konur')) {
-        womenMatches.push(matchObj);
+      if (isYouth) {
+        youthMatches.push(matchObj);
       } else {
-        menMatches.push(matchObj);
+        if (compLower.includes('kvenna') || compLower.includes('kvenn') || compLower.includes('konur')) {
+          womenMatches.push(matchObj);
+        } else {
+          menMatches.push(matchObj);
+        }
       }
     });
 
@@ -263,8 +282,9 @@ async function fetchMatches(existingLeagueData) {
 
   const finalMen = mergeMatches(menMatches, existingLeagueData?.fotbolti_karla?.matches || []);
   const finalWomen = mergeMatches(womenMatches, existingLeagueData?.fotbolti_kvenna?.matches || []);
+  const finalYouth = mergeMatches(youthMatches, existingLeagueData?.fotbolti_youth?.matches || []);
 
-  return { menMatches: finalMen, womenMatches: finalWomen };
+  return { menMatches: finalMen, womenMatches: finalWomen, youthMatches: finalYouth };
 }
 
 async function fetchStandings(url) {
@@ -315,8 +335,8 @@ async function scrapeKSI() {
              const matchDate = new Date(m.date);
              const hoursSince = (now - matchDate) / (1000 * 60 * 60);
              
-             // Check if game started between 2 and 24 hours ago
-             if (hoursSince >= 2 && hoursSince <= 24) {
+             // Check if game started between 2.5 and 24 hours ago
+             if (hoursSince >= 2.5 && hoursSince <= 24) {
                  console.log(`Found recent match: ${m.home} vs ${m.away} (${hoursSince.toFixed(1)} hours ago)`);
                  if (m.statsLink) {
                     await fetchMatchStats(m, playerStatsDict);
@@ -369,7 +389,7 @@ async function scrapeKSI() {
     const menStandings = await fetchStandings(KSI_MEN_URL);
     
     console.log("Fetching KSÍ Matches...");
-    const { menMatches, womenMatches } = await fetchMatches(leagueData);
+    const { menMatches, womenMatches, youthMatches } = await fetchMatches(leagueData);
     
     // Deep Scrape Men's Matches
     const menPlayerStats = {};
@@ -410,6 +430,7 @@ async function scrapeKSI() {
     // Update payload
     if (!leagueData.fotbolti_karla) leagueData.fotbolti_karla = {};
     if (!leagueData.fotbolti_kvenna) leagueData.fotbolti_kvenna = {};
+    if (!leagueData.fotbolti_youth) leagueData.fotbolti_youth = {};
 
     if (womenStandings.length > 0) leagueData.fotbolti_kvenna.standings = womenStandings;
     if (womenMatches.length > 0) leagueData.fotbolti_kvenna.matches = womenMatches;
@@ -418,6 +439,8 @@ async function scrapeKSI() {
     if (menStandings.length > 0) leagueData.fotbolti_karla.standings = menStandings;
     if (menMatches.length > 0) leagueData.fotbolti_karla.matches = menMatches;
     leagueData.fotbolti_karla.player_stats = dictToArray(menPlayerStats);
+    
+    if (youthMatches && youthMatches.length > 0) leagueData.fotbolti_youth.matches = youthMatches;
 
     fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(leagueData, null, 2), 'utf-8');
     console.log("Updated haukar_league_data.json with deep KSÍ stats!");

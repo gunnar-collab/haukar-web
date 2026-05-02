@@ -3,15 +3,37 @@
 
 export const newsArticles = [
   {
-    "slug": "adalfundur-knattspyrnufelagsins-hauka-5",
+    "slug": "haukar-einum-sigri-fra-urslitum",
+    "sport": "korfubolti",
+    "category": "Körfubolti",
+    "date": "2. maí 2026",
+    "title": "Haukar eru einum sigri\nfrá úrslitaeinvígi",
+    "lead": "Eftir rosalegan sigur í gærkvöldi eru Haukakonur nú einungis einum sigri frá því að tryggja sér sæti í úrslitaeinvíginu um Íslandsmeistaratitilinn.",
+    "image": "/images/news/haukar_womens_basketball_playoffs.webp",
+    "images": [],
+    "content": "<p>Eftir ótrúlegan og spennuþrunginn leik á Ásvöllum í gærkvöldi eru Haukar nú <strong>einum sigri frá því að tryggja sér sæti í úrslitaeinvíginu um Íslandsmeistaratitilinn í körfuknattleik kvenna</strong>. Stemningin í húsinu var rafmögnuð og stuðningsmenn liðsins létu vel í sér heyra allt til lokaflautsins.</p>\n<p>Leikurinn var hnífjafn framan af en í fjórða leikhluta settu Haukakonur í fluggír. Frábær varnarleikur, barátta um hvert frákast og frábær skotnýting fyrir utan þriggja stiga línuna gerðu gæfumuninn gegn gífurlega sterku liði andstæðinganna. Eftir þennan stórsigur standa Haukar feikilega vel að vígi fyrir næsta leik einvígisins.</p>\n<p>Þjálfari liðsins hrósaði baráttuandanum í leikslok og nefndi að liðsheildin væri lykillinn að þessari miklu velgengni í úrslitakeppninni. <em>„Stelpurnar sýndu gríðarlegan karakter þegar mest á reyndi. Við erum ekki komin í höfn, en við erum komin í frábæra stöðu. Nú snýst allt um að mæta af fullum krafti í næsta leik.“</em></p>\n<p>Stuðningsmenn eru hvattir til að fjölmenna á næsta leik sem gæti ráðið úrslitum um hvort liðið fari alla leið í stóra úrslitaeinvígið. Fyllum stúkuna og styðjum stelpurnar okkar til sigurs!</p>\n<p><strong>Heimildir og ítarefni:</strong><br/>\n<a href=\"https://www.mbl.is/sport/korfubolti/\" target=\"_blank\">Morgunblaðið Sport - Körfubolti</a><br/>\n<a href=\"https://www.visir.is/c/sport\" target=\"_blank\">Vísir Sport</a></p>"
+  },
+  {
+    "slug": "haukar-tap-gegn-throtti-v-i-opnunarleik",
+    "sport": "fotbolti",
+    "category": "Meistaraflokkur Karla",
+    "date": "2. maí 2026",
+    "title": "Sárt tap í opnunarleik\ngegn Þrótti V.",
+    "lead": "Fyrsta umferð 2. deildar karla hófst með látum í dag þar sem Haukar heimsóttu Þrótt Vogum. Eftir mikla baráttu tryggðu heimamenn sér 2-1 sigur með marki undir blálokin.",
+    "image": "/images/news/haukar_mens_soccer_opener.webp",
+    "images": [],
+    "content": "<p>Fyrsta umferð 2. deildar karla fór af stað í dag, og Haukar hófu leik á útivelli á Vogaídýfuvellinum þar sem þeir mættu Þrótti V. Búist var við hörkuleik enda bæði lið staðráðin í að byrja tímabilið af krafti.</p>\n<p>Leikurinn var í járnum lengst af og bæði lið sköpuðu sér fín færi. Baráttan var mikil á miðjunni og varnarleikurinn stóð traustum fótum framan af, en það var ekki fyrr en undir blálokin sem úrslitin réðust raunverulega. Þróttarar náðu að koma inn sigurmarki á lokamínútunum og tryggðu sér þar með 2-1 sigur.</p>\n<p>Þó úrslitin hafi ekki verið þau sem Haukamenn vonuðust eftir í upphafi móts, var ýmislegt jákvætt hægt að taka út úr leiknum. Strákarnir sýndu mikinn karakter og baráttuanda gegn öflugu liði Þróttar sem mun nýtast vel þegar líður á sumarið.</p>\n<p>Næsti leikur er á Ásvöllum þar sem liðið ætlar sér að sækja sín fyrstu stig deildarinnar. Við hvetjum alla Haukafélaga til að mæta, mynda frábæra stemningu í stúkunni og styðja strákana okkar til sigurs!</p>"
+  },
+  {
+    "slug": "adalfundur-knattspyrnufelagsins-hauka",
     "sport": "fotbolti",
     "category": "Félagið",
     "date": "28. apríl 2026",
-    "title": "Aðalfundur Knattspyrnufélagsins Hauka",
-    "lead": "Aðalfundur Knattspyrnufélagsins Hauka fer fram 11. maí kl. 17:00 á Ásvöllum. Mættu og hafðu áhrif á framtíð félagsins!",
+    "title": "Aðalfundur Hauka\n11. maí kl. 17:00 á Ásvöllum",
+    "lead": "Kæru Haukafélagar! Aðalfundur Knattspyrnufélagsins Hauka fer fram 11. maí kl. 17:00 á Ásvöllum. Mættu og hafðu áhrif á spennandi framtíð félagsins okkar.",
     "image": "/images/news/haukar_general_meeting.webp",
     "images": [],
-    "content": "<p>Aðalfundur Knattspyrnufélagsins Hauka verður haldinn mánudaginn 11. maí kl. 17:00 í Samkomusal félagsins að Ásvöllum.<br>\nDagskrá fundar samkvæmt lögum félagsins.<br>\nFélagar hvattir til að mæta!<br>\nStjórnin</p>\n"
+    "content": "<p>Knattspyrnufélagið Haukar boðar til aðalfundar <strong>mánudaginn 11. maí 2026, klukkan 17:00</strong> í glæsilegum samkomusal okkar að Ásvöllum.</p>\n<p>Á fundinum rennum við yfir viðburðaríkt ár, ræðum stórskemmtileg áform og mörkum stefnuna fyrir komandi tíma. Farið verður yfir hefðbundin aðalfundarstörf samkvæmt lögum félagsins, þar með talið stjórnarkjör og ársreikninga.</p>\n<p>Við hvetjum alla félagsmenn, foreldra, iðkendur og velunnara til að mæta, taka þátt í líflegum umræðum og leggja sitt af mörkum til félagsins. Ykkar rödd skiptir sköpum fyrir áframhaldandi vöxt Hauka.</p>\n<p>Kaffi á könnunni og frábær stemning!<br><em>Stjórn Knattspyrnufélagsins Hauka</em></p>\n"
   },
   {
     "slug": "adalfundur-handknattleiksdeildar-hauka-2026",
@@ -19,10 +41,10 @@ export const newsArticles = [
     "category": "Félagið",
     "date": "27. apríl 2026",
     "title": "Aðalfundur Handknattleiksdeildar Hauka 2026",
-    "lead": "Boðað er til aðalfundar Handknattleiksdeildar Hauka 2026 á Ásvöllum mánudaginn 4. maí kl. 20:00. Dagskrá verður samkvæmt lögum félagsins.",
+    "lead": "Kæru Haukafélagar, tími er kominn á aðalfund handknattleiksdeildar! Mætum á Ásvelli mánudaginn 4. maí kl. 20:00, ræðum framtíðina og höldum áfram að byggja upp öflugt starf.",
     "image": "/images/news/adalfundur-handknattleiksdeildar-hauka-2026.webp",
     "images": [],
-    "content": "<p>Aðalfundur Handknattleiksdeildar Hauka 2026</p>\n<p>verður haldinn mánudaginn 4. maí 2026 kl. 20:00</p>\n<p>á Ásvöllum, veislusal</p>\n<p>Dagskrá samkvæmt lögum félagsins</p>\n<p>Stjórnin</p>\n"
+    "content": "<p>Handknattleiksdeild Hauka boðar til aðalfundar <strong>mánudaginn 4. maí 2026, klukkan 20:00</strong>. Fundurinn fer fram í glæsilegum veislusal okkar að Ásvöllum.</p>\n<p>Á fundinum verður farið yfir árangur liðins árs, bæði innan og utan vallar, sem og spennandi framtíðarsýn fyrir handboltann í Haukum. Dagskrá fundarins verður samkvæmt hefðbundnum lögum félagsins, þar á meðal stjórnarkjör og önnur mál sem varða vöxt og viðgang deildarinnar.</p>\n<p>Við hvetjum alla sanna Haukafélaga, iðkendur, foreldra og stuðningsfólk til að mæta, láta rödd sína heyrast og taka þátt í mótun framtíðarinnar. Sterkt félagsstarf byggist á ykkur. Saman erum við sterkust!</p>\n<p>Hlökkum til að sjá ykkur öll.<br><em>Stjórn handknattleiksdeildar Hauka</em></p>\n"
   },
   {
     "slug": "gledilegt-sumar-5",
@@ -191,9 +213,9 @@ export const newsArticles = [
     "date": "17. desember 2025",
     "title": "Vantar mjúkan pakka undir jólatré🎄",
     "lead": "Vantar þig mjúkan pakka undir jólatréð? Haukavörurnar eru tilvaldar gjafir, fáanlegar í afgreiðslu á Ásvöllum fram að jólum.",
-    "image": "/images/news/vantar-mjukan-pakka-undir-jolatre%f0%9f%8e%84.webp",
+    "image": "/images/news/vantar-mjukan-pakka-undir-jolatre.webp",
     "images": [
-      "/images/news/vantar-mjukan-pakka-undir-jolatre%f0%9f%8e%84_gallery_0.webp"
+      "/images/news/vantar-mjukan-pakka-undir-jolatre_gallery_0.webp"
     ],
     "content": "<p>Náttföt – í stærðum 92 til 140 – kr. 4.000.-<br>\nÆfingasett – í stærðum 86-110 – kr. 8.500.-<br>\nSængurver – stærð 140x200cm og 50x70cm – kr .2.500.- . Handklæði –&nbsp; kr. 4.000.- Hægt er að nálgast Haukavörunar í afgreiðslunni á Ásvöllum alla daga fram að jólum (lokað á Þorláksmessu).<br>\n🔴HAUKAR – FÉLAGIÐ MITT🔴</p>\n"
   },

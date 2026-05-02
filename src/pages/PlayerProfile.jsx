@@ -245,7 +245,7 @@ export default function PlayerProfile() {
                       </div>
                       
                       <div className="flex flex-col items-center justify-center text-center p-6 bg-[#1c2c6c] rounded-3xl shadow-xl">
-                        <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-2">Hrein Mörk (Clean Sheets)</span>
+                        <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-2">Haldið hreinu (Clean Sheets)</span>
                         <span className="text-6xl font-black italic text-white drop-shadow-md">{player.stats.cleanSheets || 0}</span>
                       </div>
                     </div>

@@ -47,8 +47,11 @@ export default function Button({
     
     const InnerContent = () => (
       <>
-        {/* The shimmering metallic gold gradient */}
-        <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#D4AF37_0%,#FFF2CD_25%,#AA7C11_50%,#FFF2CD_75%,#D4AF37_100%)]" />
+        {/* Static Rich Gold Base */}
+        <span className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37]" />
+        
+        {/* The Linear Shimmer Sweep (Absolutely no clipping) */}
+        <span className="absolute inset-0 translate-x-[-100%] animate-shimmer bg-gradient-to-r from-transparent via-white/80 to-transparent" />
         
         {/* Inner button surface */}
         <span className={`relative z-10 inline-flex h-full w-full items-center justify-center rounded-full bg-white font-bold text-[#1c2c6c] transition-all group-hover:bg-gray-50 gap-2 ${sizes[size]} ${textStyle}`}>

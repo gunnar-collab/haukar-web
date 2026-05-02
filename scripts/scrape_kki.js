@@ -82,8 +82,20 @@ async function scrapeKKI() {
              // Format date: DD.MM.YYYY -> YYYY-MM-DD
              let formattedDate = dateText;
              const parts = dateText.split('.');
-             if (parts.length === 3) {
-                 formattedDate = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+             if (parts.length >= 3) {
+                 const yearPart = parts[2].split(' ')[0];
+                 formattedDate = `${yearPart}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+                 
+                 if (parts[2].includes(':')) {
+                     const timeMatch = parts[2].match(/(\d{2}:\d{2})/);
+                     if (timeMatch) formattedDate += `T${timeMatch[1]}:00`;
+                 } else {
+                     // Check column 1 for time
+                     const timeText = cols[1]?.innerText.trim() || '';
+                     if (/^\d{2}:\d{2}$/.test(timeText)) {
+                         formattedDate += `T${timeText}:00`;
+                     }
+                 }
              }
              
              if (score.includes('-')) {

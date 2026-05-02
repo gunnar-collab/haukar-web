@@ -1,0 +1,2263 @@
+
+<!doctype html>
+
+
+<!-- DataTables -->
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
+
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+
+
+
+
+
+<html>
+
+<script>
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+    
+        responsive: true,
+		"aaSorting": [[ 0, "desc" ]],
+ 		"iDisplayLength": 20,
+		"language": {
+			"emptyTable": "Engir leikir í gangi",
+			"sInfoEmpty": ""
+		},
+		"columnDefs": [
+            {
+                "targets": [ 0 ],
+                "visible": false,
+                "searchable": false
+            },
+			{
+                "targets": [ 1 ],
+                "visible": false,
+                "searchable": true
+            },
+			{
+                "targets": [ 2 ],
+                "visible": false,
+                "searchable": true
+            }
+        ]
+    } );
+} );
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<link href="headercss.css" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N646HZ4LD5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N646HZ4LD5');
+</script>
+</head> 
+<body>
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+	<a href="/" class="navbar-brand"><img src="hringur_transparent.png" ><b>HB</b>Statz</a>  		
+	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!-- Collection of nav links, forms, and other content for toggling -->
+	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">		
+		
+		<div class="navbar-nav ml-auto">			
+				
+          <div class="nav-item dropdown">
+				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><i class="fa fa-list"></i> Deildir <b class="caret"></b></a>
+				<div class="dropdown-menu">
+					<a href="OlisDeildKarlaLeikir.php" class="dropdown-item"><i class="fa fa-male"></i> Olís karlar</a>
+					<a href="OlisDeildKvennaLeikir.php" class="dropdown-item"><i class="fa fa-female"></i> Olís konur</a>
+					<a href="LeikirGrill.php?k=M&f=1&d=2" class="dropdown-item"><i class="fa fa-male"></i> Grill karlar</a>
+					<a href="LeikirGrill.php?k=F&f=1&d=2" class="dropdown-item"><i class="fa fa-female"></i> Grill konur</a>
+					<a href="Leikir2deild.php" class="dropdown-item"><i class="fa fa-female"></i> 2 deild karla</a>
+					<div class="divider dropdown-divider"></div>
+					<a href="LeikirYngriFlokkar.php?k=M&f=2&d=3" class="dropdown-item"><i class="fa fa-users"></i> Yngri flokkar</a>
+					<div class="divider dropdown-divider"></div>
+					<a href="LandsleikirKarla.php" class="dropdown-item"><i class="fa fa-map"></i> Landslið</a>
+				</div>
+			</div>
+           <div class="nav-item dropdown">
+				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><i class="fa fa-line-chart"></i> Tölfræði <b class="caret"></b></a>
+				<div class="dropdown-menu">
+					<a href="OlisDeildKarlaTolfraedi.php" class="dropdown-item"><i class="fa fa-user"></i> Leikmenn</a>
+					<a href="OlisDeildKarlaTolfraedi5.php" class="dropdown-item"><i class="fas fa-flag"></i> Skot Tölfræði</a>
+						<a href="OlisDeildKarlaSendingar.php" class="dropdown-item"><i class="fas fa-handshake"></i> Sendingar Tölfræði</a>
+					<div class="divider dropdown-divider"></div>
+					<a href="OlisDeildKarlaTolfraedi2.php" class="dropdown-item"><i class="fa fa-child"></i> Markmenn</a>			
+					<div class="divider dropdown-divider"></div>
+					<a href="OlisDeildKarlaTolfraedi3.php" class="dropdown-item"><i class="fa fa-users"></i> Lið</a>
+					<div class="divider dropdown-divider"></div>
+					<a href="OlisDeildKarlaTolfraedi6.php" class="dropdown-item"><i class="fas fa-bolt"></i> Power Ranking</a>
+					<a href="MoM.php" class="dropdown-item"><i class="fa fa-bullhorn"></i> Bestu leikmenn</a>
+					<a href="OlisDeildKarlaTolfraedi4.php" class="dropdown-item"><i class="fa fa-history"></i> Tölfræði Saga</a>									
+					
+				</div>
+			</div>
+          <div class="nav-item dropdown">
+				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><i class="fa fa-files-o"></i> Deildin <b class="caret"></b></a>
+				<div class="dropdown-menu">
+					<a href="OlisDeildKarlaStada.php" class="dropdown-item"><i class="fa fa-table"></i> Stöðutafla</a>
+					<div class="divider dropdown-divider"></div>
+					<a href="OlisDeildKarlaLeikir.php" class="dropdown-item"><i class="fa fa-file"></i> Leikskýrslur</a>
+					<a href="OlisdeildKarlaFramundan.php" class="dropdown-item"><i class="fa fa-arrow-circle-right"></i> Næstu Leikir</a>
+				</div>
+			</div>
+          <div class="nav-item dropdown">
+				<a href="OlisdeildKarlaLiveScore.php"  class="nav-item nav-link"><i class="fa fa-tv"></i> Í beinni <b class="caret"></b></a>
+			</div>
+		</div>
+      
+	</div>
+</nav>
+</body>
+</html>
+<head>
+
+<title>Leiksk&yacute;rslur</title>
+</head>
+
+<body>
+<br>
+
+<table id="example" class="display nowrap" style="width:100%" align="center">
+        <thead>
+            <tr>
+               <th>date1</th>
+			<th>Heimali&eth;</th>
+			<th>&Uacute;tili&eth;</th> 
+			<th>Leikur</th>			
+			<th>Tölfræði</th>			          
+            <th>Keppni</th>
+            <th>Leikdagur</th>
+            
+            </tr>
+        </thead>
+		
+		
+        <tbody>
+          
+<ul> 
+        <tr>
+			<td>2026-04-30</td>
+			<td>Valur</td>
+			<td>FH</td>
+            <td><img src="player_images/valur.png"  height="40px">   32 (18) - 30 (17)   <img src="player_images/fh.png"  height="40px">  <img src="no.png"  height="20px" title="G&ouml;gn &oacute;sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12919" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>30. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-27</td>
+			<td>FH</td>
+			<td>Valur</td>
+            <td><img src="player_images/fh.png"  height="40px">   31 (18) - 25 (15)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12916" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>27. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-24</td>
+			<td>Valur</td>
+			<td>FH</td>
+            <td><img src="player_images/valur.png"  height="40px">   37 (16) - 33 (16)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12914" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>24. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-17</td>
+			<td>Haukar</td>
+			<td>FH</td>
+            <td><img src="player_images/haukar.png"  height="40px">   35 (14) - 36 (19)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12905" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>17. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-14</td>
+			<td>FH</td>
+			<td>Haukar</td>
+            <td><img src="player_images/fh.png"  height="40px">   27 (14) - 23 (12)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12900" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>14. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-13</td>
+			<td>Valur</td>
+			<td>KA</td>
+            <td><img src="player_images/valur.png"  height="40px">   38 (19) - 34 (16)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12899" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>13. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-10</td>
+			<td>Haukar</td>
+			<td>FH</td>
+            <td><img src="player_images/haukar.png"  height="40px">   27 (13) - 22 (11)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12897" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>10. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-09</td>
+			<td>KA</td>
+			<td>Valur</td>
+            <td><img src="player_images/ka.png"  height="40px">   30 (14) - 33 (19)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12896" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>9. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-08</td>
+			<td>Stjarnan</td>
+			<td>Hordur</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   35 (16) - 20 (10)   <img src="player_images\hordur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12894" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Umspil Karla</td>
+            <td>8. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-07</td>
+			<td>FH</td>
+			<td>Haukar</td>
+            <td><img src="player_images/fh.png"  height="40px">   27 (11) - 21 (12)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12893" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>7. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-06</td>
+			<td>Valur</td>
+			<td>KA</td>
+            <td><img src="player_images/valur.png"  height="40px">   39 (17) - 21 (9)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12892" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>6. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-04</td>
+			<td>Stjarnan</td>
+			<td>Fjolnir</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   30 (12) - 27 (11)   <img src="player_images/fjolnir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12891" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Umspil Karla</td>
+            <td>4. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-04-02</td>
+			<td>Haukar</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/haukar.png"  height="40px">   32 (15) - 24 (13)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12890" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>2. apr&iacute;l 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-30</td>
+			<td>Fram</td>
+			<td>FH</td>
+            <td><img src="player_images/fram.png"  height="40px">   27 (11) - 33 (15)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12887" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>30. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-30</td>
+			<td>Afturelding</td>
+			<td>Haukar</td>
+            <td><img src="player_images/umfa.png"  height="40px">   26 (14) - 22 (12)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12886" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>30. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-29</td>
+			<td>HK</td>
+			<td>Valur</td>
+            <td><img src="player_images/hk.png"  height="40px">   28 (13) - 32 (14)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12884" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>29. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-29</td>
+			<td>KA</td>
+			<td>IBV</td>
+            <td><img src="player_images/ka.png"  height="40px">   25 (13) - 24 (11)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12882" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>29. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-27</td>
+			<td>Stjarnan</td>
+			<td>Fjolnir</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   23 (13) - 24 (12)   <img src="player_images/fjolnir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12877" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Umspil Karla</td>
+            <td>27. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-26</td>
+			<td>FH</td>
+			<td>Fram</td>
+            <td><img src="player_images/fh.png"  height="40px">   28 (12) - 26 (13)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12876" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>26. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-26</td>
+			<td>Haukar</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/haukar.png"  height="40px">   34 (20) - 26 (12)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12875" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla</td>
+            <td>26. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-25</td>
+			<td>Valur</td>
+			<td>HK</td>
+            <td><img src="player_images/valur.png"  height="40px">   42 (17) - 38 (16)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12873" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla (FRL1)</td>
+            <td>25. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-25</td>
+			<td>IBV</td>
+			<td>KA</td>
+            <td><img src="player_images/ibv.png"  height="40px">   33 (11) - 34 (13)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12872" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Úrslitakeppni karla (FRL2)</td>
+            <td>25. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-12</td>
+			<td>FH</td>
+			<td>IR</td>
+            <td><img src="player_images/fh.png"  height="40px">   34 (17) - 28 (17)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12856" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-12</td>
+			<td>IBV</td>
+			<td>Valur</td>
+            <td><img src="player_images/ibv.png"  height="40px">   28 (16) - 34 (16)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12855" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-12</td>
+			<td>Thor</td>
+			<td>KA</td>
+            <td><img src="player_images\thor.png"  height="40px">   31 (15) - 31 (17)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12854" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-12</td>
+			<td>Stjarnan</td>
+			<td>Fram</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   24 (14) - 26 (10)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12853" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-12</td>
+			<td>HK</td>
+			<td>Haukar</td>
+            <td><img src="player_images/hk.png"  height="40px">   26 (15) - 23 (10)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12852" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-12</td>
+			<td>Selfoss</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   27 (13) - 27 (15)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12851" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-09</td>
+			<td>KA</td>
+			<td>FH</td>
+            <td><img src="player_images/ka.png"  height="40px">   25 (12) - 30 (14)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12850" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-09</td>
+			<td>Fram</td>
+			<td>IBV</td>
+            <td><img src="player_images/fram.png"  height="40px">   26 (14) - 27 (14)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12849" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-09</td>
+			<td>Valur</td>
+			<td>HK</td>
+            <td><img src="player_images/valur.png"  height="40px">   33 (15) - 26 (14)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12848" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-09</td>
+			<td>Afturelding</td>
+			<td>Thor</td>
+            <td><img src="player_images/umfa.png"  height="40px">   24 (15) - 26 (13)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12847" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-09</td>
+			<td>Haukar</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/haukar.png"  height="40px">   35 (17) - 28 (16)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12846" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-09</td>
+			<td>IR</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/ir.png"  height="40px">   30 (13) - 26 (13)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12845" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-06</td>
+			<td>Stjarnan</td>
+			<td>KA</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   21 (11) - 38 (20)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12843" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>6. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-05</td>
+			<td>Valur</td>
+			<td>Fram</td>
+            <td><img src="player_images/valur.png"  height="40px">   27 (10) - 35 (16)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12842" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-05</td>
+			<td>FH</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/fh.png"  height="40px">   30 (13) - 29 (15)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12841" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-05</td>
+			<td>HK</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/hk.png"  height="40px">   38 (15) - 31 (12)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12840" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-05</td>
+			<td>IBV</td>
+			<td>IR</td>
+            <td><img src="player_images/ibv.png"  height="40px">   44 (22) - 40 (17)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12839" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-03-04</td>
+			<td>Thor</td>
+			<td>Haukar</td>
+            <td><img src="player_images\thor.png"  height="40px">   28 (13) - 34 (18)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12838" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>4. mars 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-28</td>
+			<td>Haukar</td>
+			<td>IR</td>
+            <td><img src="player_images/haukar.png"  height="40px">   28 (14) - 21 (6)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12835" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni</td>
+            <td>28. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-26</td>
+			<td>IR</td>
+			<td>KA</td>
+            <td><img src="player_images/ir.png"  height="40px">   32 (16) - 31 (13)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12833" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni</td>
+            <td>26. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-26</td>
+			<td>FH</td>
+			<td>Haukar</td>
+            <td><img src="player_images/fh.png"  height="40px">   21 (9) - 25 (11)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12832" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni</td>
+            <td>26. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-22</td>
+			<td>KA</td>
+			<td>IBV</td>
+            <td><img src="player_images/ka.png"  height="40px">   29 (13) - 28 (15)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12829" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>22. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-21</td>
+			<td>Selfoss</td>
+			<td>Thor</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   33 (17) - 35 (17)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12828" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>21. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-20</td>
+			<td>IR</td>
+			<td>Valur</td>
+            <td><img src="player_images/ir.png"  height="40px">   31 (14) - 41 (21)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12823" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>20. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-20</td>
+			<td>Fram</td>
+			<td>HK</td>
+            <td><img src="player_images/fram.png"  height="40px">   33 (20) - 29 (14)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12822" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>20. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-19</td>
+			<td>Haukar</td>
+			<td>FH</td>
+            <td><img src="player_images/haukar.png"  height="40px">   25 (12) - 32 (17)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12821" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>19. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-19</td>
+			<td>Afturelding</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/umfa.png"  height="40px">   29 (16) - 28 (15)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12819" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>19. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-14</td>
+			<td>Valur</td>
+			<td>KA</td>
+            <td><img src="player_images/valur.png"  height="40px">   36 (17) - 31 (13)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12817" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>14. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-13</td>
+			<td>Stjarnan</td>
+			<td>Haukar</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   25 (11) - 27 (13)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12814" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>13. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-13</td>
+			<td>HK</td>
+			<td>Thor</td>
+            <td><img src="player_images/hk.png"  height="40px">   36 (20) - 31 (19)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12813" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>13. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-13</td>
+			<td>IR</td>
+			<td>Fram</td>
+            <td><img src="player_images/ir.png"  height="40px">   26 (13) - 28 (13)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12812" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>13. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-12</td>
+			<td>IBV</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/ibv.png"  height="40px">   32 (19) - 29 (14)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12811" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-12</td>
+			<td>FH</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/fh.png"  height="40px">   33 (12) - 30 (15)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12810" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-09</td>
+			<td>IR</td>
+			<td>HK</td>
+            <td><img src="player_images/ir.png"  height="40px">   36 (19) - 31 (15)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12806" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-08</td>
+			<td>Stjarnan</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   26 (14) - 27 (13)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12836" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>8. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-08</td>
+			<td>Thor</td>
+			<td>FH</td>
+            <td><img src="player_images\thor.png"  height="40px">   21 (12) - 26 (13)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12807" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>8. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-08</td>
+			<td>KA</td>
+			<td>Fram</td>
+            <td><img src="player_images/ka.png"  height="40px">   32 (16) - 27 (15)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12805" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>8. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-08</td>
+			<td>Haukar</td>
+			<td>IBV</td>
+            <td><img src="player_images/haukar.png"  height="40px">   28 (11) - 29 (13)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12804" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>8. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-08</td>
+			<td>Afturelding</td>
+			<td>Valur</td>
+            <td><img src="player_images/umfa.png"  height="40px">   27 (12) - 35 (18)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12802" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>8. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-05</td>
+			<td>Fram</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/fram.png"  height="40px">   30 (16) - 26 (12)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12797" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-05</td>
+			<td>Valur</td>
+			<td>Haukar</td>
+            <td><img src="player_images/valur.png"  height="40px">   34 (15) - 41 (22)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12796" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-05</td>
+			<td>Stjarnan</td>
+			<td>Thor</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   24 (10) - 29 (17)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12795" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-04</td>
+			<td>IR</td>
+			<td>KA</td>
+            <td><img src="player_images/ir.png"  height="40px">   31 (13) - 37 (18)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12793" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>4. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-04</td>
+			<td>HK</td>
+			<td>FH</td>
+            <td><img src="player_images/hk.png"  height="40px">   29 (14) - 32 (16)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12792" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>4. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2026-02-04</td>
+			<td>IBV</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/ibv.png"  height="40px">   40 (18) - 28 (11)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12791" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>4. febr&uacute;ar 2026</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-19</td>
+			<td>Afturelding</td>
+			<td>FH</td>
+            <td><img src="player_images/umfa.png"  height="40px">   29 (15) - 30 (16)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12759" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni</td>
+            <td>19. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-19</td>
+			<td>Fjolnir</td>
+			<td>IR</td>
+            <td><img src="player_images/fjolnir.png"  height="40px">   34 (16) - 42 (21)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12757" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni</td>
+            <td>19. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-19</td>
+			<td>HK</td>
+			<td>Haukar</td>
+            <td><img src="player_images/hk.png"  height="40px">   21 (11) - 28 (16)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12756" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni</td>
+            <td>19. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-19</td>
+			<td>KA</td>
+			<td>Fram</td>
+            <td><img src="player_images/ka.png"  height="40px">   30 (14) - 25 (13)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12755" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni</td>
+            <td>19. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-15</td>
+			<td>Haukar</td>
+			<td>Fram</td>
+            <td><img src="player_images/haukar.png"  height="40px">   25 (12) - 27 (13)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12751" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>15. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-15</td>
+			<td>Afturelding</td>
+			<td>IR</td>
+            <td><img src="player_images/umfa.png"  height="40px">   34 (17) - 31 (17)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12750" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>15. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-15</td>
+			<td>KA</td>
+			<td>HK</td>
+            <td><img src="player_images/ka.png"  height="40px">   30 (18) - 27 (9)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12749" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>15. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-15</td>
+			<td>FH</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/fh.png"  height="40px">   33 (15) - 31 (17)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12748" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>15. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-15</td>
+			<td>Selfoss</td>
+			<td>Valur</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   40 (19) - 43 (23)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12747" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>15. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-14</td>
+			<td>Thor</td>
+			<td>IBV</td>
+            <td><img src="player_images\thor.png"  height="40px">   27 (14) - 32 (16)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12745" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>14. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-11</td>
+			<td>KA</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/ka.png"  height="40px">   22 (10) - 28 (11)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12740" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>11. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-11</td>
+			<td>Fram</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/fram.png"  height="40px">   38 (17) - 29 (13)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12739" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>11. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-10</td>
+			<td>HK</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/hk.png"  height="40px">   24 (15) - 23 (11)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12738" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>10. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-10</td>
+			<td>IR</td>
+			<td>Haukar</td>
+            <td><img src="player_images/ir.png"  height="40px">   31 (14) - 39 (18)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12737" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>10. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-10</td>
+			<td>Valur</td>
+			<td>Thor</td>
+            <td><img src="player_images/valur.png"  height="40px">   31 (16) - 30 (16)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12736" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>10. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-10</td>
+			<td>IBV</td>
+			<td>FH</td>
+            <td><img src="player_images/ibv.png"  height="40px">   23 (15) - 29 (13)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12735" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>10. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-06</td>
+			<td>Thor</td>
+			<td>Fram</td>
+            <td><img src="player_images\thor.png"  height="40px">   20 (11) - 34 (17)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12734" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>6. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-05</td>
+			<td>FH</td>
+			<td>Valur</td>
+            <td><img src="player_images/fh.png"  height="40px">   29 (18) - 34 (17)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12732" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-05</td>
+			<td>Stjarnan</td>
+			<td>IBV</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   22 (12) - 29 (16)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12731" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-03</td>
+			<td>Haukar</td>
+			<td>KA</td>
+            <td><img src="player_images/haukar.png"  height="40px">   42 (17) - 38 (19)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12729" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>3. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-03</td>
+			<td>Afturelding</td>
+			<td>HK</td>
+            <td><img src="player_images/umfa.png"  height="40px">   40 (18) - 33 (17)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12728" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>3. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-12-03</td>
+			<td>Selfoss</td>
+			<td>IR</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   35 (17) - 34 (18)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12727" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>3. desember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-30</td>
+			<td>IR</td>
+			<td>Thor</td>
+            <td><img src="player_images/ir.png"  height="40px">   34 (18) - 31 (13)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12724" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>30. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-28</td>
+			<td>Fram</td>
+			<td>FH</td>
+            <td><img src="player_images/fram.png"  height="40px">   28 (14) - 30 (17)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12721" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>28. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-28</td>
+			<td>HK</td>
+			<td>IBV</td>
+            <td><img src="player_images/hk.png"  height="40px">   28 (14) - 34 (16)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12720" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>28. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-27</td>
+			<td>Afturelding</td>
+			<td>Haukar</td>
+            <td><img src="player_images/umfa.png"  height="40px">   31 (15) - 22 (9)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12723" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>27. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-27</td>
+			<td>KA</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/ka.png"  height="40px">   33 (21) - 28 (15)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12719" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>27. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-27</td>
+			<td>Valur</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/valur.png"  height="40px">   31 (16) - 24 (12)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12718" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>27. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-22</td>
+			<td>Valur</td>
+			<td>IBV</td>
+            <td><img src="player_images/valur.png"  height="40px">   34 (17) - 26 (10)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12716" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>22. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-21</td>
+			<td>Fram</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/fram.png"  height="40px">   24 (15) - 33 (21)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12715" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>21. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-21</td>
+			<td>Afturelding</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/umfa.png"  height="40px">   28 (17) - 29 (14)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12714" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>21. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-20</td>
+			<td>KA</td>
+			<td>Thor</td>
+            <td><img src="player_images/ka.png"  height="40px">   32 (13) - 28 (12)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12713" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>20. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-20</td>
+			<td>Haukar</td>
+			<td>HK</td>
+            <td><img src="player_images/haukar.png"  height="40px">   33 (12) - 19 (11)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12712" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>20. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-19</td>
+			<td>IR</td>
+			<td>FH</td>
+            <td><img src="player_images/ir.png"  height="40px">   25 (11) - 33 (16)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12711" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>19. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-14</td>
+			<td>Thor</td>
+			<td>Afturelding</td>
+            <td><img src="player_images\thor.png"  height="40px">   23 (8) - 23 (10)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12708" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>14. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-13</td>
+			<td>IBV</td>
+			<td>Fram</td>
+            <td><img src="player_images/ibv.png"  height="40px">   28 (12) - 34 (17)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12707" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>13. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-13</td>
+			<td>HK</td>
+			<td>Valur</td>
+            <td><img src="player_images/hk.png"  height="40px">   24 (9) - 33 (18)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12706" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>13. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-13</td>
+			<td>Stjarnan</td>
+			<td>IR</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   27 (16) - 27 (14)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12704" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>13. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-13</td>
+			<td>Selfoss</td>
+			<td>Haukar</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   30 (16) - 35 (16)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12703" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>13. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-12</td>
+			<td>FH</td>
+			<td>KA</td>
+            <td><img src="player_images/fh.png"  height="40px">   45 (22) - 32 (14)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12700" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-07</td>
+			<td>Haukar</td>
+			<td>Thor</td>
+            <td><img src="player_images/haukar.png"  height="40px">   35 (18) - 31 (12)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12699" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>7. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-07</td>
+			<td>KA</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/ka.png"  height="40px">   36 (18) - 31 (11)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12695" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>7. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-06</td>
+			<td>Afturelding</td>
+			<td>FH</td>
+            <td><img src="player_images/umfa.png"  height="40px">   25 (11) - 23 (13)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12692" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>6. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-06</td>
+			<td>Fram</td>
+			<td>Valur</td>
+            <td><img src="player_images/fram.png"  height="40px">   27 (14) - 36 (21)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12691" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>6. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-06</td>
+			<td>IR</td>
+			<td>IBV</td>
+            <td><img src="player_images/ir.png"  height="40px">   36 (18) - 36 (19)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12690" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>6. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-11-06</td>
+			<td>Selfoss</td>
+			<td>HK</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   29 (13) - 32 (16)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12689" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>6. n&oacute;vember 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-25</td>
+			<td>IBV</td>
+			<td>KA</td>
+            <td><img src="player_images/ibv.png"  height="40px">   36 (18) - 34 (17)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12676" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>25. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-25</td>
+			<td>HK</td>
+			<td>Fram</td>
+            <td><img src="player_images/hk.png"  height="40px">   29 (12) - 40 (21)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12675" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>25. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-24</td>
+			<td>Stjarnan</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   31 (12) - 35 (16)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12673" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>24. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-23</td>
+			<td>Thor</td>
+			<td>Selfoss</td>
+            <td><img src="player_images\thor.png"  height="40px">   31 (15) - 28 (15)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12672" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>23. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-23</td>
+			<td>FH</td>
+			<td>Haukar</td>
+            <td><img src="player_images/fh.png"  height="40px">   27 (9) - 26 (12)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12671" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>23. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-23</td>
+			<td>Valur</td>
+			<td>IR</td>
+            <td><img src="player_images/valur.png"  height="40px">   36 (21) - 35 (13)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12670" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>23. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-18</td>
+			<td>Afturelding</td>
+			<td>IBV</td>
+            <td><img src="player_images/umfa.png"  height="40px">   33 (18) - 34 (20)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12669" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>18. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-17</td>
+			<td>Fram</td>
+			<td>IR</td>
+            <td><img src="player_images/fram.png"  height="40px">   37 (20) - 33 (10)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12667" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>17. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-16</td>
+			<td>Haukar</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/haukar.png"  height="40px">   30 (17) - 26 (11)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12666" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>16. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-16</td>
+			<td>Thor</td>
+			<td>HK</td>
+            <td><img src="player_images\thor.png"  height="40px">   24 (11) - 32 (17)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12665" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>16. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-16</td>
+			<td>KA</td>
+			<td>Valur</td>
+            <td><img src="player_images/ka.png"  height="40px">   33 (17) - 28 (17)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12664" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>16. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-13</td>
+			<td>Selfoss</td>
+			<td>FH</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   28 (11) - 33 (14)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12662" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>13. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-12</td>
+			<td>IBV</td>
+			<td>Haukar</td>
+            <td><img src="player_images/ibv.png"  height="40px">   29 (13) - 39 (20)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12661" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-10</td>
+			<td>Fram</td>
+			<td>KA</td>
+            <td><img src="player_images/fram.png"  height="40px">   28 (13) - 32 (19)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12660" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>10. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-10</td>
+			<td>HK</td>
+			<td>IR</td>
+            <td><img src="player_images/hk.png"  height="40px">   30 (12) - 28 (9)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12659" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>10. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-09</td>
+			<td>Valur</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/valur.png"  height="40px">   35 (16) - 25 (11)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12656" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-09</td>
+			<td>FH</td>
+			<td>Thor</td>
+            <td><img src="player_images/fh.png"  height="40px">   34 (18) - 34 (13)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12655" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-09</td>
+			<td>Selfoss</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   33 (14) - 36 (16)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12654" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>9. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-06</td>
+			<td>Haukar</td>
+			<td>Valur</td>
+            <td><img src="player_images/haukar.png"  height="40px">   39 (13) - 38 (13)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12650" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni (V&iacute;t&oacute;)</td>
+            <td>6. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-06</td>
+			<td>HK</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/hk.png"  height="40px">   27 (12) - 23 (9)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12649" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni</td>
+            <td>6. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-05</td>
+			<td>IR</td>
+			<td>Thor</td>
+            <td><img src="player_images/ir.png"  height="40px">   33 (15) - 32 (16)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12647" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Bikarkeppni</td>
+            <td>5. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-02</td>
+			<td>Thor</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images\thor.png"  height="40px">   34 (17) - 34 (19)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12648" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>2. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-02</td>
+			<td>Afturelding</td>
+			<td>Fram</td>
+            <td><img src="player_images/umfa.png"  height="40px">   35 (19) - 29 (11)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12644" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>2. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-02</td>
+			<td>Haukar</td>
+			<td>Valur</td>
+            <td><img src="player_images/haukar.png"  height="40px">   37 (17) - 27 (17)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12643" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>2. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-02</td>
+			<td>FH</td>
+			<td>HK</td>
+            <td><img src="player_images/fh.png"  height="40px">   33 (19) - 34 (17)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12642" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>2. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-02</td>
+			<td>Selfoss</td>
+			<td>IBV</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   31 (14) - 30 (15)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12641" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>2. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-10-02</td>
+			<td>KA</td>
+			<td>IR</td>
+            <td><img src="player_images/ka.png"  height="40px">   41 (22) - 36 (18)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12640" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>2. okt&oacute;ber 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-27</td>
+			<td>IBV</td>
+			<td>Thor</td>
+            <td><img src="player_images/ibv.png"  height="40px">   30 (17) - 24 (13)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12635" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>27. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-27</td>
+			<td>Stjarnan</td>
+			<td>FH</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   28 (11) - 23 (14)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12633" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>27. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-26</td>
+			<td>HK</td>
+			<td>KA</td>
+            <td><img src="player_images/hk.png"  height="40px">   27 (9) - 31 (13)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12632" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>26. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-25</td>
+			<td>Fram</td>
+			<td>Haukar</td>
+            <td><img src="player_images/fram.png"  height="40px">   27 (14) - 32 (12)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12630" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>25. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-25</td>
+			<td>IR</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/ir.png"  height="40px">   36 (15) - 37 (21)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12629" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>25. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-25</td>
+			<td>Valur</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/valur.png"  height="40px">   31 (13) - 25 (14)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12628" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>25. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-19</td>
+			<td>Selfoss</td>
+			<td>Fram</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   32 (18) - 31 (14)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12625" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>19. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-19</td>
+			<td>Stjarnan</td>
+			<td>HK</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   26 (14) - 25 (13)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12624" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>19. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-19</td>
+			<td>Thor</td>
+			<td>Valur</td>
+            <td><img src="player_images\thor.png"  height="40px">   27 (11) - 28 (11)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12623" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>19. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-18</td>
+			<td>FH</td>
+			<td>IBV</td>
+            <td><img src="player_images/fh.png"  height="40px">   36 (19) - 30 (14)   <img src="player_images/ibv.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12621" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>18. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-18</td>
+			<td>Afturelding</td>
+			<td>KA</td>
+            <td><img src="player_images/umfa.png"  height="40px">   36 (18) - 27 (11)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12620" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>18. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-18</td>
+			<td>Haukar</td>
+			<td>IR</td>
+            <td><img src="player_images/haukar.png"  height="40px">   44 (20) - 28 (16)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12619" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>18. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-13</td>
+			<td>Fram</td>
+			<td>Thor</td>
+            <td><img src="player_images/fram.png"  height="40px">   36 (15) - 27 (16)   <img src="player_images\thor.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12617" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>13. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-12</td>
+			<td>IBV</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/ibv.png"  height="40px">   37 (19) - 27 (15)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12618" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-12</td>
+			<td>KA</td>
+			<td>Haukar</td>
+            <td><img src="player_images/ka.png"  height="40px">   32 (14) - 33 (17)   <img src="player_images/haukar.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12612" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>12. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-11</td>
+			<td>HK</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/hk.png"  height="40px">   26 (16) - 29 (12)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12611" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>11. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-11</td>
+			<td>Valur</td>
+			<td>FH</td>
+            <td><img src="player_images/valur.png"  height="40px">   27 (12) - 32 (18)   <img src="player_images/fh.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12610" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>11. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-11</td>
+			<td>IR</td>
+			<td>Selfoss</td>
+            <td><img src="player_images/ir.png"  height="40px">   33 (12) - 33 (18)   <img src="player_images/selfoss.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12608" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>11. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-06</td>
+			<td>Selfoss</td>
+			<td>KA</td>
+            <td><img src="player_images/selfoss.png"  height="40px">   30 (16) - 33 (15)   <img src="player_images/ka.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12603" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>6. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-05</td>
+			<td>Thor</td>
+			<td>IR</td>
+            <td><img src="player_images\thor.png"  height="40px">   29 (16) - 23 (9)   <img src="player_images/ir.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12607" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-05</td>
+			<td>IBV</td>
+			<td>HK</td>
+            <td><img src="player_images/ibv.png"  height="40px">   30 (15) - 29 (11)   <img src="player_images/hk.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12599" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>5. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-04</td>
+			<td>FH</td>
+			<td>Fram</td>
+            <td><img src="player_images/fh.png"  height="40px">   25 (12) - 29 (16)   <img src="player_images/fram.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12597" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>4. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-04</td>
+			<td>Haukar</td>
+			<td>Afturelding</td>
+            <td><img src="player_images/haukar.png"  height="40px">   27 (11) - 28 (15)   <img src="player_images/umfa.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12596" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>4. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-09-03</td>
+			<td>Stjarnan</td>
+			<td>Valur</td>
+            <td><img src="player_images/stjarnan.png"  height="40px">   27 (10) - 32 (14)   <img src="player_images/valur.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12593" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Olís karla</td>
+            <td>3. september 2025</td>
+          </tr>
+        
+    
+     
+        <tr>
+			<td>2025-08-21</td>
+			<td>Fram</td>
+			<td>Stjarnan</td>
+            <td><img src="player_images/fram.png"  height="40px">   28 (15) - 29 (15)   <img src="player_images/stjarnan.png"  height="40px">  <img src="yes.png"  height="20px" title="G&ouml;gn sam&thorn;ykkt"></td>
+			<td><a href="OlisDeildKarlaLeikur.php?ID=12590" class="dropdown-item"><i class="fa fa-line-chart"></i>  </a></td>
+            <td>Meistarakeppni HSÍ</td>
+            <td>21. &aacute;g&uacute;st 2025</td>
+          </tr>
+        
+    
+    </ul>        </tbody>
+       
+    </table>
+
+
+
+
+
+<br>
+ <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+
+</script>
+      <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HBStatz - Footer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+ 
+	
+	 
+	
+  </head>
+ 
+ <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+			<h4 class="text-uppercase mb-4">HBStatz er h&yacute;st af</h4>
+            <a href="https://tactica.is/"><img src="tactica_trans.png"  height="100"></a>
+            
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Samf&eacute;lagsmi&eth;lar</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/HBStatz/" target="_blank">
+                  <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://twitter.com/HBSstatz" target="_blank">
+                  <i class="fab fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.instagram.com/hbstatz/" target="_blank">
+                  <i class="fab fa-fw fa-instagram"></i>
+                </a>
+              </li>
+			  <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.linkedin.com/company/hb-tölfræði-ehf/" target="_blank">
+                  <i class="fab fa-fw fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+			
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">Samstarfsa&eth;ilar</h4>
+            <a href="https://hsi.is/"><img src="hsi_t.png"  height="50"></a>	
+			<a href="https://open.spotify.com/show/4YsPLJXw207Oy3yWT7V4R9"><img src="handkastid.png"  height="100"></a>			
+          </div>
+		
+        </div>
+      </div>
+    </footer>
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+         <small>Allur r&eacute;ttur &aacute;skilinn &copy; HBStatz  <script type="text/javascript">var year = new Date();document.write(year.getFullYear());</script> </small>
+      </div>
+    </div>
+	
+	
+<link href="headercss.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
+
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script></body>
+</html>

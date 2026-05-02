@@ -92,6 +92,7 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
       2. Í körfubolta skorar maður STIG eða KÖRFU ("2 stiga karfa", "3 stiga karfa"). ALDREI nota orðið "mörk" eða "mark" í sambandi við körfubolta!
       3. ALDREI segja "Haugastolt". Það heitir "Haukastolt" með K.
       4. Vertu hversdagslegur! Í stað þess að segja "Það er miður" eða vera formlegur þegar illa gengur, notaðu frekar "Æi", "Ahh", "Svei mér þá", eða "Súr biti".
+      5. MÁLFRÆÐI FYRIR LEIKVANGI: Ef leikvangur inniheldur orðið "Höllin" eða "Höll" (t.d. "Blue Höllin", "Schenkerhöllin"), notaðu ÁVALLT forsetninguna "í" og þágufall (t.d. "í Blue Höllinni"). ALDREI segja "á Blue Höllinni". Ef leikvangur inniheldur "völlur" eða "vellir" (t.d. "Ásvellir", "Kaplakrikavöllur"), notaðu forsetninguna "á" og þágufall (t.d. "á Ásvöllum", "á Kaplakrikavelli").
       
       ***LEIKJAPLAN OG FORGANGSRÖÐUN***
       Ef notandi spyr almennt um næstu leiki (t.d. "Hvenær er næsti leikur?" eða "Hvað er framundan hjá ykkur?"), skaltu ÁVALLT byrja á því að svara eingöngu fyrir Meistaraflokk (bæði karla og kvenna) sem eru næst á dagskrá. 
@@ -252,19 +253,20 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
           ) : (
             // NORMAL MODE TRIGGER (Minimalist Golden Sliver + Tooltip)
             <>
-              {/* Onboarding Tooltip that slides out on page load */}
-              <div 
-                className={`absolute top-1/2 right-4 -translate-y-1/2 flex items-center gap-1.5 bg-gradient-to-r from-[#D4AF37] to-[#B5952F] text-[#1c2c6c] px-3 py-1.5 rounded-l-full shadow-lg pointer-events-none transition-all duration-1000 ease-out ${
-                  showTooltip ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-                }`}
+              {/* Elegant Chat Bubble */}
+              <button 
+                onClick={() => setIsOpen(true)}
+                className={`absolute top-1/2 right-4 -translate-y-1/2 bg-white text-[#1c2c6c] px-4 py-2 rounded-2xl rounded-br-sm shadow-[0_4px_20px_rgba(0,0,0,0.1)] border border-gray-100 cursor-pointer transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center gap-2 ${
+                  showTooltip ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'
+                } z-0`}
               >
-                <span className="material-symbols-outlined text-[16px]">chat</span>
-                <span className="text-xs font-bold whitespace-nowrap tracking-wide">Spyrðu Hauk</span>
-              </div>
+                <span className="material-symbols-outlined text-[18px] text-[#D4AF37]">smart_toy</span>
+                <span className="text-sm font-bold tracking-wide">Hæ!</span>
+              </button>
 
               {/* The clean golden sliver */}
               <button 
-                className="relative bg-gradient-to-b from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] text-[#1c2c6c] rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_15px_rgba(212,175,55,0.4)] flex items-center justify-center sm:group-hover:w-8 transition-all duration-300 focus:outline-none pointer-events-none border-l border-t border-b border-white/40"
+                className="relative bg-gradient-to-b from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] text-[#1c2c6c] rounded-l-xl w-2 h-24 sm:w-1.5 sm:h-20 shadow-[-4px_0_15px_rgba(212,175,55,0.4)] flex items-center justify-center sm:group-hover:w-8 transition-all duration-300 focus:outline-none pointer-events-none border-l border-t border-b border-white/40 z-10"
               >
                 <span className="material-symbols-outlined text-[18px] opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 delay-75">
                   smart_toy
@@ -331,24 +333,24 @@ export default function GeminiChat({ onOpenTickets, isOpen, setIsOpen, initialSe
         <div className="px-4 pb-3 pt-4 bg-white border-t border-gray-100 flex gap-2 overflow-x-auto scrollbar-hide shadow-[0_-10px_20px_rgba(0,0,0,0.02)] relative z-10">
           <button 
             type="button"
-            onClick={() => setInput("Hvernig kaupi ég miða?")}
+            onClick={() => setInput("Hvernig kaupi ég miða á næsta leik?")}
             className="whitespace-nowrap px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-[11px] font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
           >
             🎫 Kaupa miða
           </button>
           <button 
             type="button"
-            onClick={() => setInput("Hvenær er næsti leikur í Körfu?")}
+            onClick={() => setInput("Hvaða leikir eru á dagskrá hjá meistaraflokkum?")}
             className="whitespace-nowrap px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-[11px] font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
           >
-            🏀 Næsti körfuboltaleikur
+            🗓️ Næstu leikir
           </button>
           <button 
             type="button"
-            onClick={() => setInput("Hvenær eru æfingar hjá 5. flokki í handbolta?")}
+            onClick={() => setInput("Hvað kostar að leigja veislusalinn á Ásvöllum?")}
             className="whitespace-nowrap px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-[11px] font-bold text-gray-600 hover:bg-[#c8102e] hover:border-[#c8102e] hover:text-white transition-colors"
           >
-            📅 Æfingatafla 5. flokks
+            🎉 Leigja veislusal
           </button>
         </div>
 

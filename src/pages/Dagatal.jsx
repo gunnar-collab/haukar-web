@@ -1,14 +1,14 @@
 import { useState, useEffect, useMemo } from 'react';
 import Button from '../components/Button';
 import TeamLogo from '../components/sports/TeamLogo';
-import leagueData from '../data/haukar_league_data.json';
 import youthData from '../data/haukar_youth_data.json';
 import { getVenueForTeam } from '../data/venueMap';
+import { getAllMatches, parseMatchDate } from '../utils/globalMatchUtils';
 
 // Utility to generate calendar links
 const getCalendarLinks = (event) => {
-  const startDate = new Date(event.dateRaw).toISOString().replace(/-|:|\.\d\d\d/g, "");
-  const endDate = new Date(new Date(event.dateRaw).getTime() + 2 * 60 * 60 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, "");
+  const startDate = new Date(event.parsedDate || event.dateRaw).toISOString().replace(/-|:|\.\d\d\d/g, "");
+  const endDate = new Date(new Date(event.parsedDate || event.dateRaw).getTime() + 2 * 60 * 60 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, "");
   
   const googleUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(event.competition)}&location=${encodeURIComponent(event.location)}`;
   
@@ -28,14 +28,14 @@ const downloadEventICal = (event) => {
   document.body.removeChild(element);
 };
 
-const formatDateObj = (dateStr) => {
-  if (!dateStr) return { day: '01', month: 'Jan', time: '12:00' };
-  const d = new Date(dateStr);
+const formatDateObj = (parsedDate) => {
+  if (!parsedDate) return { day: '01', month: 'Jan', time: '12:00' };
+  const d = new Date(parsedDate);
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Maí', 'Jún', 'Júl', 'Ágú', 'Sep', 'Okt', 'Nóv', 'Des'];
   return {
     day: d.getDate().toString().padStart(2, '0'),
     month: months[d.getMonth()],
-    time: d.getHours() > 0 ? `${d.getHours()}:${d.getMinutes().toString().padStart(2, '0')}` : '19:15'
+    time: `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`
   };
 };
 
@@ -56,45 +56,39 @@ export default function Dagatal() {
   const events = useMemo(() => {
     const allEvents = [];
     
-    // 1. Adult Matches
-    const adultKeys = ['fotbolti_karla', 'fotbolti_kvenna', 'karla', 'kvenna', 'korfubolti_karla', 'korfubolti_kvenna'];
-    adultKeys.forEach(key => {
-      const data = leagueData[key];
-      if (data && data.matches) {
-        data.matches.filter(m => m.score === 'Næsti leikur' || m.score === '- - -' || !m.score).forEach(m => {
-          let sport = key.includes('fotbolti') ? 'Fótbolti' : key.includes('korfubolti') ? 'Körfubolti' : 'Handbolti';
-          
-          const isYouth = /\d\.\s*flokkur|U\d{2}/i.test(m.competition) || /\d\.\s*flokkur|U\d{2}/i.test(m.home) || /\d\.\s*flokkur|U\d{2}/i.test(m.away);
-          
-          allEvents.push({
-            id: `adult_${key}_${m.date}_${m.away}`,
-            dateRaw: m.date,
-            ...formatDateObj(m.date),
-            title: `${m.home} - ${m.away}`,
-            home: m.home,
-            away: m.away,
-            category: sport,
-            ageGroup: isYouth ? 'Yngri flokkar' : 'Meistaraflokkur',
-            competition: m.competition,
-            location: m.home === 'Haukar' ? 'Ásvellir' : getVenueForTeam(m.home, sport),
-            isTicketed: !isYouth
-          });
-        });
-      }
+    // 1. Matches from unified league data
+    const leagueMatches = getAllMatches().filter(m => m.isUpcoming);
+    leagueMatches.forEach(m => {
+      allEvents.push({
+        id: m.id,
+        dateRaw: m.date,
+        parsedDate: m.parsedDate,
+        ...formatDateObj(m.parsedDate),
+        title: `${m.home} - ${m.away}`,
+        home: m.home,
+        away: m.away,
+        category: m.category,
+        ageGroup: m.ageGroup,
+        competition: m.competition,
+        location: m.home === 'Haukar' ? 'Ásvellir' : getVenueForTeam(m.home, m.category) || 'Útivöllur',
+        isTicketed: !m.isYouth
+      });
     });
 
-    // 2. Youth Matches
+    // 2. Youth Matches from dedicated youth feed
     if (youthData && youthData.matches) {
       youthData.matches.forEach(m => {
+        const parsedDate = parseMatchDate(m.date);
         allEvents.push({
           id: m.id,
           dateRaw: m.date,
-          ...formatDateObj(m.date),
+          parsedDate,
+          ...formatDateObj(parsedDate),
           title: `${m.home} - ${m.away}`,
           home: m.home,
           away: m.away,
           category: m.sport,
-          ageGroup: 'Yngri flokkar',
+          ageGroup: m.ageGroup || 'Yngri flokkar',
           competition: m.competition,
           location: m.venue,
           isTicketed: false,
@@ -104,30 +98,49 @@ export default function Dagatal() {
     }
 
     // 3. Club Events
+    const clubDate = parseMatchDate('2026-05-01T14:00:00');
     allEvents.push({
-      id: 'club_1', dateRaw: '2026-05-01T14:00:00', day: '01', month: 'Maí', time: '14:00',
+      id: 'club_1', dateRaw: '2026-05-01T14:00:00', parsedDate: clubDate, ...formatDateObj(clubDate),
       title: 'Vorhátíð Hauka', home: 'Haukar', away: '', category: 'Félagið', ageGroup: 'Allir Flokkar',
       competition: 'Félagsviðburður', location: 'Ásvellir (Útisvæði)', isTicketed: false
     });
 
-    // Filter out past events (keep events from today onwards)
+    // The isUpcoming flag on league matches already ensures they are in the future.
+    // For youthData and club events, we still want to filter out past dates.
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
     const upcomingEvents = allEvents.filter(event => {
-      const eventDate = new Date(event.dateRaw);
-      return eventDate >= today;
+      return event.parsedDate >= today;
     });
 
-    return upcomingEvents.sort((a, b) => new Date(a.dateRaw) - new Date(b.dateRaw));
+    return upcomingEvents.sort((a, b) => a.parsedDate - b.parsedDate);
   }, []);
 
   const sportFilters = ['Allt', 'Handbolti', 'Fótbolti', 'Körfubolti', 'Félagið'];
   const ageFilters = ['Allir Flokkar', 'Meistaraflokkur', 'Yngri flokkar', 'Námskeið'];
 
   const filteredEvents = events.filter(e => {
+    // 1. Sport filter
     const sportMatch = activeSportFilter === 'Allt' || e.category === activeSportFilter;
-    const ageMatch = activeAgeFilter === 'Allir Flokkar' || e.ageGroup === activeAgeFilter || e.category === 'Félagið';
+    
+    // 2. Age filter
+    let ageMatch = false;
+    if (activeAgeFilter === 'Allir Flokkar') {
+        ageMatch = true;
+    } else if (activeAgeFilter === 'Meistaraflokkur') {
+        // STRICT ENFORCEMENT: Never show Yngri flokkar or Félagið when Meistaraflokkur is selected.
+        // We only show exact Meistaraflokkur matches.
+        if (e.ageGroup === 'Yngri flokkar' || e.category === 'Félagið') {
+            ageMatch = false;
+        } else {
+            ageMatch = e.ageGroup === 'Meistaraflokkur';
+        }
+    } else {
+        // For Yngri flokkar or Námskeið
+        ageMatch = e.ageGroup === activeAgeFilter || e.category === 'Félagið';
+    }
+    
     return sportMatch && ageMatch;
   });
 
