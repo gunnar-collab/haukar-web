@@ -294,17 +294,27 @@ async function fetchStandings(url) {
   $('table tbody tr').each((idx, el) => {
     const cols = $(el).find('td');
     if (cols.length >= 8) {
-      standings.push({
-        rank: parseInt($(cols[0]).text().trim()) || (idx + 1),
-        team: $(cols[1]).text().trim(),
-        played: parseInt($(cols[2]).text().trim()) || 0,
-        wins: parseInt($(cols[3]).text().trim()) || 0,
-        draws: parseInt($(cols[4]).text().trim()) || 0,
-        losses: parseInt($(cols[5]).text().trim()) || 0,
-        goalsFor: parseInt($(cols[6]).text().trim()) || 0,
-        goalsAgainst: parseInt($(cols[7]).text().trim()) || 0,
-        points: parseInt($(cols[8]).text().trim()) || 0
-      });
+        const col0Text = $(cols[0]).text().replace(/\s+/g, ' ').trim();
+        const rankMatch = col0Text.match(/^(\d+)\s+(.+)$/);
+        const rank = rankMatch ? parseInt(rankMatch[1]) : (idx + 1);
+        const team = rankMatch ? rankMatch[2].trim() : col0Text;
+        
+        const goalsText = $(cols[5]).text().trim();
+        const goalsParts = goalsText.split('-');
+        const goalsFor = goalsParts.length === 2 ? parseInt(goalsParts[0]) : 0;
+        const goalsAgainst = goalsParts.length === 2 ? parseInt(goalsParts[1]) : 0;
+
+        standings.push({
+          rank,
+          team,
+          played: parseInt($(cols[1]).text().trim()) || 0,
+          wins: parseInt($(cols[2]).text().trim()) || 0,
+          draws: parseInt($(cols[3]).text().trim()) || 0,
+          losses: parseInt($(cols[4]).text().trim()) || 0,
+          goalsFor,
+          goalsAgainst,
+          points: parseInt($(cols[7]).text().trim()) || 0
+        });
     }
   });
   return standings;
